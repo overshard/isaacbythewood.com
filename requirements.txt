@@ -8,3 +8,4 @@ jsmin==2.0.2
 
 # server
 gunicorn==0.13.4
+python-memcached==1.48
