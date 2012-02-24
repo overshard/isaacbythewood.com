@@ -1,0 +1,10 @@
+#main #error {
+    font-size: 2.4em;
+    line-height: 45px; }
+
+#main #error h1 {
+        font-size: 3em;
+        margin-right: 20px;
+        margin-top: 20px;
+        margin-bottom: 30px;
+        float: right; }

@@ -1,0 +1,92 @@
+{% extends "core/base.html" %}
+
+{% block title %}Home{% endblock %}
+
+{% block yield %}
+    {% if submitted %}
+        <section id="submitted">
+            <h1>The pony is on it's way!</h1>
+            <p>No actual ponies were harmed in the sending of this message.</p>
+        </section>
+    {% endif %}
+
+    <section id="links">
+        <aside>Links</aside>
+        <ul class="clearfix">
+            <li>
+                <a class="top-link" href="http://github.com/overshard" title="My source code for a few projects.">
+                    <h3>GitHub</h3>
+                    <h4>github.com/overshard</h4>
+                </a>
+            </li>
+            <li>
+                <a class="top-link" href="http://goodreads.com/overshard" title="Books that I have read and am currently reading.">
+                    <h3>Goodreads</h3>
+                    <h4>goodreads.com/overshard</h4>
+                </a>
+            </li>
+            <li>
+                <a class="top-link" href="http://pandora.com/people/overshard" title="The music I listen to.">
+                    <h3>Pandora</h3>
+                    <h4>pandora.com/overshard</h4>
+                </a>
+            </li>
+            <li>
+                <a class="bottom-link" href="skype:overshard?chat" title="Chat with me on Skype.">
+                    <h3>Skype</h3>
+                    <h4>skype:overshard?chat</h4>
+                </a>
+            </li>
+            <li>
+                <a class="bottom-link" href="mailto:isaac@bythewood.me" title="Send me an email, text only please, I use mutt.">
+                    <h3>Email</h3>
+                    <h4>isaac@bythewood.me</h4>
+                </a>
+            </li>
+            <li>
+                <a class="bottom-link" href="tel:5402008459" title="Goes through Google Voice, text me or leave a voicemail.">
+                    <h3>Phone</h3>
+                    <h4>+1 (540) 200-8459</h4>
+                </a>
+            </li>
+        </ul>
+    </section>
+
+    <section id="latest">
+        <aside>Latest</aside>
+        <h2>Todobin, the todolist for neatniks on the go.</h2>
+        <p>Provides short-urls for sharing lists with friends and a mobile view for viewing your lists on your phone. Checkout the code on <a href="https://github.com/overshard/node-todobin.git">GitHub</a>!</p>
+        <a href="http://node-todobin.herokuapp.com/" title="An easy way to create and share checkable lists.">
+            <img src="/static/core/imgs/todobin.png" alt="Todobin Header">
+        </a>
+    </section>
+
+    <section id="biography">
+        <aside>Biography</aside>
+        <p>I like motorcycles, <a href="http://www.krackedskulls.com/" title="I use Kracked Skulls Longboards.">longboards</a>, heavy metal, turtles, siamese cats, pizza, and apple pie. I'm a gamer and often play Unreal Tournament 2004, Quake Live and Starcraft II. I am a software engineer and a website designer, hence why most of my projects are web-based. <a href="http://ubuntu.com/" title="Ubuntu for both server and desktop!">Linux</a> is my main operating system and I have an Android phone, the <a href="http://www.peteralfonso.com/" title="Peter Alfonso makes the best ROM for your Droid.">Droid</a> to be exact. I'm an avid book reader, my favorite author is Isaac Asimov — not only does he share my first name but I love Science Fiction. To complete my rather short biography, I will leave you with one of my favorite quotes:</p>
+        <blockquote>I might repeat to myself, slowly and soothingly, a list of quotations beautiful from minds profound; if I can remember any of the damn things.</blockquote>
+        <h5>&mdash; Dorothy Parker</h5>
+    </section>
+
+    <section id="contact">
+        <aside>Contact</aside>
+        <p>Send me a message about anything, it all goes directly to my phone. If you leave an email address or phone number I'll respond to you as soon as possible.</p>
+        <form action="{% url core:home %}" method="post">{% csrf_token %}
+            <p>
+                <label for="message">Type your email address and message.</label>
+                <textarea id="message" name="message"></textarea>
+            </p>
+            <input type="submit" value="Go pony go!">
+        </form>
+    </section>
+
+    <section id="colophon">
+        <aside>Colophon</aside>
+        <p>A sampling of the libraries, images, and fonts used in the making of this website. It has been so many iterations though that they may not be fully accurate, sorry about that:</p>
+        <ul>
+            <li>Built on top of the beautiful <a href="https://www.djangoproject.com/" title="Magical ponies are powering this site.">Django</a>.</li>
+            <li>Using <a href="http://jquery.com/" title="Because JavaScript is evil.">jQuery</a> with <a href="https://github.com/jquery/jquery-color" title="It's the pretty color transitions.">Color</a> and <a href="http://code.drewwilson.com/entry/tiptip-jquery-plugin" title="The pop up here, yeah, that's this.">TipTip</a>.</li>
+            <li>The fonts are <a href="http://www.impallari.com/lobster/" title="A lovely bold condensed script...">Lobster</a> &amp; <a href="http://friedrichalthausen.de/vollkorn/" title="The free and healthy typeface for bread and butter use.">Vollkorn</a>.</li>
+        </ul>
+    </section>
+{% endblock %}

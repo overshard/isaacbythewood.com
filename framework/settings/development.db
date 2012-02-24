@@ -1,0 +1,22 @@
+from framework.settings import *
+from os import join
+
+
+DEBUG = True
+TEMPLATE_DEBUG = DEBUG
+
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': join(SITE_ROOT, 'development.db'),
+    }
+}
+
+
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.locmem.LocMemCache',
+        'LOCATION': 'django-isaac'
+    }
+}

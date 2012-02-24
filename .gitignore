@@ -1,0 +1,16 @@
+# virtualenv
+/Scripts/
+/Lib/
+/Include/
+
+# pip
+/pip-log.txt
+/build/
+
+# python
+*.pyc
+
+# django
+/framework/static/
+/framework/media/
+/framework/development.db

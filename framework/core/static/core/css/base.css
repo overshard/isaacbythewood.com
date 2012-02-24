@@ -1,0 +1,96 @@
+body {
+    text-align: center;
+    font-family: "Vollkorn", Georgia, "Times New Roman", Times, Serif;
+    font-size: 0.98em;
+    color: #333333;
+    background-color: rgb(218, 216, 204);
+    background-image: url("/static/core/imgs/background.jpg");
+    text-shadow: 1px 1px white;
+    -moz-text-shadow: 1px 1px white; }
+
+a {
+    text-decoration: none;
+    color: #2d445e;
+    border-bottom: 1px solid white;
+    background-color: rgba(255, 255, 255, 0.01);
+    padding: 0 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px; }
+
+.no-js a:hover, .no-rgba a:hover {
+    background-color: white; }
+
+#no-js-notice {
+    display: none; }
+
+.no-js #no-js-notice {
+    margin-top: -19px;
+    margin-bottom: -40px;
+    display: block;
+    background-color: rgba(100, 0, 0, 0.4); }
+
+.no-js #no-js-notice p {
+    padding: 10px;
+    font-size: 1.2em;
+    text-shadow: none; }
+
+.js #fade-wrapper {
+    display: none; }
+
+header {
+    margin: 50px auto;
+    text-align: left;
+    width: 600px;
+    margin-top: 50px; }
+
+    header h1 {
+        font-family: "Lobster";
+        font-size: 134px;
+        margin: 0;
+        font-weight: normal;
+        line-height: 130px; }
+
+    .no-js header h1 {
+        font-size: 125px;
+        font-weight: bold; }
+
+    header h2 {
+        font-size: 30px;
+        width: 240px;
+        line-height: 30px;
+        margin-top: -228px;
+        margin-left: 350px;
+        position: absolute;
+        font-weight: normal;
+        padding: 0; }
+
+#main aside {
+    width: 100px;
+    text-align: right;
+    text-transform: uppercase;
+    margin-left: -130px;
+    position: absolute;
+    font-weight: bold;
+    color: #2d445e; }
+
+#main section {
+    margin: 50px auto;
+    text-align: left;
+    width: 600px;
+    line-height: 24px; }
+
+footer {
+    margin: 50px auto;
+    text-align: left;
+    width: 600px;
+    margin-bottom: 100px;
+    font-size: 0.76em;
+    color: #777777;
+    text-align: center;
+    line-height: 20px; }
+
+    footer p {
+        margin: 0; }
+
+    footer a {
+        color: #708faf; }

@@ -1,0 +1,13 @@
+# django-isaac
+
+My personal website hosted on a Rackspace Cloud Server. Has switched between
+Linode, Heroku, back to Linode, back to Heroku and now to Rackspace Cloud
+Servers. Quite the journey for a personal website to have. My reasoning? I like
+trying out new systems.
+
+Much like the hosting, the code in general has undergone many rewrites and
+changes, the only thing that has stayed the same throughout is the look of the
+website. I'm fairly happy with it.
+
+Feel free to use this code however you want, it's licensed under the Simplified
+BSD License. Basically just don't blame me if this code breaks something.

@@ -1,0 +1,118 @@
+<!doctype html>
+<!--              ___           ___           ___           ___     
+    ___          /  /\         /  /\         /  /\         /  /\    
+   /  /\        /  /:/_       /  /::\       /  /::\       /  /:/    
+  /  /:/       /  /:/ /\     /  /:/\:\     /  /:/\:\     /  /:/     
+ /__/::\      /  /:/ /::\   /  /:/~/::\   /  /:/~/::\   /  /:/  ___ 
+ \__\/\:\__  /__/:/ /:/\:\ /__/:/ /:/\:\ /__/:/ /:/\:\ /__/:/  /  /\
+    \  \:\/\ \  \:\/:/~/:/ \  \:\/:/__\/ \  \:\/:/__\/ \  \:\ /  /:/
+     \__\::/  \  \::/ /:/   \  \::/       \  \::/       \  \:\  /:/ 
+     /__/:/    \__\/ /:/     \  \:\        \  \:\        \  \:\/:/  
+     \__\/       /__/:/       \  \:\        \  \:\        \  \::/   
+                 \__\/         \__\/         \__\/         \__\/ -->
+{% spaceless %}
+    {% load compress %}
+
+    <!--[if lt IE 7]> <html class="no-js ie6 oldie" lang="en"> <![endif]-->
+    <!--[if IE 7]>    <html class="no-js ie7 oldie" lang="en"> <![endif]-->
+    <!--[if IE 8]>    <html class="no-js ie8 oldie" lang="en"> <![endif]-->
+    <!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+        <head>
+            <meta charset="utf-8">
+            <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+            <title>Isaac Bythewood's {% block title %}{% endblock %}</title>
+            <meta name="description" content="The personal website of Isaac Bythewood. A website developer located in Morgaton, NC.">
+            <meta name="author" content="Isaac Bythewood">
+
+            <meta name="ICBM" content="35.746791, -81.684895">
+            <meta name="geo.position" content="35.746791;-81.684895">
+            <meta name="geo.placename" content="Morganton, North Carolina, United States">
+            <meta name="geo.region" content="us-nc">
+
+
+            {% compress css %}
+                <link rel="stylesheet" href="/static/core/css/libs/boilerplate.normalize-2.0.min.css">
+                <link rel="stylesheet" href="/static/core/css/libs/boilerplate.helpers-2.0.min.css">
+                <link rel="stylesheet" href="/static/core/css/libs/jquery.tiptip-1.3.min.css">
+
+                <link rel="stylesheet" href="/static/core/css/base.css">
+                <link rel="stylesheet" href="/static/core/css/home.css">
+                <link rel="stylesheet" href="/static/core/css/error.css">
+            {% endcompress %}
+
+            {% compress js inline %}
+                <script>
+                    WebFontConfig = {
+                        google: { families: [ 'Lobster::latin', 'Vollkorn:400italic,400:latin' ] }
+                    };
+                    (function() {
+                        var wf = document.createElement('script');
+                        wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
+                            '://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
+                        wf.type = 'text/javascript';
+                        wf.async = 'false';
+                        var s = document.getElementsByTagName('script')[0];
+                        s.parentNode.insertBefore(wf, s);
+                    })();
+                </script>
+            {% endcompress %}
+
+            <script src="/static/core/js/libs/modernizer-2.0.5.min.js"></script>
+        </head>
+        <body>
+            <div id="fade-wrapper">
+                <div id="container">
+                    <div id="no-js-notice">
+                        <p>Enable JavaScript for optimal website enjoyment!</p>
+                    </div>
+
+                    <header>
+                        <h1>Isaac<br>Bythewood</h1>
+                        <h2>I am a Website Developer located in Morganton, NC</h2>
+                    </header>
+
+                    <div id="main" role="main">
+                        {% block yield %}{% endblock %}
+                    </div>
+
+                    <footer>
+                        <p>Copyleft &copy; {% now "Y" %} Isaac Bythewood under the <a href="http://creativecommons.org/licenses/by-sa/3.0/us/" title="Free as in free speech.">Creative Commons Attribution-Share Alike</a> license.</p>
+                        <p>The code for this website can be found on <a href="https://github.com/overshard/django-isaac" title="Use it however you want.">GitHub</a>.</p>
+                    </footer>
+                </div>
+            </div>
+
+            <script src="//ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
+
+            {% compress js %}
+                <script defer src="/static/core/js/libs/jquery.color-2.0.min.js"></script>
+                <script defer src="/static/core/js/libs/jquery.tiptip-1.3.min.js"></script>
+
+                <script defer src="/static/core/js/links.js"></script>
+                <script defer src="/static/core/js/forms.js"></script>
+            {% endcompress %}
+
+            {% if not debug %}
+                {% compress js inline %}
+                    <script>
+                        var _gaq = _gaq || [];
+                        _gaq.push(['_setAccount', 'UA-24288942-3']);
+                        _gaq.push(['_trackPageview'],['_trackPageLoadTime']);
+
+                        (function() {
+                            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+                            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+                            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+                        })();
+                    </script>
+                {% endcompress %}
+            {% endif %}
+
+            <!--[if lt IE 7 ]>
+                <script src="//ajax.googleapis.com/ajax/libs/chrome-frame/1.0.3/CFInstall.min.js"></script>
+                <script>window.attachEvent('onload',function(){CFInstall.check({mode:'overlay'})})</script>
+            <![endif]-->
+        </body>
+    </html>
+{% endspaceless %}

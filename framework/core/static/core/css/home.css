@@ -1,0 +1,143 @@
+#main #fade-wrapper {
+    display: none; }
+
+#main #links {
+    line-height: 20px; }
+
+    #main #links ul {
+        list-style-type: none;
+        padding-left: 0; }
+
+    #main #links h3 {
+        margin: 0;}
+
+    #main #links h4 {
+        margin: 0;
+        font-weight: normal; }
+
+    #main #links a {
+        color: #333333;
+        padding: 0; }
+
+    #main #links li {
+        width: 191px;
+        margin-right: 4px;
+        margin-bottom: 4px;
+        padding: 3px 0 1px 5px;
+        float: left;
+        -moz-border-radius: 3px;
+        -webkit-border-radius: 3px;
+        border-radius: 3px; }
+
+    #main #links li:hover {
+        background-color: rgba(255, 255, 255, 0.01); }
+
+    .no-js #main #links li:hover, .no-rgba #main #links li:hover {
+        background-color: white; }
+
+#main #latest img {
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+    border: 1px solid white; }
+
+#main #biography p {
+    margin-bottom: 20px;
+    text-align: justify; }
+
+#main #biography blockquote:before {
+    font-family: "Vollkorn", Georgia, "Times New Roman", Times, Serif;
+    color: #bbbbbb;
+    content: "\201C";
+    font-size: 8em;
+    margin-left: -70px;
+    margin-top: 44px;
+    position: absolute;
+    z-index: 0; }
+
+#main #biography blockquote {
+    margin-left: 50px;
+    font-size: 1.1em;
+    font-style: italic; }
+
+#main #biography h5 {
+    font-size: 1em;
+    text-align: right;
+    margin: 0; }
+
+#main #contact p {
+    margin-bottom: 20px;
+    text-align: justify; }
+
+#main #contact textarea {
+    font-family: "Vollkorn", Georgia, "Times New Roman", Times, Serif;
+    font-size: 0.98em;
+    width: 570px;
+    height: 21px;
+    background-color: #e5e5d6;
+    border: 0;
+    padding: 10px 15px; }
+
+.no-js #main #contact textarea {
+    height: 120px; }
+
+#main #contact label {
+    position: absolute;
+    padding: 15px;
+    margin-top: -7px; }
+
+.no-js #contact label {
+    display: none; }
+
+#main #contact input {
+    padding: 5px 10px 2px 10px;
+    color: white;
+    font-family: "Vollkorn", Georgia, "Times New Roman", Times, Serif;
+    font-size: 0.98em;
+    background-color: #2d445e;
+    border: 0; }
+
+#main #contact input:hover {
+    background-color: #ad1a3f; }
+
+#main #contact #human {
+    visibility: hidden;
+    position: absolute; }
+
+#main #submitted {
+    width: 560px;
+    left: 50%;
+    margin-left: -300px;
+    position: fixed;
+    background-color: #2d445e;
+    text-shadow: 1px 1px #333333;
+    -moz-text-shadow: 1px 1px #333333;
+    color: white;
+    top: 0;
+    padding: 20px;
+    padding-bottom: 10px;
+    margin-top: 0;
+    text-align: center;
+    -webkit-border-bottom-right-radius: 15px;
+    -webkit-border-bottom-left-radius: 15px;
+    -moz-border-radius-bottomright: 15px;
+    -moz-border-radius-bottomleft: 15px;
+    border-bottom-right-radius: 15px;
+    border-bottom-left-radius: 15px;
+    z-index: 100; }
+
+    #main #submitted h1 {
+        font-size: 2.8em;
+        margin: 0;
+        margin-bottom: 10px; }
+
+    #main #submitted p {
+        font-size: 1.2em;
+        font-style: italic;
+        margin: 0; }
+
+#main #colophon ul {
+    margin-top: 20px;
+    padding: 0;
+    list-style-type: square;
+    margin-left: 50px; }
