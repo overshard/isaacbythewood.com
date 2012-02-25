@@ -11,3 +11,14 @@ website. I'm fairly happy with it.
 
 Feel free to use this code however you want, it's licensed under the Simplified
 BSD License. Basically just don't blame me if this code breaks something.
+
+## To get up and running...
+
+This app wild built to run on a Linux server, you'll need to first create a
+secrets.py file in framework/settings/ which contains two variables:
+
+  + GMAIL_USERNAME
+  + GMAIL_PASSWORD
+
+Which are fairly self explanatory. This is to prevent usernames and passwords
+from leaking to public repositories.
