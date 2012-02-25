@@ -87,7 +87,13 @@
     height: 21px;
     background-color: #e5e5d6;
     border: 0;
-    padding: 10px 15px; }
+    padding: 10px 15px;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+    border: 1px solid white;
+    border-top: none;
+    border-left: none; }
 
 .no-js #main #contact textarea {
     height: 120px; }
@@ -106,7 +112,13 @@
     font-family: "Vollkorn", Georgia, "Times New Roman", Times, Serif;
     font-size: 0.98em;
     background-color: #2d445e;
-    border: 0; }
+    border: 0;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+    border: 1px solid white;
+    border-top: none;
+    border-left: none; }
 
 #main #contact input:hover {
     background-color: #ad1a3f; }
