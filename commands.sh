@@ -18,6 +18,7 @@ stop () {
 }
 
 update () {
+    cd $SCRIPT_ROOT
     sudo -u www-data git pull
     sudo -u www-data $PYTHON_FILE $MANAGE_FILE collectstatic --noinput
 }
