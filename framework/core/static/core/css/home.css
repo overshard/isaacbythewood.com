@@ -35,11 +35,22 @@
     .no-js #main #links li:hover, .no-rgba #main #links li:hover {
         background-color: white; }
 
+#main #latest h3 {
+    padding-bottom: 0;
+    margin-bottom: 0;
+    margin-top: 20px;
+    font-size: 1.4em; }
+
+#main #latest p {
+    margin-top: 5px; }
+
 #main #latest img {
     -moz-border-radius: 3px;
     -webkit-border-radius: 3px;
     border-radius: 3px;
-    border: 1px solid white; }
+    border: 1px solid white;
+    border-top: none;
+    border-left: none; }
 
 #main #biography p {
     margin-bottom: 20px;
@@ -83,8 +94,8 @@
 
 #main #contact label {
     position: absolute;
-    padding: 15px;
-    margin-top: -7px; }
+    padding: 16px;
+    margin-top: -6px; }
 
 .no-js #contact label {
     display: none; }
