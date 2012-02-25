@@ -115,5 +115,5 @@
         'delay': 250
     });
 
-    $(document).ready(fadePage);
+    $(window).load(fadePage);
 }).call(this);
