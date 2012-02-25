@@ -35,8 +35,20 @@ a {
     font-size: 1.2em;
     text-shadow: none; }
 
+.no-js #loading {
+    display: none; }
+
 .js #fade-wrapper {
     display: none; }
+
+#loading {
+    position: absolute;
+    width: 31px;
+    height: 31px;
+    top: 50%;
+    left: 50%;
+    margin-left: -15px;
+    margin-top: -15px; }
 
 header {
     margin: 50px auto;

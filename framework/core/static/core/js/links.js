@@ -94,7 +94,11 @@
     };
 
     fadePage = function() {
-        return $('#fade-wrapper').fadeIn(1200);
+        return $('#fade-wrapper').delay(400).fadeIn(1200);
+    };
+
+    fadeLoading = function() {
+        return $('#loading').fadeOut(400);
     };
 
     $('.rgba #links li').hover(linksInBackground, linksOutBackground);
@@ -115,5 +119,6 @@
         'delay': 250
     });
 
+    $(window).load(fadeLoading);
     $(window).load(fadePage);
 }).call(this);
