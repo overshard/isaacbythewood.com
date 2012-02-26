@@ -62,7 +62,7 @@
     <section id="contact">
         <aside>Contact</aside>
         <p>Send me a message about anything, it is all fully encrypted. If you leave an email address or phone number I'll respond to you as soon as possible.</p>
-        <form action="{% url core:home %}" method="post">{% csrf_token %}
+        <form action="{% url core:contact %}" method="post">{% csrf_token %}
             <p>
                 <label for="message">Type your email address and message.</label>
                 <textarea id="message" name="message"></textarea>
