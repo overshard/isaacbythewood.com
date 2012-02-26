@@ -56,7 +56,9 @@
                 </script>
             {% endcompress %}
 
-            <script src="/static/core/js/libs/modernizer-2.0.5.min.js"></script>
+            {% compress js inline %}
+                <script src="/static/core/js/libs/modernizer-2.0.5.min.js"></script>
+            {% endcompress %}
         </head>
         <body>
             <div id="loading">
