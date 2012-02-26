@@ -145,38 +145,6 @@
     visibility: hidden;
     position: absolute; }
 
-#main #submitted {
-    width: 560px;
-    left: 50%;
-    margin-left: -300px;
-    position: fixed;
-    background-color: #2d445e;
-    text-shadow: 1px 1px #333333;
-    -moz-text-shadow: 1px 1px #333333;
-    color: white;
-    top: 0;
-    padding: 20px;
-    padding-bottom: 10px;
-    margin-top: 0;
-    text-align: center;
-    -webkit-border-bottom-right-radius: 15px;
-    -webkit-border-bottom-left-radius: 15px;
-    -moz-border-radius-bottomright: 15px;
-    -moz-border-radius-bottomleft: 15px;
-    border-bottom-right-radius: 15px;
-    border-bottom-left-radius: 15px;
-    z-index: 100; }
-
-    #main #submitted h1 {
-        font-size: 2.8em;
-        margin: 0;
-        margin-bottom: 10px; }
-
-    #main #submitted p {
-        font-size: 1.2em;
-        font-style: italic;
-        margin: 0; }
-
 #main #colophon ul {
     margin-top: 20px;
     padding: 0;
