@@ -16,7 +16,7 @@ def contact(request):
     if request.method == 'POST':
         subject = 'Pony From isaacbythewood.com'
         message = request.POST['message']
-        sender = 'robot@bythewood.me'
+        sender = 'robots@bythewood.me'
         recipient = ['isaac@bythewood.me']
 
         email = EmailMessage(subject, message, sender, recipient)
