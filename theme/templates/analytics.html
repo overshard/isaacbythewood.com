@@ -1,7 +1,7 @@
-{% if GOOGLE_ANALYTICS_ID %}
+{% if GOOGLE_ANALYTICS %}
 <script>
     var _gaq = _gaq || [];
-    _gaq.push(['_setAccount', '{{ GOOGLE_ANALYTICS_ID }}']);
+    _gaq.push(['_setAccount', '{{ GOOGLE_ANALYTICS }}']);
     _gaq.push(['_trackPageview']);
 
     (function() {

@@ -1,0 +1,26 @@
+/* the humans responsible & colophon */
+/* humanstxt.org */
+
+
+/* TEAM */
+    Isaac Bythewood
+    Site: http://isaacbythewood.com/
+    Location: Morganton, NC
+
+/* SITE */
+    Standards: HTML5, CSS3, XML
+    Components: Normalize.css, Google Analytics
+    Software: Vim, Pelican
+
+
+                  ___           ___           ___           ___     
+    ___          /  /\         /  /\         /  /\         /  /\    
+   /  /\        /  /:/_       /  /::\       /  /::\       /  /:/    
+  /  /:/       /  /:/ /\     /  /:/\:\     /  /:/\:\     /  /:/     
+ /__/::\      /  /:/ /::\   /  /:/~/::\   /  /:/~/::\   /  /:/  ___ 
+ \__\/\:\__  /__/:/ /:/\:\ /__/:/ /:/\:\ /__/:/ /:/\:\ /__/:/  /  /\
+    \  \:\/\ \  \:\/:/~/:/ \  \:\/:/__\/ \  \:\/:/__\/ \  \:\ /  /:/
+     \__\::/  \  \::/ /:/   \  \::/       \  \::/       \  \:\  /:/ 
+     /__/:/    \__\/ /:/     \  \:\        \  \:\        \  \:\/:/  
+     \__\/       /__/:/       \  \:\        \  \:\        \  \::/   
+                 \__\/         \__\/         \__\/         \__\/    
