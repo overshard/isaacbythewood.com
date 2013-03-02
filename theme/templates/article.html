@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block title %}{{ article.title|striptags }}{% endblock %}
+
+{% block yield %}
+<div class="section">
+    <div class="title">
+        <h3>Article</h3>
+    </div>
+    <div class="content">
+        <h1>{{ article.title }}</h1>
+        <h2 class="date">{{ article.locale_date }} - {{ article.category }}</h2>
+        {{ article.content }}
+    </div>
+</div>
+{% include 'links.html' %}
+{% endblock %}

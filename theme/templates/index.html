@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+
+{% block yield %}
+{% include "links.html" %}
+<div class="section">
+    <div class="title">
+        <h3>Articles</h3>
+    </div>
+    <div class="content">
+        <ul id="articles">
+        {% for article in articles %}
+            <li><span class="date">{{ article.locale_date }}</span> &raquo;
+                <a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a></li>
+        {% endfor %}
+        </ul>
+    </div>
+</div>
+<div class="section">
+    <div class="title">
+        <h3>Releases</h3>
+    </div>
+    <div class="content">
+        {% for article in articles %}
+            {% if article.category == 'Releases' %}
+                <h4>{{ article.title }}</h4>
+                {{ article.content }}
+                {% break %}
+            {% endif %}
+        {% endfor %}
+    </div>
+</div>
+<div class="section">
+    <div class="title">
+        <h3>Biography</h3>
+    </div>
+    <div class="content">
+        <p>I like motorcycles, longboards, heavy metal, turtles, Siamese cats,
+            pizza, and apple pie. I'm a gamer and often play Unreal Tournament
+            2004, Dota 2 and Starcraft II. I am a software engineer and a
+            website designer, hence why most of my projects are web-based.
+            Ubuntu is my main operating system and I have an Android phone, the
+            Nexus 4 to be exact. I'm an avid book reader, my favorite author is
+            Isaac Asimov &ndash; not only does he share my first name but I love
+            Science Fiction.</p>
+        <blockquote>
+            <p>Two possibilities exist: Either we are alone in the Universe or
+                we are not. Both are equally terrifying.</p>
+            <small>&mdash; Drothy Parker</small>
+        </blockquote>
+    </div>
+</div>
+<div class="section">
+    <div class="title">
+        <h3>Colophon</h3>
+    </div>
+    <div class="content">
+        <p>A sampling of the libraries, images, and fonts used in the making of
+            this website:</p>
+        <ul>
+            <li>Built on top of the beautiful
+                <a href="http://getpelican.com/">Pelican</a>.</li>
+            <li>The fonts are
+                <a href="http://www.impallari.com/lobster/">Lobster</a> &amp;
+                <a href="http://friedrichalthausen.de/vollkorn/">Vollkorn</a>.</li>
+        </ul>
+    </div>
+</div>
+{% endblock %}

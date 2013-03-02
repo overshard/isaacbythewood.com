@@ -3,20 +3,26 @@
 
 AUTHOR = u'Isaac Bythewood'
 SITENAME = u'Isaac Bythewood'
-SITEURL = ''
+SITEURL = 'http://isaacbythewood.com'
 
 TIMEZONE = 'Europe/Paris'
-
 DEFAULT_LANG = u'en'
 
-# Blogroll
-LINKS =  (('Pelican', 'http://docs.notmyidea.org/alexis/pelican/'),
-          ('Python.org', 'http://python.org'),
-          ('Jinja2', 'http://jinja.pocoo.org'),
-          ('You can modify those links in your config file', '#'),)
-
-# Social widget
-SOCIAL = (('You can add links in your config file', '#'),
-          ('Another social link', '#'),)
-
 DEFAULT_PAGINATION = 5
+DEFAULT_DATE_FORMAT = '%d %b %Y'
+GOOGLE_ANALYTICS_ID = 'UA-35235932-1'
+
+JINJA_EXTENSIONS = (
+    'jinja2.ext.loopcontrols',
+)
+
+THEME = 'theme'
+
+LINKS =  (
+    ('GitHub', 'github.com', 'https://github.com/overshard'),
+    ('Goodreads', 'goodreads.com', 'http://goodreads.com/overshard'),
+    ('Steam', 'steamcommunity.com', 'http://steamcommunity.com/id/overshard/'),
+    ('Pinry', 'pinry.bythewood.me', 'http://pinry.bythewood.me/'),
+    ('Skype', 'skype:overshard?chat', 'skype:overshard?chat'),
+    ('Email', 'isaac@bythewood.me', 'mailto:isaac@bythewood.me'),
+)

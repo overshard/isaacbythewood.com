@@ -1,0 +1,17 @@
+<div class="section">
+    <div class="title">
+        <h3>Links</h3>
+    </div>
+    <div class="content">
+        <ul id="links">
+        {% for title, site, link in LINKS %}
+            <li>
+            <a href="{{ link }}">
+                <h4>{{ title }}</h4>
+                <h5>{{ site }}</h4>
+            </a>
+            </li>
+        {% endfor %}
+        </ul>
+    </div>
+</div>
