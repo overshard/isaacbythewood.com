@@ -1,5 +1,4 @@
 Title: Pinry, a self-hosted Pinterest.
-Date: 2012-04-25
 Category: Releases
 
 Deployable on any platform Pinry provides a great "private" Pinterest for you to

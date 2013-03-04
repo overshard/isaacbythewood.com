@@ -17,6 +17,9 @@ JINJA_EXTENSIONS = (
 
 THEME = 'theme'
 
+ARTICLE_URL = '{date:%Y}/{date:%m}/{date:%d}/{slug}/'
+ARTICLE_SAVE_AS = '{date:%Y}/{date:%m}/{date:%d}/{slug}/index.html'
+
 FILES_TO_COPY = (
     ('extra/CNAME', 'CNAME'),
     ('extra/apple-touch-icon-114x114-precomposed.png', 'apple-touch-icon-114x114-precomposed.png'),
