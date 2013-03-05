@@ -23,6 +23,4 @@ I also don't want it to be a drain on my savings.
 If you're interested in finding out more I'll be releasing http://getpinry.com/
 in the coming weeks so please check there for more information.
 
-Again, thank you everyone for your support,  
-Isaac Bythewood  
-[isaacbythewood.com](http://isaacbythewood.com/)
+Again, thank you everyone for your support!
