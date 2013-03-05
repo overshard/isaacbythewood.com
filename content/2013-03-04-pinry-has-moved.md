@@ -20,7 +20,8 @@ cost a fee but it will be as close to "pay for what you use" as possible, I'm
 not trying to get rich off Pinry I just want to provide a great product, however
 I also don't want it to be a drain on my savings.
 
-If you're interested in finding out more I'll be releasing http://getpinry.com/
-in the coming weeks so please check there for more information.
+If you're interested in finding out more I'll be releasing
+[getpinry.com](http://getpinry.com/) in the coming weeks so please check there
+for more information.
 
 Again, thank you everyone for your support!
