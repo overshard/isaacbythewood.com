@@ -1,4 +1,4 @@
-Title: Getting Started With Pelican On GitHub
+Title: Getting started with Pelican on GitHub.
 Category: How-to
 
 Pelican is a static site generator built on Python, here's a simple how-to on
