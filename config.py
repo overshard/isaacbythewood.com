@@ -47,11 +47,11 @@ STATIC_PATHS = (
 
 
 LINKS =  (
-    ('GitHub', 'github.com', 'https://github.com/overshard'),
-    ('Goodreads', 'goodreads.com', 'http://goodreads.com/overshard'),
-    ('Steam', 'steamcommunity.com', 'http://steamcommunity.com/id/overshard/'),
-    ('Pinry', 'getpinry.com', 'http://getpinry.com/'),
-    ('Skype', 'skype:overshard?chat', 'skype:overshard?chat'),
-    ('Email', 'isaac@bythewood.me', 'mailto:isaac@bythewood.me'),
+    ('GitHub', 'my code', 'https://github.com/overshard'),
+    ('Goodreads', 'my books', 'http://goodreads.com/overshard'),
+    ('Steam', 'my games', 'http://steamcommunity.com/id/overshard/'),
+    ('Pinry', 'my baby', 'http://getpinry.com/'),
+    ('VanNoppen', 'my work', 'http://vannoppen.co/'),
+    ('Email', 'my ... email', 'mailto:isaac@bythewood.me'),
 )
 
