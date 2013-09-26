@@ -33,6 +33,7 @@ EXTRA_PATH_METADATA = {
     'extra/robots.txt': {'path': 'robots.txt'},
 }
 STATIC_PATHS = (
+    'images',
     'extra/CNAME',
     'extra/apple-touch-icon-114x114-precomposed.png',
     'extra/apple-touch-icon-57x57-precomposed.png',

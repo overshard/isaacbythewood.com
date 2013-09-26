@@ -8,9 +8,9 @@
     Location: Morganton, NC
 
 /* SITE */
-    Standards: HTML5, CSS3, XML
-    Components: Normalize.css, Google Analytics
-    Software: Vim, Pelican
+    Standards: HTML5, CSS3, reStructuredText
+    Components: Normalize.css, Piwik
+    Software: Pelican, ghp-import
 
 
                   ___           ___           ___           ___     
@@ -24,3 +24,4 @@
      /__/:/    \__\/ /:/     \  \:\        \  \:\        \  \:\/:/  
      \__\/       /__/:/       \  \:\        \  \:\        \  \::/   
                  \__\/         \__\/         \__\/         \__\/    
+

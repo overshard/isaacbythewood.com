@@ -118,7 +118,7 @@ blockquote small {
     font-weight: normal;
     font-size: 1.9em;
     line-height: 0.95em;
-    margin: -221px 0 0 340px;
+    margin: -241px 0 0 340px;
     position: absolute;
     width: 250px;
 }
@@ -142,9 +142,14 @@ blockquote small {
     text-transform: uppercase;
 }
 
+.section h1 {
+    top: -6px;
+    position: relative;
+}
+
 .section h2.date {
     color: #777;
-    margin: -25px 0 0 0;
+    margin: -35px 0 0 0;
     font-size: 1.2em;
     font-weight: normal;
 }

@@ -20,6 +20,15 @@ You now have a working copy of my website, to run from here type ``make`` to see
 the options.
 
 
+Customizing
+-----------
+
+If you'd like to use my code base for your own site I recommend, at the very
+least, customizing the ``config.py`` file and put your name and timezone instead
+of mine. You also need to change ``content/extra/CNAME`` to the domain name of
+your choice.
+
+
 Options
 -------
 
@@ -44,15 +53,6 @@ Important
 If you want to use ``make github`` to publish on GitHub then be sure to change
 your remote origin in git away from my repo or clone from your own github
 repo after you've forked me.
-
-
-Customizing
------------
-
-If you'd like to use my code base for your own site I recommend, at the very
-least, customizing the ``config.py`` file and put your name and timezone instead
-of mine. You also need to change ``content/extra/CNAME`` to the domain name of
-your choice.
 
 
 .. Links
