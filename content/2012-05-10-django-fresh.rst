@@ -1,5 +1,5 @@
-django-fresh
-==================
+django-fresh, because @#%& refreshing.
+======================================
 :category: Releases
 
 django-fresh will auto-refresh your browser whenever you update to any of the
