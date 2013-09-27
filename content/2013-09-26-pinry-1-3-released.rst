@@ -1,5 +1,5 @@
-Pinry 1.3 Released
-===================
+Pinry 1.3, new design and RSS feeds.
+====================================
 :category: Releases
 
 I don't often post about releases of stuff I've already released but this
