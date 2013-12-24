@@ -22,21 +22,31 @@
     </head>
 
     <body>
+        <div id="sidebar">
+            <div id="teamspeak">
+                <a href="http://www.teamspeak.com/invite/ts.flankharder.com/?port=10877">
+                    <img id="teamspeak-logo" target="_blank" src="{{ SITEURL }}/theme/images/teamspeak.png" alt="TeamSpeak"/>
+                </a>
+                <div id="teamspeak-description">
+                    <p><strong>TeamSpeak 3</strong> &rarr; Server Address: ts.flankharder.com:10877</p>
+                </div>
+            </div>
+        </div>
         <div id="wrapper">
-        <div id="header">
-            <a href="{{ SITEURL }}">
-                <div id="name">Isaac Bythewood</div>
-                <div id="description">I am a website developer located in Morganton, NC</div>
-            </a>
-        </div>
-        {% block yield %}{% endblock %}
-        <div id="footer">
-            <p>Content copyright © 2013 Isaac Bythewood under the
-                <a href="http://creativecommons.org/licenses/by/3.0/">Creative Commons</a>
-                license.</p>
-            <p>The code for this website can be found on
-                <a href="https://github.com/overshard/isaacbythewood.com">GitHub</a>.</p>
-        </div>
+            <div id="header">
+                <a href="{{ SITEURL }}">
+                    <div id="name">Isaac Bythewood</div>
+                    <div id="description">I am a website developer located in Morganton, NC</div>
+                </a>
+            </div>
+            {% block yield %}{% endblock %}
+            <div id="footer">
+                <p>Content copyright © 2013 Isaac Bythewood under the
+                    <a href="http://creativecommons.org/licenses/by/3.0/">Creative Commons</a>
+                    license.</p>
+                <p>The code for this website can be found on
+                    <a href="https://github.com/overshard/isaacbythewood.com">GitHub</a>.</p>
+            </div>
         </div>
         {% include "analytics.html" %}
     </body>

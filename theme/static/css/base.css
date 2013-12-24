@@ -89,6 +89,42 @@ blockquote small {
     margin: -15px 0 0 350px;
 }
 
+#teamspeak {
+    text-shadow: none;
+    color: white;
+    width: 540px;
+    position: fixed;
+    top: 20px;
+    left: 20px;
+}
+
+#teamspeak a:hover {
+    background: none;
+}
+
+#teamspeak:hover #teamspeak-description {
+    display: block;
+}
+
+#teamspeak-logo {
+    float: left;
+    width: 60px;
+}
+
+#teamspeak-description {
+    float: right;
+    width: 450px;
+    padding: 10px;
+    margin-left: 10px;
+    background: rgba(0, 0, 0, 0.7);
+    display: none;
+    margin-top: -13px;
+}
+
+#teamspeak-description p {
+    margin: 0;
+}
+
 #wrapper {
     margin: 0 auto;
     width: 600px;
