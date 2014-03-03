@@ -125,7 +125,7 @@ blockquote small {
     margin: 0;
 }
 
-#starbound {
+#minecraft {
     text-shadow: none;
     color: white;
     width: 540px;
@@ -134,20 +134,20 @@ blockquote small {
     left: 20px;
 }
 
-#starbound a:hover {
+#minecraft a:hover {
     background: none;
 }
 
-#starbound:hover #starbound-description {
+#minecraft:hover #minecraft-description {
     display: block;
 }
 
-#starbound-logo {
+#minecraft-logo {
     float: left;
     width: 60px;
 }
 
-#starbound-description {
+#minecraft-description {
     float: right;
     width: 450px;
     padding: 10px;
@@ -157,7 +157,7 @@ blockquote small {
     margin-top: 8px;
 }
 
-#starbound-description p {
+#minecraft-description p {
     margin: 0;
 }
 
