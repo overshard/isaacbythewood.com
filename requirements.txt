@@ -1,5 +1,5 @@
 # pelican
-pelican
+pelican<3.4
 
 # pelican github support
 ghp-import
