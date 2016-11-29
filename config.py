@@ -50,7 +50,7 @@ LINKS =  (
     ('GitHub', 'my code', 'https://github.com/overshard'),
     ('Goodreads', 'my books', 'http://goodreads.com/overshard'),
     ('Steam', 'my games', 'http://steamcommunity.com/id/overshard/'),
-    ('Pinry', 'my baby', 'http://getpinry.com/'),
+    ('Pinry', 'my project', 'http://getpinry.com/'),
     ('VanNoppen', 'my work', 'http://vannoppen.co/'),
     ('Email', 'my ... email', 'mailto:isaac@bythewood.me'),
 )
