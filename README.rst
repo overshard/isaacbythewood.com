@@ -13,8 +13,7 @@ You just need to take a few simple steps to start playing with this code::
 
   git clone https://github.com/overshard/isaacbythewood.com
   cd isaacbythewood.com
-  virtualenv venv
-  venv/bin/pip install -r requirements.txt
+  pipenv install
 
 You now have a working copy of my website, to run from here type ``make`` to see
 the options.
