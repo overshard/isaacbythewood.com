@@ -1,0 +1,24 @@
+{
+    "name": "isaacbythewood.com",
+    "author": "Isaac Bythewood",
+    "description": "The personal website of Isaac Bythewood.",
+    "repository": "https://github.com/overshard/isaacbythewood.com",
+    "keywords": [
+        "python",
+        "django",
+        "web"
+    ],
+    "version": "1.0.0-alpha",
+    "license": "BSD-2-Clause",
+    "dependencies": {
+        "gulp": "^3.9.1",
+        "gulp-autoprefixer": "^4.1.0",
+        "gulp-concat": "^2.6.1",
+        "gulp-env": "^0.4.0",
+        "gulp-sass": "^3.1.0",
+        "require-dir": "^1.0.0"
+    },
+    "scripts": {
+        "heroku-postbuild": "npm rebuild node-sass && gulp build"
+    }
+}
