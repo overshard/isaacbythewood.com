@@ -2,7 +2,7 @@
 ##
 # This section should match your Makefile
 ##
-PELICAN=venv/bin/pelican
+PELICAN=pipenv run pelican
 PELICANOPTS=
 
 BASEDIR=$(pwd)
@@ -14,8 +14,8 @@ CONFFILE=$BASEDIR/config.py
 # Don't change stuff below here unless you are sure
 ###
 
-SRV_PID=$BASEDIR/venv/srv.pid
-PELICAN_PID=$BASEDIR/venv/pelican.pid
+SRV_PID=$BASEDIR/srv.pid
+PELICAN_PID=$BASEDIR/pelican.pid
 
 function usage(){
   echo "usage: $0 (stop) (start) (restart)"

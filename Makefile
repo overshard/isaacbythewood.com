@@ -1,4 +1,4 @@
-PELICAN=venv/bin/pelican
+PELICAN=pipenv run pelican
 PELICANOPTS=
 
 BASEDIR=$(CURDIR)
@@ -40,9 +40,8 @@ stop:
 
 
 github: html
-	venv/bin/ghp-import -m "Update website from master branch for GitHub Pages" $(OUTPUTDIR)
+	pipenv run ghp-import -m "Update website from master branch for GitHub Pages" $(OUTPUTDIR)
 	git push origin gh-pages
 
 
 .PHONY: help html clean start stop github
-
