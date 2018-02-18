@@ -14,7 +14,7 @@ gulp.task('watch:pages', () => {
 
 
 gulp.task('watch:styles', () => {
-    return gulp.watch('src/tatic/styles/**/*.scss', () => {
+    return gulp.watch('src/static/styles/**/*.scss', () => {
         runSequence('styles','pages');
     });
 });

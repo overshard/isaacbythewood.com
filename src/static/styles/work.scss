@@ -1,0 +1,77 @@
+.work {
+    display: flex;
+    background: #e5e5e5;
+    color: black;
+
+    &__left {
+        margin-left: calc(25vw - 4em);
+        width: 25vw;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        .job {
+            &__title {
+                font-size: 4vw;
+                font-weight: bold;
+                text-transform: uppercase;
+                margin-bottom: 3rem;
+
+                &::before {
+                    content: '';
+                    display: block;
+                    width: 3rem;
+                    border-top: .3rem solid #0e3ff4;
+                    margin-bottom: 2rem;
+                }
+            }
+
+            &__description {
+                font-size: 1.2vw;
+                line-height: 1.5em;
+                margin-bottom: 3rem;
+            }
+
+            &__link a {
+                background: linear-gradient(to right, #0e3ff4 0%, #842bff 100%);
+                color: white;
+                text-decoration: none;
+                padding: .5rem 1rem;
+                text-transform: uppercase;
+                font-weight: bold;
+                letter-spacing: .1rem;
+                font-size: 1.4vw;
+                transition: background 1s;
+
+                &:hover {
+                    background: linear-gradient(to left, #0e3ff4 0%, #842bff 100%);
+                }
+            }
+        }
+    }
+
+    &__right {
+        margin-left: 4em;
+        width: calc(50vw - 4em);
+        height: 100vh;
+        overflow: hidden;
+
+        @keyframes make-visible {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        img {
+            opacity: 0;
+            animation: make-visible 1s normal forwards;
+            height: 100vh;
+            min-width: 50vw;
+        }
+    }
+}

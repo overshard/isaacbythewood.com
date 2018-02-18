@@ -4,8 +4,8 @@ $(document).ready(function() {
         navigation: true,
         slidesNavigation: true,
         controlArrows: false,
-        anchors: ['landing', 'about', 'contact'],
-        navigationTooltips: ['Landing', 'About', 'Contact'],
+        anchors: ['landing', 'about', 'work', 'contact'],
+        navigationTooltips: ['Landing', 'About', 'Work', 'Contact'],
         onLeave: function(index, nextIndex, direction) {
             $(this).removeClass('section--animate');
         },
