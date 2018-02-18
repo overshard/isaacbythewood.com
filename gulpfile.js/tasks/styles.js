@@ -12,14 +12,14 @@ const runSequence = require('run-sequence');
 
 
 gulp.task('styles', () => {
-    const manifest = gulp.src('build/static/rev-manifest.json')
+    const manifest = gulp.src('dist/static/rev-manifest.json')
 
     return gulpMerge(
         gulp.src([
             'node_modules/normalize.css/normalize.css',
             'node_modules/fullpage.js/dist/jquery.fullpage.css'
             ]),
-        gulp.src('static/styles/**/*.scss')
+        gulp.src('src/static/styles/**/*.scss')
             .pipe(sass().on('error', sass.logError))
             .pipe(autoprefixer({
                 browsers: ['last 2 versions'],
@@ -27,16 +27,18 @@ gulp.task('styles', () => {
             })))
         .pipe(cleanCSS({
             level: {
-                1: {specialComments: 0}
+                1: {
+                    specialComments: 0
+                }
             }
         }))
         .pipe(concat('bundle.css'))
         .pipe(revReplace({manifest: manifest}))
         .pipe(rev())
-        .pipe(gulp.dest('build/static/styles/'))
-        .pipe(rev.manifest('build/static/rev-manifest.json', {
-            base:'build/static/',
+        .pipe(gulp.dest('dist/static/styles/'))
+        .pipe(rev.manifest('dist/static/rev-manifest.json', {
+            base:'dist/static/',
             merge: true
         }))
-        .pipe(gulp.dest('build/static/'));
+        .pipe(gulp.dest('dist/static/'));
 });

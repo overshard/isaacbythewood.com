@@ -6,14 +6,14 @@ const rev = require('gulp-rev');
 
 
 gulp.task('images', () => {
-    return gulp.src('static/images/**/*')
+    return gulp.src('src/static/images/**/*')
         .pipe(imagemin([
             imagemin.jpegtran({
                 progressive: true
             })
         ]))
         .pipe(rev())
-        .pipe(gulp.dest('build/static/images/'))
-        .pipe(rev.manifest('build/static/rev-manifest.json', {base:'build/static/', merge: true}))
-        .pipe(gulp.dest('build/static/'));
+        .pipe(gulp.dest('dist/static/images/'))
+        .pipe(rev.manifest('dist/static/rev-manifest.json', {base:'dist/static/', merge: true}))
+        .pipe(gulp.dest('dist/static/'));
 });

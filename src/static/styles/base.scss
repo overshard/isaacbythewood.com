@@ -1,0 +1,44 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    font-variant-ligatures: none;
+    -webkit-font-variant-ligatures: none;
+    text-rendering: optimizeLegibility;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    font-smoothing: antialiased;
+    text-shadow: rgba(0, 0, 0, .01) 0 0 1px;
+    perspective: 5em;
+    cursor: default;
+    user-select: none;
+    overflow: hidden;
+}
+
+.loading *,
+.loading *:before,
+.loading *:after,
+.loading *::before,
+.loading *::after {
+    animation-play-state: paused !important;
+}
+
+.section {
+    overflow: hidden;
+
+    *,
+    *:before,
+    *:after,
+    *::before,
+    *::after {
+        animation-play-state: paused !important;
+    }
+
+    &--animate *,
+    &--animate *,
+    &--animate *:before,
+    &--animate *:after,
+    &--animate *::before,
+    &--animate *::after {
+        animation-play-state: running !important;
+    }
+}

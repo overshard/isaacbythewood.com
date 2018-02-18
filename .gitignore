@@ -1,11 +1,5 @@
 # node
 /node_modules
 
-# builds
-/build
-
-# static files from gulp and testing
-/static
-
-# visual studio code project settings
-/.vscode
+# dist
+/dist

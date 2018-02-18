@@ -1,0 +1,39 @@
+.about {
+    background: #e5e5e5;
+    color: black;
+    height: 100vh;
+    padding-left: calc(25vw - 4em);
+    padding-right: calc(25vw - 4em);
+    display: flex;
+    align-items: center;
+
+    &__text {
+        font-size: 2.2vw;
+        line-height: 1.5em;
+        display: block;
+
+        &::before {
+            content: '';
+            display: block;
+            width: 3rem;
+            border-top: .3rem solid #0e3ff4;
+            margin-bottom: 2rem;
+        }
+
+        @keyframes highlighter {
+            from {
+                background: white;
+                color: black;
+            }
+
+            to {
+                background: black;
+                color: white;
+            }
+        }
+
+        span {
+            animation: highlighter 1s normal forwards;
+        }
+    }
+}

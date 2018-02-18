@@ -5,6 +5,6 @@ const del = require('del');
 
 gulp.task('clean', () => {
     return del([
-        'build/**/*'
+        'dist/**/*'
     ]);
 });
