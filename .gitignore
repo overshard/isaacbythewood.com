@@ -1,33 +1,11 @@
-# python
-*.pyc
-/venv
-/.venv
-
 # node
 /node_modules
 
-# environmentals
-/.env
-/.env.json
-/env
-/env.json
-
-# database
-/db.sqlite3
+# builds
+/build
 
 # static files from gulp and testing
-/media
 /static
-/project/static
-
-# documentation builds
-/docs/_build
-
-# geckodriver/selenium
-/geckodriver.log
 
 # visual studio code project settings
 /.vscode
-
-# code coverage
-/.coverage
