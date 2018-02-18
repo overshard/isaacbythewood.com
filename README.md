@@ -1,6 +1,6 @@
 # isaacbythewood.com
 
-My personal home page!
+The personal website of Isaac Bythewood.
 
 
 ## Running
