@@ -8,10 +8,8 @@ gulp.task('build', cb => {
         'clean',
         'cname',
         'images',
-        'styles:vendor',
-        'styles:project',
-        'scripts:vendor',
-        'scripts:project',
+        'styles',
+        'scripts',
         'pages',
         cb
     );

@@ -7,11 +7,14 @@
         <meta name="description" content="Isaac Bythewood is a Full-Stack Developer and Consultant located in Morganton, NC." />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-        <link rel="stylesheet" type="text/css" href="static/styles/bundle-vendor.css">
-        <link rel="stylesheet" type="text/css" href="static/styles/bundle-project.css">
+        <link rel="preload" href="static/styles/bundle.css" as="style">
+        <link rel="preload" href="static/scripts/bundle.js" as="script">
+        <link rel="preload" href="static/images/lanterns.jpg" as="image">
+
+        <link rel="stylesheet" type="text/css" href="static/styles/bundle.css">
     </head>
 
-    <body>
+    <body class="loading">
         <div class="lines">
             <div class="lines__1 line"></div>
             <div class="lines__2 line"></div>
@@ -19,8 +22,8 @@
             <div class="lines__4 line"></div>
         </div>
 
-        <div class="contact">
-            <div class="contact__text">
+        <div class="touch">
+            <div class="touch__text">
                 <a href="#contact">Get in touch</a>
             </div>
         </div>
@@ -30,7 +33,7 @@
         </div>
 
         <div class="fullpage">
-            <div class="section">
+            <div class="section landing">
                 <div class="number">
                     <div class="number__text">001</div>
                 </div>
@@ -70,27 +73,30 @@
                 <div class="number">
                     <div class="number__text">003</div>
                 </div>
-                <div class="info">
-                    <div class="info__titles">
-                        <div class="info__title">
+                <div class="contact">
+                    <div class="contact__titles">
+                        <div class="contact__title">
                             Contact Me
                         </div>
-                        <div class="info__subtitle">
+                        <div class="contact__subtitle">
                             <span>I love chatting</span><br />
                             <span>with other developers!</span>
                         </div>
                     </div>
-                    <div class="info__details">
-                        <div class="info__details-title">Email</div>
-                        <div class="info__details-text">isaac@bythewood.me</div>
-                        <div class="info__details-title">GitHub</div>
-                        <div class="info__details-text">https://github.com/overshard/</div>
+                    <div class="contact__details details">
+                        <div class="details__title">Email</div>
+                        <div class="details__text">
+                            <a href="mailto:isaac@bythewood.me">isaac@bythewood.me</a>
+                        </div>
+                        <div class="details__title">GitHub</div>
+                        <div class="details__text">
+                            <a href="https://github.com/overshard/">https://github.com/overshard/</a>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
 
-        <script type="text/javascript" src="static/scripts/bundle-vendor.js"></script>
-        <script type="text/javascript" src="static/scripts/bundle-project.js"></script>
+        <script type="text/javascript" src="static/scripts/bundle.js"></script>
     </body>
 </html>
