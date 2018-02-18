@@ -7,7 +7,11 @@ const rev = require('gulp-rev');
 
 gulp.task('images', () => {
     return gulp.src('static/images/**/*')
-        .pipe(imagemin())
+        .pipe(imagemin([
+            imagemin.jpegtran({
+                progressive: true
+            })
+        ]))
         .pipe(rev())
         .pipe(gulp.dest('build/static/images/'))
         .pipe(rev.manifest('build/static/rev-manifest.json', {base:'build/static/', merge: true}))
