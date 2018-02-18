@@ -70,8 +70,11 @@
         img {
             opacity: 0;
             animation: make-visible 1s normal forwards;
+            animation-delay: 1s;
             height: 100vh;
             min-width: 50vw;
+            object-fit: cover;
+            object-position: left;
         }
     }
 }

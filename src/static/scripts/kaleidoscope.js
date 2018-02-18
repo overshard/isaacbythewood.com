@@ -7,7 +7,7 @@ $(document).ready(function() {
         p.imgGlitch;
         p.changeImgG;
         p.j = -1;
-        p.triangleSize = 350;
+        p.triangleSize = 450;
         p.triangleHeight = p.triangleSize * p.sqrt(3) / 2;
         p.triangles = [];
         p.canvas = {};

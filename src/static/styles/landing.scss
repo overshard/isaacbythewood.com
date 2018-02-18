@@ -94,21 +94,25 @@
     top: 85vh;
     justify-content: center;
     width: 100vw;
+    height: 15vh;
+    overflow: hidden;
 
     @keyframes height-slide {
-        0% {
-            height: 0;
+        from {
+            top: -5vh;
         }
 
-        100% {
-            height: 15vh;
+        to {
+            top: 15vh;
         }
     }
 
     &::before {
         content: '';
         display: block;
+        height: 5vh;
         border-left: .2em solid white;
-        animation: height-slide 2s normal forwards;
+        animation: height-slide 800ms normal infinite linear;
+        position: absolute;
     }
 }
