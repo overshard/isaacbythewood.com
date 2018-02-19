@@ -112,7 +112,7 @@
         display: block;
         height: 5vh;
         border-left: .2em solid white;
-        animation: height-slide 800ms normal infinite linear;
+        animation: height-slide 2s normal infinite ease-in-out;
         position: absolute;
     }
 }

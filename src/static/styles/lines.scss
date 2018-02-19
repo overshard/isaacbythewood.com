@@ -11,13 +11,17 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
 
     &__text {
+        font-family: monospace;
+        font-size: 1rem;
         transform: rotate(-90deg);
         transform-origin: center;
         font-weight: bold;
         background: black;
         color: white;
+        font-size: 1rem;
     }
 }
 
@@ -80,7 +84,7 @@
         height: 100vh;
         position: fixed;
         z-index: 200;
-        border-right: 1px solid rgba(255, 255, 255, 0.3);
+        border-right: 1px solid rgba(125, 125, 125, 0.3);
     }
 
     &__1,

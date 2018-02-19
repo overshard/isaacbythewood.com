@@ -1,14 +1,104 @@
-.about {
-    background: #e5e5e5;
+@keyframes opacity-in {
+    from {
+        color: rgba(0, 0, 0, 0);
+    }
+
+    to {
+        color: rgba(0, 0, 0, 1);
+    }
+}
+
+@keyframes opacity-out-in {
+    from {
+        color: rgba(0, 0, 0, 1);
+    }
+
+    50% {
+        color: rgba(0, 0, 0, 0);
+    }
+
+    to {
+        color: rgba(0, 0, 0, 1);
+    }
+}
+
+@keyframes reveal-in {
+    from {
+        left: -100%;
+    }
+
+    30% {
+        left: 0;
+    }
+
+    70% {
+        left: 0;
+    }
+
+    to {
+        left: 100%;
+    }
+}
+
+.keywords {
     color: black;
-    height: 100vh;
+    position: absolute;
     padding-left: calc(25vw - 4em);
     padding-right: calc(25vw - 4em);
+    z-index: -1;
+    font-weight: bold;
+    opacity: .3;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    &__word {
+        font-size: 8vh;
+        margin-bottom: 1.5rem;
+        text-transform: uppercase;
+
+        span {
+            position: relative;
+            white-space: nowrap;
+            overflow: hidden;
+            vertical-align: top;
+            display: inline-block;
+
+            &::before {
+                content: '';
+                position: absolute;
+                top: .05em;
+                left: -100%;
+                width: 100%;
+                height: 100%;
+                background: black;
+                float: left;
+            }
+
+            &.--animate {
+                animation: opacity-out-in 1s normal steps(3, end);
+
+                &::before {
+                    animation: reveal-in 1s normal forwards;
+                }
+            }
+        }
+    }
+}
+
+.about {
+    background: rgba(255, 255, 255, 0.9);
+    color: black;
+    height: 100vh;
+    padding-left: calc(25vw - 12em);
+    padding-right: calc(25vw - 12em);
     display: flex;
     align-items: center;
 
     &__text {
-        font-size: 2.2vw;
+        font-size: 1.7vw;
         line-height: 1.5em;
         display: block;
 
@@ -20,20 +110,25 @@
             margin-bottom: 2rem;
         }
 
-        @keyframes highlighter {
-            from {
-                background: white;
-                color: black;
-            }
+        strong {
+            position: relative;
+            white-space: nowrap;
+            animation: opacity-in .3s normal step-end;
+            overflow: hidden;
+            vertical-align: top;
+            display: inline-block;
 
-            to {
+            &::before {
+                content: '';
+                position: absolute;
+                top: .05em;
+                left: -100%;
+                width: 100%;
+                height: 100%;
                 background: black;
-                color: white;
+                animation: reveal-in 1s normal forwards;
+                float: left;
             }
-        }
-
-        span {
-            animation: highlighter 1s normal forwards;
         }
     }
 }

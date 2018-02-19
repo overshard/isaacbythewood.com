@@ -12,11 +12,24 @@
         justify-content: center;
 
         .job {
+            @keyframes slide-up {
+                from {
+                    top: 100%;
+                    visibility: hidden;
+                }
+
+                to {
+                    top: 0;
+                    visibility: visible;
+                }
+            }
+
             &__title {
                 font-size: 4vw;
                 font-weight: bold;
                 text-transform: uppercase;
                 margin-bottom: 3rem;
+                overflow: hidden;
 
                 &::before {
                     content: '';
@@ -25,27 +38,56 @@
                     border-top: .3rem solid #0e3ff4;
                     margin-bottom: 2rem;
                 }
+
+                &--slide {
+                    position: relative;
+                    animation: slide-up 1s normal forwards;
+                    visibility: hidden;
+                    top: 100%;
+                }
             }
 
             &__description {
                 font-size: 1.2vw;
                 line-height: 1.5em;
                 margin-bottom: 3rem;
+                overflow: hidden;
+
+                &--slide {
+                    position: relative;
+                    animation: slide-up 1s normal forwards;
+                    animation-delay: 250ms;
+                    visibility: hidden;
+                    top: 100%;
+                }
             }
 
-            &__link a {
-                background: linear-gradient(to right, #0e3ff4 0%, #842bff 100%);
-                color: white;
-                text-decoration: none;
-                padding: .5rem 1rem;
-                text-transform: uppercase;
-                font-weight: bold;
-                letter-spacing: .1rem;
-                font-size: 1.4vw;
-                transition: background 1s;
+            &__link {
+                overflow: hidden;
 
-                &:hover {
-                    background: linear-gradient(to left, #0e3ff4 0%, #842bff 100%);
+                &--slide {
+                    position: relative;
+                    animation: slide-up 1s normal forwards;
+                    animation-delay: 500ms;
+                    visibility: hidden;
+                    top: 100%;
+                }
+
+                a {
+                    background: linear-gradient(to right, #0e3ff4 0%, #842bff 100%);
+                    color: white;
+                    text-decoration: none;
+                    padding: .5rem 1rem;
+                    text-transform: uppercase;
+                    font-weight: bold;
+                    letter-spacing: .1rem;
+                    font-size: 1.4vw;
+                    transition: background 1s;
+                    display: inline-block;
+
+                    &:hover {
+                        background: linear-gradient(to left, #0e3ff4 0%, #842bff 100%);
+                    }
                 }
             }
         }
