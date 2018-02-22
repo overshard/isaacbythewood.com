@@ -65,7 +65,7 @@
                 }
 
                 a {
-                    background: linear-gradient(to right, #0e3ff4 0%, #842bff 100%);
+                    background: #0e3ff4;
                     color: white;
                     text-decoration: none;
                     padding: .5rem 1rem;
@@ -77,7 +77,7 @@
                     display: inline-block;
 
                     &:hover {
-                        background: linear-gradient(to left, #0e3ff4 0%, #842bff 100%);
+                        background: #842bff;
                     }
                 }
             }
