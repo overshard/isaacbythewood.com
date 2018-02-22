@@ -18,9 +18,9 @@
             &__title {
                 font-size: 4vw;
                 font-weight: bold;
-                text-transform: uppercase;
                 margin-bottom: 3rem;
                 overflow: hidden;
+                font-family: 'Vollkorn', serif;
 
                 &::before {
                     content: '';
@@ -31,10 +31,8 @@
                 }
 
                 &--slide {
-                    position: relative;
                     animation: slide-up 1s normal forwards;
-                    visibility: hidden;
-                    top: 100%;
+                    transform: translateY(100%);
                 }
             }
 
@@ -45,11 +43,9 @@
                 overflow: hidden;
 
                 &--slide {
-                    position: relative;
                     animation: slide-up 1s normal forwards;
+                    transform: translateY(100%);
                     animation-delay: 250ms;
-                    visibility: hidden;
-                    top: 100%;
                 }
             }
 
@@ -57,11 +53,9 @@
                 overflow: hidden;
 
                 &--slide {
-                    position: relative;
                     animation: slide-up 1s normal forwards;
+                    transform: translateY(100%);
                     animation-delay: 500ms;
-                    visibility: hidden;
-                    top: 100%;
                 }
 
                 a {

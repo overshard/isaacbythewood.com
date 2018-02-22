@@ -1,3 +1,6 @@
+@import 'animations';
+
+
 .contact {
     background: #20232e;
     height: 100vh;
@@ -18,8 +21,11 @@
     &__title {
         font-size: 4vw;
         font-weight: bold;
-        text-transform: uppercase;
         margin-bottom: .5em;
+        font-family: 'Vollkorn', serif;
+        animation: slide-right 1s normal forwards;
+        opacity: 0;
+        transform: translateX(-100%);
 
         &::before {
             content: '';
@@ -35,54 +41,87 @@
         text-transform: uppercase;
         margin-bottom: 2em;
         font-weight: bold;
+        animation: slide-right 1s normal forwards;
+        opacity: 0;
+        transform: translateX(-100%);
+        animation-delay: 100ms;
 
         span {
             background: linear-gradient(to right, #0e3ff4 0%, #842bff 100%);
             padding: .2em;
-            line-height: 1.7em;
+            line-height: 1.9em;
         }
     }
 
     &__details {
-        @keyframes width-scale {
-            from {
-                width: 0;
-            }
-
-            to {
-                width: calc(25vw + 4em);
-            }
-        }
-
         flex-direction: column;
         overflow: hidden;
-        animation: width-scale 1s normal forwards;
         white-space: nowrap;
 
         .details {
             &__title {
-                font-size: 1.2vw;
+                font-size: .9em;
                 text-transform: uppercase;
-                color: white;
-                background: black;
                 font-weight: bold;
-                display: inline-block;
+                opacity: .8;
             }
 
             &__text {
-                font-size: 1.5vw;
-                margin-bottom: 1em;
+                font-size: 1.5em;
+                margin-bottom: 1.5em;
 
                 a {
-                    color: black;
                     text-decoration: none;
-                    color: black;
-                    background: white;
-                    transition: color 300ms, background 300ms;
+                    color: white;
+                    transition: background 300ms;
+                    position: relative;
+
+                    @keyframes transform-right {
+                        from {
+                            transform: scaleX(0);
+                        }
+
+                        to {
+                            transform: scaleX(1);
+                        }
+                    }
+
+                    @keyframes transform-left {
+                        from {
+                            transform: scaleX(1);
+                        }
+
+                        to {
+                            transform: scaleX(0);
+                        }
+                    }
+
+                    &::before {
+                        content: '';
+                        position: absolute;
+                        left: 0;
+                        right: 0;
+                        bottom: 0;
+                        height: 2px;
+                        background: rgba(255, 255, 255, 1);
+                        transform-origin: left;
+                        animation: transform-left 300ms normal forwards;
+                    }
+
+                    &::after {
+                        content: '';
+                        position: absolute;
+                        left: 0;
+                        right: 0;
+                        bottom: 0;
+                        height: 2px;
+                        background: rgba(255, 255, 255, .2);
+                    }
 
                     &:hover {
-                        color: white;
-                        background: black;
+                        &::before {
+                            animation: transform-right 300ms normal forwards;
+                        }
                     }
                 }
             }

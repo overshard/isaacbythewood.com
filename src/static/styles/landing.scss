@@ -28,10 +28,10 @@
         background: rgba(0, 0, 0, 0.6);
         width: 100vw;
         height: 100vh;
-        font-family: 'Lobster', cursive;
 
         &__text {
             font-size: 15vw;
+            letter-spacing: -.1em;
             font-weight: bold;
             text-transform: uppercase;
         }

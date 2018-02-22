@@ -70,13 +70,11 @@
 
 @keyframes slide-up {
     from {
-        top: 100%;
-        visibility: hidden;
+        transform: translateY(100%);
     }
 
     to {
-        top: 0;
-        visibility: visible;
+        transform: translateY(0);
     }
 }
 
@@ -86,6 +84,31 @@
     }
 
     to {
+        opacity: 1;
+    }
+}
+
+
+// From contact.scss
+
+@keyframes width-scale {
+    from {
+        width: 0;
+    }
+
+    to {
+        width: calc(25vw + 4em);
+    }
+}
+
+@keyframes slide-right {
+    from {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateX(0);
         opacity: 1;
     }
 }
