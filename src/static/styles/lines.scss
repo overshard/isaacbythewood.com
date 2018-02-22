@@ -109,7 +109,7 @@
             width: 100%;
             height: 100%;
             background: #20232e;
-            animation: loaded-show 1s normal forwards;
+            animation: loaded-show 1.5s normal forwards;
         }
 
         &::after {
@@ -118,7 +118,7 @@
             width: 100%;
             height: 100%;
             background: #e5e5e5;
-            animation: loaded-show 1s normal forwards;
+            animation: loaded-show 1.5s normal forwards;
         }
     }
 

@@ -1,3 +1,6 @@
+@import 'animations';
+
+
 .work {
     display: flex;
     background: #e5e5e5;
@@ -12,18 +15,6 @@
         justify-content: center;
 
         .job {
-            @keyframes slide-up {
-                from {
-                    top: 100%;
-                    visibility: hidden;
-                }
-
-                to {
-                    top: 0;
-                    visibility: visible;
-                }
-            }
-
             &__title {
                 font-size: 4vw;
                 font-weight: bold;
@@ -98,16 +89,6 @@
         width: calc(50vw - 4em);
         height: 100vh;
         overflow: hidden;
-
-        @keyframes make-visible {
-            from {
-                opacity: 0;
-            }
-
-            to {
-                opacity: 1;
-            }
-        }
 
         img {
             opacity: 0;

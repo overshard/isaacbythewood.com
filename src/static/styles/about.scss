@@ -1,44 +1,5 @@
-@keyframes opacity-in {
-    from {
-        color: rgba(0, 0, 0, 0);
-    }
+@import 'animations';
 
-    to {
-        color: rgba(0, 0, 0, 1);
-    }
-}
-
-@keyframes opacity-out-in {
-    from {
-        color: rgba(0, 0, 0, 1);
-    }
-
-    50% {
-        color: rgba(0, 0, 0, 0);
-    }
-
-    to {
-        color: rgba(0, 0, 0, 1);
-    }
-}
-
-@keyframes reveal-in {
-    from {
-        left: -100%;
-    }
-
-    30% {
-        left: 0;
-    }
-
-    70% {
-        left: 0;
-    }
-
-    to {
-        left: 100%;
-    }
-}
 
 .keywords {
     color: black;

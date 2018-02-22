@@ -1,0 +1,91 @@
+// From about.scss
+
+@keyframes opacity-in {
+    from {
+        color: rgba(0, 0, 0, 0);
+    }
+
+    to {
+        color: rgba(0, 0, 0, 1);
+    }
+}
+
+@keyframes opacity-out-in {
+    from {
+        color: rgba(0, 0, 0, 1);
+    }
+
+    50% {
+        color: rgba(0, 0, 0, 0);
+    }
+
+    to {
+        color: rgba(0, 0, 0, 1);
+    }
+}
+
+@keyframes reveal-in {
+    from {
+        left: -100%;
+    }
+
+    30% {
+        left: 0;
+    }
+
+    70% {
+        left: 0;
+    }
+
+    to {
+        left: 100%;
+    }
+}
+
+
+// From landing.scss
+
+@keyframes width-slide {
+    0% {
+        width: 0;
+    }
+
+    100% {
+        width: 8em;
+    }
+}
+
+@keyframes height-slide {
+    from {
+        top: -5vh;
+    }
+
+    to {
+        top: 15vh;
+    }
+}
+
+
+// From work.scss
+
+@keyframes slide-up {
+    from {
+        top: 100%;
+        visibility: hidden;
+    }
+
+    to {
+        top: 0;
+        visibility: visible;
+    }
+}
+
+@keyframes make-visible {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
