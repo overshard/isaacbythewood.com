@@ -36,6 +36,10 @@
         letter-spacing: -1.2rem;
         font-weight: bold;
         text-transform: uppercase;
+
+        @include mobile {
+            display: none;
+        }
     }
 }
 
@@ -57,12 +61,20 @@
         animation: fade-in 3s normal forwards;
         animation-delay: 500ms;
 
+        @include mobile {
+            font-size: 2em;
+        }
+
         &::before {
             content: '';
             display: block;
             width: 3rem;
             border-top: .3rem solid #0e3ff4;
             margin-bottom: 4rem;
+
+            @include mobile {
+                margin-bottom: 2rem;
+            }
         }
     }
 }
@@ -90,6 +102,10 @@
         transform: translateX(-100%);
         animation: width-slide 1.5s normal forwards;
         animation-delay: 500ms;
+
+        @include mobile {
+            font-size: 1.7em;
+        }
     }
 
     &__last {

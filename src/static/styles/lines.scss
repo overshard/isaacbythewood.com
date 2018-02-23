@@ -1,4 +1,5 @@
 @import 'animations';
+@import 'variables';
 
 
 .number {
@@ -73,7 +74,7 @@
     }
 }
 
-@media (max-width: 768px) {
+@include mobile {
     .number,
     .touch {
         display: none;
@@ -117,6 +118,10 @@
         width: 4em;
         left: 0;
 
+        @include mobile {
+            display: none;
+        }
+
         &::before {
             animation-delay: 100ms;
         }
@@ -153,6 +158,10 @@
         width: calc(25vw - 8em);
         left: calc(75vw + 4em);
 
+        @include mobile {
+            display: none;
+        }
+
         &::before {
             animation-delay: 500ms;
         }
@@ -161,6 +170,10 @@
     &__6 {
         width: 4em;
         left: calc(100vw - 4em);
+
+        @include mobile {
+            display: none;
+        }
 
         &::before {
             animation-delay: 600ms;
