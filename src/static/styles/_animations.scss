@@ -46,12 +46,14 @@
 // From landing.scss
 
 @keyframes width-slide {
-    0% {
-        width: 0;
+    from {
+        transform: translateX(-100%);
+        opacity: 0;
     }
 
-    100% {
-        width: 8em;
+    to {
+        transform: translateX(0);
+        opacity: 1;
     }
 }
 
@@ -64,6 +66,30 @@
         top: 15vh;
     }
 }
+
+@keyframes fade-in {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+
+// From lines.scss
+
+@keyframes loaded-show {
+    0% {
+        height: 100%;
+    }
+
+    100% {
+        height: 0%;
+    }
+}
+
 
 
 // From work.scss

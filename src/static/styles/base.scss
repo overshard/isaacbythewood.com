@@ -6,11 +6,9 @@ body {
     font-family: 'Open Sans', sans-serif;
     color: white;
     font-variant-ligatures: none;
-    -webkit-font-variant-ligatures: none;
     text-rendering: optimizeLegibility;
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
-    font-smoothing: antialiased;
     text-shadow: rgba(0, 0, 0, .01) 0 0 1px;
     perspective: 5em;
     cursor: default;
@@ -45,4 +43,13 @@ body {
     &--animate *::after {
         animation-play-state: running !important;
     }
+}
+
+
+// Fullpage
+
+#fp-nav ul li .fp-tooltip {
+    background: black;
+    font-weight: bold;
+    text-transform: uppercase;
 }

@@ -1,7 +1,8 @@
 @import 'animations';
+@import 'variables';
 
 
-#kaleidoscope {
+.kaleidoscope {
     position: absolute;
     width: 100vw;
     height: 100vh;
@@ -10,7 +11,7 @@
     bottom: 0;
     right: 0;
 
-    canvas {
+    &__canvas {
         position: absolute;
         top: 0;
         right: 0;
@@ -20,7 +21,7 @@
         mix-blend-mode: darken;
     }
 
-    .overlay {
+    &__overlay {
         display: flex;
         justify-content: center;
         align-items: center;
@@ -28,13 +29,13 @@
         background: rgba(0, 0, 0, 0.6);
         width: 100vw;
         height: 100vh;
+    }
 
-        &__text {
-            font-size: 15vw;
-            letter-spacing: -.1em;
-            font-weight: bold;
-            text-transform: uppercase;
-        }
+    &__text {
+        font-size: 15vw;
+        letter-spacing: -1.2rem;
+        font-weight: bold;
+        text-transform: uppercase;
     }
 }
 
@@ -44,15 +45,17 @@
     justify-content: center;
     flex-direction: column;
     max-width: calc(50vw + 8em);
-    margin-top: 6em;
     padding-left: calc(25vw - 4em);
     padding-right: calc(25vw - 4em);
     position: relative;
 
     &__text {
-        font-size: 3.5vw;
+        font-size: 3.5em;
         margin-bottom: 1em;
         font-weight: bold;
+        opacity: 0;
+        animation: fade-in 3s normal forwards;
+        animation-delay: 500ms;
 
         &::before {
             content: '';
@@ -62,22 +65,35 @@
             margin-bottom: 4rem;
         }
     }
+}
 
-    &__various {
-        font-size: 2vw;
-        line-height: 1.7em;
-        display: block;
-        overflow: hidden;
-        right: 0;
-        width: 0;
-        font-weight: bold;
-        text-transform: uppercase;
-        animation: width-slide 2s normal forwards;
+.name {
+    width: 100vw;
+    overflow: hidden;
+    font-weight: bold;
+    text-transform: uppercase;
+    position: absolute;
+    max-width: calc(50vw + 8em);
+    padding-left: calc(25vw - 4em);
+    padding-right: calc(25vw - 4em);
+    margin-top: 1em;
 
-        span {
-            background: linear-gradient(to right, #0e3ff4 0%, #842bff 100%);
-            padding: .1em .3em;
-        }
+    &__first,
+    &__last {
+        font-size: 2.5em;
+        margin-bottom: .1rem;
+        float: left;
+        clear: left;
+        background-image: $gradient;
+        padding: .1em .5em;
+        opacity: 0;
+        transform: translateX(-100%);
+        animation: width-slide 1.5s normal forwards;
+        animation-delay: 500ms;
+    }
+
+    &__last {
+        animation-delay: 750ms;
     }
 }
 

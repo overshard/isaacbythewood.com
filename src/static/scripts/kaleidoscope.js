@@ -30,6 +30,8 @@ $(document).ready(function() {
 
         p.initSetup = function() {
             p.cnv = p.createCanvas(window.innerWidth, window.innerHeight);
+            p.cnv.id('kaleidoscope__canvas');
+            p.cnv.class('kaleidoscope__canvas');
             p.cache = new p.Cache();
             p.initTriangles();
             p.imgCopy = p.createImage(p.triangleSize, p.triangleSize);
