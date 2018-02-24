@@ -6,7 +6,7 @@ const sass = require('gulp-sass');
 const autoprefixer = require('gulp-autoprefixer');
 const cleanCSS = require('gulp-clean-css');
 const rev = require('gulp-rev');
-const revReplace = require("gulp-rev-replace");
+const revReplace = require('gulp-rev-replace');
 
 const runSequence = require('run-sequence');
 
@@ -14,7 +14,7 @@ const config = require('../../gulpfile.json');
 
 
 gulp.task('styles', () => {
-    const manifest = gulp.src('dist/static/rev-manifest.json')
+    const manifest = gulp.src('dist/static/rev-manifest.json');
 
     return gulpMerge(
         gulp.src(config.vendorStyles),

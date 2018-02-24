@@ -3,7 +3,7 @@
 
 
 .keywords {
-    color: black;
+    color: #000;
     position: absolute;
     padding-left: calc(25vw - 4em);
     padding-right: calc(25vw - 4em);
@@ -35,7 +35,7 @@
                 left: -100%;
                 width: 100%;
                 height: 100%;
-                background: black;
+                background: #000;
                 float: left;
             }
 
@@ -52,7 +52,7 @@
 
 .about {
     background: rgba(255, 255, 255, 0.9);
-    color: black;
+    color: #000;
     height: 100vh;
     padding-left: calc(25vw - 12em);
     padding-right: calc(25vw - 12em);
@@ -93,7 +93,7 @@
                 left: -100%;
                 width: 100%;
                 height: 100%;
-                background: black;
+                background: #000;
                 animation: reveal-in 1s normal forwards;
                 float: left;
             }

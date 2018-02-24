@@ -195,7 +195,7 @@ $(document).ready(function() {
             s = p.canvas.width / srcImage.width;
             this.drawingContext.drawImage(p.canvas, s * sx, s * sy, s * sw, s * sh, dx, dy, dw, dh);
         };
-    }
+    };
 
     new p5(kaleidoscope, 'kaleidoscope');
 });

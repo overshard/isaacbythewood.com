@@ -1,14 +1,10 @@
-// font-family: 'Vollkorn', serif;
-// font-family: 'Open Sans', sans-serif;
-
-
 body {
     font-family: 'Open Sans', sans-serif;
-    color: white;
+    color: #fff;
     font-variant-ligatures: none;
     text-rendering: optimizeLegibility;
-    -moz-osx-font-smoothing: grayscale;
-    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;  // sass-lint:disable-line no-vendor-prefixes
+    -webkit-font-smoothing: antialiased;  // sass-lint:disable-line no-vendor-prefixes
     text-shadow: rgba(0, 0, 0, .01) 0 0 1px;
     perspective: 5em;
     cursor: default;
@@ -17,31 +13,25 @@ body {
 }
 
 .loading *,
-.loading *:before,
-.loading *:after,
 .loading *::before,
 .loading *::after {
-    animation-play-state: paused !important;
+    animation-play-state: paused !important;  // sass-lint:disable-line no-important
 }
 
 .section {
     overflow: hidden;
 
     *,
-    *:before,
-    *:after,
     *::before,
     *::after {
-        animation-play-state: paused !important;
+        animation-play-state: paused !important;  // sass-lint:disable-line no-important
     }
 
     &--animate *,
     &--animate *,
-    &--animate *:before,
-    &--animate *:after,
     &--animate *::before,
     &--animate *::after {
-        animation-play-state: running !important;
+        animation-play-state: running !important;  // sass-lint:disable-line no-important
     }
 }
 
@@ -49,7 +39,7 @@ body {
 // Fullpage
 
 #fp-nav ul li .fp-tooltip {
-    background: black;
+    background: #000;
     font-weight: bold;
     text-transform: uppercase;
 }

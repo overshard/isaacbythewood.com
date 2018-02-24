@@ -10,8 +10,8 @@
     left: 0;
     position: absolute;
     z-index: 1;
-    background: white;
-    color: black;
+    background: #fff;
+    color: #000;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -23,9 +23,8 @@
         transform: rotate(-90deg);
         transform-origin: center;
         font-weight: bold;
-        background: black;
-        color: white;
-        font-size: 1rem;
+        background: #000;
+        color: #fff;
     }
 }
 
@@ -35,8 +34,8 @@
     right: 0;
     position: absolute;
     z-index: 1;
-    background: white;
-    color: black;
+    background: #fff;
+    color: #000;
 
     &__text {
         transform: rotate(-90deg);
@@ -50,7 +49,7 @@
 
     &__link {
         text-decoration: none;
-        color: black;
+        color: #000;
         transition: color 300ms;
 
         &::before {
@@ -60,12 +59,12 @@
             z-index: -1;
             width: 0%;
             height: 100%;
-            background: black;
+            background: #000;
             transition: width 300ms;
         }
 
         &:hover {
-            color: white;
+            color: #fff;
 
             &::before {
                 width: 100%;
@@ -93,7 +92,7 @@
         height: 100vh;
         position: fixed;
         z-index: 200;
-        border-right: 1px solid rgba(125, 125, 125, 0.3);
+        border-right: 1px solid rgba(125, 125, 125, .3);
 
         &::before {
             content: '';

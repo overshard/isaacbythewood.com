@@ -26,7 +26,7 @@
         justify-content: center;
         align-items: center;
         mix-blend-mode: darken;
-        background: rgba(0, 0, 0, 0.6);
+        background: rgba(0, 0, 0, .6);
         width: 100vw;
         height: 100vh;
     }
@@ -126,7 +126,7 @@
         content: '';
         display: block;
         height: 5vh;
-        border-left: .2em solid white;
+        border-left: .2em solid #fff;
         animation: height-slide 2s normal infinite ease-in-out;
         position: absolute;
     }
