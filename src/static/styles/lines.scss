@@ -1,34 +1,7 @@
 @import 'animations';
 @import 'variables';
 
-
-.number {
-    height: 100vh;
-    width: 4em;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    position: absolute;
-    z-index: 1;
-    background: #fff;
-    color: #000;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-
-    &__text {
-        font-family: monospace;
-        font-size: 1rem;
-        transform: rotate(-90deg);
-        transform-origin: center;
-        font-weight: bold;
-        background: #000;
-        color: #fff;
-    }
-}
-
-.touch {
+.sidebar {
     height: 100vh;
     width: 4em;
     right: 0;
@@ -43,7 +16,7 @@
         font-weight: bold;
         width: 6.4em;
         margin-top: 4em;
-        margin-left: -1.05em;
+        margin-left: -1.1em;
         cursor: pointer;
     }
 
@@ -70,6 +43,19 @@
                 width: 100%;
             }
         }
+    }
+
+    &__number {
+        font-family: monospace;
+        font-size: 1rem;
+        font-weight: bold;
+        background: #000;
+        color: #fff;
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        text-align: center;
+        padding: .1em 0;
     }
 }
 
