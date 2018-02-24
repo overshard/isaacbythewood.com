@@ -5,26 +5,26 @@ $(window).on('load', function() {
             keywords.push($(this).text().trim());
         });
 
-        var numberOfWords = $('.keywords__word span').length;
+        var numberOfWords = $('.keywords__text').length;
         var first = Math.floor(Math.random() * numberOfWords);
         var second = Math.floor(Math.random() * numberOfWords);
         while (first === second) {
             second = Math.floor(Math.random() * numberOfWords);
         }
 
-        var firstObject = $('.keywords__word span').eq(first);
-        var secondObject = $('.keywords__word span').eq(second);
+        var firstObject = $('.keywords__text').eq(first);
+        var secondObject = $('.keywords__text').eq(second);
         var firstWord = $(firstObject).text().trim();
         var secondWord = $(secondObject).text().trim();
-        $(firstObject).addClass('--animate');
-        $(secondObject).addClass('--animate');
+        $(firstObject).addClass('keywords__text--animate');
+        $(secondObject).addClass('keywords__text--animate');
         setTimeout(function() {
             $(firstObject).text(secondWord);
             $(secondObject).text(firstWord);
         }, 500);
         setTimeout(function() {
-            $(firstObject).removeClass('--animate');
-            $(secondObject).removeClass('--animate');
+            $(firstObject).removeClass('keywords__text--animate');
+            $(secondObject).removeClass('keywords__text--animate');
         }, 1000);
 
         setTimeout(swapWords, 5000);

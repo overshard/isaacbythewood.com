@@ -20,38 +20,38 @@
         font-size: 8vh;
         margin-bottom: 1.5rem;
         text-transform: uppercase;
+    }
 
-        span {
-            position: relative;
-            white-space: nowrap;
-            overflow: hidden;
-            vertical-align: top;
-            display: inline-block;
+    &__text {
+        position: relative;
+        white-space: nowrap;
+        overflow: hidden;
+        vertical-align: top;
+        display: inline-block;
+
+        &::before {
+            content: '';
+            position: absolute;
+            top: .05em;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: #000;
+            float: left;
+        }
+
+        &--animate {
+            animation: opacity-out-in 1s normal steps(3, end);
 
             &::before {
-                content: '';
-                position: absolute;
-                top: .05em;
-                left: -100%;
-                width: 100%;
-                height: 100%;
-                background: #000;
-                float: left;
-            }
-
-            &.--animate {
-                animation: opacity-out-in 1s normal steps(3, end);
-
-                &::before {
-                    animation: reveal-in 1s normal forwards;
-                }
+                animation: reveal-in 1s normal forwards;
             }
         }
     }
 }
 
 .about {
-    background: rgba(255, 255, 255, 0.9);
+    background: rgba(255, 255, 255, .9);
     color: #000;
     height: 100vh;
     padding-left: calc(25vw - 12em);
@@ -77,26 +77,26 @@
             border-top: .3rem solid #0e3ff4;
             margin-bottom: 2rem;
         }
+    }
 
-        strong {
-            position: relative;
-            white-space: nowrap;
-            animation: opacity-in .3s normal step-end;
-            overflow: hidden;
-            vertical-align: top;
-            display: inline-block;
+    &__strong {
+        position: relative;
+        white-space: nowrap;
+        animation: opacity-in .3s normal step-end;
+        overflow: hidden;
+        vertical-align: top;
+        display: inline-block;
 
-            &::before {
-                content: '';
-                position: absolute;
-                top: .05em;
-                left: -100%;
-                width: 100%;
-                height: 100%;
-                background: #000;
-                animation: reveal-in 1s normal forwards;
-                float: left;
-            }
+        &::before {
+            content: '';
+            position: absolute;
+            top: .05em;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: #000;
+            animation: reveal-in 1s normal forwards;
+            float: left;
         }
     }
 }
