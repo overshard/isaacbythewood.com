@@ -29,6 +29,7 @@
         "jquery": "^3.3.1",
         "normalize.css": "^8.0.0",
         "p5": "^0.5.7",
+        "prismjs": "^1.11.0",
         "require-dir": "^1.0.0",
         "run-sequence": "^2.2.1",
         "typed.js": "^2.0.6"

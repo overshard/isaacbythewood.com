@@ -2,6 +2,33 @@
 @import 'variables';
 
 
+@keyframes scroll-up {
+    from {
+        transform: translateY(calc(-100vh * 10));
+    }
+
+    to {
+        transform: translateY(0);
+    }
+}
+
+
+.commits {
+    position: absolute;
+    overflow: hidden;
+    width: 100vw;
+    height: 100vh;
+
+    &__overflow {
+        position: absolute;
+        font-size: 1em;
+        width: 100vw;
+        opacity: .5;
+        animation: scroll-up 40s linear infinite;
+    }
+}
+
+
 .contact {
     background: #20232e;
     height: 100vh;
