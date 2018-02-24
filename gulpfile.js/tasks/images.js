@@ -10,6 +10,9 @@ gulp.task('images', () => {
         .pipe(imagemin([
             imagemin.jpegtran({
                 progressive: true
+            }),
+            imagemin.optipng({
+                optimizationLevel: 5
             })
         ]))
         .pipe(rev())
