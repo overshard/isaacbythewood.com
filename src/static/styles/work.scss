@@ -32,18 +32,6 @@
         }
     }
 
-    &__image {
-        opacity: 0;
-        animation: make-visible 1s normal forwards;
-        animation-delay: 1s;
-        height: 100vh;
-        min-width: 50vw;
-        object-fit: cover;
-        object-position: left top;
-    }
-}
-
-.job {
     &__title {
         font-size: 4em;
         font-weight: bold;
@@ -103,5 +91,15 @@
         &:hover {
             background: #842bff;
         }
+    }
+
+    &__image {
+        opacity: 0;
+        animation: make-visible 1s normal forwards;
+        animation-delay: 1s;
+        height: 100vh;
+        min-width: 50vw;
+        object-fit: cover;
+        object-position: left top;
     }
 }

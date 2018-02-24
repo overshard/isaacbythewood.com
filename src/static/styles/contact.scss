@@ -58,85 +58,65 @@
         opacity: 0;
         transform: translateX(-100%);
         animation-delay: 100ms;
+    }
 
-        span {
-            background: linear-gradient(to right, #0e3ff4 0%, #842bff 100%);
-            padding: .2em;
-            line-height: 1.9em;
-        }
+    &__chat {
+        background: linear-gradient(to right, #0e3ff4 0%, #842bff 100%);
+        padding: .2em;
+        line-height: 1.9em;
     }
 
     &__details {
         flex-direction: column;
         overflow: hidden;
         white-space: nowrap;
+    }
+}
 
-        .details {
-            &__title {
-                font-size: .9em;
-                text-transform: uppercase;
-                font-weight: bold;
-                opacity: .8;
-            }
+.details {
+    &__title {
+        font-size: .9em;
+        text-transform: uppercase;
+        font-weight: bold;
+        opacity: .8;
+    }
 
-            &__text {
-                font-size: 1.5em;
-                margin-bottom: 1.5em;
+    &__text {
+        font-size: 1.5em;
+        margin-bottom: 1.5em;
+    }
 
-                a {
-                    text-decoration: none;
-                    color: #fff;
-                    transition: background 300ms;
-                    position: relative;
+    &__link {
+        text-decoration: none;
+        color: #fff;
+        transition: background 300ms;
+        position: relative;
 
-                    @keyframes transform-right {
-                        from {
-                            transform: scaleX(0);
-                        }
+        &::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            height: 2px;
+            background: rgba(255, 255, 255, 1);
+            transform-origin: left;
+            animation: transform-left 300ms normal forwards;
+        }
 
-                        to {
-                            transform: scaleX(1);
-                        }
-                    }
+        &::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            height: 2px;
+            background: rgba(255, 255, 255, .2);
+        }
 
-                    @keyframes transform-left {
-                        from {
-                            transform: scaleX(1);
-                        }
-
-                        to {
-                            transform: scaleX(0);
-                        }
-                    }
-
-                    &::before {
-                        content: '';
-                        position: absolute;
-                        left: 0;
-                        right: 0;
-                        bottom: 0;
-                        height: 2px;
-                        background: rgba(255, 255, 255, 1);
-                        transform-origin: left;
-                        animation: transform-left 300ms normal forwards;
-                    }
-
-                    &::after {
-                        content: '';
-                        position: absolute;
-                        left: 0;
-                        right: 0;
-                        bottom: 0;
-                        height: 2px;
-                        background: rgba(255, 255, 255, .2);
-                    }
-
-                    &:hover {
-                        &::before {
-                            animation: transform-right 300ms normal forwards;
-                        }
-                    }
-                }
+        &:hover {
+            &::before {
+                animation: transform-right 300ms normal forwards;
             }
         }
     }
