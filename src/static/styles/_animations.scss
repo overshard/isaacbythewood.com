@@ -158,3 +158,13 @@
         transform: scaleX(0);
     }
 }
+
+@keyframes scroll-up {
+    from {
+        transform: translateY(calc(-100vh * 10));
+    }
+
+    to {
+        transform: translateY(0);
+    }
+}

@@ -2,17 +2,6 @@
 @import 'variables';
 
 
-@keyframes scroll-up {
-    from {
-        transform: translateY(calc(-100vh * 10));
-    }
-
-    to {
-        transform: translateY(0);
-    }
-}
-
-
 .commits {
     position: absolute;
     overflow: hidden;
