@@ -10,6 +10,10 @@
     background: #fff;
     color: #000;
 
+    @include mobile {
+        display: none;
+    }
+
     &__text {
         transform: rotate(-90deg);
         transform-origin: center;
@@ -54,13 +58,6 @@
         width: 100%;
         text-align: center;
         padding: .1em 0;
-    }
-}
-
-@include mobile {
-    .number,
-    .touch {
-        display: none;
     }
 }
 
