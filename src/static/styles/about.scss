@@ -18,7 +18,7 @@
 
     &__word {
         font-size: 8vh;
-        margin-bottom: 1.5rem;
+        margin-bottom: .5rem;
         text-transform: uppercase;
     }
 
@@ -51,7 +51,7 @@
 }
 
 .about {
-    background: rgba(255, 255, 255, .9);
+    background: rgba(255, 255, 255, .8);
     color: #000;
     height: 100vh;
     padding-left: calc(25vw - 12em);

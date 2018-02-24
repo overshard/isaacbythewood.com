@@ -14,7 +14,7 @@
         transform: rotate(-90deg);
         transform-origin: center;
         font-weight: bold;
-        width: 6.4em;
+        width: 6.2em;
         margin-top: 4em;
         margin-left: -1.1em;
         cursor: pointer;
@@ -23,24 +23,22 @@
     &__link {
         text-decoration: none;
         color: #000;
-        transition: color 300ms;
 
         &::before {
             content: '';
             display: block;
             position: absolute;
             z-index: -1;
-            width: 0%;
-            height: 100%;
-            background: #000;
-            transition: width 300ms;
+            width: 100%;
+            height: 0%;
+            bottom: -.2em;
+            background: rgba(14, 64, 244, 0.3);
+            transition: height 300ms;
         }
 
         &:hover {
-            color: #fff;
-
             &::before {
-                width: 100%;
+                height: 45%;
             }
         }
     }

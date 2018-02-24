@@ -1,10 +1,29 @@
 @import 'animations';
 @import 'variables';
 
+.time {
+    color: rgba(0, 0, 0, .4);
+    font-weight: bold;
+    position: absolute;
+    z-index: -1;
+    font-size: 15em;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-end;
+
+    &__counter {
+        position: absolute;
+        margin-bottom: -4rem;
+        margin-left: -4rem;
+    }
+}
+
 
 .work {
     display: flex;
-    background: #e5e5e5;
+    background: rgba(229, 229, 229, .7);
     color: #000;
 
     &__left {
