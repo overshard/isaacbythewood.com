@@ -10,16 +10,15 @@ const revReplace = require("gulp-rev-replace");
 
 const runSequence = require('run-sequence');
 
+const config = require('../../gulpfile.json');
+
 
 gulp.task('styles', () => {
     const manifest = gulp.src('dist/static/rev-manifest.json')
 
     return gulpMerge(
-        gulp.src([
-            'node_modules/normalize.css/normalize.css',
-            'node_modules/fullpage.js/dist/jquery.fullpage.css'
-            ]),
-        gulp.src('src/static/styles/**/*.scss')
+        gulp.src(config.vendorStyles),
+        gulp.src(config.projectStyles)
             .pipe(sass().on('error', sass.logError))
             .pipe(autoprefixer({
                 browsers: ['last 2 versions'],

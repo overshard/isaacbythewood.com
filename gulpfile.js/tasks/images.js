@@ -4,9 +4,11 @@ const imagemin = require('gulp-imagemin');
 
 const rev = require('gulp-rev');
 
+const config = require('../../gulpfile.json');
+
 
 gulp.task('images', () => {
-    return gulp.src('src/static/images/**/*')
+    return gulp.src(config.projectImages)
         .pipe(imagemin([
             imagemin.jpegtran({
                 progressive: true
