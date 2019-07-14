@@ -1,0 +1,24 @@
+const strings = {
+  title: "Isaac Bythewood",
+  description:
+    "Isaac Bythewood is a Full-Stack Developer and Consultant located in " +
+    "Morganton, NC."
+};
+
+const theme = {
+  colors: {
+    primary: "#20232e",
+    blue: "#0e3ff4",
+    purple: "#842bff"
+  },
+  breakpoints: {
+    mobile: "max-width: 767.99px",
+    tablet: "max-width: 1023.99px"
+  },
+  transitionDuration: "250ms",
+  animationDuration: "1500ms",
+  animationTimingFunction: "ease-in-out",
+  borderRadius: "3px"
+};
+
+export { strings, theme };

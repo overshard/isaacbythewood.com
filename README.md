@@ -1,24 +1,23 @@
 # isaacbythewood.com
 
-The personal website of Isaac Bythewood.
+My personal website.
 
+## Install
+
+Have node version 8 or higher with npm installed and run:
+
+    npm i -g now
+    npm i
 
 ## Running
 
-Make sure you have node and npm installed:
+I'm deploying this project to now.sh so I use the now cli util, that's run automatically
+through npm:
 
-    npm i -g gulp-cli
-    npm i
-    gulp
-
-And all the files will be in the `build` directory!
-
+    npm start
 
 ## Deploying
 
-Just run:
+Goes to now:
 
-    gulp deploy
-
-
-Probably the shortest README I've ever made...
+    npm run deploy
