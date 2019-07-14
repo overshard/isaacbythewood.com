@@ -2,8 +2,6 @@ import React from "react";
 import styled from "styled-components";
 import PropTypes from "prop-types";
 
-import { strings } from "../site.config";
-
 const Grid = props => {
   return (
     <>
@@ -39,11 +37,17 @@ const GridArea = styled.div`
     ". . .    .    . .";
   min-height: 100vh;
   width: 100%;
+  @media (${props => props.theme.breakpoints.tablet}) {
+    grid-template-columns: 20px 10% 1fr 1fr 10% 20px;
+  }
 `;
 
 const GridLines = styled(GridArea)`
   position: fixed;
   pointer-events: none;
+  @media (${props => props.theme.breakpoints.tablet}) {
+    display: none;
+  }
 `;
 
 const GridLine = styled.div`

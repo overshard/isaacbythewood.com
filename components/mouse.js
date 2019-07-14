@@ -33,7 +33,7 @@ const Cursor = styled.div`
   position: absolute;
   z-index: 9999;
   pointer-events: none;
-  @media (pointer: none) {
+  @media (${props => props.theme.breakpoints.tablet}) {
     display: none;
   }
 `;

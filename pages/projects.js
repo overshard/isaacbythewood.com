@@ -10,7 +10,7 @@ const Projects = ({ timeliteCommits, timestrapCommits }) => {
     timestrapLatest = null;
 
   try {
-    const timeliteLatest = `{
+    timeliteLatest = `{
   "sha": "${timeliteCommits[0].sha}",
   "commit": {
     "message": "${timeliteCommits[0].commit.message}",
@@ -22,7 +22,7 @@ const Projects = ({ timeliteCommits, timestrapCommits }) => {
   }
 }`;
 
-    const timestrapLatest = `{
+    timestrapLatest = `{
   "sha": "${timestrapCommits[0].sha}",
   "commit": {
     "message": "${timestrapCommits[0].commit.message}",
