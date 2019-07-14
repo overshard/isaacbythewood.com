@@ -36,7 +36,7 @@ const Index = () => {
       </TransitionGroup>
       <Description>Full-Stack Developer located in Morganton, NC</Description>
       <Name>Isaac</Name>
-      <Name>Bythewood</Name>
+      <Name style={{ animationDelay: "1100ms" }}>Bythewood</Name>
     </Page>
   );
 };
@@ -117,6 +117,16 @@ const Description = styled.h1`
     margin-bottom: 20px;
     background-color: ${props => props.theme.colors.blue};
   }
+  opacity: 0;
+  animation: fade-start 750ms 1000ms forwards;
+  @keyframes fade-start {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
   @media (${props => props.theme.breakpoints.mobile}) {
     font-size: 2em;
   }
@@ -134,6 +144,16 @@ const Name = styled.h2`
     ${props => props.theme.colors.blue} 0,
     ${props => props.theme.colors.purple} 100%
   );
+  transform: translateX(-100vw);
+  animation: slide-start 750ms 1000ms forwards;
+  @keyframes slide-start {
+    from {
+      transform: translateX(-100vw);
+    }
+    to {
+      transform: translateX(0);
+    }
+  }
   @media (${props => props.theme.breakpoints.mobile}) {
     font-size: 1.5em;
   }

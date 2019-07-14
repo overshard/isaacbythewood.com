@@ -6,6 +6,7 @@ import Page from "../components/page";
 const Contact = () => {
   return (
     <Page title="Contact">
+      <Background />
       <Grid>
         <GridLeft>
           <Heading>Contact Me</Heading>
@@ -35,19 +36,68 @@ const Contact = () => {
 
 export default Contact;
 
+const Background = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -2;
+  background: repeating-linear-gradient(
+      -45deg,
+      transparent 0,
+      transparent 25%,
+      dodgerblue 0,
+      dodgerblue 50%
+    ),
+    repeating-linear-gradient(
+      45deg,
+      transparent 0,
+      transparent 25%,
+      tomato 0,
+      tomato 50%
+    ),
+    repeating-linear-gradient(transparent 0, transparent 25%, gold 0, gold 50%),
+    tomato;
+  background-blend-mode: multiply;
+  background-size: 100px 100px;
+`;
+
 const Grid = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: auto;
   grid-template-areas: "left right";
+  background-color: rgba(0, 0, 0, 0.9);
+  border-radius: 10px;
+  transform: translateX(-100vw);
+  animation: slide-over 750ms 500ms forwards;
+  @keyframes slide-over {
+    from {
+      transform: translateX(-100vw);
+    }
+    50% {
+      transform: translateX(10vw);
+    }
+    70% {
+      transform: translateX(-5vw);
+    }
+    to {
+      transform: translateX(0);
+    }
+  }
   @media (${props => props.theme.breakpoints.tablet}) {
     grid-template-columns: 1fr;
     grid-template-rows: auto auto;
-    grid-gap: 50px;
+    margin-top: 80px;
   }
 `;
 
-const GridLeft = styled.div`
+const GridColumn = styled.div`
+  padding: 25px 35px;
+`;
+
+const GridLeft = styled(GridColumn)`
   grid-area: left;
   @media (${props => props.theme.breakpoints.tablet}) {
     grid-column: 1;
@@ -55,7 +105,7 @@ const GridLeft = styled.div`
   }
 `;
 
-const GridRight = styled.div`
+const GridRight = styled(GridColumn)`
   grid-area: right;
   @media (${props => props.theme.breakpoints.tablet}) {
     grid-column: 1;
@@ -84,7 +134,7 @@ const ShoutOut = styled.h2`
     ${props => props.theme.colors.purple} 100%
   );
   @media (${props => props.theme.breakpoints.mobile}) {
-    font-size: 1.2em;
+    font-size: 1.1em;
   }
 `;
 
