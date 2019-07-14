@@ -2,29 +2,24 @@ import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 
 const Mouse = () => {
-  const [position, setPosition] = useState(null);
+  const [position, setPosition] = useState({ x: 0, y: 0, active: false });
 
   useEffect(() => {
     window.onmousemove = event => {
-      setPosition(event);
+      setPosition({
+        x: event.pageX,
+        y: event.pageY,
+        active: event.target.tagName === "A" ? true : false
+      });
     };
   }, []);
 
-  if (position === null) return null;
-
   return (
     <Cursor>
-      <Pointer
-        style={{
-          top: position.pageY,
-          left: position.pageX
-        }}
-      />
+      <Pointer style={{ top: position.y, left: position.x }} />
       <Follower
-        style={{
-          top: position.pageY,
-          left: position.pageX
-        }}
+        className={position.active ? "active" : null}
+        style={{ top: position.y, left: position.x }}
       />
     </Cursor>
   );
@@ -47,20 +42,28 @@ const Pointer = styled.div`
   width: ${cursorSize}px;
   height: ${cursorSize}px;
   border-radius: ${cursorSize}px;
-  transform: translate(-${cursorSize / 2}px, -${cursorSize / 2}px);
+  transform: translate(-50%, -50%);
   background-color: rgba(255, 0, 0, 0.7);
   position: absolute;
 `;
 
 const Follower = styled.div`
-  width: ${cursorSize * 5}px;
-  height: ${cursorSize * 5}px;
-  border-radius: ${cursorSize * 5}px;
-  transform: translate(-${cursorSize * 2.5}px, -${cursorSize * 2.5}px);
+  width: ${cursorSize * 4}px;
+  height: ${cursorSize * 4}px;
+  border-radius: ${cursorSize * 4}px;
+  transform: translate(-50%, -50%);
   border-width: 1px;
   border-style: solid;
   background-color: rgba(255, 0, 0, 0.1);
   border-color: rgba(255, 0, 0, 0.7);
   position: absolute;
   box-sizing: border-box;
+  transition-duration: 200ms;
+  transition-timing-function: ease-out;
+
+  &.active {
+    width: ${cursorSize * 6}px;
+    height: ${cursorSize * 6}px;
+    border-radius: ${cursorSize * 6}px;
+  }
 `;
