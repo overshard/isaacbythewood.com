@@ -84,6 +84,9 @@ const Paragraph = styled.p`
     margin-bottom: 20px;
     background-color: ${props => props.theme.colors.blue};
   }
+  @media (${props => props.theme.breakpoints.mobile}) {
+    font-size: 1.2em;
+  }
 `;
 
 const Strong = styled.strong`

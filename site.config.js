@@ -12,8 +12,8 @@ const theme = {
     purple: "#842bff"
   },
   breakpoints: {
-    mobile: "max-width: 767.99px",
-    tablet: "max-width: 1023.99px"
+    mobile: "max-width: 767.98px",
+    tablet: "max-width: 1023.98px"
   },
   transitionDuration: "250ms",
   animationDuration: "1500ms",

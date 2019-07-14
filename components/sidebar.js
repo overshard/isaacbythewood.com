@@ -117,9 +117,31 @@ const NavContact = styled.a`
       right: 60%;
     }
   }
+  &::after {
+    visibility: hidden;
+  }
   @media (${props => props.theme.breakpoints.tablet}) {
     writing-mode: horizontal-tb;
     transform: none;
+  }
+  @media (${props => props.theme.breakpoints.mobile}) {
+    visibility: hidden;
+    &::after {
+      visibility: visible;
+      content: "";
+      display: block;
+      background-image: linear-gradient(
+        to right,
+        ${props => props.theme.colors.blue} 0,
+        ${props => props.theme.colors.purple} 100%
+      );
+      width: 30px;
+      height: 60px;
+      position: absolute;
+      z-index: 3;
+      left: 0;
+      top: 0;
+    }
   }
 `;
 

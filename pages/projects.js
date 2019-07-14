@@ -115,6 +115,10 @@ const Grid = styled.div`
   grid-template-columns: 1fr 1fr;
   grid-template-rows: auto;
   grid-template-areas: "left right";
+  @media (${props => props.theme.breakpoints.tablet}) {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto;
+  }
 `;
 
 const GridColumn = styled.div`
@@ -138,11 +142,19 @@ const GridColumn = styled.div`
 
 const GridLeft = styled(GridColumn)`
   grid-area: left;
+  @media (${props => props.theme.breakpoints.tablet}) {
+    grid-column: 1;
+    grid-row: 1;
+  }
 `;
 
 const GridRight = styled(GridColumn)`
   grid-area: right;
   animation-delay: 250ms;
+  @media (${props => props.theme.breakpoints.tablet}) {
+    grid-column: 1;
+    grid-row: 2;
+  }
 `;
 
 const ProjectHeading = styled.h1`
@@ -199,4 +211,7 @@ const ProjectCommit = styled.pre`
   background: black;
   color: #00ff00;
   padding: 20px;
+  @media (${props => props.theme.breakpoints.mobile}) {
+    display: none;
+  }
 `;

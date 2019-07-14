@@ -117,6 +117,9 @@ const Description = styled.h1`
     margin-bottom: 20px;
     background-color: ${props => props.theme.colors.blue};
   }
+  @media (${props => props.theme.breakpoints.mobile}) {
+    font-size: 2em;
+  }
 `;
 
 const Name = styled.h2`
@@ -131,4 +134,7 @@ const Name = styled.h2`
     ${props => props.theme.colors.blue} 0,
     ${props => props.theme.colors.purple} 100%
   );
+  @media (${props => props.theme.breakpoints.mobile}) {
+    font-size: 1.5em;
+  }
 `;
