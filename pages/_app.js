@@ -7,6 +7,7 @@ import { theme } from "../site.config";
 import Mouse from "../components/mouse";
 import Grid from "../components/grid";
 import Sidebar from "../components/sidebar";
+import Loader from "../components/loader";
 
 class MyApp extends App {
   constructor(props) {
@@ -29,6 +30,7 @@ class MyApp extends App {
         <ThemeProvider theme={theme}>
           <>
             <GlobalStyle />
+            <Loader />
             <Mouse />
             <Sidebar />
             <TransitionGroup component={null}>

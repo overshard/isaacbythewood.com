@@ -120,8 +120,8 @@ const Grid = styled.div`
 const GridColumn = styled.div`
   opacity: 0;
   transform: translateY(-100px);
-  animation: slide-up 500ms normal forwards;
   padding-right: 20px;
+  animation: slide-up 500ms normal forwards;
 
   @keyframes slide-up {
     from {
