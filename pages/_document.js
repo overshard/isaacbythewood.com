@@ -34,7 +34,7 @@ class MyDocument extends Document {
     return (
       <Html lang="en">
         <Head>
-          <meta name="theme-color" content={theme.primary} />
+          <meta name="theme-color" content={theme.colors.primary} />
           <link rel="manifest" href="/manifest.json" />
         </Head>
         <body>
