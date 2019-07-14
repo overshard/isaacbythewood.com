@@ -81,6 +81,13 @@ const Nav = styled.nav`
   bottom: 0;
   position: fixed;
   z-index: 1;
+  @media (${props => props.theme.breakpoints.tablet}) {
+    bottom: auto;
+    left: 0;
+    flex-direction: row;
+    width: 100%;
+    height: 60px;
+  }
 `;
 
 const NavContact = styled.a`
@@ -110,6 +117,10 @@ const NavContact = styled.a`
       right: 60%;
     }
   }
+  @media (${props => props.theme.breakpoints.tablet}) {
+    writing-mode: horizontal-tb;
+    transform: none;
+  }
 `;
 
 const NavLinks = styled.div`
@@ -117,6 +128,9 @@ const NavLinks = styled.div`
   flex-direction: column;
   align-items: center;
   position: relative;
+  @media (${props => props.theme.breakpoints.tablet}) {
+    flex-direction: row;
+  }
 `;
 
 const NavLink = styled.a`
@@ -135,6 +149,10 @@ const NavLink = styled.a`
   &:hover {
     background-color: rgba(0, 0, 0, 1);
   }
+  @media (${props => props.theme.breakpoints.tablet}) {
+    width: 50px;
+    height: 10px;
+  }
 `;
 
 const NavTooltip = styled.div`
@@ -148,6 +166,9 @@ const NavTooltip = styled.div`
   text-transform: uppercase;
   font-size: 0.8em;
   letter-spacing: 2px;
+  @media (${props => props.theme.breakpoints.tablet}) {
+    visibility: hidden;
+  }
 `;
 
 const NavCurrent = styled.div`
@@ -156,4 +177,8 @@ const NavCurrent = styled.div`
   text-align: center;
   padding: 5px;
   color: white;
+  @media (${props => props.theme.breakpoints.tablet}) {
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+  }
 `;

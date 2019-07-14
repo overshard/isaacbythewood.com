@@ -38,7 +38,7 @@ const GridArea = styled.div`
   min-height: 100vh;
   width: 100%;
   @media (${props => props.theme.breakpoints.tablet}) {
-    grid-template-columns: 20px 10% 1fr 1fr 10% 20px;
+    grid-template-columns: 10px 5% 1fr 1fr 5% 10px;
   }
 `;
 
