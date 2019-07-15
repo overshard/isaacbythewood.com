@@ -69,7 +69,6 @@ const Grid = styled.div`
   grid-template-rows: auto;
   grid-template-areas: "left right";
   background-color: rgba(0, 0, 0, 0.9);
-  border-radius: 10px;
   transform: translateX(-100vw);
   animation: slide-over 750ms 500ms forwards;
   @keyframes slide-over {
