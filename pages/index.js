@@ -22,7 +22,7 @@ const Index = () => {
   return (
     <Page title="Full-Stack Developer located in Morganton, NC">
       <Background
-        src="/static/images/night-sky.jpg"
+        src="/static/images/astronomy-beautiful-clouds-355465.jpg"
         alt="Picture of the night's sky with stars."
       />
       <TransitionGroup component={Words}>
