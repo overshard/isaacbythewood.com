@@ -141,6 +141,7 @@ const ShoutOut = styled.h2`
   margin: 0 0 2px 0;
   float: left;
   clear: left;
+  font-size: 1.4em;
   background-image: linear-gradient(
     to right,
     ${props => props.theme.colors.blue} 0,
@@ -167,6 +168,7 @@ const ContactValue = styled.dd`
 `;
 
 const ContactLink = styled.a`
+  color: white;
   text-decoration: none;
   position: relative;
   &::before {
