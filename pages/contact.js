@@ -17,15 +17,29 @@ const Contact = () => {
           <ContactList>
             <ContactKey>Email</ContactKey>
             <ContactValue>
-              <ContactLink>isaac@bythewood.com</ContactLink>
+              <ContactLink href="mailto:isaac@bythewood.me">
+                isaac@bythewood.com
+              </ContactLink>
             </ContactValue>
             <ContactKey>Discord</ContactKey>
             <ContactValue>
-              <ContactLink>Overshard#4907</ContactLink>
+              <ContactLink
+                href="https://discordapp.com/"
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+                Overshard#4907
+              </ContactLink>
             </ContactValue>
             <ContactKey>GitHub</ContactKey>
             <ContactValue>
-              <ContactLink>/overshard</ContactLink>
+              <ContactLink
+                href="https://github.com/overshard"
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+                /overshard
+              </ContactLink>
             </ContactValue>
           </ContactList>
         </GridRight>
