@@ -6,6 +6,16 @@ import { theme } from "../site.config";
 
 class MyDocument extends Document {
   static async getInitialProps(ctx) {
+    // Redirect to www if no www used
+    if (ctx.req.headers.host === "www.isaacbythewood.com") {
+      ctx.res.writeHead(301, {
+        Location: `https://isaacbythewood.com${ctx.req.url}`
+      });
+      ctx.res.end();
+      return {};
+    }
+
+    // Setup styled-components for rendering server side
     const sheet = new ServerStyleSheet();
     const originalRenderPage = ctx.renderPage;
 
