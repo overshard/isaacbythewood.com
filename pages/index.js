@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import { TransitionGroup, CSSTransition } from "react-transition-group";
 
 import Page from "../components/page";
@@ -42,6 +42,24 @@ const Index = () => {
 };
 
 export default Index;
+
+const FadeStart = keyframes`
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+`;
+
+const SlideStart = keyframes`
+  from {
+    transform: translateX(-100vw);
+  }
+  to {
+    transform: translateX(0);
+  }
+`;
 
 const Background = styled.img`
   position: absolute;
@@ -118,15 +136,7 @@ const Description = styled.h1`
     background-color: ${props => props.theme.colors.blue};
   }
   opacity: 0;
-  animation: fade-start 750ms 1000ms forwards;
-  @keyframes fade-start {
-    from {
-      opacity: 0;
-    }
-    to {
-      opacity: 1;
-    }
-  }
+  animation: ${FadeStart} 750ms 1000ms forwards;
   @media (${props => props.theme.breakpoints.mobile}) {
     font-size: 2em;
   }
@@ -145,15 +155,7 @@ const Name = styled.h2`
     ${props => props.theme.colors.purple} 100%
   );
   transform: translateX(-100vw);
-  animation: slide-start 750ms 1000ms forwards;
-  @keyframes slide-start {
-    from {
-      transform: translateX(-100vw);
-    }
-    to {
-      transform: translateX(0);
-    }
-  }
+  animation: ${SlideStart} 750ms 1000ms forwards;
   @media (${props => props.theme.breakpoints.mobile}) {
     font-size: 1.5em;
   }

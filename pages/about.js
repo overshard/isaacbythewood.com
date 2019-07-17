@@ -1,5 +1,5 @@
 import React from "react";
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 
 import Page from "../components/page";
 
@@ -41,6 +41,42 @@ const About = () => {
 };
 
 export default About;
+
+const SlideLeft = keyframes`
+  0% {
+    left: -100vw;
+  }
+
+  40% {
+    left: 0;
+  }
+
+  60% {
+    left: 0;
+  }
+
+  100% {
+    left: 100vw;
+  }
+`;
+
+const FadeIn = keyframes`
+  0% {
+    color: rgba(0, 0, 0, 0);
+  }
+
+  49% {
+    color: rgba(0, 0, 0, 0);
+  }
+
+  50% {
+    color: rgba(0, 0, 0, 1);
+  }
+
+  100% {
+    color: rgba(0, 0, 0, 1);
+  }
+`;
 
 const Background = styled.div`
   position: absolute;
@@ -93,7 +129,7 @@ const Strong = styled.strong`
   font-weight: 700;
   position: relative;
   white-space: nowrap;
-  animation: fade-in 750ms normal forwards;
+  animation: ${FadeIn} 750ms normal forwards;
   color: rgba(0, 0, 0, 0);
 
   &::before {
@@ -104,42 +140,6 @@ const Strong = styled.strong`
     background-color: black;
     left: -100vw;
     z-index: 1;
-    animation: slide-left 750ms normal forwards;
-  }
-
-  @keyframes slide-left {
-    from {
-      left: -100vw;
-    }
-
-    40% {
-      left: 0;
-    }
-
-    60% {
-      left: 0;
-    }
-
-    to {
-      left: 100vw;
-    }
-  }
-
-  @keyframes fade-in {
-    from {
-      color: rgba(0, 0, 0, 0);
-    }
-
-    49% {
-      color: rgba(0, 0, 0, 0);
-    }
-
-    50% {
-      color: rgba(0, 0, 0, 1);
-    }
-
-    to {
-      color: rgba(0, 0, 0, 1);
-    }
+    animation: ${SlideLeft} 750ms normal forwards;
   }
 `;

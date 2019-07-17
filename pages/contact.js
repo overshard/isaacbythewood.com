@@ -1,5 +1,5 @@
 import React from "react";
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 
 import Page from "../components/page";
 
@@ -50,6 +50,41 @@ const Contact = () => {
 
 export default Contact;
 
+const SlideOver = keyframes`
+  from {
+    transform: translateX(-100vw);
+  }
+  50% {
+    transform: translateX(10vw);
+  }
+  70% {
+    transform: translateX(-5vw);
+  }
+  to {
+    transform: translateX(0);
+  }
+`;
+
+const TransformRight = keyframes`
+  from {
+    transform: scaleX(0);
+  }
+
+  to {
+    transform: scaleX(1);
+  }
+`;
+
+const TransformLeft = keyframes`
+  from {
+    transform: scaleX(1);
+  }
+
+  to {
+    transform: scaleX(0);
+  }
+`;
+
 const Background = styled.div`
   position: absolute;
   top: 0;
@@ -84,21 +119,7 @@ const Grid = styled.div`
   grid-template-areas: "left right";
   background-color: rgba(0, 0, 0, 0.9);
   transform: translateX(-100vw);
-  animation: slide-over 750ms 500ms forwards;
-  @keyframes slide-over {
-    from {
-      transform: translateX(-100vw);
-    }
-    50% {
-      transform: translateX(10vw);
-    }
-    70% {
-      transform: translateX(-5vw);
-    }
-    to {
-      transform: translateX(0);
-    }
-  }
+  animation: ${SlideOver} 750ms 500ms forwards;
   @media (${props => props.theme.breakpoints.tablet}) {
     grid-template-columns: 1fr;
     grid-template-rows: auto auto;
@@ -180,7 +201,7 @@ const ContactLink = styled.a`
     height: 2px;
     background: rgba(255, 255, 255, 1);
     transform-origin: left;
-    animation: transform-left 300ms normal forwards;
+    animation: ${TransformLeft} 300ms normal forwards;
   }
   &::after {
     content: "";
@@ -193,26 +214,7 @@ const ContactLink = styled.a`
   }
   &:hover {
     &::before {
-      animation: transform-right 300ms normal forwards;
-    }
-  }
-  @keyframes transform-right {
-    from {
-      transform: scaleX(0);
-    }
-
-    to {
-      transform: scaleX(1);
-    }
-  }
-
-  @keyframes transform-left {
-    from {
-      transform: scaleX(1);
-    }
-
-    to {
-      transform: scaleX(0);
+      animation: ${TransformRight} 300ms normal forwards;
     }
   }
 `;

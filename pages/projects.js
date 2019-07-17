@@ -1,5 +1,5 @@
 import React from "react";
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import PropTypes from "prop-types";
 import "isomorphic-unfetch";
 
@@ -100,6 +100,18 @@ Projects.propTypes = {
 
 export default Projects;
 
+const SlideUp = keyframes`
+  from {
+    opacity: 0;
+    transform: translateY(100px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+`;
+
 const Background = styled.div`
   position: absolute;
   top: 0;
@@ -125,19 +137,7 @@ const GridColumn = styled.div`
   opacity: 0;
   transform: translateY(-100px);
   padding-right: 20px;
-  animation: slide-up 500ms normal forwards;
-
-  @keyframes slide-up {
-    from {
-      opacity: 0;
-      transform: translateY(100px);
-    }
-
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
+  animation: ${SlideUp} 500ms normal forwards;
 `;
 
 const GridLeft = styled(GridColumn)`

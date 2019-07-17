@@ -1,5 +1,5 @@
 import React from "react";
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 
 const Loader = () => {
   return (
@@ -17,6 +17,16 @@ const Loader = () => {
 };
 
 export default Loader;
+
+const FoldUp = keyframes`
+  0% {
+    height: 100vh;
+  }
+
+  100% {
+    height: 0;
+  }
+`;
 
 const Grid = styled.div`
   display: grid;
@@ -38,7 +48,7 @@ const GridColumn = styled.div`
     height: 100vh;
     background-color: ${props => props.theme.colors.primary};
     border-right: 1px solid ${props => props.theme.colors.primary};
-    animation: fold-up 1000ms normal forwards;
+    animation: ${FoldUp} 1000ms normal forwards;
     animation-delay: ${props => props.column * 100}ms;
   }
   &::after {
@@ -48,16 +58,7 @@ const GridColumn = styled.div`
     height: 100vh;
     background-color: white;
     border-right: 1px solid white;
-    animation: fold-up 1000ms normal forwards;
+    animation: ${FoldUp} 1000ms normal forwards;
     animation-delay: ${props => props.column * 100}ms;
-  }
-  @keyframes fold-up {
-    from {
-      height: 100vh;
-    }
-
-    to {
-      height: 0;
-    }
   }
 `;
