@@ -56,8 +56,8 @@ const Contact = () => {
       <Chat>
         <TransitionGroup component={null}>
           {chatMessages.map((message, index) => {
-            const transitionTimeout = (index + 1) * 2500;
-            const transitionDelay = index * 2500;
+            const transitionTimeout = (index + 2) * 2000;
+            const transitionDelay = (index + 1) * 2000;
             return (
               <CSSTransition
                 key={index}
@@ -163,10 +163,18 @@ const GridRight = styled(GridColumn)`
 
 const Heading = styled.h1`
   font-size: 3em;
-  margin-top: 0;
-  margin-bottom: 70px;
+  margin-top: 10px;
+  margin-bottom: 60px;
   @media (${props => props.theme.breakpoints.mobile}) {
-    margin-bottom: 20px;
+    margin-bottom: 10px;
+  }
+  &::before {
+    content: "";
+    display: block;
+    width: 75px;
+    height: 5px;
+    margin-bottom: 10px;
+    background-color: ${props => props.theme.colors.blue};
   }
 `;
 
