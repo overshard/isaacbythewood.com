@@ -7,8 +7,8 @@ const Mouse = () => {
   useEffect(() => {
     window.onmousemove = event => {
       setPosition({
-        x: event.pageX,
-        y: event.pageY,
+        x: event.clientX,
+        y: event.clientY,
         active: event.target.tagName === "A" ? true : false
       });
     };
@@ -30,7 +30,7 @@ export default Mouse;
 const cursorSize = 10;
 
 const Cursor = styled.div`
-  position: absolute;
+  position: fixed;
   z-index: 9999;
   pointer-events: none;
   @media (${props => props.theme.breakpoints.tablet}) {
