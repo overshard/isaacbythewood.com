@@ -1,9 +1,18 @@
 import React from "react";
 import styled, { keyframes } from "styled-components";
+import { TransitionGroup, CSSTransition } from "react-transition-group";
 
 import Page from "../components/page";
 
 const Contact = () => {
+  const chatMessages = [
+    "Hello!",
+    "I prefer people reach out to me via email.",
+    "If you'd like to get in touch with me about a new project I'm currently only working on open source stuff in my spare time.",
+    "If you're trying to contact me about a job opportunity I'm currently employed with VanNoppen Marketing.",
+    "If you just want to chat then I'm almost always on Discord!"
+  ];
+
   return (
     <Page title="Contact">
       <Background />
@@ -44,24 +53,45 @@ const Contact = () => {
           </ContactList>
         </GridRight>
       </Grid>
+      <Chat>
+        <TransitionGroup component={null}>
+          {chatMessages.map((message, index) => {
+            const transitionTimeout = (index + 1) * 2500;
+            const transitionDelay = index * 2500;
+            return (
+              <CSSTransition
+                key={index}
+                appear
+                timeout={{ appear: transitionTimeout }}
+                classNames="fade"
+              >
+                <ChatLine style={{ transitionDelay: `${transitionDelay}ms` }}>
+                  <ChatAvatar src="/static/images/avatar.jpg" />
+                  <ChatMessage>
+                    {message}
+                    <span>Isaac</span>
+                  </ChatMessage>
+                </ChatLine>
+              </CSSTransition>
+            );
+          })}
+        </TransitionGroup>
+      </Chat>
     </Page>
   );
 };
 
 export default Contact;
 
-const SlideOver = keyframes`
+const SlideUp = keyframes`
   from {
-    transform: translateX(-100vw);
+    opacity: 0;
+    transform: translateY(100px);
   }
-  50% {
-    transform: translateX(10vw);
-  }
-  70% {
-    transform: translateX(-5vw);
-  }
+
   to {
-    transform: translateX(0);
+    opacity: 1;
+    transform: translateY(0);
   }
 `;
 
@@ -86,40 +116,24 @@ const TransformLeft = keyframes`
 `;
 
 const Background = styled.div`
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
+  background-color: white;
   z-index: -2;
-  background: repeating-linear-gradient(
-      -45deg,
-      transparent 0,
-      transparent 25%,
-      dodgerblue 0,
-      dodgerblue 50%
-    ),
-    repeating-linear-gradient(
-      45deg,
-      transparent 0,
-      transparent 25%,
-      tomato 0,
-      tomato 50%
-    ),
-    repeating-linear-gradient(transparent 0, transparent 25%, gold 0, gold 50%),
-    tomato;
-  background-blend-mode: multiply;
-  background-size: 100px 100px;
 `;
 
 const Grid = styled.div`
   display: grid;
+  margin: 30px 0;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: auto;
   grid-template-areas: "left right";
   background-color: rgba(0, 0, 0, 0.9);
   transform: translateX(-100vw);
-  animation: ${SlideOver} 750ms 500ms forwards;
+  animation: ${SlideUp} 750ms 500ms forwards;
   @media (${props => props.theme.breakpoints.tablet}) {
     grid-template-columns: 1fr;
     grid-template-rows: auto auto;
@@ -216,5 +230,65 @@ const ContactLink = styled.a`
     &::before {
       animation: ${TransformRight} 300ms normal forwards;
     }
+  }
+`;
+
+const Chat = styled.div`
+  margin: 30px 0;
+  display: flex;
+  flex-direction: column;
+  height: 300px;
+`;
+
+const ChatLine = styled.div`
+  display: flex;
+  margin-bottom: 20px;
+  justify-content: center;
+  opacity: 0;
+
+  &.fade-appear {
+    opacity: 0;
+    transform: translateX(-100px);
+  }
+  &.fade-appear-active {
+    opacity: 1;
+    transform: translateX(0);
+    transition-duration: 250ms;
+    transition-property: opacity, transform;
+  }
+  &.fade-appear-done {
+    opacity: 1;
+  }
+`;
+
+const ChatMessage = styled.div`
+  font-size: 1.2em;
+  width: 50%;
+  padding: 10px 20px;
+  background-color: rgba(0, 0, 0, 0.7);
+  @media (${props => props.theme.breakpoints.mobile}) {
+    font-size: 1em;
+    width: 70%;
+  }
+
+  & span {
+    display: block;
+    font-size: 0.5em;
+    text-transform: uppercase;
+    margin-top: 5px;
+    color: rgba(255, 255, 255, 0.7);
+    letter-spacing: 1px;
+    font-weight: 800;
+  }
+`;
+
+const ChatAvatar = styled.img`
+  margin-right: 20px;
+  width: 50px;
+  height: 50px;
+  @media (${props => props.theme.breakpoints.mobile}) {
+    margin-right: 10px;
+    width: 40px;
+    height: 40px;
   }
 `;
