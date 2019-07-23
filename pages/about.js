@@ -44,7 +44,7 @@ export default About;
 
 const SlideLeft = keyframes`
   0% {
-    left: -100vw;
+    left: -100%;
   }
 
   40% {
@@ -56,7 +56,7 @@ const SlideLeft = keyframes`
   }
 
   100% {
-    left: 100vw;
+    left: 100%;
   }
 `;
 
@@ -112,6 +112,7 @@ const Paragraph = styled.p`
   font-size: 1.8em;
   font-weight: 300;
   color: black;
+  position: relative;
   &::before {
     content: "";
     display: block;
@@ -129,8 +130,11 @@ const Strong = styled.strong`
   font-weight: 700;
   position: relative;
   white-space: nowrap;
-  animation: ${FadeIn} 750ms normal forwards;
+  overflow: hidden;
+  animation: ${FadeIn} 1250ms normal forwards;
   color: rgba(0, 0, 0, 0);
+  display: inline-block;
+  vertical-align: top;
 
   &::before {
     content: "";
@@ -138,8 +142,8 @@ const Strong = styled.strong`
     width: 100%;
     height: 100%;
     background-color: black;
-    left: -100vw;
+    left: -100%;
     z-index: 1;
-    animation: ${SlideLeft} 750ms normal forwards;
+    animation: ${SlideLeft} 1250ms normal forwards;
   }
 `;
