@@ -36,7 +36,7 @@ const Index = () => {
       </TransitionGroup>
       <Description>Full-Stack Developer located in Morganton, NC</Description>
       <Name>Isaac</Name>
-      <Name style={{ animationDelay: "1100ms" }}>Bythewood</Name>
+      <Name style={{ animationDelay: "100ms" }}>Bythewood</Name>
     </Page>
   );
 };
@@ -136,7 +136,9 @@ const Description = styled.h1`
     background-color: ${props => props.theme.colors.blue};
   }
   opacity: 0;
-  animation: ${FadeStart} 750ms 1000ms forwards;
+  animation-name: ${FadeStart};
+  animation-duration: 1500ms;
+  animation-fill-mode: forwards;
   @media (${props => props.theme.breakpoints.mobile}) {
     font-size: 2em;
   }
@@ -155,7 +157,9 @@ const Name = styled.h2`
     ${props => props.theme.colors.purple} 100%
   );
   transform: translateX(-100vw);
-  animation: ${SlideStart} 750ms 1000ms forwards;
+  animation-name: ${SlideStart};
+  animation-duration: 750ms;
+  animation-fill-mode: forwards;
   @media (${props => props.theme.breakpoints.mobile}) {
     font-size: 1.5em;
   }
