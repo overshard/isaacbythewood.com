@@ -100,15 +100,13 @@ Projects.propTypes = {
 
 export default Projects;
 
-const SlideUp = keyframes`
-  from {
+const FadeIn = keyframes`
+  0% {
     opacity: 0;
-    transform: translateY(100px);
   }
 
-  to {
+  100% {
     opacity: 1;
-    transform: translateY(0);
   }
 `;
 
@@ -135,9 +133,10 @@ const Grid = styled.div`
 
 const GridColumn = styled.div`
   opacity: 0;
-  transform: translateY(-100px);
   padding-right: 20px;
-  animation: ${SlideUp} 500ms normal forwards;
+  animation-fill-mode: forwards;
+  animation-name: ${FadeIn};
+  animation-duration: 1000ms;
 `;
 
 const GridLeft = styled(GridColumn)`
