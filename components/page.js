@@ -24,7 +24,9 @@ const Page = props => {
           content={props.description ? props.description : defaultDescription}
         />
       </Head>
-      <Main>{props.children}</Main>
+      <Main gridArea={props.gridArea ? props.gridArea : "main"}>
+        {props.children}
+      </Main>
     </>
   );
 };
@@ -32,6 +34,7 @@ const Page = props => {
 Page.propTypes = {
   title: PropTypes.string,
   description: PropTypes.string,
+  gridArea: PropTypes.string,
   children: PropTypes.oneOfType([
     PropTypes.element,
     PropTypes.arrayOf(PropTypes.element)
@@ -41,5 +44,5 @@ Page.propTypes = {
 export default Page;
 
 const Main = styled.main`
-  grid-area: main;
+  ${props => props.gridArea && `grid-area:  ${props.gridArea};`}
 `;

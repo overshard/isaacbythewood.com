@@ -14,69 +14,73 @@ const Contact = () => {
   ];
 
   return (
-    <Page title="Contact">
+    <Page title="Contact" gridArea="1 / 1 / 4 / 7">
       <Background />
       <Grid>
         <GridLeft>
-          <Heading>Contact Me</Heading>
-          <ShoutOut>I love chatting</ShoutOut>
-          <ShoutOut>with other developers!</ShoutOut>
+          <ContactWrapper>
+            <Heading>Contact Me</Heading>
+            <ShoutOut>I love chatting</ShoutOut>
+            <ShoutOut>with other developers!</ShoutOut>
+            <ContactList>
+              <ContactKey>Email</ContactKey>
+              <ContactValue>
+                <ContactLink href="mailto:isaac@bythewood.me">
+                  isaac@bythewood.com
+                </ContactLink>
+              </ContactValue>
+              <ContactKey>Discord</ContactKey>
+              <ContactValue>
+                <ContactLink
+                  href="https://discordapp.com/"
+                  rel="noopener noreferrer"
+                  target="_blank"
+                >
+                  Overshard#4907
+                </ContactLink>
+              </ContactValue>
+              <ContactKey>GitHub</ContactKey>
+              <ContactValue>
+                <ContactLink
+                  href="https://github.com/overshard"
+                  rel="noopener noreferrer"
+                  target="_blank"
+                >
+                  /overshard
+                </ContactLink>
+              </ContactValue>
+            </ContactList>
+          </ContactWrapper>
         </GridLeft>
         <GridRight>
-          <ContactList>
-            <ContactKey>Email</ContactKey>
-            <ContactValue>
-              <ContactLink href="mailto:isaac@bythewood.me">
-                isaac@bythewood.com
-              </ContactLink>
-            </ContactValue>
-            <ContactKey>Discord</ContactKey>
-            <ContactValue>
-              <ContactLink
-                href="https://discordapp.com/"
-                rel="noopener noreferrer"
-                target="_blank"
-              >
-                Overshard#4907
-              </ContactLink>
-            </ContactValue>
-            <ContactKey>GitHub</ContactKey>
-            <ContactValue>
-              <ContactLink
-                href="https://github.com/overshard"
-                rel="noopener noreferrer"
-                target="_blank"
-              >
-                /overshard
-              </ContactLink>
-            </ContactValue>
-          </ContactList>
+          <Chat>
+            <TransitionGroup component={null}>
+              {chatMessages.map((message, index) => {
+                const transitionTimeout = (index + 2) * 2000;
+                const transitionDelay = (index + 1) * 2000;
+                return (
+                  <CSSTransition
+                    key={index}
+                    appear
+                    timeout={{ appear: transitionTimeout }}
+                    classNames="fade"
+                  >
+                    <ChatLine
+                      style={{ transitionDelay: `${transitionDelay}ms` }}
+                    >
+                      <ChatAvatar src="/static/images/avatar.jpg" />
+                      <ChatMessage>
+                        {message}
+                        <span>Isaac</span>
+                      </ChatMessage>
+                    </ChatLine>
+                  </CSSTransition>
+                );
+              })}
+            </TransitionGroup>
+          </Chat>
         </GridRight>
       </Grid>
-      <Chat>
-        <TransitionGroup component={null}>
-          {chatMessages.map((message, index) => {
-            const transitionTimeout = (index + 2) * 2000;
-            const transitionDelay = (index + 1) * 2000;
-            return (
-              <CSSTransition
-                key={index}
-                appear
-                timeout={{ appear: transitionTimeout }}
-                classNames="fade"
-              >
-                <ChatLine style={{ transitionDelay: `${transitionDelay}ms` }}>
-                  <ChatAvatar src="/static/images/avatar.jpg" />
-                  <ChatMessage>
-                    {message}
-                    <span>Isaac</span>
-                  </ChatMessage>
-                </ChatLine>
-              </CSSTransition>
-            );
-          })}
-        </TransitionGroup>
-      </Chat>
     </Page>
   );
 };
@@ -86,7 +90,7 @@ export default Contact;
 const SlideUp = keyframes`
   from {
     opacity: 0;
-    transform: translateY(100px);
+    transform: translateX(-100px);
   }
 
   to {
@@ -127,26 +131,32 @@ const Background = styled.div`
 
 const Grid = styled.div`
   display: grid;
-  margin: 30px 0;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 50vw 1fr;
   grid-template-rows: auto;
   grid-template-areas: "left right";
-  background-color: rgba(0, 0, 0, 0.9);
+  margin-right: 60px;
   transform: translateX(-100vw);
   animation: ${SlideUp} 750ms 500ms forwards;
   @media (${props => props.theme.breakpoints.tablet}) {
+    margin-right: 0;
     grid-template-columns: 1fr;
     grid-template-rows: auto auto;
-    margin-top: 80px;
+    margin-top: 60px;
   }
 `;
 
 const GridColumn = styled.div`
-  padding: 25px 35px;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  @media (${props => props.theme.breakpoints.tablet}) {
+    min-height: auto;
+  }
 `;
 
 const GridLeft = styled(GridColumn)`
   grid-area: left;
+  background-color: rgba(0, 0, 0, 0.9);
   @media (${props => props.theme.breakpoints.tablet}) {
     grid-column: 1;
     grid-row: 1;
@@ -161,13 +171,19 @@ const GridRight = styled(GridColumn)`
   }
 `;
 
+const ContactWrapper = styled.div`
+  padding-left: 60px;
+  @media (${props => props.theme.breakpoints.tablet}) {
+    min-height: auto;
+    padding-top: 30px;
+    padding-bottom: 30px;
+  }
+`;
+
 const Heading = styled.h1`
   font-size: 3em;
   margin-top: 10px;
-  margin-bottom: 60px;
-  @media (${props => props.theme.breakpoints.mobile}) {
-    margin-bottom: 10px;
-  }
+  margin-bottom: 20px;
   &::before {
     content: "";
     display: block;
@@ -175,6 +191,9 @@ const Heading = styled.h1`
     height: 5px;
     margin-bottom: 10px;
     background-color: ${props => props.theme.colors.blue};
+  }
+  @media (${props => props.theme.breakpoints.mobile}) {
+    margin-bottom: 10px;
   }
 `;
 
@@ -195,7 +214,10 @@ const ShoutOut = styled.h2`
   }
 `;
 
-const ContactList = styled.dl``;
+const ContactList = styled.dl`
+  padding-top: 30px;
+  clear: both;
+`;
 
 const ContactKey = styled.dt`
   text-transform: uppercase;
@@ -245,7 +267,6 @@ const Chat = styled.div`
   margin: 30px 0;
   display: flex;
   flex-direction: column;
-  height: 300px;
 `;
 
 const ChatLine = styled.div`
@@ -271,9 +292,9 @@ const ChatLine = styled.div`
 
 const ChatMessage = styled.div`
   font-size: 1.2em;
-  width: 50%;
   padding: 10px 20px;
   background-color: rgba(0, 0, 0, 0.7);
+  width: 65%;
   @media (${props => props.theme.breakpoints.mobile}) {
     font-size: 1em;
     width: 70%;
