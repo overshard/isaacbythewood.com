@@ -60,7 +60,7 @@ const SlideLeft = keyframes`
   }
 `;
 
-const FadeIn = keyframes`
+const QuickFadeIn = keyframes`
   0% {
     color: rgba(0, 0, 0, 0);
   }
@@ -71,6 +71,16 @@ const FadeIn = keyframes`
 
   50% {
     color: rgba(0, 0, 0, 1);
+  }
+
+  100% {
+    color: rgba(0, 0, 0, 1);
+  }
+`;
+
+const FadeIn = keyframes`
+  0% {
+    color: rgba(0, 0, 0, 0);
   }
 
   100% {
@@ -113,6 +123,11 @@ const Paragraph = styled.p`
   font-weight: 300;
   color: black;
   position: relative;
+  color: rgba(0, 0, 0, 0);
+  animation-name: ${FadeIn};
+  animation-delay: 1500ms;
+  animation-duration: 1000ms;
+  animation-fill-mode: forwards;
   &::before {
     content: "";
     display: block;
@@ -131,7 +146,7 @@ const Strong = styled.strong`
   position: relative;
   white-space: nowrap;
   overflow: hidden;
-  animation: ${FadeIn} 1250ms normal forwards;
+  animation: ${QuickFadeIn} 1250ms normal forwards;
   color: rgba(0, 0, 0, 0);
   display: inline-block;
   vertical-align: top;
