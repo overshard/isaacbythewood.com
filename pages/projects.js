@@ -38,7 +38,7 @@ const Projects = ({ timeliteCommits, timestrapCommits }) => {
   }
 
   return (
-    <Page title="Projects">
+    <Page title="Projects" description="Some of my most recent projects.">
       <Background />
       <Grid>
         <GridLeft>

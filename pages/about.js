@@ -17,7 +17,7 @@ const About = () => {
   ];
 
   return (
-    <Page title="About">
+    <Page title="About" description="A brief professional history of myself.">
       <Background />
       <Words>
         {words.map(word => {

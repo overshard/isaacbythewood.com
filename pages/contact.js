@@ -14,7 +14,11 @@ const Contact = () => {
   ];
 
   return (
-    <Page title="Contact" gridArea="1 / 1 / 4 / 7">
+    <Page
+      title="Contact"
+      description="How to get in contact with me."
+      gridArea="1 / 1 / 4 / 7"
+    >
       <Background />
       <Grid>
         <GridLeft>
