@@ -40,6 +40,19 @@ const Projects = ({ timeliteCommits, timestrapCommits }) => {
   return (
     <Page title="Projects" description="Some of my most recent projects.">
       <Background />
+      <Heading>Side Projects</Heading>
+      <Paragraph>
+        A probably not entirely up-to-date list of my current side projects...
+        There is plenty more to see on{" "}
+        <a
+          href="https://github.com/overshard"
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          my GitHub account
+        </a>{" "}
+        if you're interested.
+      </Paragraph>
       <Grid>
         <GridLeft>
           <ProjectHeading>Timelite</ProjectHeading>
@@ -110,6 +123,26 @@ const FadeIn = keyframes`
   }
 `;
 
+const TransformRight = keyframes`
+  from {
+    transform: scaleX(0);
+  }
+
+  to {
+    transform: scaleX(1);
+  }
+`;
+
+const TransformLeft = keyframes`
+  from {
+    transform: scaleX(1);
+  }
+
+  to {
+    transform: scaleX(0);
+  }
+`;
+
 const Background = styled.div`
   position: absolute;
   top: 0;
@@ -118,6 +151,61 @@ const Background = styled.div`
   bottom: 0;
   background-color: white;
   z-index: -2;
+`;
+
+const Heading = styled.h1`
+  font-weight: 700;
+  margin-top: 60px;
+  margin-bottom: 20px;
+  font-size: 2.5em;
+  color: black;
+  &::before {
+    content: "";
+    display: block;
+    width: 50px;
+    height: 5px;
+    margin-bottom: 20px;
+    background-color: ${props => props.theme.colors.blue};
+  }
+`;
+
+const Paragraph = styled.p`
+  font-size: 1.5em;
+  margin-top: 0;
+  margin-bottom: 20px;
+  font-weight: 300;
+  color: black;
+
+  a {
+    color: black;
+    text-decoration: none;
+    position: relative;
+    &::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 2px;
+      background: rgba(0, 0, 0, 1);
+      transform-origin: left;
+      animation: ${TransformLeft} 300ms normal forwards;
+    }
+    &::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 2px;
+      background: rgba(0, 0, 0, 0.2);
+    }
+    &:hover {
+      &::before {
+        animation: ${TransformRight} 300ms normal forwards;
+      }
+    }
+  }
 `;
 
 const Grid = styled.div`
@@ -160,20 +248,12 @@ const ProjectHeading = styled.h1`
   font-weight: 700;
   margin-top: 60px;
   margin-bottom: 20px;
-  font-size: 2.5em;
+  font-size: 2em;
   color: black;
-  &::before {
-    content: "";
-    display: block;
-    width: 75px;
-    height: 5px;
-    margin-bottom: 20px;
-    background-color: ${props => props.theme.colors.blue};
-  }
 `;
 
 const ProjectParagraph = styled.p`
-  font-size: 1.6em;
+  font-size: 1.5em;
   margin-top: 0;
   margin-bottom: 20px;
   font-weight: 300;
