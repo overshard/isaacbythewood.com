@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useState, useEffect, useRef } from "react";
 import styled, { keyframes } from "styled-components";
+import { TransitionGroup, CSSTransition } from "react-transition-group";
 
 import Page from "../components/page";
 
 const About = () => {
-  const words = [
+  const [words, setWords] = useState([
     "DevOps",
     "Social Media",
     "SEO",
@@ -14,15 +15,62 @@ const About = () => {
     "Developer",
     "SysAdmin",
     "Full-Stack"
-  ];
+  ]);
+  const wordsRef = useRef(words);
+  wordsRef.current = words;
+
+  useEffect(() => {
+    const getRandomWordIndex = () => {
+      return Math.floor(Math.random() * wordsRef.current.length);
+    };
+
+    const wordsInterval = setInterval(() => {
+      let firstWordIndex = getRandomWordIndex();
+      let secondWordIndex = getRandomWordIndex();
+      while (firstWordIndex === secondWordIndex) {
+        firstWordIndex = getRandomWordIndex();
+        secondWordIndex = getRandomWordIndex();
+      }
+      const firstWord = wordsRef.current[firstWordIndex];
+      const secondWord = wordsRef.current[secondWordIndex];
+      setWords(
+        wordsRef.current.filter((word, index) => {
+          return index != firstWordIndex && index != secondWordIndex;
+        })
+      );
+      setTimeout(() => {
+        let newWords = [...wordsRef.current];
+        newWords.splice(secondWordIndex, 0, firstWord);
+        newWords.splice(firstWordIndex, 0, secondWord);
+        setWords(newWords);
+      }, 1000);
+    }, 4000);
+
+    return () => {
+      clearInterval(wordsInterval);
+    };
+  }, []);
 
   return (
     <Page title="About" description="A brief professional history of myself.">
       <Background />
       <Words>
-        {words.map(word => {
-          return <Word key={word}>{word}</Word>;
-        })}
+        <TransitionGroup component={null}>
+          {words.map(word => {
+            return (
+              <CSSTransition
+                key={word}
+                timeout={1000}
+                appear
+                classNames="transition"
+              >
+                <Word>
+                  <WordText>{word}</WordText>
+                </Word>
+              </CSSTransition>
+            );
+          })}
+        </TransitionGroup>
       </Words>
       <Paragraph>
         I am a <Strong>full-stack developer</Strong> meaning I spend way too
@@ -115,7 +163,55 @@ const Words = styled.div`
 
 const Word = styled.h2`
   margin: 0;
+
+  &.transition-appear-active,
+  &.transition-enter-active {
+    & > span {
+      animation-name: ${QuickFadeIn};
+      animation-duration: 1000ms;
+      &::before {
+        animation-name: ${SlideLeft};
+        animation-duration: 1000ms;
+      }
+    }
+  }
+  &.transition-exit-active {
+    & > span {
+      animation-name: ${QuickFadeIn};
+      animation-duration: 1000ms;
+      animation-direction: reverse;
+      &::before {
+        animation-name: ${SlideLeft};
+        animation-duration: 1000ms;
+        animation-direction: reverse;
+      }
+    }
+  }
+  &.transition-appear-done,
+  &.transition-enter-done {
+    & > span {
+      color: rgba(0, 0, 0, 1);
+    }
+  }
+`;
+
+const WordText = styled.span`
+  position: relative;
+  white-space: nowrap;
   overflow: hidden;
+  color: rgba(0, 0, 0, 0);
+  display: inline-block;
+  vertical-align: top;
+
+  &::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    left: -100%;
+    z-index: 1;
+  }
 `;
 
 const Paragraph = styled.p`
