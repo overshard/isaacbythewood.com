@@ -5,7 +5,7 @@ import "isomorphic-unfetch";
 
 import Page from "../components/page";
 
-const Projects = ({ timeliteCommits, timestrapCommits }) => {
+const Code = ({ timeliteCommits, timestrapCommits }) => {
   let timeliteLatest,
     timestrapLatest = null;
 
@@ -38,9 +38,9 @@ const Projects = ({ timeliteCommits, timestrapCommits }) => {
   }
 
   return (
-    <Page title="Projects" description="Some of my most recent projects.">
+    <Page title="Code" description="Some of my most recent coding projects.">
       <Background />
-      <Heading>Side Projects</Heading>
+      <Heading>Code</Heading>
       <Paragraph>
         A probably not entirely up-to-date list of my current side projects...
         There is plenty more to see on{" "}
@@ -51,7 +51,7 @@ const Projects = ({ timeliteCommits, timestrapCommits }) => {
         >
           my GitHub account
         </a>{" "}
-        if you're interested.
+        and generally around the internet if you are interested.
       </Paragraph>
       <Grid>
         <GridLeft>
@@ -91,7 +91,7 @@ const Projects = ({ timeliteCommits, timestrapCommits }) => {
   );
 };
 
-Projects.getInitialProps = async () => {
+Code.getInitialProps = async () => {
   const timestrapCommitsFetch = await fetch(
     "https://api.github.com/repos/overshard/timestrap/commits"
   );
@@ -106,12 +106,12 @@ Projects.getInitialProps = async () => {
   };
 };
 
-Projects.propTypes = {
+Code.propTypes = {
   timeliteCommits: PropTypes.oneOfType([PropTypes.object, PropTypes.array]),
   timestrapCommits: PropTypes.oneOfType([PropTypes.object, PropTypes.array])
 };
 
-export default Projects;
+export default Code;
 
 const FadeIn = keyframes`
   0% {

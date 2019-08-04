@@ -16,11 +16,14 @@ const Sidebar = ({ router }) => {
         case "/about":
           setCurrent("002");
           break;
-        case "/projects":
+        case "/code":
           setCurrent("003");
           break;
-        case "/contact":
+        case "/art":
           setCurrent("004");
+          break;
+        case "/contact":
+          setCurrent("005");
           break;
       }
     };
@@ -47,9 +50,9 @@ const Sidebar = ({ router }) => {
             <NavTooltip>About</NavTooltip>
           </NavLink>
         </Link>
-        <Link href="/projects" passHref>
-          <NavLink active={router.pathname === "/projects"}>
-            <NavTooltip>Projects</NavTooltip>
+        <Link href="/code" passHref>
+          <NavLink active={router.pathname === "/code"}>
+            <NavTooltip>Code</NavTooltip>
           </NavLink>
         </Link>
         <Link href="/art" passHref>
