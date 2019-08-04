@@ -14,7 +14,9 @@ const Art = () => {
         Autonomously generated entities that are observed to have qualities in a
         group that they do not have on their own.
       </Paragraph>
-      <Subheading>Constellations</Subheading>
+      <Subheading>
+        <span>000</span> Constellations
+      </Subheading>
       <Paragraph>
         Moving stars, circles, on a canvas that attach to nearby stars, with a
         line, to generate constellations. Line opacity is based on star
@@ -30,7 +32,9 @@ const Art = () => {
       >
         See the Code
       </Link>
-      <Subheading>Mandelbrot</Subheading>
+      <Subheading>
+        <span>001</span> Mandelbrot
+      </Subheading>
       <Paragraph>Fractals generated using Mandelbrot sets.</Paragraph>
       <ArtContainer>
         <Mandelbrot />
