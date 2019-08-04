@@ -23,11 +23,25 @@ const Art = () => {
       <ArtContainer>
         <Constellations options={{ numStars: 50 }} />
       </ArtContainer>
+      <Link
+        href="https://github.com/overshard/isaacbythewood.com/blob/master/components/constellations.js"
+        rel="noopener noreferrer"
+        target="_blank"
+      >
+        See the Code
+      </Link>
       <Subheading>Mandelbrot</Subheading>
       <Paragraph>Fractals generated using Mandelbrot sets.</Paragraph>
       <ArtContainer>
         <Mandelbrot />
       </ArtContainer>
+      <Link
+        href="https://github.com/overshard/isaacbythewood.com/blob/master/components/mandelbrot.js"
+        rel="noopener noreferrer"
+        target="_blank"
+      >
+        See the Code
+      </Link>
     </Page>
   );
 };
@@ -82,4 +96,28 @@ const ArtContainer = styled.div`
   max-height: 100vh;
   background: black;
   margin-bottom: 20px;
+`;
+
+const Link = styled.a`
+  padding: 10px 15px;
+  font-size: 1.2em;
+  text-decoration: none;
+  background-color: black;
+  margin-bottom: 20px;
+  font-weight: 700;
+  text-transform: uppercase;
+  display: inline-block;
+  letter-spacing: 2px;
+  color: white;
+  background-image: linear-gradient(
+    to right,
+    ${props => props.theme.colors.blue} 0,
+    ${props => props.theme.colors.purple} 100%
+  );
+  transform: scale(1);
+  transition-duration: 250ms;
+  transition-property: transform;
+  &:hover {
+    transform: scale(1.2);
+  }
 `;
