@@ -84,6 +84,21 @@ const Subheading = styled.h2`
   margin-bottom: 20px;
   font-size: 2em;
   color: black;
+  position: relative;
+  & > span {
+    font-family: monospace;
+    font-size: 0.8em;
+    padding: 3px 9px;
+    background-color: black;
+    color: white;
+    position: absolute;
+    right: 100%;
+    margin-right: 10px;
+    top: 20%;
+    @media (${props => props.theme.breakpoints.tablet}) {
+      display: none;
+    }
+  }
 `;
 
 const Paragraph = styled.p`
