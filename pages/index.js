@@ -29,7 +29,7 @@ const Index = () => {
     const resizeCanvas = () => {
       setCanvasSize({
         width: window.innerWidth,
-        height: window.innerHeight * 0.7
+        height: window.innerHeight
       });
     };
     resizeCanvas();
@@ -45,7 +45,7 @@ const Index = () => {
     while (numStars < maxNumStars) {
       const randomPoint = [
         window.innerWidth * Math.random(),
-        window.innerHeight * 0.7 * Math.random()
+        window.innerHeight * Math.random()
       ];
       stars.push({
         loc: randomPoint,
@@ -58,7 +58,7 @@ const Index = () => {
     let starsAnimationFrame = null;
     const drawStars = () => {
       // Clear the canvas
-      ctx.clearRect(0, 0, window.innerWidth, window.innerHeight * 0.7);
+      ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
 
       // Draw the canvas
       stars.map(star => {
@@ -98,7 +98,7 @@ const Index = () => {
         if (star.loc[0] < 0) star.dir[0] = "+";
         else if (star.loc[0] > window.innerWidth) star.dir[0] = "-";
         if (star.loc[1] < 0) star.dir[1] = "+";
-        else if (star.loc[1] > window.innerHeight * 0.7) star.dir[1] = "-";
+        else if (star.loc[1] > window.innerHeight) star.dir[1] = "-";
 
         // Set new star location with direction added to it
         star.loc[0] += parseFloat(`${star.dir[0]}0.5`);
@@ -183,9 +183,9 @@ const Canvas = styled.canvas`
   top: 0;
   left: 0;
   right: 0;
+  bottom: 0;
   width: 100%;
-  height: 70vh;
-  bottom: 30vh;
+  height: 100vh;
   z-index: -2;
 `;
 
