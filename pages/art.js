@@ -3,6 +3,7 @@ import styled, { keyframes } from "styled-components";
 
 import Page from "../components/page";
 import Constellations from "../components/constellations";
+import Mandelbrot from "../components/mandelbrot";
 
 const Art = () => {
   return (
@@ -19,9 +20,14 @@ const Art = () => {
         line, to generate constellations. Line opacity is based on star
         distance.
       </Paragraph>
-      <ConstellationsContainer>
+      <ArtContainer>
         <Constellations options={{ numStars: 50 }} />
-      </ConstellationsContainer>
+      </ArtContainer>
+      <Subheading>Mandelbrot</Subheading>
+      <Paragraph>Fractals generated using Mandelbrot sets.</Paragraph>
+      <ArtContainer>
+        <Mandelbrot />
+      </ArtContainer>
     </Page>
   );
 };
@@ -70,9 +76,10 @@ const Paragraph = styled.p`
   color: black;
 `;
 
-const ConstellationsContainer = styled.div`
+const ArtContainer = styled.div`
   width: 100%;
-  height: 400px;
+  height: 500px;
+  max-height: 100vh;
   background: black;
   margin-bottom: 20px;
 `;
