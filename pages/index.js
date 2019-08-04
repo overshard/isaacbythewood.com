@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import styled, { keyframes } from "styled-components";
 import { TransitionGroup, CSSTransition } from "react-transition-group";
 
@@ -7,17 +7,122 @@ import Page from "../components/page";
 const Index = () => {
   const words = ["Developer", "SysAdmin", "DevOps", "Consultant"];
   const [currentWords, setCurrentWord] = useState([words[0]]);
+  const currentWordsRef = useRef(currentWords);
+  currentWordsRef.current = currentWords;
+  const [canvasSize, setCanvasSize] = useState({ width: 1280, height: 800 });
+  const canvasSizeRef = useRef(canvasSize);
+  canvasSizeRef.current = canvasSize;
+  const canvas = useRef(null);
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      let nextWordIndex = words.indexOf(currentWords[0]) + 1;
+    // Swap words interval
+    const wordsInterval = setInterval(() => {
+      let nextWordIndex = words.indexOf(currentWordsRef.current[0]) + 1;
       if (nextWordIndex < words.length) setCurrentWord([words[nextWordIndex]]);
       else setCurrentWord([words[0]]);
     }, 2000);
-    return () => {
-      clearInterval(interval);
+
+    // Set canvas on resize
+    const resizeCanvas = () => {
+      setCanvasSize({
+        width: window.innerWidth,
+        height: window.innerHeight * 0.7
+      });
     };
-  });
+    resizeCanvas();
+    window.addEventListener("resize", resizeCanvas);
+
+    // Get our canvas and draw stars
+    const ctx = canvas.current.getContext("2d");
+
+    // Generate all stars
+    let stars = [];
+    let numStars = 0;
+    const maxNumStars = 100;
+    while (numStars < maxNumStars) {
+      const randomPoint = [
+        canvasSizeRef.current.width * Math.random(),
+        canvasSizeRef.current.height * Math.random()
+      ];
+      stars.push({
+        loc: randomPoint,
+        dir: [Math.random() > 0.5 ? "+" : "-", Math.random() > 0.5 ? "+" : "-"]
+      });
+      numStars++;
+    }
+
+    // Create draw for use in animation frame rerendering
+    const draw = () => {
+      // Clear the canvas
+      ctx.clearRect(
+        0,
+        0,
+        canvasSizeRef.current.width,
+        canvasSizeRef.current.height
+      );
+
+      // Draw the canvas
+      stars.map(star => {
+        // Generate stars
+        ctx.beginPath();
+        ctx.arc(...star.loc, 2, 0, 2 * Math.PI);
+        ctx.fillStyle = "rgb(255, 255, 255)";
+        ctx.fill();
+        ctx.closePath();
+        // Generate lines to close stars
+        const closeStars = stars.filter(closeStar => {
+          return (
+            Math.hypot(
+              star.loc[0] - closeStar.loc[0],
+              star.loc[1] - closeStar.loc[1]
+            ) < 100
+          );
+        });
+        closeStars.map(closeStar => {
+          ctx.beginPath();
+          ctx.moveTo(...star.loc);
+          ctx.lineTo(...closeStar.loc);
+          ctx.strokeStyle = `rgba(255, 255, 255, ${(100 -
+            Math.hypot(
+              star.loc[0] - closeStar.loc[0],
+              star.loc[1] - closeStar.loc[1]
+            )) /
+            100})`;
+          ctx.stroke();
+          ctx.closePath();
+        });
+      });
+
+      // Update star locations
+      stars = stars.map(star => {
+        // Change star direction when hitting the side of the canvas
+        if (star.loc[0] < 0) star.dir[0] = "+";
+        else if (star.loc[0] > canvasSizeRef.current.width) star.dir[0] = "-";
+        if (star.loc[1] < 0) star.dir[1] = "+";
+        else if (star.loc[1] > canvasSizeRef.current.height) star.dir[1] = "-";
+
+        // Set new star location with direction added to it
+        star.loc[0] += parseFloat(`${star.dir[0]}0.5`);
+        star.loc[1] += parseFloat(`${star.dir[1]}0.5`);
+
+        // Return star to back to array with new dir and loc
+        return star;
+      });
+
+      window.requestAnimationFrame(draw);
+    };
+
+    window.requestAnimationFrame(draw);
+
+    return () => {
+      // Clear words interval
+      clearInterval(wordsInterval);
+      // Clear window resizeing canvas
+      window.removeEventListener("resize", resizeCanvas);
+      // Cancel star drawing animation frame rendering
+      window.cancelAnimationFrame(draw);
+    };
+  }, []);
 
   return (
     <Page title="Full-Stack Developer located in Morganton, NC">
@@ -25,6 +130,7 @@ const Index = () => {
         src="/static/images/astronomy-beautiful-clouds-355465.jpg"
         alt="Picture of the night's sky with stars."
       />
+      <Canvas ref={canvas} {...canvasSize} />
       <TransitionGroup component={Words}>
         {currentWords.map(word => {
           return (
@@ -69,8 +175,15 @@ const Background = styled.img`
   bottom: 0;
   width: 100%;
   height: 100vh;
-  z-index: -2;
+  z-index: -3;
   object-fit: cover;
+`;
+
+const Canvas = styled.canvas`
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -2;
 `;
 
 const Words = styled.div`
