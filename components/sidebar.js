@@ -11,19 +11,19 @@ const Sidebar = ({ router }) => {
     const handleRouteChange = url => {
       switch (url) {
         case "/":
-          setCurrent("001");
+          setCurrent("000");
           break;
         case "/about":
-          setCurrent("002");
+          setCurrent("001");
           break;
         case "/code":
-          setCurrent("003");
+          setCurrent("002");
           break;
         case "/art":
-          setCurrent("004");
+          setCurrent("003");
           break;
         case "/contact":
-          setCurrent("005");
+          setCurrent("004");
           break;
       }
     };
