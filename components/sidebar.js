@@ -52,6 +52,11 @@ const Sidebar = ({ router }) => {
             <NavTooltip>Projects</NavTooltip>
           </NavLink>
         </Link>
+        <Link href="/art" passHref>
+          <NavLink active={router.pathname === "/art"}>
+            <NavTooltip>Art</NavTooltip>
+          </NavLink>
+        </Link>
         <Link href="/contact" passHref>
           <NavLink active={router.pathname === "/contact"}>
             <NavTooltip>Contact</NavTooltip>
@@ -172,8 +177,8 @@ const NavLink = styled.a`
     background-color: rgba(0, 0, 0, 1);
   }
   @media (${props => props.theme.breakpoints.tablet}) {
-    width: 50px;
-    height: 10px;
+    width: 35px;
+    height: 15px;
   }
 `;
 

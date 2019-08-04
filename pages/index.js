@@ -18,7 +18,7 @@ const Index = () => {
       if (nextWordIndex < words.length) setCurrentWord([words[nextWordIndex]]);
       else setCurrentWord([words[0]]);
     }, 2000);
-    // Clear words interval on component dismount
+    // Clear words interval and constellation resize on component dismount
     return () => {
       clearInterval(wordsInterval);
     };
@@ -30,7 +30,9 @@ const Index = () => {
         src="/static/images/astronomy-beautiful-clouds-355465.jpg"
         alt="Picture of the night's sky with stars."
       />
-      <Constellations />
+      <ConstellationsContainer>
+        <Constellations options={{ numStars: 150 }} />
+      </ConstellationsContainer>
       <TransitionGroup component={Words}>
         {currentWords.map(word => {
           return (
@@ -77,6 +79,17 @@ const Background = styled.img`
   height: 100vh;
   z-index: -3;
   object-fit: cover;
+`;
+
+const ConstellationsContainer = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: -2;
 `;
 
 const Words = styled.div`

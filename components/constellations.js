@@ -1,26 +1,26 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import styled from "styled-components";
+import PropTypes from "prop-types";
 
-const Constellations = () => {
-  const [canvasSize, setCanvasSize] = useState({
-    width: 1280,
-    height: 800
-  });
-  const canvasSizeRef = useRef(canvasSize);
-  canvasSizeRef.current = canvasSize;
+const Constellations = ({ options }) => {
   const canvas = useRef(null);
 
   useEffect(() => {
-    // Set canvas on resize
+    // Get the canvas for resizing
+    const cvs = canvas.current;
+
+    // Size canvas to the parent
+    cvs.width = cvs.offsetWidth;
+    cvs.height = cvs.offsetHeight;
+
+    // Add new event listener for resize the canvas on window resize
     const resizeCanvas = () => {
-      setCanvasSize({
-        width: window.innerWidth,
-        height: window.innerHeight
-      });
+      cvs.width = cvs.offsetWidth;
+      cvs.height = cvs.offsetHeight;
     };
-    resizeCanvas();
     window.addEventListener("resize", resizeCanvas);
-    // Stop listening for resizes when dismounting component
+
+    // Clean up event listener when dismounting the component
     return () => {
       window.removeEventListener("resize", resizeCanvas);
     };
@@ -28,16 +28,17 @@ const Constellations = () => {
 
   useEffect(() => {
     // Get our canvas and draw stars
-    const ctx = canvas.current.getContext("2d");
+    const cvs = canvas.current;
+    const ctx = cvs.getContext("2d");
 
     // Generate all stars
     let stars = [];
     let numStars = 0;
-    const maxNumStars = 150;
+    const maxNumStars = options.numStars;
     while (numStars < maxNumStars) {
       const randomPoint = [
-        window.innerWidth * Math.random(),
-        window.innerHeight * Math.random()
+        cvs.width * Math.random(),
+        cvs.height * Math.random()
       ];
       stars.push({
         loc: randomPoint,
@@ -50,7 +51,7 @@ const Constellations = () => {
     let starsAnimationFrame = null;
     const drawStars = () => {
       // Clear the canvas
-      ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
+      ctx.clearRect(0, 0, cvs.width, cvs.height);
 
       // Draw the canvas
       stars.map(star => {
@@ -88,9 +89,9 @@ const Constellations = () => {
       stars = stars.map(star => {
         // Change star direction when hitting the side of the canvas
         if (star.loc[0] < 0) star.dir[0] = "+";
-        else if (star.loc[0] > window.innerWidth) star.dir[0] = "-";
+        else if (star.loc[0] > cvs.width) star.dir[0] = "-";
         if (star.loc[1] < 0) star.dir[1] = "+";
-        else if (star.loc[1] > window.innerHeight) star.dir[1] = "-";
+        else if (star.loc[1] > cvs.height) star.dir[1] = "-";
 
         // Set new star location with direction added to it
         star.loc[0] += parseFloat(`${star.dir[0]}0.5`);
@@ -103,6 +104,7 @@ const Constellations = () => {
       starsAnimationFrame = window.requestAnimationFrame(drawStars);
     };
 
+    // Start the initial drawing and our recursion will take it from there
     starsAnimationFrame = window.requestAnimationFrame(drawStars);
 
     // Cancel star drawing animation frame rendering when dismounting component
@@ -111,18 +113,16 @@ const Constellations = () => {
     };
   }, []);
 
-  return <Canvas ref={canvas} {...canvasSize} />;
+  return <Canvas ref={canvas} />;
+};
+
+Constellations.propTypes = {
+  options: PropTypes.object
 };
 
 export default Constellations;
 
 const Canvas = styled.canvas`
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
   width: 100%;
-  height: 100vh;
-  z-index: -2;
+  height: 100%;
 `;
