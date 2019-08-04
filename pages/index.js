@@ -52,7 +52,7 @@ const Index = () => {
     }
 
     // Create draw for use in animation frame rerendering
-    const draw = () => {
+    const drawStars = () => {
       // Clear the canvas
       ctx.clearRect(
         0,
@@ -109,10 +109,10 @@ const Index = () => {
         return star;
       });
 
-      window.requestAnimationFrame(draw);
+      window.requestAnimationFrame(drawStars);
     };
 
-    window.requestAnimationFrame(draw);
+    window.requestAnimationFrame(drawStars);
 
     return () => {
       // Clear words interval
@@ -120,7 +120,7 @@ const Index = () => {
       // Clear window resizeing canvas
       window.removeEventListener("resize", resizeCanvas);
       // Cancel star drawing animation frame rendering
-      window.cancelAnimationFrame(draw);
+      window.cancelAnimationFrame(drawStars);
     };
   }, []);
 
