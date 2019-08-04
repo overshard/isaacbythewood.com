@@ -44,15 +44,16 @@ const Mandelbrot = () => {
   useEffect(() => {
     // Get the canvas for resizing
     const cvs = canvas.current;
+    const dpi = 2;
 
     // Size canvas to the parent, increase DPI
-    cvs.width = cvs.offsetWidth * 2;
-    cvs.height = cvs.offsetHeight * 2;
+    cvs.width = cvs.offsetWidth * dpi;
+    cvs.height = cvs.offsetHeight * dpi;
 
     // Add new event listener for resize the canvas on window resize
     const resizeCanvas = () => {
-      cvs.width = cvs.offsetWidth;
-      cvs.height = cvs.offsetHeight;
+      cvs.width = cvs.offsetWidth * dpi;
+      cvs.height = cvs.offsetHeight * dpi;
       drawMandelbrot();
     };
     window.addEventListener("resize", resizeCanvas);
