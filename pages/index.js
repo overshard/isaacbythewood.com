@@ -3,19 +3,13 @@ import styled, { keyframes } from "styled-components";
 import { TransitionGroup, CSSTransition } from "react-transition-group";
 
 import Page from "../components/page";
+import Constellations from "../components/constellations";
 
 const Index = () => {
   const words = ["Developer", "SysAdmin", "DevOps", "Consultant"];
   const [currentWords, setCurrentWord] = useState([words[0]]);
   const currentWordsRef = useRef(currentWords);
   currentWordsRef.current = currentWords;
-  const [canvasSize, setCanvasSize] = useState({
-    width: 1280,
-    height: 800
-  });
-  const canvasSizeRef = useRef(canvasSize);
-  canvasSizeRef.current = canvasSize;
-  const canvas = useRef(null);
 
   useEffect(() => {
     // Swap words interval
@@ -24,102 +18,9 @@ const Index = () => {
       if (nextWordIndex < words.length) setCurrentWord([words[nextWordIndex]]);
       else setCurrentWord([words[0]]);
     }, 2000);
-
-    // Set canvas on resize
-    const resizeCanvas = () => {
-      setCanvasSize({
-        width: window.innerWidth,
-        height: window.innerHeight
-      });
-    };
-    resizeCanvas();
-    window.addEventListener("resize", resizeCanvas);
-
-    // Get our canvas and draw stars
-    const ctx = canvas.current.getContext("2d");
-
-    // Generate all stars
-    let stars = [];
-    let numStars = 0;
-    const maxNumStars = 150;
-    while (numStars < maxNumStars) {
-      const randomPoint = [
-        window.innerWidth * Math.random(),
-        window.innerHeight * Math.random()
-      ];
-      stars.push({
-        loc: randomPoint,
-        dir: [Math.random() > 0.5 ? "+" : "-", Math.random() > 0.5 ? "+" : "-"]
-      });
-      numStars++;
-    }
-
-    // Create draw for use in animation frame rerendering
-    let starsAnimationFrame = null;
-    const drawStars = () => {
-      // Clear the canvas
-      ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
-
-      // Draw the canvas
-      stars.map(star => {
-        // Generate stars
-        ctx.beginPath();
-        ctx.arc(...star.loc, 2, 0, 2 * Math.PI);
-        ctx.fillStyle = "rgb(255, 255, 255)";
-        ctx.fill();
-        ctx.closePath();
-        // Generate lines to close stars
-        const closeStars = stars.filter(closeStar => {
-          return (
-            Math.hypot(
-              star.loc[0] - closeStar.loc[0],
-              star.loc[1] - closeStar.loc[1]
-            ) < 100
-          );
-        });
-        closeStars.map(closeStar => {
-          ctx.beginPath();
-          ctx.moveTo(...star.loc);
-          ctx.lineTo(...closeStar.loc);
-          ctx.strokeStyle = `rgba(255, 255, 255, ${(100 -
-            Math.hypot(
-              star.loc[0] - closeStar.loc[0],
-              star.loc[1] - closeStar.loc[1]
-            )) /
-            100})`;
-          ctx.stroke();
-          ctx.closePath();
-        });
-      });
-
-      // Update star locations
-      stars = stars.map(star => {
-        // Change star direction when hitting the side of the canvas
-        if (star.loc[0] < 0) star.dir[0] = "+";
-        else if (star.loc[0] > window.innerWidth) star.dir[0] = "-";
-        if (star.loc[1] < 0) star.dir[1] = "+";
-        else if (star.loc[1] > window.innerHeight) star.dir[1] = "-";
-
-        // Set new star location with direction added to it
-        star.loc[0] += parseFloat(`${star.dir[0]}0.5`);
-        star.loc[1] += parseFloat(`${star.dir[1]}0.5`);
-
-        // Return star to back to array with new dir and loc
-        return star;
-      });
-
-      starsAnimationFrame = window.requestAnimationFrame(drawStars);
-    };
-
-    starsAnimationFrame = window.requestAnimationFrame(drawStars);
-
+    // Clear words interval on component dismount
     return () => {
-      // Clear words interval
       clearInterval(wordsInterval);
-      // Clear window resizeing canvas
-      window.removeEventListener("resize", resizeCanvas);
-      // Cancel star drawing animation frame rendering
-      window.cancelAnimationFrame(starsAnimationFrame);
     };
   }, []);
 
@@ -129,7 +30,7 @@ const Index = () => {
         src="/static/images/astronomy-beautiful-clouds-355465.jpg"
         alt="Picture of the night's sky with stars."
       />
-      <Canvas ref={canvas} {...canvasSize} />
+      <Constellations />
       <TransitionGroup component={Words}>
         {currentWords.map(word => {
           return (
@@ -176,17 +77,6 @@ const Background = styled.img`
   height: 100vh;
   z-index: -3;
   object-fit: cover;
-`;
-
-const Canvas = styled.canvas`
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  width: 100%;
-  height: 100vh;
-  z-index: -2;
 `;
 
 const Words = styled.div`
