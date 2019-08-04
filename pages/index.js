@@ -9,7 +9,10 @@ const Index = () => {
   const [currentWords, setCurrentWord] = useState([words[0]]);
   const currentWordsRef = useRef(currentWords);
   currentWordsRef.current = currentWords;
-  const [canvasSize, setCanvasSize] = useState({ width: 1280, height: 800 });
+  const [canvasSize, setCanvasSize] = useState({
+    width: 1280,
+    height: 800
+  });
   const canvasSizeRef = useRef(canvasSize);
   canvasSizeRef.current = canvasSize;
   const canvas = useRef(null);
@@ -38,11 +41,11 @@ const Index = () => {
     // Generate all stars
     let stars = [];
     let numStars = 0;
-    const maxNumStars = 100;
+    const maxNumStars = 150;
     while (numStars < maxNumStars) {
       const randomPoint = [
-        canvasSizeRef.current.width * Math.random(),
-        canvasSizeRef.current.height * Math.random()
+        window.innerWidth * Math.random(),
+        window.innerHeight * 0.7 * Math.random()
       ];
       stars.push({
         loc: randomPoint,
@@ -52,14 +55,10 @@ const Index = () => {
     }
 
     // Create draw for use in animation frame rerendering
+    let starsAnimationFrame = null;
     const drawStars = () => {
       // Clear the canvas
-      ctx.clearRect(
-        0,
-        0,
-        canvasSizeRef.current.width,
-        canvasSizeRef.current.height
-      );
+      ctx.clearRect(0, 0, window.innerWidth, window.innerHeight * 0.7);
 
       // Draw the canvas
       stars.map(star => {
@@ -97,9 +96,9 @@ const Index = () => {
       stars = stars.map(star => {
         // Change star direction when hitting the side of the canvas
         if (star.loc[0] < 0) star.dir[0] = "+";
-        else if (star.loc[0] > canvasSizeRef.current.width) star.dir[0] = "-";
+        else if (star.loc[0] > window.innerWidth) star.dir[0] = "-";
         if (star.loc[1] < 0) star.dir[1] = "+";
-        else if (star.loc[1] > canvasSizeRef.current.height) star.dir[1] = "-";
+        else if (star.loc[1] > window.innerHeight * 0.7) star.dir[1] = "-";
 
         // Set new star location with direction added to it
         star.loc[0] += parseFloat(`${star.dir[0]}0.5`);
@@ -109,10 +108,10 @@ const Index = () => {
         return star;
       });
 
-      window.requestAnimationFrame(drawStars);
+      starsAnimationFrame = window.requestAnimationFrame(drawStars);
     };
 
-    window.requestAnimationFrame(drawStars);
+    starsAnimationFrame = window.requestAnimationFrame(drawStars);
 
     return () => {
       // Clear words interval
@@ -120,7 +119,7 @@ const Index = () => {
       // Clear window resizeing canvas
       window.removeEventListener("resize", resizeCanvas);
       // Cancel star drawing animation frame rendering
-      window.cancelAnimationFrame(drawStars);
+      window.cancelAnimationFrame(starsAnimationFrame);
     };
   }, []);
 
@@ -183,6 +182,10 @@ const Canvas = styled.canvas`
   position: absolute;
   top: 0;
   left: 0;
+  right: 0;
+  width: 100%;
+  height: 70vh;
+  bottom: 30vh;
   z-index: -2;
 `;
 
