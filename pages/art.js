@@ -183,6 +183,9 @@ const Cards = styled.div`
   grid-template-rows: 1fr;
   grid-gap: 20px;
   margin-bottom: 50px;
+  @media (${props => props.theme.breakpoints.mobile}) {
+    grid-template-columns: 1fr;
+  }
 `;
 
 const Card = styled.div`
@@ -231,6 +234,7 @@ const Lightbox = styled.div`
   background-color: rgba(0, 0, 0, 0.7);
   display: flex;
   justify-content: center;
+  align-items: center;
 `;
 
 const LightboxImage = styled.img`
