@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styled, { keyframes } from "styled-components";
 
 import Page from "../components/page";
@@ -6,9 +6,40 @@ import Constellations from "../components/constellations";
 import Mandelbrot from "../components/mandelbrot";
 
 const Art = () => {
+  const [lightboxImage, setLightboxImage] = useState(null);
+
+  const openLightbox = image => {
+    setLightboxImage(image);
+    document.body.style.overflow = "hidden";
+  };
+
+  const closeLightbox = () => {
+    setLightboxImage(null);
+    document.body.style.overflow = "scroll";
+  };
+
   return (
     <Page title="Art" description="Some of my art... what even is art...">
       <Background />
+      <Heading>Acrylic Pours</Heading>
+      <Paragraph>
+        A bit more traditional, acrylics mixed with water, glue, and silicone on
+        canvas torched with a heat gun.
+      </Paragraph>
+      <Cards>
+        <Card onClick={() => openLightbox("/static/images/art/000.jpg")}>
+          <CardImage src="/static/images/art/000-thumbnail.jpg" />
+          <CardHeading>
+            Blood in the Waves <span>000</span>
+          </CardHeading>
+        </Card>
+        <Card onClick={() => openLightbox("/static/images/art/001.jpg")}>
+          <CardImage src="/static/images/art/001-thumbnail.jpg" />
+          <CardHeading>
+            Reef Drop-off <span>001</span>
+          </CardHeading>
+        </Card>
+      </Cards>
       <Heading>Emergent Generative Art</Heading>
       <Paragraph>
         Autonomously generated entities that are observed to have qualities in a
@@ -46,6 +77,11 @@ const Art = () => {
       >
         See the Code
       </Link>
+      {lightboxImage !== null && (
+        <Lightbox onClick={() => closeLightbox()}>
+          <LightboxImage src={lightboxImage} />
+        </Lightbox>
+      )}
     </Page>
   );
 };
@@ -139,4 +175,68 @@ const Link = styled.a`
   &:hover {
     transform: scale(1.2);
   }
+`;
+
+const Cards = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr;
+  grid-gap: 20px;
+  margin-bottom: 50px;
+`;
+
+const Card = styled.div`
+  background-color: black;
+  color: white;
+  box-shadow: 0 5px 0 rgba(0, 0, 0, 0);
+  transition-duration: 200ms;
+  transition-property: box-shadow;
+  transition-timing-function: ease-in;
+  &:hover {
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.4);
+  }
+`;
+
+const CardHeading = styled.h2`
+  margin: 0;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 900;
+
+  & > span {
+    color: black;
+    font-family: monospace;
+    font-weight: 100;
+    font-size: 0.9em;
+    background-color: white;
+    padding: 3px 7px;
+  }
+`;
+
+const CardImage = styled.img`
+  width: 100%;
+`;
+
+const Lightbox = styled.div`
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 3;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+`;
+
+const LightboxImage = styled.img`
+  position: absolute;
+  max-width: 100%;
+  max-height: 100%;
+  padding: 5vw;
+  box-sizing: border-box;
 `;
