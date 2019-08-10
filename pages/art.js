@@ -3,6 +3,7 @@ import styled, { keyframes } from "styled-components";
 
 import Page from "../components/page";
 import Constellations from "../components/constellations";
+import Stars from "../components/stars";
 import Mandelbrot from "../components/mandelbrot";
 
 const Art = () => {
@@ -21,25 +22,6 @@ const Art = () => {
   return (
     <Page title="Art" description="Some of my art... what even is art...">
       <Background />
-      <Heading>Acrylic Pours</Heading>
-      <Paragraph>
-        A bit more traditional, acrylics mixed with water, glue, and silicone on
-        canvas torched with a heat gun.
-      </Paragraph>
-      <Cards>
-        <Card onClick={() => openLightbox("/static/images/art/000.jpg")}>
-          <CardImage src="/static/images/art/000-thumbnail.jpg" />
-          <CardHeading>
-            Blood in the Waves <span>000</span>
-          </CardHeading>
-        </Card>
-        <Card onClick={() => openLightbox("/static/images/art/001.jpg")}>
-          <CardImage src="/static/images/art/001-thumbnail.jpg" />
-          <CardHeading>
-            Reef Drop-off <span>001</span>
-          </CardHeading>
-        </Card>
-      </Cards>
       <Heading>Emergent Generative Art</Heading>
       <Paragraph>
         Autonomously generated entities that are observed to have qualities in a
@@ -64,7 +46,24 @@ const Art = () => {
         See the Code
       </Link>
       <Subheading>
-        <span>001</span> Mandelbrot
+        <span>001</span> Stars
+      </Subheading>
+      <Paragraph>
+        Multiple parallax planes of stars that shift based on cursor position.
+        Inspired by Celeste.
+      </Paragraph>
+      <ArtContainer>
+        <Stars options={{ numStars: 50 }} />
+      </ArtContainer>
+      <Link
+        href="https://github.com/overshard/isaacbythewood.com/blob/master/components/stars.js"
+        rel="noopener noreferrer"
+        target="_blank"
+      >
+        See the Code
+      </Link>
+      <Subheading>
+        <span>002</span> Mandelbrot
       </Subheading>
       <Paragraph>Fractals generated using Mandelbrot sets.</Paragraph>
       <ArtContainer>
@@ -77,6 +76,25 @@ const Art = () => {
       >
         See the Code
       </Link>
+      <Heading>Acrylic Pours</Heading>
+      <Paragraph>
+        A bit more traditional, acrylics mixed with water, glue, and silicone on
+        canvas torched with a heat gun.
+      </Paragraph>
+      <Cards>
+        <Card onClick={() => openLightbox("/static/images/art/000.jpg")}>
+          <CardImage src="/static/images/art/000-thumbnail.jpg" />
+          <CardHeading>
+            Blood in the Waves <span>000</span>
+          </CardHeading>
+        </Card>
+        <Card onClick={() => openLightbox("/static/images/art/001.jpg")}>
+          <CardImage src="/static/images/art/001-thumbnail.jpg" />
+          <CardHeading>
+            Reef Drop-off <span>001</span>
+          </CardHeading>
+        </Card>
+      </Cards>
       {lightboxImage !== null && (
         <Lightbox onClick={() => closeLightbox()}>
           <LightboxImage src={lightboxImage} />
