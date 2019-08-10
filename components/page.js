@@ -36,8 +36,8 @@ Page.propTypes = {
   description: PropTypes.string,
   gridArea: PropTypes.string,
   children: PropTypes.oneOfType([
-    PropTypes.element,
-    PropTypes.arrayOf(PropTypes.element)
+    PropTypes.node,
+    PropTypes.arrayOf(PropTypes.node)
   ])
 };
 
