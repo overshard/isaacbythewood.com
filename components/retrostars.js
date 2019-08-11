@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import styled from "styled-components";
 import PropTypes from "prop-types";
 
-const Stars = ({ options }) => {
+const RetroStars = ({ options }) => {
   const canvas = useRef(null);
   const [mousePosition, setMousePosition] = useState({ x: 640, y: 400 });
   const mousePositionRef = useRef(mousePosition);
@@ -237,11 +237,11 @@ const Stars = ({ options }) => {
   return <Canvas ref={canvas} />;
 };
 
-Stars.propTypes = {
+RetroStars.propTypes = {
   options: PropTypes.object
 };
 
-export default Stars;
+export default RetroStars;
 
 const Canvas = styled.canvas`
   width: 100%;

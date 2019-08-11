@@ -3,7 +3,7 @@ import styled, { keyframes } from "styled-components";
 
 import Page from "../components/page";
 import Constellations from "../components/constellations";
-import Stars from "../components/stars";
+import RetroStars from "../components/retrostars";
 import Mandelbrot from "../components/mandelbrot";
 
 const Art = () => {
@@ -46,17 +46,17 @@ const Art = () => {
         See the Code
       </Link>
       <Subheading>
-        <span>001</span> Stars
+        <span>001</span> Retro Stars
       </Subheading>
       <Paragraph>
         Multiple parallax planes of stars that shift based on cursor position.
-        Inspired by Celeste.
+        Inspired by the retro art style of Celeste.
       </Paragraph>
       <ArtContainer>
-        <Stars options={{ numStars: 50 }} />
+        <RetroStars options={{ numStars: 50 }} />
       </ArtContainer>
       <Link
-        href="https://github.com/overshard/isaacbythewood.com/blob/master/components/stars.js"
+        href="https://github.com/overshard/isaacbythewood.com/blob/master/components/retrostars.js"
         rel="noopener noreferrer"
         target="_blank"
       >
