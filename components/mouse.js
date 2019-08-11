@@ -5,12 +5,24 @@ const Mouse = () => {
   const [position, setPosition] = useState({ x: 0, y: 0, active: false });
 
   useEffect(() => {
-    window.onmousemove = event => {
+    // Setup mouse event function
+    const mouseEvent = evt => {
       setPosition({
-        x: event.clientX,
-        y: event.clientY,
-        active: event.target.tagName === "A" ? true : false
+        x: evt.clientX,
+        y: evt.clientY,
+        active:
+          evt.target.tagName === "A" || evt.target.tagName === "BUTTON"
+            ? true
+            : false
       });
+    };
+
+    // Create mouse event
+    window.addEventListener("mousemove", mouseEvent);
+
+    // Remove mouse event on component dismount
+    return () => {
+      window.removeEventListener("mousemove", mouseEvent);
     };
   }, []);
 
