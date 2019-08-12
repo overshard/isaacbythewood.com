@@ -7,7 +7,7 @@ import { theme } from "../site.config";
 class MyDocument extends Document {
   static async getInitialProps(ctx) {
     // Redirect to www if no www used
-    if (ctx.req.headers.host !== "isaacbythewood.com") {
+    if (ctx.req.headers.host === "www.isaacbythewood.com") {
       ctx.res.writeHead(301, {
         Location: `https://isaacbythewood.com${ctx.req.url}`
       });

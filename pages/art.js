@@ -4,6 +4,7 @@ import styled, { keyframes } from "styled-components";
 import Page from "../components/page";
 import Constellations from "../components/constellations";
 import RetroStars from "../components/retrostars";
+import Planets from "../components/planets";
 import Mandelbrot from "../components/mandelbrot";
 
 const Art = () => {
@@ -63,7 +64,24 @@ const Art = () => {
         See the Code
       </Link>
       <Subheading>
-        <span>002</span> Mandelbrot
+        <span>002</span> Planets
+      </Subheading>
+      <Paragraph>
+        A solar system generator? Work in progress, inspired by Fermi Paradox -
+        Mercury.
+      </Paragraph>
+      <ArtContainer>
+        <Planets />
+      </ArtContainer>
+      <Link
+        href="https://github.com/overshard/isaacbythewood.com/blob/master/components/planets.js"
+        rel="noopener noreferrer"
+        target="_blank"
+      >
+        See the Code
+      </Link>
+      <Subheading>
+        <span>003</span> Mandelbrot
       </Subheading>
       <Paragraph>Fractals generated using Mandelbrot sets.</Paragraph>
       <ArtContainer>
