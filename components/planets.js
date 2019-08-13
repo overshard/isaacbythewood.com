@@ -30,6 +30,9 @@ const Planets = () => {
     const cvs = canvas.current;
     const ctx = cvs.getContext("2d");
 
+    // Get center of the canvas
+    const ctr = [cvs.width / 2, cvs.height / 2];
+
     // Background
     const grd = ctx.createLinearGradient(0, 0, 0, cvs.height);
     grd.addColorStop(0, "#110f33");
@@ -40,7 +43,7 @@ const Planets = () => {
     // Generate all stars
     let stars = [];
     let numStars = 0;
-    const maxNumStars = 100;
+    const maxNumStars = 150;
     while (numStars < maxNumStars) {
       const randomPoint = [
         cvs.width * Math.random(),
@@ -59,12 +62,23 @@ const Planets = () => {
       ctx.closePath();
     });
 
-    // Draw planet
+    // Draw triangle
     ctx.beginPath();
-    ctx.arc(cvs.width / 2, cvs.height, cvs.width / 8, 0, 2 * Math.PI);
-    ctx.fillStyle = `rgb(147, 72, 56)`;
-    ctx.fill();
+    ctx.moveTo(ctr[0], ctr[1] - 100);
+    ctx.lineTo(ctr[0] + 100, ctr[1] + 75);
+    ctx.lineTo(ctr[0] - 100, ctr[1] + 75);
     ctx.closePath();
+    ctx.fillStyle = "white";
+    ctx.fill();
+
+    // Draw triangle
+    ctx.beginPath();
+    ctx.moveTo(ctr[0], ctr[1] - 25);
+    ctx.lineTo(ctr[0] + 50, ctr[1] + 75);
+    ctx.lineTo(ctr[0] - 50, ctr[1] + 75);
+    ctx.closePath();
+    ctx.fillStyle = "black";
+    ctx.fill();
   }, []);
 
   return <Canvas ref={canvas} />;

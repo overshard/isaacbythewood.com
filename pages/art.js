@@ -64,11 +64,10 @@ const Art = () => {
         See the Code
       </Link>
       <Subheading>
-        <span>002</span> Planets
+        <span>002</span> Work In Progress
       </Subheading>
       <Paragraph>
-        A solar system generator? Work in progress, inspired by Fermi Paradox -
-        Mercury.
+        I do not even know what this is supposed to be yet...
       </Paragraph>
       <ArtContainer>
         <Planets />
