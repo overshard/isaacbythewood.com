@@ -62,13 +62,44 @@ const Planets = () => {
       ctx.closePath();
     });
 
+    // Draw horizontal lines
+    let currentLine = 0;
+    let maxLines = 15;
+    let start = cvs.height;
+    let offset = 30;
+    let quotient = 0.9;
+    ctx.strokeStyle = "#dd299c";
+    while (currentLine < maxLines) {
+      start = start - offset;
+      ctx.beginPath();
+      ctx.moveTo(0, start);
+      ctx.lineTo(cvs.width, start);
+      ctx.stroke();
+      offset = offset * quotient;
+      currentLine++;
+    }
+    currentLine = 0;
+    start = cvs.height;
+    offset = 30;
+    ctx.filter = "blur(3px)";
+    while (currentLine < maxLines) {
+      start = start - offset;
+      ctx.beginPath();
+      ctx.moveTo(0, start);
+      ctx.lineTo(cvs.width, start);
+      ctx.stroke();
+      offset = offset * quotient;
+      currentLine++;
+    }
+    ctx.filter = "none";
+
     // Draw triangle
     ctx.beginPath();
     ctx.moveTo(ctr[0], ctr[1] - 100);
     ctx.lineTo(ctr[0] + 100, ctr[1] + 75);
     ctx.lineTo(ctr[0] - 100, ctr[1] + 75);
     ctx.closePath();
-    ctx.fillStyle = "white";
+    ctx.fillStyle = "#f28b42";
     ctx.fill();
 
     // Draw triangle
@@ -77,7 +108,7 @@ const Planets = () => {
     ctx.lineTo(ctr[0] + 50, ctr[1] + 75);
     ctx.lineTo(ctr[0] - 50, ctr[1] + 75);
     ctx.closePath();
-    ctx.fillStyle = "black";
+    ctx.fillStyle = "#fdf84f";
     ctx.fill();
   }, []);
 
