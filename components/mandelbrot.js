@@ -10,10 +10,10 @@ const Mandelbrot = () => {
     const ctx = cvs.getContext("2d");
 
     // Mandelbrot set options
-    let mag = 4700;
-    const panX = 1.55;
-    const panY = 0.105;
-    const max = 100;
+    let mag = 500;
+    const panX = 2;
+    const panY = 1;
+    const max = 25;
 
     // Check if coords are in mandelbrot set
     function checkCoord(x, y) {
