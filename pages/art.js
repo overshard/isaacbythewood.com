@@ -4,7 +4,7 @@ import styled, { keyframes } from "styled-components";
 import Page from "../components/page";
 import Constellations from "../components/constellations";
 import RetroStars from "../components/retrostars";
-import Planets from "../components/planets";
+import Synthwave from "../components/synthwave";
 import Mandelbrot from "../components/mandelbrot";
 
 const Art = () => {
@@ -64,13 +64,13 @@ const Art = () => {
         See the Code
       </Link>
       <Subheading>
-        <span>002</span> Work In Progress
+        <span>002</span> Synthwave
       </Subheading>
       <Paragraph>
-        I do not even know what this is supposed to be yet...
+        I am still working on this one and plan on making into a demo soon.
       </Paragraph>
       <ArtContainer>
-        <Planets />
+        <Synthwave />
       </ArtContainer>
       <Link
         href="https://github.com/overshard/isaacbythewood.com/blob/master/components/planets.js"
