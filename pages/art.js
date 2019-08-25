@@ -17,12 +17,43 @@ const Art = () => {
 
   const closeLightbox = () => {
     setLightboxImage(null);
-    document.body.style.overflow = "scroll";
+    document.body.style.overflowY = "scroll";
   };
 
   return (
     <Page title="Art" description="Some of my art... what even is art...">
       <Background />
+      <Heading>Acrylic Pours</Heading>
+      <Paragraph>
+        A bit more traditional than my usual art, acrylics mixed with water,
+        glue, and silicone on canvas torched with a heat gun.
+      </Paragraph>
+      <Cards>
+        <Card onClick={() => openLightbox("/static/images/art/000.jpg")}>
+          <CardImage src="/static/images/art/000-thumbnail.jpg" />
+          <CardHeading>
+            Blood in Waves <span>000</span>
+          </CardHeading>
+        </Card>
+        <Card onClick={() => openLightbox("/static/images/art/001.jpg")}>
+          <CardImage src="/static/images/art/001-thumbnail.jpg" />
+          <CardHeading>
+            Reef Drop-off <span>001</span>
+          </CardHeading>
+        </Card>
+        <Card onClick={() => openLightbox("/static/images/art/002.jpg")}>
+          <CardImage src="/static/images/art/002-thumbnail.jpg" />
+          <CardHeading>
+            Cracks in Clay <span>002</span>
+          </CardHeading>
+        </Card>
+        <Card onClick={() => openLightbox("/static/images/art/003.jpg")}>
+          <CardImage src="/static/images/art/003-thumbnail.jpg" />
+          <CardHeading>
+            Water on Jupiter <span>003</span>
+          </CardHeading>
+        </Card>
+      </Cards>
       <Heading>Emergent Generative Art</Heading>
       <Paragraph>
         Autonomously generated entities that are observed to have qualities in a
@@ -93,25 +124,6 @@ const Art = () => {
       >
         See the Code
       </Link>
-      <Heading>Acrylic Pours</Heading>
-      <Paragraph>
-        A bit more traditional, acrylics mixed with water, glue, and silicone on
-        canvas torched with a heat gun.
-      </Paragraph>
-      <Cards>
-        <Card onClick={() => openLightbox("/static/images/art/000.jpg")}>
-          <CardImage src="/static/images/art/000-thumbnail.jpg" />
-          <CardHeading>
-            Blood in the Waves <span>000</span>
-          </CardHeading>
-        </Card>
-        <Card onClick={() => openLightbox("/static/images/art/001.jpg")}>
-          <CardImage src="/static/images/art/001-thumbnail.jpg" />
-          <CardHeading>
-            Reef Drop-off <span>001</span>
-          </CardHeading>
-        </Card>
-      </Cards>
       {lightboxImage !== null && (
         <Lightbox onClick={() => closeLightbox()}>
           <LightboxImage src={lightboxImage} />
