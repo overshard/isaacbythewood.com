@@ -5,7 +5,6 @@ import Page from "../components/page";
 import Constellations from "../components/constellations";
 import RetroStars from "../components/retrostars";
 import Synthwave from "../components/synthwave";
-import Mandelbrot from "../components/mandelbrot";
 
 const Art = () => {
   const [lightboxImage, setLightboxImage] = useState(null);
@@ -105,20 +104,6 @@ const Art = () => {
       </ArtContainer>
       <Link
         href="https://github.com/overshard/isaacbythewood.com/blob/master/components/planets.js"
-        rel="noopener noreferrer"
-        target="_blank"
-      >
-        See the Code
-      </Link>
-      <Subheading>
-        <span>003</span> Mandelbrot
-      </Subheading>
-      <Paragraph>Fractals generated using Mandelbrot sets.</Paragraph>
-      <ArtContainer>
-        <Mandelbrot />
-      </ArtContainer>
-      <Link
-        href="https://github.com/overshard/isaacbythewood.com/blob/master/components/mandelbrot.js"
         rel="noopener noreferrer"
         target="_blank"
       >
