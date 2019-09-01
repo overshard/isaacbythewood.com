@@ -72,9 +72,9 @@ const SlideStart = keyframes`
 const Background = styled.img`
   position: absolute;
   top: 0;
-  left: 0;
   right: 0;
   bottom: 0;
+  left: 0;
   width: 100%;
   height: 100vh;
   z-index: -3;
@@ -84,12 +84,13 @@ const Background = styled.img`
 const ConstellationsContainer = styled.div`
   position: absolute;
   top: 0;
-  left: 0;
   right: 0;
   bottom: 0;
+  left: 0;
   width: 100%;
   height: 100vh;
   z-index: -2;
+  overflow: hidden;
 `;
 
 const Words = styled.div`
@@ -146,6 +147,11 @@ const Word = styled.h3`
 const Description = styled.h1`
   font-size: 3.5em;
   font-weight: bolder;
+  opacity: 0;
+  animation-name: ${FadeStart};
+  animation-duration: 1500ms;
+  animation-fill-mode: forwards;
+
   &::before {
     content: "";
     display: block;
@@ -154,10 +160,7 @@ const Description = styled.h1`
     margin-bottom: 20px;
     background-color: ${props => props.theme.colors.blue};
   }
-  opacity: 0;
-  animation-name: ${FadeStart};
-  animation-duration: 1500ms;
-  animation-fill-mode: forwards;
+
   @media (${props => props.theme.breakpoints.mobile}) {
     font-size: 2em;
   }
@@ -179,6 +182,7 @@ const Name = styled.h2`
   animation-name: ${SlideStart};
   animation-duration: 750ms;
   animation-fill-mode: forwards;
+
   @media (${props => props.theme.breakpoints.mobile}) {
     font-size: 1.5em;
   }

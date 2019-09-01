@@ -85,10 +85,11 @@ const Nav = styled.nav`
   justify-content: space-between;
   width: 60px;
   top: 0;
-  right: 0;
+  left: 0;
   bottom: 0;
   position: fixed;
   z-index: 1;
+
   @media (${props => props.theme.breakpoints.tablet}) {
     bottom: auto;
     left: 0;
@@ -109,6 +110,7 @@ const NavContact = styled.a`
   transform: rotate(180deg);
   position: relative;
   overflow: hidden;
+
   &::before {
     content: "";
     display: block;
@@ -120,18 +122,22 @@ const NavContact = styled.a`
     background: rgba(14, 64, 244, 0.3);
     transition: right 250ms;
   }
+
   &:hover {
     &::before {
       right: 60%;
     }
   }
+
   &::after {
     visibility: hidden;
   }
+
   @media (${props => props.theme.breakpoints.tablet}) {
     writing-mode: horizontal-tb;
     transform: none;
   }
+
   @media (${props => props.theme.breakpoints.mobile}) {
     visibility: hidden;
     &::after {
@@ -158,6 +164,7 @@ const NavLinks = styled.div`
   flex-direction: column;
   align-items: center;
   position: relative;
+
   @media (${props => props.theme.breakpoints.tablet}) {
     flex-direction: row;
   }
@@ -176,9 +183,11 @@ const NavLink = styled.a`
       : "background-color: rgba(0, 0, 0, 0.5);"}
   transition-property: background-color;
   transition-duration: 250ms;
+
   &:hover {
     background-color: rgba(0, 0, 0, 1);
   }
+
   @media (${props => props.theme.breakpoints.tablet}) {
     width: 35px;
     height: 15px;
@@ -187,7 +196,7 @@ const NavLink = styled.a`
 
 const NavTooltip = styled.div`
   position: absolute;
-  right: 70%;
+  left: 70%;
   padding: 5px 10px;
   background: rgba(0, 0, 0, 0.8);
   color: white;
@@ -196,6 +205,7 @@ const NavTooltip = styled.div`
   text-transform: uppercase;
   font-size: 0.8em;
   letter-spacing: 2px;
+
   @media (${props => props.theme.breakpoints.tablet}) {
     visibility: hidden;
   }
@@ -207,6 +217,7 @@ const NavCurrent = styled.div`
   text-align: center;
   padding: 5px;
   color: white;
+
   @media (${props => props.theme.breakpoints.tablet}) {
     writing-mode: vertical-rl;
     transform: rotate(180deg);

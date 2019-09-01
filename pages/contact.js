@@ -138,11 +138,12 @@ const Grid = styled.div`
   grid-template-columns: 50vw 1fr;
   grid-template-rows: auto;
   grid-template-areas: "left right";
-  margin-right: 60px;
+  margin-left: 60px;
   transform: translateX(-100vw);
   animation: ${SlideUp} 750ms 500ms forwards;
+
   @media (${props => props.theme.breakpoints.tablet}) {
-    margin-right: 0;
+    margin-left: 0;
     grid-template-columns: 1fr;
     grid-template-rows: auto auto;
     margin-top: 60px;
@@ -153,6 +154,7 @@ const GridColumn = styled.div`
   min-height: 100vh;
   display: flex;
   align-items: center;
+
   @media (${props => props.theme.breakpoints.tablet}) {
     min-height: auto;
   }
@@ -161,6 +163,7 @@ const GridColumn = styled.div`
 const GridLeft = styled(GridColumn)`
   grid-area: left;
   background-color: rgba(0, 0, 0, 0.9);
+
   @media (${props => props.theme.breakpoints.tablet}) {
     grid-column: 1;
     grid-row: 1;
@@ -169,6 +172,7 @@ const GridLeft = styled(GridColumn)`
 
 const GridRight = styled(GridColumn)`
   grid-area: right;
+
   @media (${props => props.theme.breakpoints.tablet}) {
     grid-column: 1;
     grid-row: 2;
@@ -177,6 +181,7 @@ const GridRight = styled(GridColumn)`
 
 const ContactWrapper = styled.div`
   padding-left: 60px;
+
   @media (${props => props.theme.breakpoints.tablet}) {
     min-height: auto;
     padding-top: 30px;
@@ -188,6 +193,7 @@ const Heading = styled.h1`
   font-size: 3em;
   margin-top: 10px;
   margin-bottom: 20px;
+
   &::before {
     content: "";
     display: block;
@@ -196,6 +202,7 @@ const Heading = styled.h1`
     margin-bottom: 10px;
     background-color: ${props => props.theme.colors.blue};
   }
+
   @media (${props => props.theme.breakpoints.mobile}) {
     margin-bottom: 10px;
   }
@@ -213,6 +220,7 @@ const ShoutOut = styled.h2`
     ${props => props.theme.colors.blue} 0,
     ${props => props.theme.colors.purple} 100%
   );
+
   @media (${props => props.theme.breakpoints.mobile}) {
     font-size: 1.1em;
   }
@@ -240,6 +248,7 @@ const ContactLink = styled.a`
   color: white;
   text-decoration: none;
   position: relative;
+
   &::before {
     content: "";
     position: absolute;
@@ -251,6 +260,7 @@ const ContactLink = styled.a`
     transform-origin: left;
     animation: ${TransformLeft} 300ms normal forwards;
   }
+
   &::after {
     content: "";
     position: absolute;
@@ -260,6 +270,7 @@ const ContactLink = styled.a`
     height: 2px;
     background: rgba(255, 255, 255, 0.2);
   }
+
   &:hover {
     &::before {
       animation: ${TransformRight} 300ms normal forwards;
@@ -283,12 +294,14 @@ const ChatLine = styled.div`
     opacity: 0;
     transform: translateX(-100px);
   }
+
   &.fade-appear-active {
     opacity: 1;
     transform: translateX(0);
     transition-duration: 250ms;
     transition-property: opacity, transform;
   }
+
   &.fade-appear-done {
     opacity: 1;
   }
@@ -299,6 +312,7 @@ const ChatMessage = styled.div`
   padding: 10px 20px;
   background-color: rgba(0, 0, 0, 0.7);
   width: 65%;
+
   @media (${props => props.theme.breakpoints.mobile}) {
     font-size: 1em;
     width: 70%;
@@ -319,6 +333,7 @@ const ChatAvatar = styled.img`
   margin-right: 20px;
   width: 50px;
   height: 50px;
+
   @media (${props => props.theme.breakpoints.mobile}) {
     margin-right: 10px;
     width: 40px;

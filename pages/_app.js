@@ -7,6 +7,7 @@ import { theme } from "../site.config";
 import Mouse from "../components/mouse";
 import Grid from "../components/grid";
 import Sidebar from "../components/sidebar";
+import Menu from "../components/menu";
 import Loader from "../components/loader";
 
 class MyApp extends App {
@@ -33,6 +34,7 @@ class MyApp extends App {
             <Loader />
             <Mouse />
             <Sidebar />
+            <Menu />
             <TransitionGroup component={null}>
               <CSSTransition
                 key={this.props.router.route}

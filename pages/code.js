@@ -159,6 +159,7 @@ const Heading = styled.h1`
   margin-bottom: 20px;
   font-size: 2.5em;
   color: black;
+
   &::before {
     content: "";
     display: block;
@@ -180,6 +181,7 @@ const Paragraph = styled.p`
     color: black;
     text-decoration: none;
     position: relative;
+
     &::before {
       content: "";
       position: absolute;
@@ -191,6 +193,7 @@ const Paragraph = styled.p`
       transform-origin: left;
       animation: ${TransformLeft} 300ms normal forwards;
     }
+
     &::after {
       content: "";
       position: absolute;
@@ -200,6 +203,7 @@ const Paragraph = styled.p`
       height: 2px;
       background: rgba(0, 0, 0, 0.2);
     }
+
     &:hover {
       &::before {
         animation: ${TransformRight} 300ms normal forwards;
@@ -213,6 +217,7 @@ const Grid = styled.div`
   grid-template-columns: 1fr 1fr;
   grid-template-rows: auto;
   grid-template-areas: "left right";
+
   @media (${props => props.theme.breakpoints.tablet}) {
     grid-template-columns: 1fr;
     grid-template-rows: auto auto;
@@ -229,6 +234,7 @@ const GridColumn = styled.div`
 
 const GridLeft = styled(GridColumn)`
   grid-area: left;
+
   @media (${props => props.theme.breakpoints.tablet}) {
     grid-column: 1;
     grid-row: 1;
@@ -238,6 +244,7 @@ const GridLeft = styled(GridColumn)`
 const GridRight = styled(GridColumn)`
   grid-area: right;
   animation-delay: 250ms;
+
   @media (${props => props.theme.breakpoints.tablet}) {
     grid-column: 1;
     grid-row: 2;
@@ -279,18 +286,20 @@ const ProjectButton = styled.a`
   transform: scale(1);
   transition-duration: 250ms;
   transition-property: transform;
+
   &:hover {
     transform: scale(1.2);
   }
 `;
 
 const ProjectCommit = styled.pre`
-  white-space: pre-wrap;
   font-family: monospace;
   background: black;
   color: #00ff00;
   padding: 20px;
+  white-space: pre-wrap;
+  word-break: break-word;
+
   @media (${props => props.theme.breakpoints.mobile}) {
-    display: none;
   }
 `;
