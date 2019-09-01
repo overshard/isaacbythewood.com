@@ -11,7 +11,7 @@ const Art = () => {
 
   const openLightbox = image => {
     setLightboxImage(image);
-    document.body.style.overflow = "hidden";
+    document.body.style.overflowY = "hidden";
   };
 
   const closeLightbox = () => {

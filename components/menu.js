@@ -1,65 +1,74 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import Link from "next/link";
+import { CSSTransition } from "react-transition-group";
 
 const Menu = () => {
   const [open, setOpen] = useState(false);
   const pages = [
     { num: "000", href: "/", title: "Home" },
     { num: "001", href: "/about", title: "About" },
-    { num: "002", href: "/Code", title: "Code" },
-    { num: "003", href: "/Art", title: "Art" },
-    { num: "004", href: "/Contact", title: "Contact" }
+    { num: "002", href: "/code", title: "Code" },
+    { num: "003", href: "/art", title: "Art" },
+    { num: "004", href: "/contact", title: "Contact" }
   ];
+
+  const toggleMenu = () => {
+    if (open === false) {
+      setOpen(true);
+      document.body.style.overflowY = "hidden";
+    } else {
+      setOpen(false);
+      document.body.style.overflowY = "scroll";
+    }
+  };
 
   return (
     <>
-      <Hamburger
-        onClick={() => {
-          setOpen(!open);
-        }}
-      >
+      <Hamburger onClick={toggleMenu}>
+        <Patty style={{ width: "15px" }} />
         <Patty />
-        <Patty />
-        <Patty />
+        <Patty style={{ width: "20px" }} />
       </Hamburger>
-      <Overlay open={open}>
-        <OverlayGrid>
-          <OverlayGridLeft>
-            {pages.map(page => {
-              return (
-                <Link key={page.href} href={page.href} passHref>
-                  <OverlayLink
-                    data-text={page.title}
-                    onClick={() => {
-                      setOpen(!open);
-                    }}
-                  >
-                    <span>{page.num}</span>
-                    {page.title}
-                  </OverlayLink>
-                </Link>
-              );
-            })}
-          </OverlayGridLeft>
-          <OverlayGridRight>
-            <OverlayImage src="/static/images/art/003.jpg" alt="" />
-          </OverlayGridRight>
-        </OverlayGrid>
-      </Overlay>
+      <CSSTransition in={open} timeout={250} classNames="transition">
+        <Overlay>
+          <OverlayGrid>
+            <OverlayGridLeft>
+              {pages.map(page => {
+                return (
+                  <Link key={page.href} href={page.href} passHref>
+                    <OverlayLink data-text={page.title} onClick={toggleMenu}>
+                      {page.title}
+                    </OverlayLink>
+                  </Link>
+                );
+              })}
+            </OverlayGridLeft>
+            <OverlayGridRight>
+              <OverlayImage src="/static/images/art/003.jpg" alt="" />
+            </OverlayGridRight>
+          </OverlayGrid>
+        </Overlay>
+      </CSSTransition>
     </>
   );
 };
 
 export default Menu;
 
-const Hamburger = styled.div`
+const Hamburger = styled.button`
   position: fixed;
   top: 30px;
   right: 0;
   padding: 20px 15px;
   background: white;
   z-index: 5001;
+  border: none;
+  cursor: none;
+
+  &:hover * {
+    width: 30px !important;
+  }
 `;
 
 const Patty = styled.div`
@@ -67,6 +76,9 @@ const Patty = styled.div`
   width: 30px;
   height: 3px;
   margin-bottom: 5px;
+  margin-left: auto;
+  transition-duration: 250ms;
+  transition-property: width;
 
   &:last-child {
     margin-bottom: 0;
@@ -80,8 +92,40 @@ const Overlay = styled.div`
   right: 0;
   bottom: 0;
   left: 0;
-  z-index: ${props => (props.open ? 5000 : -5000)};
-  visibility: ${props => (props.open ? "visible" : "hidden")};
+  transition-duration: 250ms;
+  transition-property: opacity;
+  opacity: 0;
+  z-index: -5000;
+
+  &.transition-enter {
+    opacity: 0;
+    z-index: 5000;
+  }
+
+  &.transition-enter-active {
+    opacity: 1;
+    z-index: 5000;
+  }
+
+  &.transition-enter-done {
+    opacity: 1;
+    z-index: 5000;
+  }
+
+  &.transition-exit {
+    opacity: 1;
+    z-index: 5000;
+  }
+
+  &.transition-exit-active {
+    opacity: 0;
+    z-index: 5000;
+  }
+
+  &.transition-exit-done {
+    opacity: 0;
+    z-index: -5000;
+  }
 `;
 
 const OverlayGrid = styled.div`
@@ -115,13 +159,6 @@ const OverlayLink = styled.a`
   font-size: 3em;
   color: black;
   position: relative;
-
-  & > span {
-    position: absolute;
-    font-weight: 100;
-    font-size: 0.5em;
-    left: -100%;
-  }
 
   &:last-child {
     margin-bottom: 0;
