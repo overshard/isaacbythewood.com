@@ -30,23 +30,40 @@ const Menu = () => {
         <Patty />
         <Patty style={{ width: "20px" }} />
       </Hamburger>
-      <CSSTransition in={open} timeout={250} classNames="transition">
+      <CSSTransition in={open} timeout={500} classNames="transition">
         <Overlay>
           <OverlayGrid>
-            <OverlayGridLeft>
-              {pages.map(page => {
-                return (
-                  <Link key={page.href} href={page.href} passHref>
-                    <OverlayLink data-text={page.title} onClick={toggleMenu}>
-                      {page.title}
-                    </OverlayLink>
-                  </Link>
-                );
-              })}
-            </OverlayGridLeft>
-            <OverlayGridRight>
-              <OverlayImage src="/static/images/art/003.jpg" alt="" />
-            </OverlayGridRight>
+            <CSSTransition
+              in={open}
+              timeout={500}
+              classNames="transition"
+              appear
+            >
+              <OverlayGridLeft>
+                {pages.map(page => {
+                  return (
+                    <Link key={page.href} href={page.href} passHref>
+                      <OverlayLink data-text={page.title} onClick={toggleMenu}>
+                        {page.title}
+                      </OverlayLink>
+                    </Link>
+                  );
+                })}
+              </OverlayGridLeft>
+            </CSSTransition>
+            <CSSTransition
+              in={open}
+              timeout={500}
+              classNames="transition"
+              appear
+            >
+              <OverlayGridRight>
+                <OverlayImage
+                  src="/static/images/art/003.jpg"
+                  alt="#003 Water on Jupiter"
+                />
+              </OverlayGridRight>
+            </CSSTransition>
           </OverlayGrid>
         </Overlay>
       </CSSTransition>
@@ -69,6 +86,11 @@ const Hamburger = styled.button`
   &:hover * {
     width: 30px !important;
   }
+
+  @media (${props => props.theme.breakpoints.tablet}) {
+    top: 0;
+    padding-bottom: 21px;
+  }
 `;
 
 const Patty = styled.div`
@@ -86,44 +108,34 @@ const Patty = styled.div`
 `;
 
 const Overlay = styled.div`
-  background: white;
   position: fixed;
   top: 0;
   right: 0;
   bottom: 0;
   left: 0;
-  transition-duration: 250ms;
-  transition-property: opacity;
-  opacity: 0;
   z-index: -5000;
 
   &.transition-enter {
-    opacity: 0;
     z-index: 5000;
   }
 
   &.transition-enter-active {
-    opacity: 1;
     z-index: 5000;
   }
 
   &.transition-enter-done {
-    opacity: 1;
     z-index: 5000;
   }
 
   &.transition-exit {
-    opacity: 1;
     z-index: 5000;
   }
 
   &.transition-exit-active {
-    opacity: 0;
     z-index: 5000;
   }
 
   &.transition-exit-done {
-    opacity: 0;
     z-index: -5000;
   }
 `;
@@ -139,12 +151,67 @@ const OverlayGridLeft = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  background: white;
+  transition-duration: 500ms;
+  transition-property: transform;
+  transform: translateX(-100%);
+
+  &.transition-enter {
+    transform: translateX(-100%);
+  }
+
+  &.transition-enter-active {
+    transform: translateX(0);
+  }
+
+  &.transition-enter-done {
+    transform: translateX(0);
+  }
+
+  &.transition-exit {
+    transform: translateX(0);
+  }
+
+  &.transition-exit-active {
+    transform: translateX(-100%);
+  }
+
+  &.transition-exit-done {
+    transform: translateX(-100%);
+  }
 `;
 
 const OverlayGridRight = styled.div`
   grid-area: 1/2;
   height: 100vh;
   overflow: hidden;
+  transition-duration: 500ms;
+  transition-property: transform;
+  transform: translateX(100%);
+
+  &.transition-enter {
+    transform: translateX(100%);
+  }
+
+  &.transition-enter-active {
+    transform: translateX(0);
+  }
+
+  &.transition-enter-done {
+    transform: translateX(0);
+  }
+
+  &.transition-exit {
+    transform: translateX(0);
+  }
+
+  &.transition-exit-active {
+    transform: translateX(100%);
+  }
+
+  &.transition-exit-done {
+    transform: translateX(100%);
+  }
 `;
 
 const OverlayImage = styled.img`
