@@ -41,6 +41,7 @@ const Grid = styled.div`
 
 const GridColumn = styled.div`
   grid-column: ${props => props.column};
+
   &::before {
     content: "";
     display: block;
@@ -51,6 +52,7 @@ const GridColumn = styled.div`
     animation: ${FoldUp} 1000ms normal forwards;
     animation-delay: ${props => props.column * 100}ms;
   }
+
   &::after {
     content: "";
     display: block;
