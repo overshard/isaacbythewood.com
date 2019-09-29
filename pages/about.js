@@ -73,11 +73,10 @@ const About = () => {
         </TransitionGroup>
       </Words>
       <Paragraph>
-        I am a <Strong>full-stack developer</Strong> meaning I spend way too
-        much time working. I enjoy developing everything from linux kernel
-        modules to website front-ends. My first job was{" "}
-        <Strong>modifying kernel modules</Strong> for Digium Telephony Cards to
-        work on CentOS. My current employer is{" "}
+        I am a <Strong>full-stack developer</Strong>. I enjoy working on
+        everything from linux kernel modules to website front-ends. My first job
+        was <Strong>modifying kernel modules</Strong> for Digium Telephony Cards
+        to work on CentOS. My current employer is{" "}
         <Strong>VanNoppen Marketing</Strong> doing some of everything — chiefly
         creating <Strong>custom software</Strong> on a variety of platforms. I
         have done consulting for many companies on SEO, Online Advertising,
