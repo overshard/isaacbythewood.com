@@ -96,9 +96,7 @@ const Art = () => {
       <Subheading>
         <span>002</span> Synthwave
       </Subheading>
-      <Paragraph>
-        I am still working on this one and plan on making into a demo soon.
-      </Paragraph>
+      <Paragraph>I just like Synthwave stuff...</Paragraph>
       <ArtContainer>
         <Synthwave />
       </ArtContainer>
