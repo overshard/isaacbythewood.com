@@ -1,8 +1,7 @@
 {
   "private": true,
   "scripts": {
-    "start": "now dev --listen 8000",
-    "deploy": "now"
+    "start": "next --port 8000"
   },
   "dependencies": {
     "isomorphic-unfetch": "^3.0.0",

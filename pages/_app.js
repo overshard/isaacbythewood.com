@@ -1,5 +1,5 @@
 import React from "react";
-import App, { Container } from "next/app";
+import App from "next/app";
 import styled, { ThemeProvider, createGlobalStyle } from "styled-components";
 import { TransitionGroup, CSSTransition } from "react-transition-group";
 
@@ -27,31 +27,29 @@ class MyApp extends App {
     const { Component, pageProps } = this.props;
 
     return (
-      <Container>
-        <ThemeProvider theme={theme}>
-          <>
-            <GlobalStyle />
-            <Loader />
-            <Mouse />
-            <Sidebar />
-            <Menu />
-            <TransitionGroup component={null}>
-              <CSSTransition
-                key={this.props.router.route}
-                appear
-                timeout={250}
-                classNames="transition"
-              >
-                <Transition>
-                  <Grid>
-                    <Component {...pageProps} />
-                  </Grid>
-                </Transition>
-              </CSSTransition>
-            </TransitionGroup>
-          </>
-        </ThemeProvider>
-      </Container>
+      <ThemeProvider theme={theme}>
+        <>
+          <GlobalStyle />
+          <Loader />
+          <Mouse />
+          <Sidebar />
+          <Menu />
+          <TransitionGroup component={null}>
+            <CSSTransition
+              key={this.props.router.route}
+              appear
+              timeout={250}
+              classNames="transition"
+            >
+              <Transition>
+                <Grid>
+                  <Component {...pageProps} />
+                </Grid>
+              </Transition>
+            </CSSTransition>
+          </TransitionGroup>
+        </>
+      </ThemeProvider>
     );
   }
 }
