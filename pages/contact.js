@@ -72,7 +72,10 @@ const Contact = () => {
                     <ChatLine
                       style={{ transitionDelay: `${transitionDelay}ms` }}
                     >
-                      <ChatAvatar src="/static/images/avatar.jpg" />
+                      <ChatAvatar
+                        src="/static/images/avatar.jpg"
+                        alt="Chat Avatar"
+                      />
                       <ChatMessage>
                         {message}
                         <span>Isaac</span>
