@@ -117,7 +117,7 @@ const Art = () => {
       <Subheading>
         <span>002</span> Synthwave
       </Subheading>
-      <Paragraph>I just like Synthwave stuff...</Paragraph>
+      <Paragraph>I just like Synthwave stuff, a work in progress.</Paragraph>
       <ArtContainer>
         <Synthwave />
       </ArtContainer>
