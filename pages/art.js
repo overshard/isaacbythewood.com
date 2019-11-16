@@ -64,6 +64,15 @@ const Art = () => {
             Water on Jupiter <span>003</span>
           </CardHeading>
         </Card>
+        <Card onClick={() => openLightbox("/static/images/art/004.jpg")}>
+          <CardImage
+            src="/static/images/art/004-thumbnail.jpg"
+            alt="Water on Jupiter"
+          />
+          <CardHeading>
+            Metal on Mars <span>004</span>
+          </CardHeading>
+        </Card>
       </Cards>
       <Heading>Emergent Generative Art</Heading>
       <Paragraph>
