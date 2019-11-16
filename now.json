@@ -1,7 +1,7 @@
 {
   "version": 2,
   "name": "isaacbythewood.com",
-  "alias": ["isaacbythewood.com", "www.isaacbythewood.com"],
+  "alias": "isaacbythewood.com",
   "routes": [
     {
       "src": "^/service-worker.js$",
