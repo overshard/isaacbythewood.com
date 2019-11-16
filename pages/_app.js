@@ -11,18 +11,6 @@ import Menu from "../components/menu";
 import Loader from "../components/loader";
 
 class MyApp extends App {
-  constructor(props) {
-    super(props);
-    this.state = {};
-  }
-
-  static async getInitialProps({ Component, ctx }) {
-    let pageProps = {};
-    if (Component.getInitialProps)
-      pageProps = await Component.getInitialProps(ctx);
-    return { pageProps };
-  }
-
   render() {
     const { Component, pageProps } = this.props;
 
@@ -56,7 +44,6 @@ class MyApp extends App {
 
 export default MyApp;
 
-// NOTE: Prevent renderblocking of Google WebFonts CSS by importing it here
 const GlobalStyle = createGlobalStyle`
   body {
     font-family:
