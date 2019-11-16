@@ -25,7 +25,7 @@ const Menu = () => {
 
   return (
     <>
-      <Hamburger onClick={toggleMenu}>
+      <Hamburger onClick={toggleMenu} aria-label="Hamburger">
         <Patty style={{ width: "15px" }} />
         <Patty />
         <Patty style={{ width: "20px" }} />
