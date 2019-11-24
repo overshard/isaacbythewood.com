@@ -30,40 +30,13 @@ const Art = () => {
         glue, and silicone on canvas and hit with a heat gun.
       </Paragraph>
       <Cards>
-        <Card onClick={() => openLightbox("/static/images/art/000.jpg")}>
+        <Card onClick={() => openLightbox("/static/images/art/005.jpg")}>
           <CardImage
-            src="/static/images/art/000-thumbnail.jpg"
-            alt="Blood in Waves"
-          />
-          <CardHeading>
-            Blood in Waves <span>000</span>
-          </CardHeading>
-        </Card>
-        <Card onClick={() => openLightbox("/static/images/art/001.jpg")}>
-          <CardImage
-            src="/static/images/art/001-thumbnail.jpg"
-            alt="Reef Drop-off"
-          />
-          <CardHeading>
-            Reef Drop-off <span>001</span>
-          </CardHeading>
-        </Card>
-        <Card onClick={() => openLightbox("/static/images/art/002.jpg")}>
-          <CardImage
-            src="/static/images/art/002-thumbnail.jpg"
-            alt="Cracks in Clay"
-          />
-          <CardHeading>
-            Cracks in Clay <span>002</span>
-          </CardHeading>
-        </Card>
-        <Card onClick={() => openLightbox("/static/images/art/003.jpg")}>
-          <CardImage
-            src="/static/images/art/003-thumbnail.jpg"
+            src="/static/images/art/005-thumbnail.jpg"
             alt="Water on Jupiter"
           />
           <CardHeading>
-            Water on Jupiter <span>003</span>
+            Making Galaxies <span>005</span>
           </CardHeading>
         </Card>
         <Card onClick={() => openLightbox("/static/images/art/004.jpg")}>
@@ -75,13 +48,40 @@ const Art = () => {
             Metal on Mars <span>004</span>
           </CardHeading>
         </Card>
-        <Card onClick={() => openLightbox("/static/images/art/005.jpg")}>
+        <Card onClick={() => openLightbox("/static/images/art/003.jpg")}>
           <CardImage
-            src="/static/images/art/005-thumbnail.jpg"
+            src="/static/images/art/003-thumbnail.jpg"
             alt="Water on Jupiter"
           />
           <CardHeading>
-            Making Galaxies <span>005</span>
+            Water on Jupiter <span>003</span>
+          </CardHeading>
+        </Card>
+        <Card onClick={() => openLightbox("/static/images/art/002.jpg")}>
+          <CardImage
+            src="/static/images/art/002-thumbnail.jpg"
+            alt="Cracks in Clay"
+          />
+          <CardHeading>
+            Cracks in Clay <span>002</span>
+          </CardHeading>
+        </Card>
+        <Card onClick={() => openLightbox("/static/images/art/001.jpg")}>
+          <CardImage
+            src="/static/images/art/001-thumbnail.jpg"
+            alt="Reef Drop-off"
+          />
+          <CardHeading>
+            Reef Drop-off <span>001</span>
+          </CardHeading>
+        </Card>
+        <Card onClick={() => openLightbox("/static/images/art/000.jpg")}>
+          <CardImage
+            src="/static/images/art/000-thumbnail.jpg"
+            alt="Blood in Waves"
+          />
+          <CardHeading>
+            Blood in Waves <span>000</span>
           </CardHeading>
         </Card>
       </Cards>
