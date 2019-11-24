@@ -265,7 +265,8 @@ const Card = styled.div`
 
 const CardHeading = styled.h2`
   margin: 0;
-  padding: 10px 20px;
+  margin-top: -5px;
+  padding: 10px;
   display: flex;
   justify-content: space-between;
   align-items: center;
