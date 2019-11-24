@@ -8,6 +8,7 @@ import Synthwave from "../components/synthwave";
 
 const Art = () => {
   const [lightboxImage, setLightboxImage] = useState(null);
+  const [lightboxLoaded, setLightboxLoaded] = useState(false);
 
   const openLightbox = image => {
     setLightboxImage(image);
@@ -16,6 +17,7 @@ const Art = () => {
 
   const closeLightbox = () => {
     setLightboxImage(null);
+    setLightboxLoaded(false);
     document.body.style.overflowY = "scroll";
   };
 
@@ -139,7 +141,14 @@ const Art = () => {
       </Link>
       {lightboxImage !== null && (
         <Lightbox onClick={() => closeLightbox()}>
-          <LightboxImage src={lightboxImage} />
+          <LightboxLoading className={lightboxLoaded && "hide"}>
+            Loading...
+          </LightboxLoading>
+          <LightboxImage
+            src={lightboxImage}
+            className={lightboxLoaded && "show"}
+            onLoad={() => setLightboxLoaded(true)}
+          />
         </Lightbox>
       )}
     </Page>
@@ -313,4 +322,32 @@ const LightboxImage = styled.img`
   max-height: 100%;
   padding: 5vw;
   box-sizing: border-box;
+  visibility: hidden;
+  opacity: 0;
+  transition-property: opacity;
+  transition-duration: 250ms;
+
+  &.show {
+    opacity: 1;
+    visibility: visible;
+  }
+`;
+
+const LightboxLoading = styled.div`
+  position: absolute;
+  max-width: 100%;
+  max-height: 100%;
+  box-sizing: border-box;
+  color: white;
+  font-family: monospace;
+  font-size: 3em;
+  visibility: visible;
+  opacity: 1;
+  transition-property: opacity;
+  transition-duration: 250ms;
+
+  &.hide {
+    opacity: 0;
+    visibility: hidden;
+  }
 `;
