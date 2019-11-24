@@ -59,8 +59,8 @@ const Menu = () => {
             >
               <OverlayGridRight>
                 <OverlayImage
-                  src="/static/images/art/003.jpg"
-                  alt="#003 Water on Jupiter"
+                  src="/static/images/art/005.jpg"
+                  alt="#005 Making Galaxies"
                 />
               </OverlayGridRight>
             </CSSTransition>

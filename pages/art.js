@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import styled, { keyframes } from "styled-components";
+import styled from "styled-components";
 
 import Page from "../components/page";
 import Constellations from "../components/constellations";
@@ -25,7 +25,7 @@ const Art = () => {
       <Heading>Acrylic Pours</Heading>
       <Paragraph>
         A bit more traditional than my usual art, acrylics mixed with water,
-        glue, and silicone on canvas torched with a heat gun.
+        glue, and silicone on canvas and hit with a heat gun.
       </Paragraph>
       <Cards>
         <Card onClick={() => openLightbox("/static/images/art/000.jpg")}>
@@ -79,7 +79,7 @@ const Art = () => {
             alt="Water on Jupiter"
           />
           <CardHeading>
-            Galaxy Making <span>005</span>
+            Making Galaxies <span>005</span>
           </CardHeading>
         </Card>
       </Cards>
