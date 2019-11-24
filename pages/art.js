@@ -164,6 +164,7 @@ const Heading = styled.h1`
   margin-bottom: 20px;
   font-size: 2.5em;
   color: black;
+
   &::before {
     content: "";
     display: block;
@@ -181,6 +182,7 @@ const Subheading = styled.h2`
   font-size: 2em;
   color: black;
   position: relative;
+
   & > span {
     font-family: monospace;
     font-size: 0.8em;
@@ -191,6 +193,7 @@ const Subheading = styled.h2`
     right: 100%;
     margin-right: 10px;
     top: 20%;
+
     @media (${props => props.theme.breakpoints.tablet}) {
       display: none;
     }
