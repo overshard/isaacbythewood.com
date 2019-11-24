@@ -73,6 +73,15 @@ const Art = () => {
             Metal on Mars <span>004</span>
           </CardHeading>
         </Card>
+        <Card onClick={() => openLightbox("/static/images/art/005.jpg")}>
+          <CardImage
+            src="/static/images/art/005-thumbnail.jpg"
+            alt="Water on Jupiter"
+          />
+          <CardHeading>
+            Galaxy Making <span>005</span>
+          </CardHeading>
+        </Card>
       </Cards>
       <Heading>Emergent Generative Art</Heading>
       <Paragraph>
@@ -223,6 +232,7 @@ const Link = styled.a`
   transform: scale(1);
   transition-duration: 250ms;
   transition-property: transform;
+
   &:hover {
     transform: scale(1.2);
   }
@@ -234,6 +244,7 @@ const Cards = styled.div`
   grid-template-rows: 1fr;
   grid-gap: 20px;
   margin-bottom: 50px;
+
   @media (${props => props.theme.breakpoints.mobile}) {
     grid-template-columns: 1fr;
   }
@@ -246,6 +257,7 @@ const Card = styled.div`
   transition-duration: 200ms;
   transition-property: box-shadow;
   transition-timing-function: ease-in;
+
   &:hover {
     box-shadow: 0 5px 25px rgba(0, 0, 0, 0.4);
   }
@@ -270,7 +282,10 @@ const CardHeading = styled.h2`
 `;
 
 const CardImage = styled.img`
+  object-fit: cover;
+  object-position: center;
   width: 100%;
+  height: 30vh;
 `;
 
 const Lightbox = styled.div`
