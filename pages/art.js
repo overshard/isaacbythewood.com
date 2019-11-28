@@ -30,19 +30,28 @@ const Art = () => {
         glue, and silicone on canvas and hit with a heat gun.
       </Paragraph>
       <Cards>
+        <Card onClick={() => openLightbox("/static/images/art/006.jpg")}>
+          <CardImage
+            src="/static/images/art/006-thumbnail.jpg"
+            alt="Molten Copper"
+          />
+          <CardHeading>
+            Molten Copper <span>006</span>
+          </CardHeading>
+        </Card>
         <Card onClick={() => openLightbox("/static/images/art/005.jpg")}>
           <CardImage
             src="/static/images/art/005-thumbnail.jpg"
-            alt="Water on Jupiter"
+            alt="Nebulas in Triangulum"
           />
           <CardHeading>
-            Making Galaxies <span>005</span>
+            Nebulas in Triangulum <span>005</span>
           </CardHeading>
         </Card>
         <Card onClick={() => openLightbox("/static/images/art/004.jpg")}>
           <CardImage
             src="/static/images/art/004-thumbnail.jpg"
-            alt="Water on Jupiter"
+            alt="Metal on Mars"
           />
           <CardHeading>
             Metal on Mars <span>004</span>
