@@ -284,6 +284,7 @@ const Cards = styled.div`
   grid-template-rows: 1fr;
   grid-gap: 20px;
   margin-bottom: 50px;
+  cursor: pointer;
 
   @media (${props => props.theme.breakpoints.mobile}) {
     grid-template-columns: 1fr;

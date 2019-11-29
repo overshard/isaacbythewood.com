@@ -4,7 +4,6 @@ import styled, { ThemeProvider, createGlobalStyle } from "styled-components";
 import { TransitionGroup, CSSTransition } from "react-transition-group";
 
 import { theme } from "../site.config";
-import Mouse from "../components/mouse";
 import Grid from "../components/grid";
 import Sidebar from "../components/sidebar";
 import Menu from "../components/menu";
@@ -19,7 +18,6 @@ class MyApp extends App {
         <>
           <GlobalStyle />
           <Loader />
-          <Mouse />
           <Sidebar />
           <Menu />
           <TransitionGroup component={null}>
@@ -59,11 +57,6 @@ const GlobalStyle = createGlobalStyle`
     text-shadow: rgba(0, 0, 0, .01) 0 0 1px;
     text-rendering: optimizeLegibility;
     user-select: none;
-  }
-
-  body,
-  a {
-    cursor: none;
   }
 `;
 
