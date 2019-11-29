@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 
 import Page from "../components/page";
@@ -12,14 +12,33 @@ const Art = () => {
 
   const openLightbox = image => {
     setLightboxImage(image);
+    history.replaceState(
+      null,
+      null,
+      "#" +
+        image
+          .split("/")
+          .pop()
+          .replace(".jpg", "")
+    );
+
     document.body.style.overflowY = "hidden";
   };
 
   const closeLightbox = () => {
     setLightboxImage(null);
     setLightboxLoaded(false);
+    history.replaceState(null, null, " ");
     document.body.style.overflowY = "scroll";
   };
+
+  useEffect(() => {
+    const validImageIds = ["001", "002", "003", "004", "005", "006"];
+    const imageId = window.location.hash.replace("#", "");
+    if (validImageIds.indexOf(imageId) > -1) {
+      openLightbox(`/static/images/art/${imageId}.jpg`);
+    }
+  }, []);
 
   return (
     <Page title="Art" description="Some of my art... what even is art...">
