@@ -26,7 +26,10 @@ const Index = () => {
 
   return (
     <Page title="Full-Stack Developer located in Morganton, NC">
-      <Background src="/static/images/art/006.jpg" alt="#006 Molten Copper" />
+      <Background
+        src="/static/images/art/005.jpg"
+        alt="#005 Nebulas in Triangulum"
+      />
       <ConstellationsContainer>
         <Constellations options={{ numStars: 150 }} />
       </ConstellationsContainer>
