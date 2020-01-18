@@ -49,6 +49,7 @@ const Constellations = ({ options }) => {
 
     // Create draw for use in animation frame rerendering
     let starsAnimationFrame = null;
+    const starDistance = 150;
     const drawStars = () => {
       // Clear the canvas
       ctx.clearRect(0, 0, cvs.width, cvs.height);
@@ -67,19 +68,19 @@ const Constellations = ({ options }) => {
             Math.hypot(
               star.loc[0] - closeStar.loc[0],
               star.loc[1] - closeStar.loc[1]
-            ) < 100
+            ) < starDistance
           );
         });
         closeStars.map(closeStar => {
           ctx.beginPath();
           ctx.moveTo(...star.loc);
           ctx.lineTo(...closeStar.loc);
-          ctx.strokeStyle = `rgba(255, 255, 255, ${(100 -
+          ctx.strokeStyle = `rgba(255, 255, 255, ${(starDistance -
             Math.hypot(
               star.loc[0] - closeStar.loc[0],
               star.loc[1] - closeStar.loc[1]
             )) /
-            100})`;
+            starDistance})`;
           ctx.stroke();
           ctx.closePath();
         });
