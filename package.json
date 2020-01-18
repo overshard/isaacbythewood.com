@@ -1,7 +1,9 @@
 {
   "private": true,
   "scripts": {
-    "start": "next --port 8000"
+    "start": "next --port 8000",
+    "prod:build": "next build",
+    "prod:start": "next start --port 80"
   },
   "dependencies": {
     "isomorphic-unfetch": "^3.0.0",
