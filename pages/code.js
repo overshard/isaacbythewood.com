@@ -181,6 +181,7 @@ const Paragraph = styled.p`
     color: black;
     text-decoration: none;
     position: relative;
+    white-space: nowrap;
 
     &::before {
       content: "";
