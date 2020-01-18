@@ -75,7 +75,7 @@ const Code = ({ timeliteCommits, timestrapCommits }) => {
           <ProjectParagraph>
             A full feature time tracking web app. Supports multiple users and
             exporting reports in multiple formats. Makes use of websockets to
-            maintain state across all active clients.
+            maintain state across clients.
           </ProjectParagraph>
           {timestrapLatest && <ProjectCommit>{timestrapLatest}</ProjectCommit>}
           <ProjectButton
@@ -234,6 +234,7 @@ const GridColumn = styled.div`
 
 const GridLeft = styled(GridColumn)`
   grid-area: left;
+  min-width: 0;
 
   @media (${props => props.theme.breakpoints.tablet}) {
     grid-column: 1;
@@ -244,6 +245,7 @@ const GridLeft = styled(GridColumn)`
 const GridRight = styled(GridColumn)`
   grid-area: right;
   animation-delay: 250ms;
+  min-width: 0;
 
   @media (${props => props.theme.breakpoints.tablet}) {
     grid-column: 1;
@@ -297,8 +299,9 @@ const ProjectCommit = styled.pre`
   background: black;
   color: #00ff00;
   padding: 20px;
-  white-space: pre-wrap;
-  word-break: break-word;
+  overflow-x: hidden;
+  max-width: 100%;
+  text-overflow: ellipsis;
 
   @media (${props => props.theme.breakpoints.mobile}) {
   }
