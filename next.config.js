@@ -2,6 +2,9 @@ const withOffline = require("next-offline");
 
 const nextConfig = {
   target: "serverless",
+  future: {
+    webpack5: true,
+  },
   workboxOpts: {
     swDest: "static/service-worker.js",
     runtimeCaching: [
