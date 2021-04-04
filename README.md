@@ -1,5 +1,5 @@
 <p align="center">
-    <img src="https://github.com/overshard/isaacbythewood.com/raw/master/public/static/favicon.png"
+    <img src="https://raw.githubusercontent.com/overshard/isaacbythewood.com/master/public/static/images/favicon.png"
          width="200"
          height="200"
          alt="isaacbythewood.com Favicon" />
