@@ -8,6 +8,7 @@ import Grid from "../components/grid";
 import Sidebar from "../components/sidebar";
 import Menu from "../components/menu";
 import Loader from "../components/loader";
+import Mouse from "../components/mouse";
 
 class MyApp extends App {
   render() {
@@ -17,6 +18,7 @@ class MyApp extends App {
       <ThemeProvider theme={theme}>
         <>
           <GlobalStyle />
+          <Mouse />
           <Loader />
           <Sidebar />
           <Menu />
@@ -48,7 +50,7 @@ const GlobalStyle = createGlobalStyle`
       -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial,
       sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
     color: white;
-    background-color: ${props => props.theme.colors.primary};
+    background-color: ${(props) => props.theme.colors.primary};
     min-height: 100vh;
     width: 100%;
     padding: 0;
@@ -57,6 +59,15 @@ const GlobalStyle = createGlobalStyle`
     text-shadow: rgba(0, 0, 0, .01) 0 0 1px;
     text-rendering: optimizeLegibility;
     user-select: none;
+    cursor: none;
+  }
+
+  a {
+    cursor: none;
+  }
+
+  button {
+    cursor: none;
   }
 `;
 
