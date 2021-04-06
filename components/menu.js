@@ -146,6 +146,10 @@ const Overlay = styled.div`
 const OverlayGrid = styled.div`
   display: grid;
   grid-template-columns: 60% 40%;
+
+  @media (${props => props.theme.breakpoints.mobile}) {
+    grid-template-columns: 100%;
+  }
 `;
 
 const OverlayGridLeft = styled.div`
