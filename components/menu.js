@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import Link from "next/link";
+import Image from "next/image";
 import { CSSTransition } from "react-transition-group";
 
 const Menu = () => {
@@ -58,9 +59,11 @@ const Menu = () => {
               appear
             >
               <OverlayGridRight>
-                <OverlayImage
-                  src="/static/images/art/005.jpg"
-                  alt="#005 Making Galaxies"
+                <Image
+                  src="/static/images/art/006.jpg"
+                  alt="#006 Molten Copper"
+                  width={1879}
+                  height={1440}
                 />
               </OverlayGridRight>
             </CSSTransition>
@@ -212,11 +215,11 @@ const OverlayGridRight = styled.div`
   &.transition-exit-done {
     transform: translateX(100%);
   }
-`;
 
-const OverlayImage = styled.img`
-  object-fit: cover;
-  height: 100%;
+  img {
+    object-fit: cover;
+    height: 100vh;
+  }
 `;
 
 const OverlayLink = styled.a`
