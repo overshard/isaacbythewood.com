@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
 import Link from "next/link";
+import Image from "next/image";
 import { withRouter } from "next/router";
 
 const Sidebar = ({ router }) => {
@@ -36,6 +37,16 @@ const Sidebar = ({ router }) => {
 
   return (
     <Nav>
+      <Link href="/">
+        <a>
+          <Image
+            src="/static/images/favicon.png"
+            alt="Home"
+            width={256}
+            height={256}
+          />
+        </a>
+      </Link>
       <Link href="/contact" passHref>
         <NavContact>Get in touch</NavContact>
       </Link>
@@ -62,7 +73,6 @@ const Nav = styled.nav`
   bottom: 0;
   position: fixed;
   z-index: 1;
-  border-right: 1px solid rgba(125, 125, 125, 0.2);
 
   @media (${props => props.theme.breakpoints.tablet}) {
     bottom: auto;
