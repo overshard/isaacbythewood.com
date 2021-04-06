@@ -40,30 +40,5 @@ plenty of great guides out there as it is very popular.
 
 ## Production
 
-You can either push to [ZEIT](https://zeit.co/) with an update to the `now.json`
-file to change the alias or install Docker and docker-compose and use that on
-any server.
-
-With docker appending `-d` to the end after `up` will run this container in
-detached mode. We have `restart: always` configured so on system restarts or
-crashes the container will start back up automatically.
-
-    docker-compose up -d
-
-## Ports
-
-To change which ports things run on you can update the `package.json` file's
-scripts. You will also need to update the `docker-compose.yml` file, if you use
-that, to properly publish the new port.
-
-## Troubleshooting
-
-You may need to manually rebuild your docker container at times depending on
-changes that have been made that may not automatically trigger a rebuild. To do
-that you can run:
-
-    docker-compose up -d --build
-
-The `up` implies that you want to start the server again, `--build` will rebuild
-the container and `-d`, as stated above, starts us in detached mode so you can
-set it and forget it.
+I suggest pushing this code to [Vercel](https://vercel.com/) with an update to
+the `now.json` file to change the alias for the easiest production deployment.
