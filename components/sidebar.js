@@ -37,15 +37,8 @@ const Sidebar = ({ router }) => {
 
   return (
     <Nav>
-      <Link href="/">
-        <a>
-          <Image
-            src="/static/images/favicon.png"
-            alt="Home"
-            width={256}
-            height={256}
-          />
-        </a>
+      <Link href="/" passHref>
+        <NavLogo />
       </Link>
       <Link href="/contact" passHref>
         <NavContact>Get in touch</NavContact>
@@ -84,6 +77,25 @@ const Nav = styled.nav`
   }
 `;
 
+const NavLogo = styled.a`
+  content: "";
+  display: block;
+  background-image: linear-gradient(
+    to right,
+    ${props => props.theme.colors.blue} 0,
+    ${props => props.theme.colors.purple} 100%
+  );
+  width: 40px;
+  height: 40px;
+  z-index: 3;
+  margin-left: 10px;
+  margin-top: 10px;
+
+  @media (${props => props.theme.breakpoints.mobile}) {
+    left: 35px;
+  }
+`;
+
 const NavContact = styled.a`
   font-weight: 700;
   writing-mode: vertical-rl;
@@ -114,33 +126,15 @@ const NavContact = styled.a`
     }
   }
 
-  &::after {
-    visibility: hidden;
-  }
-
   @media (${props => props.theme.breakpoints.tablet}) {
     writing-mode: horizontal-tb;
     transform: none;
   }
 
   @media (${props => props.theme.breakpoints.mobile}) {
-    visibility: hidden;
-    &::after {
-      visibility: visible;
-      content: "";
-      display: block;
-      background-image: linear-gradient(
-        to right,
-        ${props => props.theme.colors.blue} 0,
-        ${props => props.theme.colors.purple} 100%
-      );
-      width: 30px;
-      height: 60px;
-      position: absolute;
-      z-index: 3;
-      left: 0;
-      top: 0;
-    }
+    writing-mode: horizontal-tb;
+    transform: none;
+    display: none;
   }
 `;
 
