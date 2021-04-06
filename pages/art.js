@@ -4,7 +4,7 @@ import styled from "styled-components";
 import Page from "../components/page";
 import Constellations from "../components/constellations";
 import RetroStars from "../components/retrostars";
-import Synthwave from "../components/synthwave";
+import Dots from "../components/dots";
 
 const Art = () => {
   const [lightboxImage, setLightboxImage] = useState(null);
@@ -154,11 +154,14 @@ const Art = () => {
         See the Code
       </Link>
       <Subheading>
-        <span>002</span> Synthwave
+        <span>002</span> Particle Wave
       </Subheading>
-      <Paragraph>I just like Synthwave stuff, a work in progress.</Paragraph>
+      <Paragraph>
+        Uses THREE.js to render a wave of particles that will also shift based
+        on cursor and touch position.
+      </Paragraph>
       <ArtContainer>
-        <Synthwave />
+        <Dots />
       </ArtContainer>
       <Link
         href="https://github.com/overshard/isaacbythewood.com/blob/master/components/planets.js"
@@ -251,6 +254,8 @@ const ArtContainer = styled.div`
   max-height: 100vh;
   background: black;
   margin-bottom: 20px;
+  position: relative;
+  overflow: hidden;
 `;
 
 const Link = styled.a`

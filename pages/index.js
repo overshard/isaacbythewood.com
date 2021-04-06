@@ -1,9 +1,10 @@
 import React, { useEffect, useState, useRef } from "react";
 import styled, { keyframes } from "styled-components";
 import { TransitionGroup, CSSTransition } from "react-transition-group";
+import Image from "next/image";
 
 import Page from "../components/page";
-import Constellations from "../components/constellations";
+import Dots from "../components/dots";
 
 const Index = () => {
   const words = ["Developer", "SysAdmin", "DevOps", "Consultant"];
@@ -26,13 +27,15 @@ const Index = () => {
 
   return (
     <Page title="Full-Stack Developer located in Morganton, NC">
-      <Background
-        src="/static/images/art/005.jpg"
-        alt="#005 Nebulas in Triangulum"
-      />
-      <ConstellationsContainer>
-        <Constellations options={{ numStars: 150 }} />
-      </ConstellationsContainer>
+      <ImageWrapper>
+        <Image
+          src="/static/images/art/005.jpg"
+          alt="#005 Nebulas in Triangulum"
+          width={2969}
+          height={1440}
+        />
+      </ImageWrapper>
+      <Dots />
       <TransitionGroup component={Words}>
         {currentWords.map(word => {
           return (
@@ -69,28 +72,25 @@ const SlideStart = keyframes`
   }
 `;
 
-const Background = styled.img`
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 100vh;
-  z-index: -3;
-  object-fit: cover;
-`;
-
-const ConstellationsContainer = styled.div`
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  width: 100%;
+const ImageWrapper = styled.div`
+  width: 100vw;
   height: 100vh;
   z-index: -2;
-  overflow: hidden;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 60px;
+
+  @media (${props => props.theme.breakpoints.mobile}) {
+    left: 0;
+  }
+
+  img {
+    object-fit: cover;
+    object-position: center;
+    height: 100vh;
+  }
 `;
 
 const Words = styled.div`
