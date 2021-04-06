@@ -31,10 +31,9 @@ const Index = () => {
         <Image
           src="/static/images/art/005.jpg"
           alt="#005 Nebulas in Triangulum"
-          width={2969}
-          height={1440}
           loading="eager"
-          layout="responsive"
+          layout="fill"
+          priority={true}
         />
       </ImageWrapper>
       <Dots />

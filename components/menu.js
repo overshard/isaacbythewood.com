@@ -62,10 +62,8 @@ const Menu = () => {
                 <Image
                   src="/static/images/art/006.jpg"
                   alt="#006 Molten Copper"
-                  width={1879}
-                  height={1440}
                   loading="lazy"
-                  layout="responsive"
+                  layout="fill"
                 />
               </OverlayGridRight>
             </CSSTransition>
