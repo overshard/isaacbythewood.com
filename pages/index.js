@@ -34,6 +34,7 @@ const Index = () => {
           width={2969}
           height={1440}
           loading="eager"
+          layout="responsive"
         />
       </ImageWrapper>
       <Dots />

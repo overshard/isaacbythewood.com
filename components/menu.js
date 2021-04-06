@@ -65,6 +65,7 @@ const Menu = () => {
                   width={1879}
                   height={1440}
                   loading="lazy"
+                  layout="responsive"
                 />
               </OverlayGridRight>
             </CSSTransition>
