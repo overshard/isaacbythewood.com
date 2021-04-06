@@ -2,14 +2,13 @@ import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
 import Link from "next/link";
-import Image from "next/image";
 import { withRouter } from "next/router";
 
 const Sidebar = ({ router }) => {
   const [current, setCurrent] = useState("000");
 
   useEffect(() => {
-    const handleRouteChange = url => {
+    const handleRouteChange = (url) => {
       switch (url) {
         case "/":
           setCurrent("000");
@@ -38,7 +37,7 @@ const Sidebar = ({ router }) => {
   return (
     <Nav>
       <Link href="/" passHref>
-        <NavLogo />
+        <NavLogo aria-label="Back to home" />
       </Link>
       <Link href="/contact" passHref>
         <NavContact>Get in touch</NavContact>
@@ -49,7 +48,7 @@ const Sidebar = ({ router }) => {
 };
 
 Sidebar.propTypes = {
-  router: PropTypes.object
+  router: PropTypes.object,
 };
 
 export default withRouter(Sidebar);
@@ -68,7 +67,7 @@ const Nav = styled.nav`
   z-index: 1;
   border-right: 1px solid rgba(125, 125, 125, 0.2);
 
-  @media (${props => props.theme.breakpoints.tablet}) {
+  @media (${(props) => props.theme.breakpoints.tablet}) {
     bottom: auto;
     left: 0;
     flex-direction: row;
@@ -83,8 +82,8 @@ const NavLogo = styled.a`
   display: block;
   background-image: linear-gradient(
     to right,
-    ${props => props.theme.colors.blue} 0,
-    ${props => props.theme.colors.purple} 100%
+    ${(props) => props.theme.colors.blue} 0,
+    ${(props) => props.theme.colors.purple} 100%
   );
   width: 40px;
   height: 40px;
@@ -92,7 +91,7 @@ const NavLogo = styled.a`
   margin-left: 10px;
   margin-top: 10px;
 
-  @media (${props => props.theme.breakpoints.mobile}) {
+  @media (${(props) => props.theme.breakpoints.mobile}) {
     left: 35px;
   }
 `;
@@ -127,12 +126,12 @@ const NavContact = styled.a`
     }
   }
 
-  @media (${props => props.theme.breakpoints.tablet}) {
+  @media (${(props) => props.theme.breakpoints.tablet}) {
     writing-mode: horizontal-tb;
     transform: none;
   }
 
-  @media (${props => props.theme.breakpoints.mobile}) {
+  @media (${(props) => props.theme.breakpoints.mobile}) {
     writing-mode: horizontal-tb;
     transform: none;
     display: none;
@@ -146,7 +145,7 @@ const NavCurrent = styled.div`
   padding: 5px;
   color: white;
 
-  @media (${props => props.theme.breakpoints.tablet}) {
+  @media (${(props) => props.theme.breakpoints.tablet}) {
     writing-mode: vertical-rl;
     transform: rotate(180deg);
   }

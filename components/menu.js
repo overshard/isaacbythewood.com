@@ -11,7 +11,7 @@ const Menu = () => {
     { num: "001", href: "/about", title: "About" },
     { num: "002", href: "/code", title: "Code" },
     { num: "003", href: "/art", title: "Art" },
-    { num: "004", href: "/contact", title: "Contact" }
+    { num: "004", href: "/contact", title: "Contact" },
   ];
 
   const toggleMenu = () => {
@@ -41,7 +41,7 @@ const Menu = () => {
               appear
             >
               <OverlayGridLeft>
-                {pages.map(page => {
+                {pages.map((page) => {
                   return (
                     <Link key={page.href} href={page.href} passHref>
                       <OverlayLink data-text={page.title} onClick={toggleMenu}>
@@ -64,6 +64,7 @@ const Menu = () => {
                   alt="#006 Molten Copper"
                   width={1879}
                   height={1440}
+                  loading="lazy"
                 />
               </OverlayGridRight>
             </CSSTransition>
@@ -90,7 +91,7 @@ const Hamburger = styled.button`
     width: 30px !important;
   }
 
-  @media (${props => props.theme.breakpoints.tablet}) {
+  @media (${(props) => props.theme.breakpoints.tablet}) {
     top: 0;
     padding-bottom: 21px;
   }
@@ -147,7 +148,7 @@ const OverlayGrid = styled.div`
   display: grid;
   grid-template-columns: 60% 40%;
 
-  @media (${props => props.theme.breakpoints.mobile}) {
+  @media (${(props) => props.theme.breakpoints.mobile}) {
     grid-template-columns: 100%;
   }
 `;

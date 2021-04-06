@@ -33,11 +33,12 @@ const Index = () => {
           alt="#005 Nebulas in Triangulum"
           width={2969}
           height={1440}
+          loading="eager"
         />
       </ImageWrapper>
       <Dots />
       <TransitionGroup component={Words}>
-        {currentWords.map(word => {
+        {currentWords.map((word) => {
           return (
             <CSSTransition key={word} timeout={1000} classNames="transition">
               <Word>{word}</Word>
