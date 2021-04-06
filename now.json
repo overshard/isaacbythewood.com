@@ -2,15 +2,26 @@
   "version": 2,
   "name": "isaacbythewood.com",
   "alias": "isaacbythewood.com",
-  "routes": [
+  "builds": [{ "src": "package.json", "use": "@vercel/next" }],
+  "rewrites": [
     {
-      "src": "^/service-worker.js$",
-      "dest": "/_next/static/service-worker.js",
-      "headers": {
-        "cache-control": "public, max-age=43200, immutable",
-        "Service-Worker-Allowed": "/"
-      }
+      "source": "/service-worker.js",
+      "destination": "/_next/static/service-worker.js"
     }
   ],
-  "builds": [{ "src": "package.json", "use": "@vercel/next" }]
+  "headers": [
+    {
+      "source": "/service-worker.js",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=43200, immutable"
+        },
+        {
+          "key": "Service-Worker-Allowed",
+          "value": "/"
+        }
+      ]
+    }
+  ]
 }
