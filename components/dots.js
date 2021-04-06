@@ -21,13 +21,13 @@ const Dots = () => {
     let mouseX = 85,
       mouseY = -342;
 
-    let windowHalfX = window.innerWidth / 2;
-    let windowHalfY = window.innerHeight / 2;
+    let windowHalfX = navDotsBoxRef.current.clientWidth / 2;
+    let windowHalfY = navDotsBoxRef.current.clientHeight / 2;
 
     const navDotsSceneInit = () => {
       camera = new THREE.PerspectiveCamera(
         120,
-        window.innerWidth / window.innerHeight,
+        navDotsBoxRef.current.clientWidth / navDotsBoxRef.current.clientHeight,
         1,
         10000
       );
@@ -58,7 +58,10 @@ const Dots = () => {
       }
 
       renderer = new THREE.CanvasRenderer();
-      renderer.setSize(window.innerWidth, window.innerHeight);
+      renderer.setSize(
+        navDotsBoxRef.current.clientWidth,
+        navDotsBoxRef.current.clientHeight
+      );
       navDotsBoxRef.current.appendChild(renderer.domElement);
 
       document.addEventListener("mousemove", onDocumentMouseMove, false);
@@ -68,11 +71,15 @@ const Dots = () => {
     };
 
     const onWindowResize = () => {
-      windowHalfX = window.innerWidth / 2;
-      windowHalfY = window.innerHeight / 2;
-      camera.aspect = window.innerWidth / window.innerHeight;
+      windowHalfX = navDotsBoxRef.current.clientWidth / 2;
+      windowHalfY = navDotsBoxRef.current.clientHeight / 2;
+      camera.aspect =
+        navDotsBoxRef.current.clientWidth / navDotsBoxRef.current.clientHeight;
       camera.updateProjectionMatrix();
-      renderer.setSize(window.innerWidth, window.innerHeight);
+      renderer.setSize(
+        navDotsBoxRef.current.clientWidth,
+        navDotsBoxRef.current.clientHeight
+      );
     };
 
     const onDocumentMouseMove = event => {
