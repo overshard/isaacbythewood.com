@@ -41,4 +41,5 @@ plenty of great guides out there as it is very popular.
 ## Production
 
 I suggest pushing this code to [Vercel](https://vercel.com/) with an update to
-the `now.json` file to change the alias for the easiest production deployment.
+the `vercel.json` file to change the alias for the easiest production
+deployment.
