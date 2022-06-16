@@ -12,6 +12,7 @@ const Menu = () => {
     { num: "002", href: "/code", title: "Code" },
     { num: "003", href: "/art", title: "Art" },
     { num: "004", href: "/contact", title: "Contact" },
+    { num: "005", href: "https://blog.bythewood.me/", title: "Blog" },
   ];
 
   const toggleMenu = () => {
