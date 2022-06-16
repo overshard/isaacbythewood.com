@@ -4,7 +4,6 @@ import styled from "styled-components";
 import Page from "../components/page";
 import Constellations from "../components/constellations";
 import RetroStars from "../components/retrostars";
-import Dots from "../components/dots";
 
 const Art = () => {
   const [lightboxImage, setLightboxImage] = useState(null);
@@ -148,23 +147,6 @@ const Art = () => {
       </ArtContainer>
       <Link
         href="https://github.com/overshard/isaacbythewood.com/blob/master/components/retrostars.js"
-        rel="noopener noreferrer"
-        target="_blank"
-      >
-        See the Code
-      </Link>
-      <Subheading>
-        <span>002</span> Particle Wave
-      </Subheading>
-      <Paragraph>
-        Uses THREE.js to render a wave of particles that will also shift based
-        on cursor and touch position.
-      </Paragraph>
-      <ArtContainer>
-        <Dots />
-      </ArtContainer>
-      <Link
-        href="https://github.com/overshard/isaacbythewood.com/blob/master/components/planets.js"
         rel="noopener noreferrer"
         target="_blank"
       >

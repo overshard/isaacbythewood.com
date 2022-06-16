@@ -1,7 +1,7 @@
 {
   "private": true,
   "scripts": {
-    "start": "next --port 8000",
+    "start": "next --port 3000",
     "prod:build": "next build",
     "prod:start": "next start --port 80"
   },
@@ -13,8 +13,7 @@
     "react-dom": "^17.0.2",
     "react-is": "^17.0.2",
     "react-transition-group": "^4.4.1",
-    "styled-components": "^5.2.3",
-    "three": "0.56.4"
+    "styled-components": "^5.2.3"
   },
   "devDependencies": {
     "eslint": "^7.23.0",

@@ -5,9 +5,11 @@ import "isomorphic-unfetch";
 
 import Page from "../components/page";
 
-const Code = ({ timeliteCommits, timestrapCommits }) => {
+const Code = ({ timeliteCommits, timestrapCommits, analyticsCommits, blogCommits }) => {
   let timeliteLatest,
-    timestrapLatest = null;
+    timestrapLatest,
+    analyticsLatest,
+    blogLatest = null;
 
   try {
     timeliteLatest = `{
@@ -33,6 +35,30 @@ const Code = ({ timeliteCommits, timestrapCommits }) => {
     "html_url": "${timestrapCommits[0].author.html_url}"
   }
 }`;
+
+    analyticsLatest = `{
+  "sha": "${analyticsCommits[0].sha}",
+  "commit": {
+    "message": "${analyticsCommits[0].commit.message}",
+    "date": "${analyticsCommits[0].commit.author.date}"
+  },
+  "author": {
+    "login": "${analyticsCommits[0].author.login}",
+    "html_url": "${analyticsCommits[0].author.html_url}"
+  }
+}`;
+
+    blogLatest = `{
+  "sha": "${blogCommits[0].sha}",
+  "commit": {
+    "message": "${blogCommits[0].commit.message}",
+    "date": "${blogCommits[0].commit.author.date}"
+  },
+  "author": {
+    "login": "${blogCommits[0].author.login}",
+    "html_url": "${blogCommits[0].author.html_url}"
+  }
+}`;
   } catch (err) {
     console.log(err);
   }
@@ -55,6 +81,20 @@ const Code = ({ timeliteCommits, timestrapCommits }) => {
       </Paragraph>
       <Grid>
         <GridLeft>
+          <ProjectHeading>Analytics</ProjectHeading>
+          <ProjectParagraph>
+            A self-hostable analytics service with a straightforward API to
+            track events from any source.
+          </ProjectParagraph>
+          {analyticsLatest && <ProjectCommit>{analyticsLatest}</ProjectCommit>}
+          <ProjectButton
+            href="https://www.github.com/overshard/analytics"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            GitHub
+          </ProjectButton>
+
           <ProjectHeading>Timelite</ProjectHeading>
           <ProjectParagraph>
             A simple time tracking progressive web app. Uses local storage and
@@ -71,6 +111,21 @@ const Code = ({ timeliteCommits, timestrapCommits }) => {
           </ProjectButton>
         </GridLeft>
         <GridRight>
+          <ProjectHeading>Blog</ProjectHeading>
+          <ProjectParagraph>
+            A self-hostable blog built on Wagtail targeted towards developers
+            with code blocks, syntax highlighting, live search, great SEO, and a
+            clean customizable UI.
+          </ProjectParagraph>
+          {blogLatest && <ProjectCommit>{blogLatest}</ProjectCommit>}
+          <ProjectButton
+            href="https://www.github.com/overshard/blog"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            GitHub
+          </ProjectButton>
+
           <ProjectHeading>Timestrap</ProjectHeading>
           <ProjectParagraph>
             A full feature time tracking web app. Supports multiple users and
@@ -100,15 +155,27 @@ Code.getInitialProps = async () => {
     "https://api.github.com/repos/overshard/timelite/commits"
   );
   const timeliteCommits = await timeliteCommitsFetch.json();
+  const analyticsCommitsFetch = await fetch(
+    "https://api.github.com/repos/overshard/analytics/commits"
+  );
+  const analyticsCommits = await analyticsCommitsFetch.json();
+  const blogCommitsFetch = await fetch(
+    "https://api.github.com/repos/overshard/blog/commits"
+  );
+  const blogCommits = await blogCommitsFetch.json();
   return {
     timeliteCommits: timeliteCommits,
-    timestrapCommits: timestrapCommits
+    timestrapCommits: timestrapCommits,
+    analyticsCommits: analyticsCommits,
+    blogCommits: blogCommits,
   };
 };
 
 Code.propTypes = {
   timeliteCommits: PropTypes.oneOfType([PropTypes.object, PropTypes.array]),
-  timestrapCommits: PropTypes.oneOfType([PropTypes.object, PropTypes.array])
+  timestrapCommits: PropTypes.oneOfType([PropTypes.object, PropTypes.array]),
+  analyticsCommits: PropTypes.oneOfType([PropTypes.object, PropTypes.array]),
+  blogCommits: PropTypes.oneOfType([PropTypes.object, PropTypes.array]),
 };
 
 export default Code;

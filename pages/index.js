@@ -4,7 +4,6 @@ import { TransitionGroup, CSSTransition } from "react-transition-group";
 import Image from "next/image";
 
 import Page from "../components/page";
-import Dots from "../components/dots";
 
 const Index = () => {
   const words = ["Developer", "SysAdmin", "DevOps", "Consultant"];
@@ -36,7 +35,6 @@ const Index = () => {
           priority={true}
         />
       </ImageWrapper>
-      <Dots />
       <TransitionGroup component={Words}>
         {currentWords.map((word) => {
           return (
