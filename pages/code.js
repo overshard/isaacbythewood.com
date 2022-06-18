@@ -19,8 +19,8 @@ const Code = ({ timeliteCommits, timestrapCommits, analyticsCommits, blogCommits
     "date": "${timeliteCommits[0].commit.author.date}"
   },
   "author": {
-    "login": "${timestrapCommits[0].author.login}",
-    "html_url": "${timestrapCommits[0].author.html_url}"
+    "login": "${timeliteCommits[0].author.login}",
+    "html_url": "${timeliteCommits[0].author.html_url}"
   }
 }`;
 
