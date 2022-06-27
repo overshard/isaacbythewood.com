@@ -13,7 +13,8 @@ class MyDocument extends Document {
     try {
       ctx.renderPage = () =>
         originalRenderPage({
-          enhanceApp: App => props => sheet.collectStyles(<App {...props} />)
+          enhanceApp: (App) => (props) =>
+            sheet.collectStyles(<App {...props} />),
         });
 
       const initialProps = await Document.getInitialProps(ctx);
@@ -24,7 +25,7 @@ class MyDocument extends Document {
             {initialProps.styles}
             {sheet.getStyleElement()}
           </>
-        )
+        ),
       };
     } finally {
       sheet.seal();
@@ -37,6 +38,15 @@ class MyDocument extends Document {
         <Head>
           <meta name="theme-color" content={theme.colors.primary} />
           <link rel="manifest" href="/manifest.json" />
+          <script
+            dangerouslySetInnerHTML={{
+              __html: `(function(m,e,t,r,i,c,s){m.collectorQueue = m.collectorQueue || r;
+            m.collectorServer = c; m.collectorId = s; collectorScript = e.createElement(t);
+            collectorScript.src = c + i; e.head.appendChild(m.collectorScript);
+            })(window,document,'script',[],'/static/collector.js',
+            'https://analytics.bythewood.me','30e69c06-9beb-4283-8919-8c7a686ab013');`,
+            }}
+          />
         </Head>
         <body>
           <Main />
