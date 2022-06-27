@@ -157,7 +157,14 @@ const Words = styled.div`
   color: black;
   text-transform: uppercase;
   height: 100vh;
-  overflow-y: hidden;
+  overflow: hidden;
+
+  @media (${props => props.theme.breakpoints.mobile}) {
+    top: 50px;
+    font-size: 4vh;
+    line-height: 10vh;
+    left: calc(10px + 5%);
+  }
 `;
 
 const Word = styled.h2`
