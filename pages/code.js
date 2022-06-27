@@ -5,64 +5,7 @@ import "isomorphic-unfetch";
 
 import Page from "../components/page";
 
-const Code = ({ timeliteCommits, timestrapCommits, analyticsCommits, blogCommits }) => {
-  let timeliteLatest,
-    timestrapLatest,
-    analyticsLatest,
-    blogLatest = null;
-
-  try {
-    timeliteLatest = `{
-  "sha": "${timeliteCommits[0].sha}",
-  "commit": {
-    "message": "${timeliteCommits[0].commit.message}",
-    "date": "${timeliteCommits[0].commit.author.date}"
-  },
-  "author": {
-    "login": "${timeliteCommits[0].author.login}",
-    "html_url": "${timeliteCommits[0].author.html_url}"
-  }
-}`;
-
-    timestrapLatest = `{
-  "sha": "${timestrapCommits[0].sha}",
-  "commit": {
-    "message": "${timestrapCommits[0].commit.message}",
-    "date": "${timestrapCommits[0].commit.author.date}"
-  },
-  "author": {
-    "login": "${timestrapCommits[0].author.login}",
-    "html_url": "${timestrapCommits[0].author.html_url}"
-  }
-}`;
-
-    analyticsLatest = `{
-  "sha": "${analyticsCommits[0].sha}",
-  "commit": {
-    "message": "${analyticsCommits[0].commit.message}",
-    "date": "${analyticsCommits[0].commit.author.date}"
-  },
-  "author": {
-    "login": "${analyticsCommits[0].author.login}",
-    "html_url": "${analyticsCommits[0].author.html_url}"
-  }
-}`;
-
-    blogLatest = `{
-  "sha": "${blogCommits[0].sha}",
-  "commit": {
-    "message": "${blogCommits[0].commit.message}",
-    "date": "${blogCommits[0].commit.author.date}"
-  },
-  "author": {
-    "login": "${blogCommits[0].author.login}",
-    "html_url": "${blogCommits[0].author.html_url}"
-  }
-}`;
-  } catch (err) {
-    console.log(err);
-  }
-
+const Code = ({ commits }) => {
   return (
     <Page title="Code" description="Some of my most recent coding projects.">
       <Background />
@@ -79,14 +22,16 @@ const Code = ({ timeliteCommits, timestrapCommits, analyticsCommits, blogCommits
         </a>{" "}
         and generally around the internet if you are interested.
       </Paragraph>
-      <Grid>
-        <GridLeft>
+      <Projects>
+        <Project>
           <ProjectHeading>Analytics</ProjectHeading>
           <ProjectParagraph>
             A self-hostable analytics service with a straightforward API to
             track events from any source.
           </ProjectParagraph>
-          {analyticsLatest && <ProjectCommit>{analyticsLatest}</ProjectCommit>}
+          <ProjectCommit>
+            {JSON.stringify(commits.analytics.data, null, 2)}
+          </ProjectCommit>
           <ProjectButton
             href="https://www.github.com/overshard/analytics"
             rel="noopener noreferrer"
@@ -94,30 +39,33 @@ const Code = ({ timeliteCommits, timestrapCommits, analyticsCommits, blogCommits
           >
             GitHub
           </ProjectButton>
-
-          <ProjectHeading>Timelite</ProjectHeading>
+        </Project>
+        <Project>
+          <ProjectHeading>Status</ProjectHeading>
           <ProjectParagraph>
-            A simple time tracking progressive web app. Uses local storage and
-            service workers to remain accessible offline. Sometimes you just
-            need the essentials when you are busy.
+            A self-hosted status monitoring service.
           </ProjectParagraph>
-          {timeliteLatest && <ProjectCommit>{timeliteLatest}</ProjectCommit>}
+          <ProjectCommit>
+            {JSON.stringify(commits.status.data, null, 2)}
+          </ProjectCommit>
           <ProjectButton
-            href="https://www.github.com/overshard/timelite"
+            href="https://www.github.com/overshard/status"
             rel="noopener noreferrer"
             target="_blank"
           >
             GitHub
           </ProjectButton>
-        </GridLeft>
-        <GridRight>
+        </Project>
+        <Project>
           <ProjectHeading>Blog</ProjectHeading>
           <ProjectParagraph>
             A self-hostable blog built on Wagtail targeted towards developers
             with code blocks, syntax highlighting, live search, great SEO, and a
             clean customizable UI.
           </ProjectParagraph>
-          {blogLatest && <ProjectCommit>{blogLatest}</ProjectCommit>}
+          <ProjectCommit>
+            {JSON.stringify(commits.blog.data, null, 2)}
+          </ProjectCommit>
           <ProjectButton
             href="https://www.github.com/overshard/blog"
             rel="noopener noreferrer"
@@ -125,14 +73,35 @@ const Code = ({ timeliteCommits, timestrapCommits, analyticsCommits, blogCommits
           >
             GitHub
           </ProjectButton>
-
+        </Project>
+        <Project>
+          <ProjectHeading>Timelite</ProjectHeading>
+          <ProjectParagraph>
+            A simple time tracking progressive web app. Uses local storage and
+            service workers to remain accessible offline. Sometimes you just
+            need the essentials when you are busy.
+          </ProjectParagraph>
+          <ProjectCommit>
+            {JSON.stringify(commits.timelite.data, null, 2)}
+          </ProjectCommit>
+          <ProjectButton
+            href="https://www.github.com/overshard/timelite"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            GitHub
+          </ProjectButton>
+        </Project>
+        <Project>
           <ProjectHeading>Timestrap</ProjectHeading>
           <ProjectParagraph>
             A full feature time tracking web app. Supports multiple users and
             exporting reports in multiple formats. Makes use of websockets to
             maintain state across clients.
           </ProjectParagraph>
-          {timestrapLatest && <ProjectCommit>{timestrapLatest}</ProjectCommit>}
+          <ProjectCommit>
+            {JSON.stringify(commits.timestrap.data, null, 2)}
+          </ProjectCommit>
           <ProjectButton
             href="https://www.github.com/overshard/timestrap"
             rel="noopener noreferrer"
@@ -140,42 +109,90 @@ const Code = ({ timeliteCommits, timestrapCommits, analyticsCommits, blogCommits
           >
             GitHub
           </ProjectButton>
-        </GridRight>
-      </Grid>
+        </Project>
+        <Project>
+          <ProjectHeading>isaacbythewood.com</ProjectHeading>
+          <ProjectParagraph>
+            The personal website of Isaac Bythewood. So this site...
+          </ProjectParagraph>
+          <ProjectCommit>
+            {JSON.stringify(commits.isaacbythewood.data, null, 2)}
+          </ProjectCommit>
+          <ProjectButton
+            href="https://www.github.com/overshard/isaacbythewood.com"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            GitHub
+          </ProjectButton>
+        </Project>
+        <Project>
+          <ProjectHeading>dockerfiles</ProjectHeading>
+          <ProjectParagraph>
+            All the Dockerfiles I use for various purposes. More detailed usage
+            instructions are at the top of each Dockerfile.
+          </ProjectParagraph>
+          <ProjectCommit>
+            {JSON.stringify(commits.dockerfiles.data, null, 2)}
+          </ProjectCommit>
+          <ProjectButton
+            href="https://www.github.com/overshard/dockerfiles"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            GitHub
+          </ProjectButton>
+        </Project>
+        <Project>
+          <ProjectHeading>alpinefiles</ProjectHeading>
+          <ProjectParagraph>
+            Some of the files that I use on my Alpine Linux servers.
+          </ProjectParagraph>
+          <ProjectCommit>
+            {JSON.stringify(commits.alpinefiles.data, null, 2)}
+          </ProjectCommit>
+          <ProjectButton
+            href="https://www.github.com/overshard/alpinefiles"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            GitHub
+          </ProjectButton>
+        </Project>
+        <Project>
+          <ProjectHeading>dotfiles</ProjectHeading>
+          <ProjectParagraph>
+            A variety of config files for setting up new systems.
+          </ProjectParagraph>
+          <ProjectCommit>
+            {JSON.stringify(commits.dotfiles.data, null, 2)}
+          </ProjectCommit>
+          <ProjectButton
+            href="https://www.github.com/overshard/dotfiles"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            GitHub
+          </ProjectButton>
+        </Project>
+      </Projects>
     </Page>
   );
 };
 
 Code.getInitialProps = async () => {
-  const timestrapCommitsFetch = await fetch(
-    "https://api.github.com/repos/overshard/timestrap/commits"
-  );
-  const timestrapCommits = await timestrapCommitsFetch.json();
-  const timeliteCommitsFetch = await fetch(
-    "https://api.github.com/repos/overshard/timelite/commits"
-  );
-  const timeliteCommits = await timeliteCommitsFetch.json();
-  const analyticsCommitsFetch = await fetch(
-    "https://api.github.com/repos/overshard/analytics/commits"
-  );
-  const analyticsCommits = await analyticsCommitsFetch.json();
-  const blogCommitsFetch = await fetch(
-    "https://api.github.com/repos/overshard/blog/commits"
-  );
-  const blogCommits = await blogCommitsFetch.json();
+  const baseUrl =
+    process.env.NODE_ENV === "development"
+      ? "http://localhost:3000"
+      : "https://isaacbythewood.com";
+  const commits = await fetch(`${baseUrl}/api/code`).then((res) => res.json());
   return {
-    timeliteCommits: timeliteCommits,
-    timestrapCommits: timestrapCommits,
-    analyticsCommits: analyticsCommits,
-    blogCommits: blogCommits,
+    commits: commits,
   };
 };
 
 Code.propTypes = {
-  timeliteCommits: PropTypes.oneOfType([PropTypes.object, PropTypes.array]),
-  timestrapCommits: PropTypes.oneOfType([PropTypes.object, PropTypes.array]),
-  analyticsCommits: PropTypes.oneOfType([PropTypes.object, PropTypes.array]),
-  blogCommits: PropTypes.oneOfType([PropTypes.object, PropTypes.array]),
+  commits: PropTypes.oneOfType([PropTypes.object, PropTypes.array]),
 };
 
 export default Code;
@@ -233,7 +250,7 @@ const Heading = styled.h1`
     width: 50px;
     height: 5px;
     margin-bottom: 20px;
-    background-color: ${props => props.theme.colors.blue};
+    background-color: ${(props) => props.theme.colors.blue};
   }
 `;
 
@@ -280,44 +297,20 @@ const Paragraph = styled.p`
   }
 `;
 
-const Grid = styled.div`
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: auto;
-  grid-template-areas: "left right";
-
-  @media (${props => props.theme.breakpoints.tablet}) {
-    grid-template-columns: 1fr;
-    grid-template-rows: auto auto;
-  }
+const Projects = styled.div`
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+  gap: 20px;
 `;
 
-const GridColumn = styled.div`
-  opacity: 0;
-  padding-right: 20px;
-  animation-fill-mode: forwards;
-  animation-name: ${FadeIn};
-  animation-duration: 1000ms;
-`;
+const Project = styled.div`
+  width: calc(50% - 20px);
+  display: flex;
+  flex-direction: column;
 
-const GridLeft = styled(GridColumn)`
-  grid-area: left;
-  min-width: 0;
-
-  @media (${props => props.theme.breakpoints.tablet}) {
-    grid-column: 1;
-    grid-row: 1;
-  }
-`;
-
-const GridRight = styled(GridColumn)`
-  grid-area: right;
-  animation-delay: 250ms;
-  min-width: 0;
-
-  @media (${props => props.theme.breakpoints.tablet}) {
-    grid-column: 1;
-    grid-row: 2;
+  @media (${(props) => props.theme.breakpoints.mobile}) {
+    width: 100%;
   }
 `;
 
@@ -335,6 +328,7 @@ const ProjectParagraph = styled.p`
   margin-bottom: 20px;
   font-weight: 300;
   color: black;
+  flex-grow: 1;
 `;
 
 const ProjectButton = styled.a`
@@ -350,12 +344,14 @@ const ProjectButton = styled.a`
   color: white;
   background-image: linear-gradient(
     to right,
-    ${props => props.theme.colors.blue} 0,
-    ${props => props.theme.colors.purple} 100%
+    ${(props) => props.theme.colors.blue} 0,
+    ${(props) => props.theme.colors.purple} 100%
   );
   transform: scale(1);
   transition-duration: 250ms;
   transition-property: transform;
+  width: 100px;
+  text-align: center;
 
   &:hover {
     transform: scale(1.2);
@@ -370,7 +366,4 @@ const ProjectCommit = styled.pre`
   overflow-x: hidden;
   max-width: 100%;
   text-overflow: ellipsis;
-
-  @media (${props => props.theme.breakpoints.mobile}) {
-  }
 `;

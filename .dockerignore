@@ -4,6 +4,7 @@
 .gitignore
 .next
 .nowignore
+db.sqlite3
 LICENSE.md
 node_modules
 README.md
