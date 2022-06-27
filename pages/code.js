@@ -1,7 +1,6 @@
 import React from "react";
 import styled, { keyframes } from "styled-components";
 import PropTypes from "prop-types";
-import "isomorphic-unfetch";
 
 import Page from "../components/page";
 
@@ -203,32 +202,104 @@ const Code = ({ commits }) => {
   );
 };
 
-Code.getInitialProps = async () => {
-  const baseUrl =
-    process.env.NODE_ENV === "development"
-      ? "http://localhost:3000"
-      : "https://isaacbythewood.com";
-  const commits = await fetch(`${baseUrl}/api/code`).then((res) => res.json());
-  return {
-    commits: commits,
+export async function getServerSideProps(context) {
+  // NOTE: We eval the require on purpose so that webpack doesn't bundle it
+  const { Sequelize } = eval("require('sequelize')");
+
+  const sequelize = new Sequelize("sqlite://db.sqlite3");
+
+  const Commit = sequelize.define("commit", {
+    repo: {
+      type: Sequelize.STRING,
+      allowNull: false,
+    },
+    createdAt: {
+      type: Sequelize.DATE,
+      allowNull: false,
+    },
+    data: {
+      type: Sequelize.JSON,
+      allowNull: false,
+    },
+  });
+
+  const getCommit = async (repo) => {
+    const storedCommit = await Commit.findOne({
+      where: {
+        repo,
+        createdAt: {
+          [Sequelize.Op.gte]: new Date(Date.now() - 24 * 60 * 60 * 1000),
+        },
+      },
+    });
+    if (storedCommit) {
+      return storedCommit;
+    }
+    const commitsFetch = await fetch(
+      `https://api.github.com/repos/overshard/${repo}/commits`
+    );
+    const commits = await commitsFetch.json();
+    const commit = commits[0];
+    const commitData = {
+      repo: repo,
+      createdAt: new Date(),
+      data: {
+        sha: commit.sha,
+        commit: {
+          message: commit.commit.message,
+          date: commit.commit.author.date,
+        },
+        author: {
+          name: commit.commit.author.name,
+          email: commit.commit.author.email,
+        },
+      },
+    };
+
+    await Commit.create(commitData);
+    return commitData;
   };
+
+  const getCommits = async () => {
+    const alpinefiles = await getCommit("alpinefiles");
+    const analytics = await getCommit("analytics");
+    const blog = await getCommit("blog");
+    const dockerfiles = await getCommit("dockerfiles");
+    const dotfiles = await getCommit("dotfiles");
+    const isaacbythewood = await getCommit("isaacbythewood.com");
+    const status = await getCommit("status");
+    const timelite = await getCommit("timelite");
+    const timestrap = await getCommit("timestrap");
+
+    return {
+      alpinefiles: alpinefiles,
+      analytics: analytics,
+      blog: blog,
+      dockerfiles: dockerfiles,
+      dotfiles: dotfiles,
+      isaacbythewood: isaacbythewood,
+      status: status,
+      timelite: timelite,
+      timestrap: timestrap,
+    };
+  };
+
+  await Commit.sync();
+
+  return getCommits().then((commits) => {
+    return {
+      props: {
+        commits: JSON.parse(JSON.stringify(commits)),
+      },
+    };
+  });
 };
 
 Code.propTypes = {
-  commits: PropTypes.oneOfType([PropTypes.object, PropTypes.array]),
+  commits: PropTypes.object,
 };
 
 export default Code;
-
-const FadeIn = keyframes`
-  0% {
-    opacity: 0;
-  }
-
-  100% {
-    opacity: 1;
-  }
-`;
 
 const TransformRight = keyframes`
   from {
