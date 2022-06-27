@@ -73,7 +73,7 @@ const Contact = () => {
                       style={{ transitionDelay: `${transitionDelay}ms` }}
                     >
                       <ChatAvatar
-                        src="/static/images/avatar.jpg"
+                        src="/static/images/avatar.webp"
                         alt="Chat Avatar"
                       />
                       <ChatMessage>
