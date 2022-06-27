@@ -13,7 +13,6 @@ const Menu = () => {
     { num: "002", href: "/code", title: "Code" },
     { num: "003", href: "/art", title: "Art" },
     { num: "004", href: "/contact", title: "Contact" },
-    { num: "005", href: "https://blog.bythewood.me/", title: "Blog" },
   ];
 
   const toggleMenu = () => {
@@ -43,6 +42,21 @@ const Menu = () => {
               appear
             >
               <OverlayGridLeft>
+                <TopBar>
+                  <Link href="https://blog.bythewood.me/" passHref>
+                    <TopLink>Blog</TopLink>
+                  </Link>
+                  <Link href="https://status.bythewood.me/" passHref>
+                    <TopLink>Status</TopLink>
+                  </Link>
+                  <Link href="https://analytics.bythewood.me/" passHref>
+                    <TopLink>Analytics</TopLink>
+                  </Link>
+                  <Link href="https://github.com/overshard" passHref>
+                    <TopLink>GitHub</TopLink>
+                  </Link>
+                  <Bar />
+                </TopBar>
                 {pages.map((page) => {
                   return (
                     <Link key={page.href} href={page.href} passHref>
@@ -268,6 +282,38 @@ const OverlayLink = styled.a`
     &::before {
       width: 100%;
     }
+  }
+`;
+
+const TopBar = styled.div`
+  display: flex;
+  width: 100%;
+  position: absolute;
+  left: 20px;
+  top: 20px;
+  align-items: center;
+  justify-content: start;
+`;
+
+const TopLink = styled.a`
+  text-decoration: none;
+  color: white;
+  background-color: rgba(0, 0, 0, 1);
+  padding: 0.25rem 0.5rem;
+  margin-left: 1rem;
+  transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+  font-family: ui-monospace, Menlo, Monaco, "Cascadia Mono", "Segoe UI Mono",
+    "Roboto Mono", "Oxygen Mono", "Ubuntu Monospace", "Source Code Pro",
+    "Fira Mono", "Droid Sans Mono", "Courier New", monospace;
+
+  &:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+    color: black;
+  }
+
+  @media (${(props) => props.theme.breakpoints.mobile}) {
+    font-size: 0.8em;
+    margin-left: 0.5rem;
   }
 `;
 
