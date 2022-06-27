@@ -90,6 +90,11 @@ const NavLogo = styled.a`
   z-index: 3;
   margin-left: 10px;
   margin-top: 10px;
+  transition: transform 0.2s ease-in-out;
+
+  &:hover {
+    transform: rotate(15deg) scale(1.1);
+  }
 
   @media (${(props) => props.theme.breakpoints.mobile}) {
     left: 35px;
