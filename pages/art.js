@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
+import Image from "next/image";
 
 import Page from "../components/page";
 import Constellations from "../components/constellations";
@@ -9,16 +10,12 @@ const Art = () => {
   const [lightboxImage, setLightboxImage] = useState(null);
   const [lightboxLoaded, setLightboxLoaded] = useState(false);
 
-  const openLightbox = image => {
+  const openLightbox = (image) => {
     setLightboxImage(image);
     history.replaceState(
       null,
       null,
-      "#" +
-        image
-          .split("/")
-          .pop()
-          .replace(".jpg", "")
+      "#" + image.split("/").pop().replace(".jpg", "")
     );
 
     document.body.style.overflowY = "hidden";
@@ -49,64 +46,96 @@ const Art = () => {
       </Paragraph>
       <Cards>
         <Card onClick={() => openLightbox("/static/images/art/006.jpg")}>
-          <CardImage
-            src="/static/images/art/006-thumbnail.jpg"
-            alt="Molten Copper"
-          />
+          <CardImage>
+            <Image
+              src="/static/images/art/006-thumbnail.jpg"
+              alt="Molten Copper"
+              width={640}
+              height={360}
+              priority={true}
+            />
+          </CardImage>
           <CardHeading>
             Molten Copper <span>006</span>
           </CardHeading>
         </Card>
         <Card onClick={() => openLightbox("/static/images/art/005.jpg")}>
-          <CardImage
-            src="/static/images/art/005-thumbnail.jpg"
-            alt="Nebulas in Triangulum"
-          />
+          <CardImage>
+            <Image
+              src="/static/images/art/005-thumbnail.jpg"
+              alt="Nebulas in Triangulum"
+              width={640}
+              height={360}
+              priority={true}
+            />
+          </CardImage>
           <CardHeading>
             Nebulas in Triangulum <span>005</span>
           </CardHeading>
         </Card>
         <Card onClick={() => openLightbox("/static/images/art/004.jpg")}>
-          <CardImage
-            src="/static/images/art/004-thumbnail.jpg"
-            alt="Metal on Mars"
-          />
+          <CardImage>
+            <Image
+              src="/static/images/art/004-thumbnail.jpg"
+              alt="Metal on Mars"
+              width={640}
+              height={360}
+              priority={true}
+            />
+          </CardImage>
           <CardHeading>
             Metal on Mars <span>004</span>
           </CardHeading>
         </Card>
         <Card onClick={() => openLightbox("/static/images/art/003.jpg")}>
-          <CardImage
-            src="/static/images/art/003-thumbnail.jpg"
-            alt="Water on Jupiter"
-          />
+          <CardImage>
+            <Image
+              src="/static/images/art/003-thumbnail.jpg"
+              alt="Water on Jupiter"
+              width={640}
+              height={360}
+              priority={true}
+            />
+          </CardImage>
           <CardHeading>
             Water on Jupiter <span>003</span>
           </CardHeading>
         </Card>
         <Card onClick={() => openLightbox("/static/images/art/002.jpg")}>
-          <CardImage
-            src="/static/images/art/002-thumbnail.jpg"
-            alt="Cracks in Clay"
-          />
+          <CardImage>
+            <Image
+              src="/static/images/art/002-thumbnail.jpg"
+              alt="Cracks in Clay"
+              width={640}
+              height={360}
+            />
+          </CardImage>
           <CardHeading>
             Cracks in Clay <span>002</span>
           </CardHeading>
         </Card>
         <Card onClick={() => openLightbox("/static/images/art/001.jpg")}>
-          <CardImage
-            src="/static/images/art/001-thumbnail.jpg"
-            alt="Reef Drop-off"
-          />
+          <CardImage>
+            <Image
+              src="/static/images/art/001-thumbnail.jpg"
+              alt="Reef Drop-off"
+              width={640}
+              height={360}
+            />
+          </CardImage>
           <CardHeading>
             Reef Drop-off <span>001</span>
           </CardHeading>
         </Card>
         <Card onClick={() => openLightbox("/static/images/art/000.jpg")}>
-          <CardImage
-            src="/static/images/art/000-thumbnail.jpg"
-            alt="Blood in Waves"
-          />
+          <CardImage>
+            <Image
+              src="/static/images/art/000-thumbnail.jpg"
+              alt="Blood in Waves"
+              width={640}
+              height={360}
+            />
+          </CardImage>
           <CardHeading>
             Blood in Waves <span>000</span>
           </CardHeading>
@@ -193,7 +222,7 @@ const Heading = styled.h1`
     width: 50px;
     height: 5px;
     margin-bottom: 20px;
-    background-color: ${props => props.theme.colors.blue};
+    background-color: ${(props) => props.theme.colors.blue};
   }
 `;
 
@@ -216,7 +245,7 @@ const Subheading = styled.h2`
     margin-right: 10px;
     top: 20%;
 
-    @media (${props => props.theme.breakpoints.tablet}) {
+    @media (${(props) => props.theme.breakpoints.tablet}) {
       display: none;
     }
   }
@@ -253,8 +282,8 @@ const Link = styled.a`
   color: white;
   background-image: linear-gradient(
     to right,
-    ${props => props.theme.colors.blue} 0,
-    ${props => props.theme.colors.purple} 100%
+    ${(props) => props.theme.colors.blue} 0,
+    ${(props) => props.theme.colors.purple} 100%
   );
   transform: scale(1);
   transition-duration: 250ms;
@@ -273,7 +302,7 @@ const Cards = styled.div`
   margin-bottom: 50px;
   cursor: pointer;
 
-  @media (${props => props.theme.breakpoints.mobile}) {
+  @media (${(props) => props.theme.breakpoints.mobile}) {
     grid-template-columns: 1fr;
   }
 `;
@@ -310,11 +339,13 @@ const CardHeading = styled.h2`
   }
 `;
 
-const CardImage = styled.img`
-  object-fit: cover;
-  object-position: center;
-  width: 100%;
-  height: 30vh;
+const CardImage = styled.span`
+  & img {
+    object-fit: cover;
+    object-position: center;
+    width: 100%;
+    height: 360px;
+  }
 `;
 
 const Lightbox = styled.div`
