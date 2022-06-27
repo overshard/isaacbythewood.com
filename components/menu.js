@@ -1,8 +1,9 @@
 import React, { useState } from "react";
-import styled from "styled-components";
-import Link from "next/link";
-import Image from "next/image";
+
 import { CSSTransition } from "react-transition-group";
+import Image from "next/image";
+import Link from "next/link";
+import styled from "styled-components";
 
 const Menu = () => {
   const [open, setOpen] = useState(false);
@@ -51,6 +52,15 @@ const Menu = () => {
                     </Link>
                   );
                 })}
+                <BottomBar>
+                  <Image
+                    src="/static/images/avatar.webp"
+                    alt="Isaac Bythewood"
+                    width={50}
+                    height={50}
+                  />
+                  <Bar />
+                </BottomBar>
               </OverlayGridLeft>
             </CSSTransition>
             <CSSTransition
@@ -259,4 +269,21 @@ const OverlayLink = styled.a`
       width: 100%;
     }
   }
+`;
+
+const BottomBar = styled.div`
+  display: flex;
+  width: 100%;
+  position: absolute;
+  left: 20px;
+  bottom: 20px;
+  align-items: center;
+`;
+
+const Bar = styled.div`
+  width: 100%;
+  height: 1px;
+  background: rgba(0, 0, 0, 0.3);
+  margin-left: 40px;
+  margin-right: 60px;
 `;
