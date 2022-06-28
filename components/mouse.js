@@ -54,6 +54,10 @@ const PageCursor = styled.div`
   height: 16px;
   margin: -8px 0 0 -8px;
   pointer-events: none;
+
+  @media (${(props) => props.theme.breakpoints.tablet}) {
+    display: none;
+  }
 `;
 
 const PageCursorCircle = styled.div`
@@ -78,5 +82,9 @@ const PageCursorCircle = styled.div`
     height: 70px;
     background-color: #ff2d2d;
     opacity: 0.3;
+  }
+
+  @media (${(props) => props.theme.breakpoints.tablet}) {
+    display: none;
   }
 `;
