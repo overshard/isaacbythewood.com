@@ -40,7 +40,7 @@ const Synthwave = () => {
       while (numStars < maxNumStars) {
         const randomPoint = [
           cvs.width * Math.random(),
-          cvs.height * Math.random()
+          cvs.height * Math.random(),
         ];
         stars.push(randomPoint);
         numStars++;
@@ -54,7 +54,7 @@ const Synthwave = () => {
       ctx.fillRect(0, 0, cvs.width, cvs.height);
 
       // Draw stars
-      stars.forEach(star => {
+      stars.forEach((star) => {
         ctx.beginPath();
         ctx.arc(...star, 2 * Math.random(), 0, 2 * Math.PI);
         ctx.fillStyle = `rgba(255, 255, 255, ${Math.random()})`;

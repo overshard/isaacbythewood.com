@@ -11,23 +11,23 @@ const RetroStars = ({ options }) => {
   const starSizeRef = useRef(starSize);
   starSizeRef.current = starSize;
 
-  const offsetStar = maxOffset => {
+  const offsetStar = (maxOffset) => {
     return {
       x: -Math.floor(
         (mousePositionRef.current.x / window.innerWidth) * maxOffset
       ),
       y: -Math.floor(
         (mousePositionRef.current.y / window.innerHeight) * maxOffset
-      )
+      ),
     };
   };
 
   useEffect(() => {
     // Mouse move event function
-    const mouseMove = evt => {
+    const mouseMove = (evt) => {
       setMousePosition({
         x: evt.clientX,
-        y: evt.clientY
+        y: evt.clientY,
       });
     };
 
@@ -95,18 +95,18 @@ const RetroStars = ({ options }) => {
     while (numStars < maxNumStars) {
       smallStars.push({
         loc: [cvs.width * Math.random(), cvs.height * Math.random()],
-        color: colors[Math.floor(Math.random() * colors.length)]
+        color: colors[Math.floor(Math.random() * colors.length)],
       });
       if (mediumStars.length < numStars / 4) {
         mediumStars.push({
           loc: [cvs.width * Math.random(), cvs.height * Math.random()],
-          color: colors[Math.floor(Math.random() * colors.length)]
+          color: colors[Math.floor(Math.random() * colors.length)],
         });
       }
       if (largeStars.length < numStars / 8) {
         largeStars.push({
           loc: [cvs.width * Math.random(), cvs.height * Math.random()],
-          color: colors[Math.floor(Math.random() * colors.length)]
+          color: colors[Math.floor(Math.random() * colors.length)],
         });
       }
       numStars++;
@@ -152,9 +152,9 @@ const RetroStars = ({ options }) => {
             [loc[0] - 5 + mediumStarOffset.x, loc[1] + mediumStarOffset.y],
             [loc[0] + mediumStarOffset.x, loc[1] - 5 + mediumStarOffset.y],
             [loc[0] + 5 + mediumStarOffset.x, loc[1] + mediumStarOffset.y],
-            [loc[0] + mediumStarOffset.x, loc[1] + 5 + mediumStarOffset.y]
+            [loc[0] + mediumStarOffset.x, loc[1] + 5 + mediumStarOffset.y],
           ];
-          squares.forEach(square => {
+          squares.forEach((square) => {
             ctx.beginPath();
             ctx.fillStyle = color;
             ctx.fillRect(...square, 5, 5);
@@ -179,9 +179,9 @@ const RetroStars = ({ options }) => {
             [loc[0] - 5 + largeStarOffset.x, loc[1] + largeStarOffset.y],
             [loc[0] + largeStarOffset.x, loc[1] - 5 + largeStarOffset.y],
             [loc[0] + 5 + largeStarOffset.x, loc[1] + largeStarOffset.y],
-            [loc[0] + largeStarOffset.x, loc[1] + 5 + largeStarOffset.y]
+            [loc[0] + largeStarOffset.x, loc[1] + 5 + largeStarOffset.y],
           ];
-          squares.forEach(square => {
+          squares.forEach((square) => {
             ctx.beginPath();
             ctx.fillStyle = color;
             ctx.fillRect(...square, 5, 5);
@@ -192,7 +192,7 @@ const RetroStars = ({ options }) => {
             [loc[0] - 10 + largeStarOffset.x, loc[1] + largeStarOffset.y],
             [loc[0] + largeStarOffset.x, loc[1] - 10 + largeStarOffset.y],
             [loc[0] + 10 + largeStarOffset.x, loc[1] + largeStarOffset.y],
-            [loc[0] + largeStarOffset.x, loc[1] + 10 + largeStarOffset.y]
+            [loc[0] + largeStarOffset.x, loc[1] + 10 + largeStarOffset.y],
           ];
           ctx.beginPath();
           ctx.fillStyle = color;
@@ -203,7 +203,7 @@ const RetroStars = ({ options }) => {
             15
           );
           ctx.closePath();
-          squares.forEach(square => {
+          squares.forEach((square) => {
             ctx.beginPath();
             ctx.fillStyle = color;
             ctx.fillRect(...square, 5, 5);
@@ -238,7 +238,7 @@ const RetroStars = ({ options }) => {
 };
 
 RetroStars.propTypes = {
-  options: PropTypes.object
+  options: PropTypes.object,
 };
 
 export default RetroStars;

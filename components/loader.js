@@ -40,17 +40,17 @@ const Grid = styled.div`
 `;
 
 const GridColumn = styled.div`
-  grid-column: ${props => props.column};
+  grid-column: ${(props) => props.column};
 
   &::before {
     content: "";
     display: block;
     width: 100%;
     height: 100vh;
-    background-color: ${props => props.theme.colors.primary};
-    border-right: 1px solid ${props => props.theme.colors.primary};
+    background-color: ${(props) => props.theme.colors.primary};
+    border-right: 1px solid ${(props) => props.theme.colors.primary};
     animation: ${FoldUp} 1000ms normal forwards;
-    animation-delay: ${props => props.column * 100}ms;
+    animation-delay: ${(props) => props.column * 100}ms;
   }
 
   &::after {
@@ -61,6 +61,6 @@ const GridColumn = styled.div`
     background-color: white;
     border-right: 1px solid white;
     animation: ${FoldUp} 1000ms normal forwards;
-    animation-delay: ${props => props.column * 100}ms;
+    animation-delay: ${(props) => props.column * 100}ms;
   }
 `;

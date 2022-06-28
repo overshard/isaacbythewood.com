@@ -14,7 +14,7 @@ const About = () => {
     "HIPPA & PCI",
     "Developer",
     "SysAdmin",
-    "Full-Stack"
+    "Full-Stack",
   ]);
   const wordsRef = useRef(words);
   wordsRef.current = words;
@@ -56,7 +56,7 @@ const About = () => {
       <Background />
       <Words>
         <TransitionGroup component={null}>
-          {words.map(word => {
+          {words.map((word) => {
             return (
               <CSSTransition
                 key={word}
@@ -159,7 +159,7 @@ const Words = styled.div`
   height: 100vh;
   overflow: hidden;
 
-  @media (${props => props.theme.breakpoints.mobile}) {
+  @media (${(props) => props.theme.breakpoints.mobile}) {
     top: 50px;
     font-size: 4vh;
     line-height: 10vh;
@@ -236,9 +236,9 @@ const Paragraph = styled.p`
     width: 75px;
     height: 5px;
     margin-bottom: 20px;
-    background-color: ${props => props.theme.colors.blue};
+    background-color: ${(props) => props.theme.colors.blue};
   }
-  @media (${props => props.theme.breakpoints.mobile}) {
+  @media (${(props) => props.theme.breakpoints.mobile}) {
     font-size: 1.2em;
   }
 `;

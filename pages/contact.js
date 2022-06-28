@@ -10,7 +10,7 @@ const Contact = () => {
     "I prefer people reach out to me via email.",
     "If you'd like to get in touch with me about a new project I'm currently only working on open source stuff in my spare time.",
     "If you're trying to contact me about a job opportunity I'm currently employed with VanNoppen Marketing.",
-    "If you just want to chat then I'm almost always on Discord!"
+    "If you just want to chat then I'm almost always on Discord!",
   ];
 
   return (
@@ -145,7 +145,7 @@ const Grid = styled.div`
   transform: translateX(-100vw);
   animation: ${SlideUp} 750ms 500ms forwards;
 
-  @media (${props => props.theme.breakpoints.tablet}) {
+  @media (${(props) => props.theme.breakpoints.tablet}) {
     margin-left: 0;
     grid-template-columns: 1fr;
     grid-template-rows: auto auto;
@@ -158,7 +158,7 @@ const GridColumn = styled.div`
   display: flex;
   align-items: center;
 
-  @media (${props => props.theme.breakpoints.tablet}) {
+  @media (${(props) => props.theme.breakpoints.tablet}) {
     min-height: auto;
   }
 `;
@@ -167,7 +167,7 @@ const GridLeft = styled(GridColumn)`
   grid-area: left;
   background-color: rgba(0, 0, 0, 0.9);
 
-  @media (${props => props.theme.breakpoints.tablet}) {
+  @media (${(props) => props.theme.breakpoints.tablet}) {
     grid-column: 1;
     grid-row: 1;
   }
@@ -176,7 +176,7 @@ const GridLeft = styled(GridColumn)`
 const GridRight = styled(GridColumn)`
   grid-area: right;
 
-  @media (${props => props.theme.breakpoints.tablet}) {
+  @media (${(props) => props.theme.breakpoints.tablet}) {
     grid-column: 1;
     grid-row: 2;
   }
@@ -185,7 +185,7 @@ const GridRight = styled(GridColumn)`
 const ContactWrapper = styled.div`
   padding-left: 60px;
 
-  @media (${props => props.theme.breakpoints.tablet}) {
+  @media (${(props) => props.theme.breakpoints.tablet}) {
     min-height: auto;
     padding-top: 30px;
     padding-bottom: 30px;
@@ -203,10 +203,10 @@ const Heading = styled.h1`
     width: 75px;
     height: 5px;
     margin-bottom: 10px;
-    background-color: ${props => props.theme.colors.blue};
+    background-color: ${(props) => props.theme.colors.blue};
   }
 
-  @media (${props => props.theme.breakpoints.mobile}) {
+  @media (${(props) => props.theme.breakpoints.mobile}) {
     margin-bottom: 10px;
   }
 `;
@@ -220,11 +220,11 @@ const ShoutOut = styled.h2`
   font-size: 1.4em;
   background-image: linear-gradient(
     to right,
-    ${props => props.theme.colors.blue} 0,
-    ${props => props.theme.colors.purple} 100%
+    ${(props) => props.theme.colors.blue} 0,
+    ${(props) => props.theme.colors.purple} 100%
   );
 
-  @media (${props => props.theme.breakpoints.mobile}) {
+  @media (${(props) => props.theme.breakpoints.mobile}) {
     font-size: 1.1em;
   }
 `;
@@ -316,7 +316,7 @@ const ChatMessage = styled.div`
   background-color: rgba(0, 0, 0, 0.7);
   width: 65%;
 
-  @media (${props => props.theme.breakpoints.mobile}) {
+  @media (${(props) => props.theme.breakpoints.mobile}) {
     font-size: 1em;
     width: 70%;
   }
@@ -337,7 +337,7 @@ const ChatAvatar = styled.img`
   width: 50px;
   height: 50px;
 
-  @media (${props => props.theme.breakpoints.mobile}) {
+  @media (${(props) => props.theme.breakpoints.mobile}) {
     margin-right: 10px;
     width: 40px;
     height: 40px;

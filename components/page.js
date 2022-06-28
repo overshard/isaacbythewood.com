@@ -5,7 +5,7 @@ import styled from "styled-components";
 
 import { strings } from "../site.config";
 
-const Page = props => {
+const Page = (props) => {
   const baseTitle = strings.title;
   const defaultDescription = strings.description;
 
@@ -33,12 +33,12 @@ Page.propTypes = {
   gridArea: PropTypes.string,
   children: PropTypes.oneOfType([
     PropTypes.node,
-    PropTypes.arrayOf(PropTypes.node)
-  ])
+    PropTypes.arrayOf(PropTypes.node),
+  ]),
 };
 
 export default Page;
 
 const Main = styled.main`
-  ${props => props.gridArea && `grid-area:  ${props.gridArea};`}
+  ${(props) => props.gridArea && `grid-area:  ${props.gridArea};`}
 `;

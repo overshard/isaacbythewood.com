@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import PropTypes from "prop-types";
 
-const Grid = props => {
+const Grid = (props) => {
   return (
     <>
       <GridLines>
@@ -21,8 +21,8 @@ const Grid = props => {
 Grid.propTypes = {
   children: PropTypes.oneOfType([
     PropTypes.element,
-    PropTypes.arrayOf(PropTypes.element)
-  ])
+    PropTypes.arrayOf(PropTypes.element),
+  ]),
 };
 
 export default Grid;
@@ -37,7 +37,7 @@ const GridArea = styled.div`
     ". . .    .    . .";
   min-height: 100vh;
   width: 100%;
-  @media (${props => props.theme.breakpoints.tablet}) {
+  @media (${(props) => props.theme.breakpoints.tablet}) {
     grid-template-columns: 10px 5% 1fr 1fr 5% 10px;
   }
 `;
@@ -45,7 +45,7 @@ const GridArea = styled.div`
 const GridLines = styled(GridArea)`
   position: fixed;
   pointer-events: none;
-  @media (${props => props.theme.breakpoints.tablet}) {
+  @media (${(props) => props.theme.breakpoints.tablet}) {
     display: none;
   }
 `;
@@ -53,5 +53,5 @@ const GridLines = styled(GridArea)`
 const GridLine = styled.div`
   border-right: 1px solid rgba(125, 125, 125, 0.2);
   grid-row: 1 / -1;
-  grid-column: ${props => props.column};
+  grid-column: ${(props) => props.column};
 `;

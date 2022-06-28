@@ -81,7 +81,7 @@ const ImageWrapper = styled.div`
   bottom: 0;
   left: 60px;
 
-  @media (${props => props.theme.breakpoints.mobile}) {
+  @media (${(props) => props.theme.breakpoints.mobile}) {
     left: 0;
   }
 
@@ -157,10 +157,10 @@ const Description = styled.h1`
     width: 75px;
     height: 5px;
     margin-bottom: 20px;
-    background-color: ${props => props.theme.colors.blue};
+    background-color: ${(props) => props.theme.colors.blue};
   }
 
-  @media (${props => props.theme.breakpoints.mobile}) {
+  @media (${(props) => props.theme.breakpoints.mobile}) {
     font-size: 2em;
   }
 `;
@@ -174,15 +174,15 @@ const Name = styled.h2`
   clear: left;
   background-image: linear-gradient(
     to right,
-    ${props => props.theme.colors.blue} 0,
-    ${props => props.theme.colors.purple} 100%
+    ${(props) => props.theme.colors.blue} 0,
+    ${(props) => props.theme.colors.purple} 100%
   );
   transform: translateX(-100vw);
   animation-name: ${SlideStart};
   animation-duration: 750ms;
   animation-fill-mode: forwards;
 
-  @media (${props => props.theme.breakpoints.mobile}) {
+  @media (${(props) => props.theme.breakpoints.mobile}) {
     font-size: 1.5em;
   }
 `;

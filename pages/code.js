@@ -202,7 +202,7 @@ const Code = ({ commits }) => {
   );
 };
 
-export async function getServerSideProps(context) {
+export async function getServerSideProps() {
   // NOTE: We eval the require on purpose so that webpack doesn't bundle it
   const { Sequelize } = eval("require('sequelize')");
 
@@ -293,7 +293,7 @@ export async function getServerSideProps(context) {
       },
     };
   });
-};
+}
 
 Code.propTypes = {
   commits: PropTypes.object,

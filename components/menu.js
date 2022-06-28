@@ -46,10 +46,16 @@ const Menu = () => {
                   <Link href="https://blog.bythewood.me/" passHref>
                     <TopLink target="_blank">Blog</TopLink>
                   </Link>
-                  <Link href="https://status.bythewood.me/properties/87097ef2-5643-4999-917e-72b172dd9e19/" passHref>
+                  <Link
+                    href="https://status.bythewood.me/properties/87097ef2-5643-4999-917e-72b172dd9e19/"
+                    passHref
+                  >
                     <TopLink target="_blank">Status</TopLink>
                   </Link>
-                  <Link href="https://analytics.bythewood.me/properties/30e69c06-9beb-4283-8919-8c7a686ab013/" passHref>
+                  <Link
+                    href="https://analytics.bythewood.me/properties/30e69c06-9beb-4283-8919-8c7a686ab013/"
+                    passHref
+                  >
                     <TopLink target="_blank">Analytics</TopLink>
                   </Link>
                   <Link href="https://github.com/overshard" passHref>

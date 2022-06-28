@@ -38,11 +38,11 @@ const Constellations = ({ options }) => {
     while (numStars < maxNumStars) {
       const randomPoint = [
         cvs.width * Math.random(),
-        cvs.height * Math.random()
+        cvs.height * Math.random(),
       ];
       stars.push({
         loc: randomPoint,
-        dir: [Math.random() > 0.5 ? "+" : "-", Math.random() > 0.5 ? "+" : "-"]
+        dir: [Math.random() > 0.5 ? "+" : "-", Math.random() > 0.5 ? "+" : "-"],
       });
       numStars++;
     }
@@ -55,7 +55,7 @@ const Constellations = ({ options }) => {
       ctx.clearRect(0, 0, cvs.width, cvs.height);
 
       // Draw the canvas
-      stars.map(star => {
+      stars.map((star) => {
         // Generate stars
         ctx.beginPath();
         ctx.arc(...star.loc, 2, 0, 2 * Math.PI);
@@ -63,7 +63,7 @@ const Constellations = ({ options }) => {
         ctx.fill();
         ctx.closePath();
         // Generate lines to close stars
-        const closeStars = stars.filter(closeStar => {
+        const closeStars = stars.filter((closeStar) => {
           return (
             Math.hypot(
               star.loc[0] - closeStar.loc[0],
@@ -71,23 +71,25 @@ const Constellations = ({ options }) => {
             ) < starDistance
           );
         });
-        closeStars.map(closeStar => {
+        closeStars.map((closeStar) => {
           ctx.beginPath();
           ctx.moveTo(...star.loc);
           ctx.lineTo(...closeStar.loc);
-          ctx.strokeStyle = `rgba(255, 255, 255, ${(starDistance -
-            Math.hypot(
-              star.loc[0] - closeStar.loc[0],
-              star.loc[1] - closeStar.loc[1]
-            )) /
-            starDistance})`;
+          ctx.strokeStyle = `rgba(255, 255, 255, ${
+            (starDistance -
+              Math.hypot(
+                star.loc[0] - closeStar.loc[0],
+                star.loc[1] - closeStar.loc[1]
+              )) /
+            starDistance
+          })`;
           ctx.stroke();
           ctx.closePath();
         });
       });
 
       // Update star locations
-      stars = stars.map(star => {
+      stars = stars.map((star) => {
         // Change star direction when hitting the side of the canvas
         if (star.loc[0] < 0) star.dir[0] = "+";
         else if (star.loc[0] > cvs.width) star.dir[0] = "-";
@@ -118,7 +120,7 @@ const Constellations = ({ options }) => {
 };
 
 Constellations.propTypes = {
-  options: PropTypes.object
+  options: PropTypes.object,
 };
 
 export default Constellations;
