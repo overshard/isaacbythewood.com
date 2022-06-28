@@ -109,7 +109,6 @@ const Hamburger = styled.button`
   background: white;
   z-index: 5001;
   border: none;
-  cursor: pointer;
 
   &:hover * {
     width: 30px !important;

@@ -17,6 +17,11 @@ const Mouse = () => {
         pageCursorCircleRef.current.classList.remove("activated");
       }
     });
+    document.addEventListener("mouseover", (e) => {
+      if (e.target.classList.contains("mouse-activate")) {
+        pageCursorCircleRef.current.classList.add("activated");
+      }
+    });
   }, []);
 
   return (

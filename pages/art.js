@@ -52,6 +52,7 @@ const Art = () => {
               alt="Molten Copper"
               width={640}
               height={360}
+              className="mouse-activate"
               priority={true}
             />
           </CardImage>
@@ -66,6 +67,7 @@ const Art = () => {
               alt="Nebulas in Triangulum"
               width={640}
               height={360}
+              className="mouse-activate"
               priority={true}
             />
           </CardImage>
@@ -80,6 +82,7 @@ const Art = () => {
               alt="Metal on Mars"
               width={640}
               height={360}
+              className="mouse-activate"
               priority={true}
             />
           </CardImage>
@@ -94,6 +97,7 @@ const Art = () => {
               alt="Water on Jupiter"
               width={640}
               height={360}
+              className="mouse-activate"
               priority={true}
             />
           </CardImage>
@@ -108,6 +112,7 @@ const Art = () => {
               alt="Cracks in Clay"
               width={640}
               height={360}
+              className="mouse-activate"
             />
           </CardImage>
           <CardHeading>
@@ -121,6 +126,7 @@ const Art = () => {
               alt="Reef Drop-off"
               width={640}
               height={360}
+              className="mouse-activate"
             />
           </CardImage>
           <CardHeading>
@@ -134,6 +140,7 @@ const Art = () => {
               alt="Blood in Waves"
               width={640}
               height={360}
+              className="mouse-activate"
             />
           </CardImage>
           <CardHeading>
@@ -295,16 +302,10 @@ const Link = styled.a`
 `;
 
 const Cards = styled.div`
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr;
-  grid-gap: 20px;
-  margin-bottom: 50px;
-  cursor: pointer;
-
-  @media (${(props) => props.theme.breakpoints.mobile}) {
-    grid-template-columns: 1fr;
-  }
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+  gap: 20px;
 `;
 
 const Card = styled.div`
@@ -314,9 +315,16 @@ const Card = styled.div`
   transition-duration: 200ms;
   transition-property: box-shadow;
   transition-timing-function: ease-in;
+  width: calc(50% - 20px);
+  display: flex;
+  flex-direction: column;
 
   &:hover {
     box-shadow: 0 5px 25px rgba(0, 0, 0, 0.4);
+  }
+
+  @media (${(props) => props.theme.breakpoints.mobile}) {
+    width: 100%;
   }
 `;
 
