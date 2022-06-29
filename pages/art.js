@@ -61,7 +61,7 @@ const Art = () => {
             />
           </CardImage>
           <CardHeading>
-            Saturn Gians <span>004</span>
+            Saturn Giants <span>004</span>
           </CardHeading>
         </Card>
         <Card
@@ -80,7 +80,7 @@ const Art = () => {
             />
           </CardImage>
           <CardHeading>
-           Surges in Purgatory <span>003</span>
+            Surges in Purgatory <span>003</span>
           </CardHeading>
         </Card>
         <Card
