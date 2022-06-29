@@ -37,6 +37,23 @@ const Code = ({ commits }) => {
       </Paragraph>
       <Projects>
         <Project>
+          <ProjectHeading>AI-Art</ProjectHeading>
+          <ProjectParagraph>
+            Art generation using VQGAN + CLIP in docker containers.
+          </ProjectParagraph>
+          <ProjectCommit>
+            {JSON.stringify(commits.aiart.data, null, 2)}
+          </ProjectCommit>
+          <ProjectButton
+            href="https://www.github.com/overshard/ai-art"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            <GitHubIcon />
+            GitHub
+          </ProjectButton>
+        </Project>
+        <Project>
           <ProjectHeading>Analytics</ProjectHeading>
           <ProjectParagraph>
             A self-hostable analytics service with a straightforward API to
@@ -261,6 +278,7 @@ export async function getServerSideProps() {
   };
 
   const getCommits = async () => {
+    const aiart = await getCommit("ai-art");
     const alpinefiles = await getCommit("alpinefiles");
     const analytics = await getCommit("analytics");
     const blog = await getCommit("blog");
@@ -272,6 +290,7 @@ export async function getServerSideProps() {
     const timestrap = await getCommit("timestrap");
 
     return {
+      aiart: aiart,
       alpinefiles: alpinefiles,
       analytics: analytics,
       blog: blog,
