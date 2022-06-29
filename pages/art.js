@@ -42,7 +42,7 @@ const Art = () => {
       <Heading>AI Assisted</Heading>
       <Paragraph>
         Using a variety of nerual networks and algorithms with some starting
-        initial input that I drew.
+        initial input from me.
       </Paragraph>
       <Cards>
         <Card
