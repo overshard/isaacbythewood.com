@@ -28,7 +28,7 @@ const Index = () => {
     <Page title="Full-Stack Developer located in Morganton, NC">
       <ImageWrapper>
         <Image
-          src="/static/images/art/005.jpg"
+          src="/static/images/art/acrylic-pours/005.jpg"
           alt="#005 Nebulas in Triangulum"
           loading="eager"
           layout="fill"

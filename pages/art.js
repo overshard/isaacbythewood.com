@@ -32,23 +32,110 @@ const Art = () => {
     const validImageIds = ["001", "002", "003", "004", "005", "006"];
     const imageId = window.location.hash.replace("#", "");
     if (validImageIds.indexOf(imageId) > -1) {
-      openLightbox(`/static/images/art/${imageId}.jpg`);
+      openLightbox(`/static/images/art/acrylic-pours/${imageId}.jpg`);
     }
   }, []);
 
   return (
     <Page title="Art" description="Some of my art... what even is art...">
       <Background />
+      <Heading>AI Assisted</Heading>
+      <Paragraph>
+        Using a variety of nerual networks and algorithms with some starting
+        initial input that I drew.
+      </Paragraph>
+      <Cards>
+        <Card
+          onClick={() =>
+            openLightbox("/static/images/art/ai-assisted/004-upscaled.webp")
+          }
+        >
+          <CardImage>
+            <Image
+              src="/static/images/art/ai-assisted/004-upscaled.webp"
+              alt="Giants Saturn"
+              width={640}
+              height={360}
+              className="mouse-activate"
+              priority={true}
+            />
+          </CardImage>
+          <CardHeading>
+            Saturn Gians <span>004</span>
+          </CardHeading>
+        </Card>
+        <Card
+          onClick={() =>
+            openLightbox("/static/images/art/ai-assisted/003-upscaled.webp")
+          }
+        >
+          <CardImage>
+            <Image
+              src="/static/images/art/ai-assisted/003-upscaled.webp"
+              alt="Surges in Purgatory"
+              width={640}
+              height={360}
+              className="mouse-activate"
+              priority={true}
+            />
+          </CardImage>
+          <CardHeading>
+           Surges in Purgatory <span>003</span>
+          </CardHeading>
+        </Card>
+        <Card
+          onClick={() =>
+            openLightbox("/static/images/art/ai-assisted/002-upscaled.webp")
+          }
+        >
+          <CardImage>
+            <Image
+              src="/static/images/art/ai-assisted/002-upscaled.webp"
+              alt="Watchers from Mountains"
+              width={640}
+              height={360}
+              className="mouse-activate"
+              priority={true}
+            />
+          </CardImage>
+          <CardHeading>
+            Watchers from Mountains <span>002</span>
+          </CardHeading>
+        </Card>
+        <Card
+          onClick={() =>
+            openLightbox("/static/images/art/ai-assisted/001-upscaled.webp")
+          }
+        >
+          <CardImage>
+            <Image
+              src="/static/images/art/ai-assisted/001-upscaled.webp"
+              alt="Devoured Suns"
+              width={640}
+              height={360}
+              className="mouse-activate"
+              priority={true}
+            />
+          </CardImage>
+          <CardHeading>
+            Devoured Suns <span>001</span>
+          </CardHeading>
+        </Card>
+      </Cards>
       <Heading>Acrylic Pours</Heading>
       <Paragraph>
         A bit more traditional than my usual art, acrylics mixed with water,
         glue, and silicone on canvas and hit with a heat gun.
       </Paragraph>
       <Cards>
-        <Card onClick={() => openLightbox("/static/images/art/006.jpg")}>
+        <Card
+          onClick={() =>
+            openLightbox("/static/images/art/acrylic-pours/006.jpg")
+          }
+        >
           <CardImage>
             <Image
-              src="/static/images/art/006-thumbnail.jpg"
+              src="/static/images/art/acrylic-pours/006-thumbnail.jpg"
               alt="Molten Copper"
               width={640}
               height={360}
@@ -60,10 +147,14 @@ const Art = () => {
             Molten Copper <span>006</span>
           </CardHeading>
         </Card>
-        <Card onClick={() => openLightbox("/static/images/art/005.jpg")}>
+        <Card
+          onClick={() =>
+            openLightbox("/static/images/art/acrylic-pours/005.jpg")
+          }
+        >
           <CardImage>
             <Image
-              src="/static/images/art/005-thumbnail.jpg"
+              src="/static/images/art/acrylic-pours/005-thumbnail.jpg"
               alt="Nebulas in Triangulum"
               width={640}
               height={360}
@@ -75,10 +166,14 @@ const Art = () => {
             Nebulas in Triangulum <span>005</span>
           </CardHeading>
         </Card>
-        <Card onClick={() => openLightbox("/static/images/art/004.jpg")}>
+        <Card
+          onClick={() =>
+            openLightbox("/static/images/art/acrylic-pours/004.jpg")
+          }
+        >
           <CardImage>
             <Image
-              src="/static/images/art/004-thumbnail.jpg"
+              src="/static/images/art/acrylic-pours/004-thumbnail.jpg"
               alt="Metal on Mars"
               width={640}
               height={360}
@@ -90,10 +185,14 @@ const Art = () => {
             Metal on Mars <span>004</span>
           </CardHeading>
         </Card>
-        <Card onClick={() => openLightbox("/static/images/art/003.jpg")}>
+        <Card
+          onClick={() =>
+            openLightbox("/static/images/art/acrylic-pours/003.jpg")
+          }
+        >
           <CardImage>
             <Image
-              src="/static/images/art/003-thumbnail.jpg"
+              src="/static/images/art/acrylic-pours/003-thumbnail.jpg"
               alt="Water on Jupiter"
               width={640}
               height={360}
@@ -105,10 +204,14 @@ const Art = () => {
             Water on Jupiter <span>003</span>
           </CardHeading>
         </Card>
-        <Card onClick={() => openLightbox("/static/images/art/002.jpg")}>
+        <Card
+          onClick={() =>
+            openLightbox("/static/images/art/acrylic-pours/002.jpg")
+          }
+        >
           <CardImage>
             <Image
-              src="/static/images/art/002-thumbnail.jpg"
+              src="/static/images/art/acrylic-pours/002-thumbnail.jpg"
               alt="Cracks in Clay"
               width={640}
               height={360}
@@ -119,10 +222,14 @@ const Art = () => {
             Cracks in Clay <span>002</span>
           </CardHeading>
         </Card>
-        <Card onClick={() => openLightbox("/static/images/art/001.jpg")}>
+        <Card
+          onClick={() =>
+            openLightbox("/static/images/art/acrylic-pours/001.jpg")
+          }
+        >
           <CardImage>
             <Image
-              src="/static/images/art/001-thumbnail.jpg"
+              src="/static/images/art/acrylic-pours/001-thumbnail.jpg"
               alt="Reef Drop-off"
               width={640}
               height={360}
@@ -133,10 +240,14 @@ const Art = () => {
             Reef Drop-off <span>001</span>
           </CardHeading>
         </Card>
-        <Card onClick={() => openLightbox("/static/images/art/000.jpg")}>
+        <Card
+          onClick={() =>
+            openLightbox("/static/images/art/acrylic-pours/000.jpg")
+          }
+        >
           <CardImage>
             <Image
-              src="/static/images/art/000-thumbnail.jpg"
+              src="/static/images/art/acrylic-pours/000-thumbnail.jpg"
               alt="Blood in Waves"
               width={640}
               height={360}
