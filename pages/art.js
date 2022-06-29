@@ -12,12 +12,6 @@ const Art = () => {
 
   const openLightbox = (image) => {
     setLightboxImage(image);
-    history.replaceState(
-      null,
-      null,
-      "#" + image.split("/").pop().replace(".jpg", "")
-    );
-
     document.body.style.overflowY = "hidden";
   };
 
@@ -28,23 +22,104 @@ const Art = () => {
     document.body.style.overflowY = "scroll";
   };
 
-  useEffect(() => {
-    const validImageIds = ["001", "002", "003", "004", "005", "006"];
-    const imageId = window.location.hash.replace("#", "");
-    if (validImageIds.indexOf(imageId) > -1) {
-      openLightbox(`/static/images/art/acrylic-pours/${imageId}.jpg`);
-    }
-  }, []);
+  const aiArtTag = () => {
+    return (
+      <a
+        href="https://github.com/overshard/ai-art"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        on GitHub
+      </a>
+    );
+  };
 
   return (
     <Page title="Art" description="Some of my art... what even is art...">
       <Background />
       <Heading>AI Assisted</Heading>
       <Paragraph>
-        Using a variety of nerual networks and algorithms with some starting
-        initial input from me.
+        Using a variety of generative adversarial networks, algorithms, and
+        inputs. You can see some of my code for this {aiArtTag()} to try it
+        yourself.
       </Paragraph>
       <Cards>
+        <Card
+          onClick={() =>
+            openLightbox("/static/images/art/ai-assisted/008-upscaled.webp")
+          }
+        >
+          <CardImage>
+            <Image
+              src="/static/images/art/ai-assisted/008-upscaled.webp"
+              alt="Sub-Zero Goliath"
+              width={640}
+              height={360}
+              className="mouse-activate"
+              priority={true}
+            />
+          </CardImage>
+          <CardHeading>
+            Sub-Zero Goliath <span>008</span>
+          </CardHeading>
+        </Card>
+        <Card
+          onClick={() =>
+            openLightbox("/static/images/art/ai-assisted/007-upscaled.webp")
+          }
+        >
+          <CardImage>
+            <Image
+              src="/static/images/art/ai-assisted/007-upscaled.webp"
+              alt="Phoenix Nebula"
+              width={640}
+              height={360}
+              className="mouse-activate"
+              priority={true}
+            />
+          </CardImage>
+          <CardHeading>
+            Phoenix Nebula <span>007</span>
+          </CardHeading>
+        </Card>
+        <Card
+          onClick={() =>
+            openLightbox("/static/images/art/ai-assisted/006-upscaled.webp")
+          }
+        >
+          <CardImage>
+            <Image
+              src="/static/images/art/ai-assisted/006-upscaled.webp"
+              alt="Space Hive"
+              width={640}
+              height={360}
+              className="mouse-activate"
+              priority={true}
+            />
+          </CardImage>
+          <CardHeading>
+            Space Hive <span>006</span>
+          </CardHeading>
+        </Card>
+        <Card
+          onClick={() =>
+            openLightbox("/static/images/art/ai-assisted/005-upscaled.webp")
+          }
+        >
+          <CardImage>
+            <Image
+              src="/static/images/art/ai-assisted/005-upscaled.webp"
+              alt="Fractal Hotel"
+              width={640}
+              height={360}
+              className="mouse-activate"
+              priority={true}
+            />
+          </CardImage>
+          <CardHeading>
+            Fractal Hotel <span>005</span>
+          </CardHeading>
+        </Card>
         <Card
           onClick={() =>
             openLightbox("/static/images/art/ai-assisted/004-upscaled.webp")
@@ -91,7 +166,7 @@ const Art = () => {
           <CardImage>
             <Image
               src="/static/images/art/ai-assisted/002-upscaled.webp"
-              alt="Watchers from Mountains"
+              alt="Mountain Watchers"
               width={640}
               height={360}
               className="mouse-activate"
@@ -99,7 +174,7 @@ const Art = () => {
             />
           </CardImage>
           <CardHeading>
-            Watchers from Mountains <span>002</span>
+            Mountain Watchers <span>002</span>
           </CardHeading>
         </Card>
         <Card
