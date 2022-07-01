@@ -91,7 +91,7 @@ const Menu = () => {
             >
               <OverlayGridRight>
                 <Image
-                  src="/static/images/art/acrylic-pours/006.jpg"
+                  src="/static/images/art/acrylic-pours/006.webp"
                   alt="#006 Molten Copper"
                   loading="lazy"
                   layout="fill"
