@@ -45,160 +45,136 @@ const Art = () => {
       </Paragraph>
       <AICards>
         <AICard>
-          <CardImage>
+          <AICardImage>
             <Image
               src="/static/images/art/ai-assisted/011.webp"
               width={256}
               height={256}
               priority={true}
             />
-          </CardImage>
-          <CardHeading>
-            <span>011</span>
-          </CardHeading>
+          </AICardImage>
+          <AICardHeading>011</AICardHeading>
         </AICard>
         <AICard>
-          <CardImage>
+          <AICardImage>
             <Image
               src="/static/images/art/ai-assisted/010.webp"
               width={256}
               height={256}
               priority={true}
             />
-          </CardImage>
-          <CardHeading>
-            <span>010</span>
-          </CardHeading>
+          </AICardImage>
+          <AICardHeading>010</AICardHeading>
         </AICard>
         <AICard>
-          <CardImage>
+          <AICardImage>
             <Image
               src="/static/images/art/ai-assisted/009.webp"
               width={256}
               height={256}
               priority={true}
             />
-          </CardImage>
-          <CardHeading>
-            <span>009</span>
-          </CardHeading>
+          </AICardImage>
+          <AICardHeading>009</AICardHeading>
         </AICard>
         <AICard>
-          <CardImage>
+          <AICardImage>
             <Image
               src="/static/images/art/ai-assisted/008.webp"
               width={256}
               height={256}
               priority={true}
             />
-          </CardImage>
-          <CardHeading>
-            <span>008</span>
-          </CardHeading>
+          </AICardImage>
+          <AICardHeading>008</AICardHeading>
         </AICard>
         <AICard>
-          <CardImage>
+          <AICardImage>
             <Image
               src="/static/images/art/ai-assisted/007.webp"
               width={256}
               height={256}
               priority={true}
             />
-          </CardImage>
-          <CardHeading>
-            <span>007</span>
-          </CardHeading>
+          </AICardImage>
+          <AICardHeading>007</AICardHeading>
         </AICard>
         <AICard>
-          <CardImage>
+          <AICardImage>
             <Image
               src="/static/images/art/ai-assisted/006.webp"
               width={256}
               height={256}
               priority={true}
             />
-          </CardImage>
-          <CardHeading>
-            <span>006</span>
-          </CardHeading>
+          </AICardImage>
+          <AICardHeading>006</AICardHeading>
         </AICard>
         <AICard>
-          <CardImage>
+          <AICardImage>
             <Image
               src="/static/images/art/ai-assisted/005.webp"
               width={256}
               height={256}
               priority={true}
             />
-          </CardImage>
-          <CardHeading>
-            <span>005</span>
-          </CardHeading>
+          </AICardImage>
+          <AICardHeading>005</AICardHeading>
         </AICard>
         <AICard>
-          <CardImage>
+          <AICardImage>
             <Image
               src="/static/images/art/ai-assisted/004.webp"
               width={256}
               height={256}
               priority={true}
             />
-          </CardImage>
-          <CardHeading>
-            <span>004</span>
-          </CardHeading>
+          </AICardImage>
+          <AICardHeading>004</AICardHeading>
         </AICard>
         <AICard>
-          <CardImage>
+          <AICardImage>
             <Image
               src="/static/images/art/ai-assisted/003.webp"
               width={256}
               height={256}
               priority={true}
             />
-          </CardImage>
-          <CardHeading>
-            <span>003</span>
-          </CardHeading>
+          </AICardImage>
+          <AICardHeading>003</AICardHeading>
         </AICard>
         <AICard>
-          <CardImage>
+          <AICardImage>
             <Image
               src="/static/images/art/ai-assisted/002.webp"
               width={256}
               height={256}
               priority={true}
             />
-          </CardImage>
-          <CardHeading>
-            <span>002</span>
-          </CardHeading>
+          </AICardImage>
+          <AICardHeading>002</AICardHeading>
         </AICard>
         <AICard>
-          <CardImage>
+          <AICardImage>
             <Image
               src="/static/images/art/ai-assisted/001.webp"
               width={256}
               height={256}
               priority={true}
             />
-          </CardImage>
-          <CardHeading>
-            <span>001</span>
-          </CardHeading>
+          </AICardImage>
+          <AICardHeading>001</AICardHeading>
         </AICard>
         <AICard>
-          <CardImage>
+          <AICardImage>
             <Image
               src="/static/images/art/ai-assisted/000.webp"
               width={256}
               height={256}
               priority={true}
             />
-          </CardImage>
-          <CardHeading>
-            <span>000</span>
-          </CardHeading>
+          </AICardImage>
+          <AICardHeading>000</AICardHeading>
         </AICard>
       </AICards>
       <Heading>Acrylic Pours</Heading>
@@ -495,7 +471,7 @@ const AICards = styled.div`
   display: flex;
   width: 100%;
   flex-wrap: wrap;
-  gap: 20px;
+  gap: 50px;
   justify-content: center;
 `;
 
@@ -504,14 +480,45 @@ const AICard = styled.div`
   color: white;
   box-shadow: 0 5px 0 rgba(0, 0, 0, 0);
   transition-duration: 200ms;
-  transition-property: box-shadow;
+  transition-property: box-shadow, transform;
   transition-timing-function: ease-in;
   width: calc(256px);
   display: flex;
   flex-direction: column;
+  position: relative;
+  // change perspective to tilt the card slightly
+  transform: perspective(600px) rotateX(5deg) rotateY(5deg);
+  z-index: 10;
 
   &:hover {
     box-shadow: 0 5px 25px rgba(0, 0, 0, 0.4);
+    transform: perspective(600px) rotateX(0deg) rotateY(0deg) scale(1.3);
+    z-index: 20;
+  }
+`;
+
+const AICardHeading = styled.h2`
+  color: black;
+  font-family: monospace;
+  font-weight: 100;
+  font-size: 1.2em;
+  background-color: white;
+  padding: 3px 7px;
+  position: absolute;
+  top: -7px;
+  right: -10px;
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
+`;
+
+const AICardImage = styled.span`
+  width: 256px;
+  height: 256px;
+
+  & img {
+    object-fit: cover;
+    object-position: center;
+    width: 256px;
+    height: 256px;
   }
 `;
 
