@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import Image from "next/image";
 
@@ -37,166 +37,144 @@ const Art = () => {
   return (
     <Page title="Art" description="Some of my art... what even is art...">
       <Background />
-      <Heading>AI Assisted</Heading>
+      <Heading>AI Generated</Heading>
       <Paragraph>
         Using a variety of generative adversarial networks, algorithms, and
         inputs. You can see some of my code for this {aiArtTag()} to try it
         yourself.
       </Paragraph>
-      <Cards>
-        <Card
-          onClick={() =>
-            openLightbox("/static/images/art/ai-assisted/008-upscaled.webp")
-          }
-        >
+      <AICards>
+        <AICard>
           <CardImage>
             <Image
-              src="/static/images/art/ai-assisted/008-upscaled.webp"
-              alt="Sub-Zero Goliath"
-              width={640}
-              height={360}
-              className="mouse-activate"
+              src="/static/images/art/ai-assisted/009.webp"
+              width={256}
+              height={256}
               priority={true}
             />
           </CardImage>
           <CardHeading>
-            Sub-Zero Goliath <span>008</span>
+            <span>009</span>
           </CardHeading>
-        </Card>
-        <Card
-          onClick={() =>
-            openLightbox("/static/images/art/ai-assisted/007-upscaled.webp")
-          }
-        >
+        </AICard>
+        <AICard>
           <CardImage>
             <Image
-              src="/static/images/art/ai-assisted/007-upscaled.webp"
-              alt="Phoenix Nebula"
-              width={640}
-              height={360}
-              className="mouse-activate"
+              src="/static/images/art/ai-assisted/008.webp"
+              width={256}
+              height={256}
               priority={true}
             />
           </CardImage>
           <CardHeading>
-            Phoenix Nebula <span>007</span>
+            <span>008</span>
           </CardHeading>
-        </Card>
-        <Card
-          onClick={() =>
-            openLightbox("/static/images/art/ai-assisted/006-upscaled.webp")
-          }
-        >
+        </AICard>
+        <AICard>
           <CardImage>
             <Image
-              src="/static/images/art/ai-assisted/006-upscaled.webp"
-              alt="Space Hive"
-              width={640}
-              height={360}
-              className="mouse-activate"
+              src="/static/images/art/ai-assisted/007.webp"
+              width={256}
+              height={256}
               priority={true}
             />
           </CardImage>
           <CardHeading>
-            Space Hive <span>006</span>
+            <span>007</span>
           </CardHeading>
-        </Card>
-        <Card
-          onClick={() =>
-            openLightbox("/static/images/art/ai-assisted/005-upscaled.webp")
-          }
-        >
+        </AICard>
+        <AICard>
           <CardImage>
             <Image
-              src="/static/images/art/ai-assisted/005-upscaled.webp"
-              alt="Fractal Hotel"
-              width={640}
-              height={360}
-              className="mouse-activate"
+              src="/static/images/art/ai-assisted/006.webp"
+              width={256}
+              height={256}
               priority={true}
             />
           </CardImage>
           <CardHeading>
-            Fractal Hotel <span>005</span>
+            <span>006</span>
           </CardHeading>
-        </Card>
-        <Card
-          onClick={() =>
-            openLightbox("/static/images/art/ai-assisted/004-upscaled.webp")
-          }
-        >
+        </AICard>
+        <AICard>
           <CardImage>
             <Image
-              src="/static/images/art/ai-assisted/004-upscaled.webp"
-              alt="Giants Saturn"
-              width={640}
-              height={360}
-              className="mouse-activate"
+              src="/static/images/art/ai-assisted/005.webp"
+              width={256}
+              height={256}
               priority={true}
             />
           </CardImage>
           <CardHeading>
-            Saturn Giants <span>004</span>
+            <span>005</span>
           </CardHeading>
-        </Card>
-        <Card
-          onClick={() =>
-            openLightbox("/static/images/art/ai-assisted/003-upscaled.webp")
-          }
-        >
+        </AICard>
+        <AICard>
           <CardImage>
             <Image
-              src="/static/images/art/ai-assisted/003-upscaled.webp"
-              alt="Surges in Purgatory"
-              width={640}
-              height={360}
-              className="mouse-activate"
+              src="/static/images/art/ai-assisted/004.webp"
+              width={256}
+              height={256}
               priority={true}
             />
           </CardImage>
           <CardHeading>
-            Surges in Purgatory <span>003</span>
+            <span>004</span>
           </CardHeading>
-        </Card>
-        <Card
-          onClick={() =>
-            openLightbox("/static/images/art/ai-assisted/002-upscaled.webp")
-          }
-        >
+        </AICard>
+        <AICard>
           <CardImage>
             <Image
-              src="/static/images/art/ai-assisted/002-upscaled.webp"
-              alt="Mountain Watchers"
-              width={640}
-              height={360}
-              className="mouse-activate"
+              src="/static/images/art/ai-assisted/003.webp"
+              width={256}
+              height={256}
               priority={true}
             />
           </CardImage>
           <CardHeading>
-            Mountain Watchers <span>002</span>
+            <span>003</span>
           </CardHeading>
-        </Card>
-        <Card
-          onClick={() =>
-            openLightbox("/static/images/art/ai-assisted/001-upscaled.webp")
-          }
-        >
+        </AICard>
+        <AICard>
           <CardImage>
             <Image
-              src="/static/images/art/ai-assisted/001-upscaled.webp"
-              alt="Devoured Suns"
-              width={640}
-              height={360}
-              className="mouse-activate"
+              src="/static/images/art/ai-assisted/002.webp"
+              width={256}
+              height={256}
               priority={true}
             />
           </CardImage>
           <CardHeading>
-            Devoured Suns <span>001</span>
+            <span>002</span>
           </CardHeading>
-        </Card>
-      </Cards>
+        </AICard>
+        <AICard>
+          <CardImage>
+            <Image
+              src="/static/images/art/ai-assisted/001.webp"
+              width={256}
+              height={256}
+              priority={true}
+            />
+          </CardImage>
+          <CardHeading>
+            <span>001</span>
+          </CardHeading>
+        </AICard>
+        <AICard>
+          <CardImage>
+            <Image
+              src="/static/images/art/ai-assisted/000.webp"
+              width={256}
+              height={256}
+              priority={true}
+            />
+          </CardImage>
+          <CardHeading>
+            <span>000</span>
+          </CardHeading>
+        </AICard>
+      </AICards>
       <Heading>Acrylic Pours</Heading>
       <Paragraph>
         A bit more traditional than my usual art, acrylics mixed with water,
@@ -205,12 +183,12 @@ const Art = () => {
       <Cards>
         <Card
           onClick={() =>
-            openLightbox("/static/images/art/acrylic-pours/006.jpg")
+            openLightbox("/static/images/art/acrylic-pours/006.webp")
           }
         >
           <CardImage>
             <Image
-              src="/static/images/art/acrylic-pours/006-thumbnail.jpg"
+              src="/static/images/art/acrylic-pours/006.webp"
               alt="Molten Copper"
               width={640}
               height={360}
@@ -224,12 +202,12 @@ const Art = () => {
         </Card>
         <Card
           onClick={() =>
-            openLightbox("/static/images/art/acrylic-pours/005.jpg")
+            openLightbox("/static/images/art/acrylic-pours/005.webp")
           }
         >
           <CardImage>
             <Image
-              src="/static/images/art/acrylic-pours/005-thumbnail.jpg"
+              src="/static/images/art/acrylic-pours/005.webp"
               alt="Nebulas in Triangulum"
               width={640}
               height={360}
@@ -243,12 +221,12 @@ const Art = () => {
         </Card>
         <Card
           onClick={() =>
-            openLightbox("/static/images/art/acrylic-pours/004.jpg")
+            openLightbox("/static/images/art/acrylic-pours/004.webp")
           }
         >
           <CardImage>
             <Image
-              src="/static/images/art/acrylic-pours/004-thumbnail.jpg"
+              src="/static/images/art/acrylic-pours/004.webp"
               alt="Metal on Mars"
               width={640}
               height={360}
@@ -262,12 +240,12 @@ const Art = () => {
         </Card>
         <Card
           onClick={() =>
-            openLightbox("/static/images/art/acrylic-pours/003.jpg")
+            openLightbox("/static/images/art/acrylic-pours/003.webp")
           }
         >
           <CardImage>
             <Image
-              src="/static/images/art/acrylic-pours/003-thumbnail.jpg"
+              src="/static/images/art/acrylic-pours/003.webp"
               alt="Water on Jupiter"
               width={640}
               height={360}
@@ -281,12 +259,12 @@ const Art = () => {
         </Card>
         <Card
           onClick={() =>
-            openLightbox("/static/images/art/acrylic-pours/002.jpg")
+            openLightbox("/static/images/art/acrylic-pours/002.webp")
           }
         >
           <CardImage>
             <Image
-              src="/static/images/art/acrylic-pours/002-thumbnail.jpg"
+              src="/static/images/art/acrylic-pours/002.webp"
               alt="Cracks in Clay"
               width={640}
               height={360}
@@ -299,12 +277,12 @@ const Art = () => {
         </Card>
         <Card
           onClick={() =>
-            openLightbox("/static/images/art/acrylic-pours/001.jpg")
+            openLightbox("/static/images/art/acrylic-pours/001.webp")
           }
         >
           <CardImage>
             <Image
-              src="/static/images/art/acrylic-pours/001-thumbnail.jpg"
+              src="/static/images/art/acrylic-pours/001.webp"
               alt="Reef Drop-off"
               width={640}
               height={360}
@@ -317,12 +295,12 @@ const Art = () => {
         </Card>
         <Card
           onClick={() =>
-            openLightbox("/static/images/art/acrylic-pours/000.jpg")
+            openLightbox("/static/images/art/acrylic-pours/000.webp")
           }
         >
           <CardImage>
             <Image
-              src="/static/images/art/acrylic-pours/000-thumbnail.jpg"
+              src="/static/images/art/acrylic-pours/000.webp"
               alt="Blood in Waves"
               width={640}
               height={360}
@@ -484,6 +462,30 @@ const Link = styled.a`
 
   &:hover {
     transform: scale(1.2);
+  }
+`;
+
+const AICards = styled.div`
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+`;
+
+const AICard = styled.div`
+  background-color: black;
+  color: white;
+  box-shadow: 0 5px 0 rgba(0, 0, 0, 0);
+  transition-duration: 200ms;
+  transition-property: box-shadow;
+  transition-timing-function: ease-in;
+  width: calc(256px);
+  display: flex;
+  flex-direction: column;
+
+  &:hover {
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.4);
   }
 `;
 
