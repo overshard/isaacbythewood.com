@@ -47,6 +47,28 @@ const Art = () => {
         <AICard>
           <AICardImage>
             <Image
+              src="/static/images/art/ai-assisted/013.webp"
+              width={256}
+              height={256}
+              priority={true}
+            />
+          </AICardImage>
+          <AICardHeading>013</AICardHeading>
+        </AICard>
+        <AICard>
+          <AICardImage>
+            <Image
+              src="/static/images/art/ai-assisted/012.webp"
+              width={256}
+              height={256}
+              priority={true}
+            />
+          </AICardImage>
+          <AICardHeading>012</AICardHeading>
+        </AICard>
+        <AICard>
+          <AICardImage>
+            <Image
               src="/static/images/art/ai-assisted/011.webp"
               width={256}
               height={256}
