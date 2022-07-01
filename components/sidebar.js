@@ -66,6 +66,7 @@ const Nav = styled.nav`
   position: fixed;
   z-index: 1;
   border-right: 1px solid rgba(125, 125, 125, 0.2);
+  z-index: 100;
 
   @media (${(props) => props.theme.breakpoints.tablet}) {
     bottom: auto;

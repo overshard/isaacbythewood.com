@@ -72,23 +72,9 @@ const SlideStart = keyframes`
 `;
 
 const ImageWrapper = styled.div`
-  width: 100vw;
-  height: 100vh;
-  z-index: -2;
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 60px;
-
-  @media (${(props) => props.theme.breakpoints.mobile}) {
-    left: 0;
-  }
-
   img {
     object-fit: cover;
     object-position: center;
-    height: 100vh;
   }
 `;
 
@@ -103,9 +89,9 @@ const Words = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: -1;
+  z-index: 10;
   mix-blend-mode: darken;
-  background: rgba(0, 0, 0, 0.6);
+  background: rgba(0, 0, 0, 0.8);
 `;
 
 const Word = styled.h3`
@@ -150,6 +136,8 @@ const Description = styled.h1`
   animation-name: ${FadeStart};
   animation-duration: 1500ms;
   animation-fill-mode: forwards;
+  position: relative;
+  z-index: 20;
 
   &::before {
     content: "";
@@ -181,6 +169,8 @@ const Name = styled.h2`
   animation-name: ${SlideStart};
   animation-duration: 750ms;
   animation-fill-mode: forwards;
+  position: relative;
+  z-index: 20;
 
   @media (${(props) => props.theme.breakpoints.mobile}) {
     font-size: 1.5em;
