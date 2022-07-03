@@ -47,7 +47,7 @@ const Art = () => {
         <AICard>
           <AICardImage>
             <Image
-              src="/static/images/art/ai-assisted/009.webp"
+              src="/static/images/art/ai-generated/009.webp"
               width={256}
               height={256}
               priority={true}
@@ -58,7 +58,7 @@ const Art = () => {
         <AICard>
           <AICardImage>
             <Image
-              src="/static/images/art/ai-assisted/008.webp"
+              src="/static/images/art/ai-generated/008.webp"
               width={256}
               height={256}
               priority={true}
@@ -69,7 +69,7 @@ const Art = () => {
         <AICard>
           <AICardImage>
             <Image
-              src="/static/images/art/ai-assisted/007.webp"
+              src="/static/images/art/ai-generated/007.webp"
               width={256}
               height={256}
               priority={true}
@@ -80,7 +80,7 @@ const Art = () => {
         <AICard>
           <AICardImage>
             <Image
-              src="/static/images/art/ai-assisted/006.webp"
+              src="/static/images/art/ai-generated/006.webp"
               width={256}
               height={256}
               priority={true}
@@ -91,7 +91,7 @@ const Art = () => {
         <AICard>
           <AICardImage>
             <Image
-              src="/static/images/art/ai-assisted/005.webp"
+              src="/static/images/art/ai-generated/005.webp"
               width={256}
               height={256}
               priority={true}
@@ -102,7 +102,7 @@ const Art = () => {
         <AICard>
           <AICardImage>
             <Image
-              src="/static/images/art/ai-assisted/004.webp"
+              src="/static/images/art/ai-generated/004.webp"
               width={256}
               height={256}
               priority={true}
@@ -113,7 +113,7 @@ const Art = () => {
         <AICard>
           <AICardImage>
             <Image
-              src="/static/images/art/ai-assisted/003.webp"
+              src="/static/images/art/ai-generated/003.webp"
               width={256}
               height={256}
               priority={true}
@@ -124,7 +124,7 @@ const Art = () => {
         <AICard>
           <AICardImage>
             <Image
-              src="/static/images/art/ai-assisted/002.webp"
+              src="/static/images/art/ai-generated/002.webp"
               width={256}
               height={256}
               priority={true}
@@ -135,7 +135,7 @@ const Art = () => {
         <AICard>
           <AICardImage>
             <Image
-              src="/static/images/art/ai-assisted/001.webp"
+              src="/static/images/art/ai-generated/001.webp"
               width={256}
               height={256}
               priority={true}
@@ -146,7 +146,7 @@ const Art = () => {
         <AICard>
           <AICardImage>
             <Image
-              src="/static/images/art/ai-assisted/000.webp"
+              src="/static/images/art/ai-generated/000.webp"
               width={256}
               height={256}
               priority={true}
