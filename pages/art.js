@@ -464,7 +464,6 @@ const AICard = styled.div`
   display: flex;
   flex-direction: column;
   position: relative;
-  // change perspective to tilt the card slightly
   transform: perspective(600px) rotateX(5deg) rotateY(5deg);
   z-index: 10;
 
@@ -472,6 +471,18 @@ const AICard = styled.div`
     box-shadow: 0 5px 25px rgba(0, 0, 0, 0.4);
     transform: perspective(600px) rotateX(0deg) rotateY(0deg) scale(1.3);
     z-index: 20;
+
+    @media not all and (min-resolution: 0.001dpcm) {
+      @supports (-webkit-appearance: none) {
+        transform: none;
+      }
+    }
+  }
+
+  @media not all and (min-resolution: 0.001dpcm) {
+    @supports (-webkit-appearance: none) {
+      transform: none;
+    }
   }
 `;
 
