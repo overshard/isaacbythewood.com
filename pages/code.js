@@ -163,6 +163,23 @@ const Code = ({ commits }) => {
           </ProjectButton>
         </Project>
         <Project>
+          <ProjectHeading>New Tab</ProjectHeading>
+          <ProjectParagraph>
+            A clean new tab page extension for Chrome.
+          </ProjectParagraph>
+          <ProjectCommit>
+            {JSON.stringify(commits.newtab.data, null, 2)}
+          </ProjectCommit>
+          <ProjectButton
+            href="https://www.github.com/overshard/newtab"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            <GitHubIcon />
+            GitHub
+          </ProjectButton>
+        </Project>
+        <Project>
           <ProjectHeading>dockerfiles</ProjectHeading>
           <ProjectParagraph>
             All the Dockerfiles I use for various purposes. More detailed usage
@@ -288,6 +305,7 @@ export async function getServerSideProps() {
     const status = await getCommit("status");
     const timelite = await getCommit("timelite");
     const timestrap = await getCommit("timestrap");
+    const newtab = await getCommit("newtab");
 
     return {
       aiart: aiart,
@@ -300,6 +318,7 @@ export async function getServerSideProps() {
       status: status,
       timelite: timelite,
       timestrap: timestrap,
+      newtab: newtab,
     };
   };
 
