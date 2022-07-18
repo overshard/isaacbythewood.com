@@ -33,14 +33,14 @@ const Contact = () => {
                   isaac@bythewood.com
                 </ContactLink>
               </ContactValue>
-              <ContactKey>Discord</ContactKey>
+              <ContactKey>LinkedIn</ContactKey>
               <ContactValue>
                 <ContactLink
-                  href="https://discordapp.com/"
+                  href="https://www.linkedin.com/in/isaac-bythewood/"
                   rel="noopener noreferrer"
                   target="_blank"
                 >
-                  Overshard#4907
+                  Isaac Bythewood
                 </ContactLink>
               </ContactValue>
               <ContactKey>GitHub</ContactKey>
@@ -51,6 +51,16 @@ const Contact = () => {
                   target="_blank"
                 >
                   /overshard
+                </ContactLink>
+              </ContactValue>
+              <ContactKey>Discord</ContactKey>
+              <ContactValue>
+                <ContactLink
+                  href="https://discordapp.com/"
+                  rel="noopener noreferrer"
+                  target="_blank"
+                >
+                  Overshard#4907
                 </ContactLink>
               </ContactValue>
             </ContactList>
