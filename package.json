@@ -14,7 +14,7 @@
     "react-dom": "^18.2.0",
     "react-is": "^18.2.0",
     "react-transition-group": "^4.4.1",
-    "sequelize": "^6.21.1",
+    "sequelize": "^6.28.2",
     "sharp": "^0.30.7",
     "sqlite3": "^5.0.8",
     "styled-components": "^5.2.3"
