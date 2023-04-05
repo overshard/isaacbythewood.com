@@ -11,7 +11,7 @@ const About = () => {
     "SEO",
     "Cloud",
     "Security",
-    "HIPPA & PCI",
+    "HIPAA & PCI",
     "Developer",
     "SysAdmin",
     "Full-Stack",
@@ -80,7 +80,7 @@ const About = () => {
         <Strong>VanNoppen Marketing</Strong> doing some of everything — chiefly
         creating <Strong>custom software</Strong> on a variety of platforms. I
         have done consulting for many companies on SEO, Online Advertising,
-        Social Media, Cloud Services, Security, HIPPA &amp; PCI Compliance, and
+        Social Media, Cloud Services, Security, HIPAA &amp; PCI Compliance, and
         myriad other topics.
       </Paragraph>
     </Page>
