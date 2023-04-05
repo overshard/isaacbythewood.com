@@ -82,7 +82,7 @@ const About = () => {
         have done consulting for many companies on SEO, Online Advertising,
         Social Media, Cloud Services, Security, HIPAA &amp; PCI Compliance, and
         myriad other topics.
-        <Resume href="/static/pdfs/resume-isaac-bythewood.pdf">
+        <Resume href="/static/pdfs/resume-isaac-bythewood.pdf" target="_blank">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="20"
