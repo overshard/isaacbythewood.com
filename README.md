@@ -8,7 +8,7 @@
 # Isaac Bythewood
 
 The personal website of Isaac Bythewood, a Full-Stack Developer located in
-Morganton, NC.
+Elkin, NC.
 
 https://isaacbythewood.com/
 

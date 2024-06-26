@@ -2,7 +2,7 @@ const strings = {
   title: "Isaac Bythewood",
   description:
     "Isaac Bythewood is a Full-Stack Developer and Consultant located in " +
-    "Morganton, NC.",
+    "Elkin, NC.",
 };
 
 const theme = {
