@@ -7,7 +7,7 @@
 
 # Isaac Bythewood
 
-The personal website of Isaac Bythewood, a Full-Stack Developer located in
+The personal website of Isaac Bythewood, a Senior Solutions Architect located in
 Elkin, NC.
 
 https://isaacbythewood.com/
