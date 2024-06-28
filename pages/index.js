@@ -25,7 +25,7 @@ const Index = () => {
   }, []);
 
   return (
-    <Page title="Full-Stack Developer located in Elkin, NC">
+    <Page title="Senior Solutions Architect located in Elkin, NC">
       <ImageWrapper>
         <Image
           src="/static/images/art/acrylic-pours/005.webp"
@@ -44,7 +44,7 @@ const Index = () => {
           );
         })}
       </TransitionGroup>
-      <Description>Full-Stack Developer located in Elkin, NC</Description>
+      <Description>Senior Solutions Architect located in Elkin, NC</Description>
       <Name>Isaac</Name>
       <Name style={{ animationDelay: "100ms" }}>Bythewood</Name>
     </Page>

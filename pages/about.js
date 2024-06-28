@@ -73,7 +73,7 @@ const About = () => {
         </TransitionGroup>
       </Words>
       <Paragraph>
-        I am a <Strong>full-stack developer</Strong>. I enjoy working on
+        I am a <Strong>senior solutions architect</Strong>. I enjoy working on
         everything from linux kernel modules to website front-ends. My first job
         was <Strong>modifying kernel modules</Strong> for Digium Telephony Cards
         to work on CentOS. I am currently doing a bit of everything — chiefly
