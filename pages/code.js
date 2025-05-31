@@ -39,7 +39,8 @@ const Code = ({ commits }) => {
         <Project>
           <ProjectHeading>Terminal</ProjectHeading>
           <ProjectParagraph>
-            It's a terminal, nothing to see here, no hidden games or anything.
+            It&apos;s a terminal, nothing to see here, no hidden games or
+            anything.
           </ProjectParagraph>
           <ProjectCommit>
             {JSON.stringify(commits.terminal.data, null, 2)}

@@ -28,8 +28,6 @@ const Art = () => {
     setActiveArt(activeArt === artName ? null : artName);
   };
 
-
-
   return (
     <Page title="Art" description="Some of my art... what even is art...">
       <Background />
@@ -184,7 +182,9 @@ const Art = () => {
         distance.
       </Paragraph>
       <ArtContainer>
-        <Constellations options={{ numStars: 50, isActive: activeArt === "constellations" }} />
+        <Constellations
+          options={{ numStars: 50, isActive: activeArt === "constellations" }}
+        />
         <PlayButton
           onClick={() => handleArtToggle("constellations")}
           active={activeArt === "constellations"}
@@ -207,7 +207,9 @@ const Art = () => {
         Inspired by the retro art style of Celeste.
       </Paragraph>
       <ArtContainer>
-        <RetroStars options={{ numStars: 50, isActive: activeArt === "retrostars" }} />
+        <RetroStars
+          options={{ numStars: 50, isActive: activeArt === "retrostars" }}
+        />
         <PlayButton
           onClick={() => handleArtToggle("retrostars")}
           active={activeArt === "retrostars"}
@@ -231,7 +233,9 @@ const Art = () => {
         the field while leaving a colorful trail that slowly fades.
       </Paragraph>
       <ArtContainer>
-        <ParticleFlow options={{ numParticles: 80, isActive: activeArt === "particleflow" }} />
+        <ParticleFlow
+          options={{ numParticles: 80, isActive: activeArt === "particleflow" }}
+        />
         <PlayButton
           onClick={() => handleArtToggle("particleflow")}
           active={activeArt === "particleflow"}
