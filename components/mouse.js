@@ -1,28 +1,74 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useCallback } from "react";
 import styled from "styled-components";
 
 const Mouse = () => {
   const pageCursorRef = useRef(null);
   const pageCursorCircleRef = useRef(null);
+  const animationFrameRef = useRef(null);
+  const mousePositionRef = useRef({ x: 0, y: 0 });
+
+  // Throttled animation using requestAnimationFrame
+  const updateCursorPosition = useCallback(() => {
+    if (pageCursorRef.current && pageCursorCircleRef.current) {
+      const { x, y } = mousePositionRef.current;
+
+      // Use transform3d for better GPU acceleration
+      pageCursorRef.current.style.transform = `translate3d(${x}px, ${y}px, 0)`;
+      pageCursorCircleRef.current.style.transform = `translate3d(${x}px, ${y}px, 0)`;
+    }
+  }, []);
+
+  // Optimized mousemove handler with requestAnimationFrame throttling
+  const handleMouseMove = useCallback(
+    (e) => {
+      // Early return if refs are not ready
+      if (!pageCursorRef.current || !pageCursorCircleRef.current) return;
+
+      mousePositionRef.current = { x: e.clientX, y: e.clientY };
+
+      // Cancel previous frame if it hasn't executed yet
+      if (animationFrameRef.current) {
+        cancelAnimationFrame(animationFrameRef.current);
+      }
+
+      // Schedule update for next frame
+      animationFrameRef.current = requestAnimationFrame(updateCursorPosition);
+    },
+    [updateCursorPosition]
+  );
+
+  // Combined mouseover handler for better performance
+  const handleMouseOver = useCallback((e) => {
+    // Safety check for both refs and event target
+    if (!pageCursorCircleRef.current || !e.target) return;
+
+    const isInteractive =
+      e.target.tagName === "BUTTON" ||
+      e.target.tagName === "A" ||
+      (e.target.classList && e.target.classList.contains("mouse-activate"));
+
+    if (isInteractive) {
+      pageCursorCircleRef.current.classList.add("activated");
+    } else {
+      pageCursorCircleRef.current.classList.remove("activated");
+    }
+  }, []);
 
   useEffect(() => {
-    document.addEventListener("mousemove", (e) => {
-      pageCursorRef.current.style.transform = `matrix(1, 0, 0, 1, ${e.clientX}, ${e.clientY})`;
-      pageCursorCircleRef.current.style.transform = `translate3d(${e.clientX}px, ${e.clientY}px, 0px)`;
-    });
-    document.addEventListener("mouseover", (e) => {
-      if (e.target.tagName === "BUTTON" || e.target.tagName === "A") {
-        pageCursorCircleRef.current.classList.add("activated");
-      } else {
-        pageCursorCircleRef.current.classList.remove("activated");
+    // Add event listeners with passive option for better performance
+    document.addEventListener("mousemove", handleMouseMove, { passive: true });
+    document.addEventListener("mouseover", handleMouseOver, { passive: true });
+
+    // Cleanup function to remove event listeners and cancel animation frames
+    return () => {
+      document.removeEventListener("mousemove", handleMouseMove);
+      document.removeEventListener("mouseover", handleMouseOver);
+
+      if (animationFrameRef.current) {
+        cancelAnimationFrame(animationFrameRef.current);
       }
-    });
-    document.addEventListener("mouseover", (e) => {
-      if (e.target.classList.contains("mouse-activate")) {
-        pageCursorCircleRef.current.classList.add("activated");
-      }
-    });
-  }, []);
+    };
+  }, [handleMouseMove, handleMouseOver]);
 
   return (
     <>
@@ -54,6 +100,8 @@ const PageCursor = styled.div`
   height: 16px;
   margin: -8px 0 0 -8px;
   pointer-events: none;
+  will-change: transform;
+  backface-visibility: hidden;
 
   @media (${(props) => props.theme.breakpoints.tablet}) {
     display: none;
@@ -75,6 +123,8 @@ const PageCursorCircle = styled.div`
   transform-origin: 100% 100%;
   transition: width 0.4s ease, height 0.4s ease, transform 0.4s ease,
     opacity 0.4s ease;
+  will-change: transform, width, height, opacity;
+  backface-visibility: hidden;
 
   &.activated {
     margin: -35px 0 0 -36px;
