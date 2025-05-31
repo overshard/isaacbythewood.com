@@ -3,6 +3,7 @@ import styled from "styled-components";
 import PropTypes from "prop-types";
 
 const RetroStars = ({ options }) => {
+  const isActive = options.isActive !== undefined ? options.isActive : true;
   const canvas = useRef(null);
   const [mousePosition, setMousePosition] = useState({ x: 640, y: 400 });
   const mousePositionRef = useRef(mousePosition);
@@ -63,20 +64,25 @@ const RetroStars = ({ options }) => {
 
   useEffect(() => {
     // Setup interval to change star sizes
-    const starSizeInterval = setInterval(() => {
-      const newStarSize = starSizeRef.current + 1;
-      if (newStarSize < 4) {
-        setStarSize(newStarSize);
-      } else {
-        setStarSize(0);
-      }
-    }, 500);
+    let starSizeInterval = null;
+    if (isActive) {
+      starSizeInterval = setInterval(() => {
+        const newStarSize = starSizeRef.current + 1;
+        if (newStarSize < 4) {
+          setStarSize(newStarSize);
+        } else {
+          setStarSize(0);
+        }
+      }, 500);
+    }
 
     // Clean up interval when dismounting the component
     return () => {
-      clearInterval(starSizeInterval);
+      if (starSizeInterval) {
+        clearInterval(starSizeInterval);
+      }
     };
-  }, []);
+  }, [isActive]);
 
   useEffect(() => {
     // Get our canvas and draw stars
@@ -222,17 +228,21 @@ const RetroStars = ({ options }) => {
       });
 
       // Draw again
-      starsAnimationFrame = window.requestAnimationFrame(drawStars);
+      if (isActive) {
+        starsAnimationFrame = window.requestAnimationFrame(drawStars);
+      }
     };
 
     // Start the initial drawing and our recursion will take it from there
-    starsAnimationFrame = window.requestAnimationFrame(drawStars);
+    if (isActive) {
+      starsAnimationFrame = window.requestAnimationFrame(drawStars);
+    }
 
     // Cancel star drawing animation frame rendering when dismounting component
     return () => {
       window.cancelAnimationFrame(starsAnimationFrame);
     };
-  }, []);
+  }, [isActive]);
 
   return <Canvas ref={canvas} />;
 };

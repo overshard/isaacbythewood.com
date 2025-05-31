@@ -3,6 +3,7 @@ import styled from "styled-components";
 import PropTypes from "prop-types";
 
 const Constellations = ({ options }) => {
+  const isActive = options.isActive !== undefined ? options.isActive : true;
   const canvas = useRef(null);
 
   useEffect(() => {
@@ -104,17 +105,21 @@ const Constellations = ({ options }) => {
         return star;
       });
 
-      starsAnimationFrame = window.requestAnimationFrame(drawStars);
+      if (isActive) {
+        starsAnimationFrame = window.requestAnimationFrame(drawStars);
+      }
     };
 
     // Start the initial drawing and our recursion will take it from there
-    starsAnimationFrame = window.requestAnimationFrame(drawStars);
+    if (isActive) {
+      starsAnimationFrame = window.requestAnimationFrame(drawStars);
+    }
 
     // Cancel star drawing animation frame rendering when dismounting component
     return () => {
       window.cancelAnimationFrame(starsAnimationFrame);
     };
-  }, []);
+  }, [isActive]);
 
   return <Canvas ref={canvas} />;
 };

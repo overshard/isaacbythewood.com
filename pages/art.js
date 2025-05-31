@@ -5,10 +5,12 @@ import Image from "next/image";
 import Page from "../components/page";
 import Constellations from "../components/constellations";
 import RetroStars from "../components/retrostars";
+import ParticleFlow from "../components/particleflow";
 
 const Art = () => {
   const [lightboxImage, setLightboxImage] = useState(null);
   const [lightboxLoaded, setLightboxLoaded] = useState(false);
+  const [activeArt, setActiveArt] = useState("constellations"); // Default to constellations playing
 
   const openLightbox = (image) => {
     setLightboxImage(image);
@@ -20,6 +22,10 @@ const Art = () => {
     setLightboxLoaded(false);
     history.replaceState(null, null, " ");
     document.body.style.overflowY = "scroll";
+  };
+
+  const handleArtToggle = (artName) => {
+    setActiveArt(activeArt === artName ? null : artName);
   };
 
 
@@ -178,7 +184,13 @@ const Art = () => {
         distance.
       </Paragraph>
       <ArtContainer>
-        <Constellations options={{ numStars: 50 }} />
+        <Constellations options={{ numStars: 50, isActive: activeArt === "constellations" }} />
+        <PlayButton
+          onClick={() => handleArtToggle("constellations")}
+          active={activeArt === "constellations"}
+        >
+          {activeArt === "constellations" ? "⏸" : "▶"}
+        </PlayButton>
       </ArtContainer>
       <Link
         href="https://github.com/overshard/isaacbythewood.com/blob/master/components/constellations.js"
@@ -195,10 +207,40 @@ const Art = () => {
         Inspired by the retro art style of Celeste.
       </Paragraph>
       <ArtContainer>
-        <RetroStars options={{ numStars: 50 }} />
+        <RetroStars options={{ numStars: 50, isActive: activeArt === "retrostars" }} />
+        <PlayButton
+          onClick={() => handleArtToggle("retrostars")}
+          active={activeArt === "retrostars"}
+        >
+          {activeArt === "retrostars" ? "⏸" : "▶"}
+        </PlayButton>
       </ArtContainer>
       <Link
         href="https://github.com/overshard/isaacbythewood.com/blob/master/components/retrostars.js"
+        rel="noopener noreferrer"
+        target="_blank"
+      >
+        See the Code
+      </Link>
+      <Subheading>
+        <span>002</span> Particle Flow
+      </Subheading>
+      <Paragraph>
+        Colorful particles flowing through an invisible force field, creating
+        organic, flowing patterns with trailing effects. Each particle follows
+        the field while leaving a colorful trail that slowly fades.
+      </Paragraph>
+      <ArtContainer>
+        <ParticleFlow options={{ numParticles: 80, isActive: activeArt === "particleflow" }} />
+        <PlayButton
+          onClick={() => handleArtToggle("particleflow")}
+          active={activeArt === "particleflow"}
+        >
+          {activeArt === "particleflow" ? "⏸" : "▶"}
+        </PlayButton>
+      </ArtContainer>
+      <Link
+        href="https://github.com/overshard/isaacbythewood.com/blob/master/components/particleflow.js"
         rel="noopener noreferrer"
         target="_blank"
       >
@@ -420,5 +462,33 @@ const LightboxLoading = styled.div`
   &.hide {
     opacity: 0;
     visibility: hidden;
+  }
+`;
+
+const PlayButton = styled.button`
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 60px;
+  height: 60px;
+  border: none;
+  background: transparent;
+  color: white;
+  font-size: 32px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  z-index: 5;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+
+  &:hover {
+    transform: scale(1.1);
+    text-shadow: 0 4px 8px rgba(0, 0, 0, 0.9);
+  }
+
+  &:active {
+    transform: scale(0.95);
   }
 `;
