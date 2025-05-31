@@ -42,7 +42,7 @@ const Code = ({ commits }) => {
             It's a terminal, nothing to see here, no hidden games or anything.
           </ProjectParagraph>
           <ProjectCommit>
-            {JSON.stringify(commits.aiart.data, null, 2)}
+            {JSON.stringify(commits.terminal.data, null, 2)}
           </ProjectCommit>
           <ProjectButton
             href="https://www.github.com/overshard/terminal"
@@ -53,23 +53,7 @@ const Code = ({ commits }) => {
             GitHub
           </ProjectButton>
         </Project>
-        <Project>
-          <ProjectHeading>AI-Art</ProjectHeading>
-          <ProjectParagraph>
-            Art generation using VQGAN + CLIP in docker containers.
-          </ProjectParagraph>
-          <ProjectCommit>
-            {JSON.stringify(commits.aiart.data, null, 2)}
-          </ProjectCommit>
-          <ProjectButton
-            href="https://www.github.com/overshard/ai-art"
-            rel="noopener noreferrer"
-            target="_blank"
-          >
-            <GitHubIcon />
-            GitHub
-          </ProjectButton>
-        </Project>
+
         <Project>
           <ProjectHeading>Analytics</ProjectHeading>
           <ProjectParagraph>
@@ -312,7 +296,6 @@ export async function getServerSideProps() {
   };
 
   const getCommits = async () => {
-    const aiart = await getCommit("ai-art");
     const alpinefiles = await getCommit("alpinefiles");
     const analytics = await getCommit("analytics");
     const blog = await getCommit("blog");
@@ -326,7 +309,6 @@ export async function getServerSideProps() {
     const newtab = await getCommit("newtab");
 
     return {
-      aiart: aiart,
       alpinefiles: alpinefiles,
       analytics: analytics,
       blog: blog,
