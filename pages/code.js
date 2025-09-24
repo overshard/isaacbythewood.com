@@ -37,25 +37,6 @@ const Code = ({ commits }) => {
       </Paragraph>
       <Projects>
         <Project>
-          <ProjectHeading>Terminal</ProjectHeading>
-          <ProjectParagraph>
-            It&apos;s a terminal, nothing to see here, no hidden games or
-            anything.
-          </ProjectParagraph>
-          <ProjectCommit>
-            {JSON.stringify(commits.terminal.data, null, 2)}
-          </ProjectCommit>
-          <ProjectButton
-            href="https://www.github.com/overshard/terminal"
-            rel="noopener noreferrer"
-            target="_blank"
-          >
-            <GitHubIcon />
-            GitHub
-          </ProjectButton>
-        </Project>
-
-        <Project>
           <ProjectHeading>Analytics</ProjectHeading>
           <ProjectParagraph>
             A self-hostable analytics service with a straightforward API to
@@ -275,19 +256,55 @@ export async function getServerSideProps() {
       `https://api.github.com/repos/overshard/${repo}/commits`
     );
     const commits = await commitsFetch.json();
-    const commit = commits[0];
+    if (!commitsFetch.ok) {
+      console.error(
+        `GitHub API fetch failed for ${repo}:`,
+        commitsFetch.status,
+        commits
+      );
+    }
+    let commit = null;
+    if (Array.isArray(commits) && commits.length > 0) {
+      commit = commits[0];
+    }
+    if (!commit) {
+      console.error(`No commit data found for ${repo}. Response:`, commits);
+    }
     const commitData = {
       repo: repo,
       createdAt: new Date(),
       data: {
-        sha: commit.sha,
+        sha: commit ? commit.sha : null,
         commit: {
-          message: commit.commit.message,
-          date: commit.commit.author.date,
+          message:
+            commit &&
+            commit.commit &&
+            typeof commit.commit.message !== "undefined"
+              ? commit.commit.message
+              : null,
+          date:
+            commit &&
+            commit.commit &&
+            commit.commit.author &&
+            typeof commit.commit.author.date !== "undefined"
+              ? commit.commit.author.date
+              : null,
         },
         author: {
-          name: commit.commit.author.name,
-          email: commit.commit.author.email,
+          name:
+            commit &&
+            commit.commit &&
+            commit.commit.author &&
+            typeof commit.commit.author.name !== "undefined"
+              ? commit.commit.author.name
+              : null,
+          email:
+            commit &&
+            commit.commit &&
+            commit.commit.author &&
+            typeof commit.commit.author.email !== "undefined"
+              ? commit.commit.author.email
+              : null,
         },
       },
     };
@@ -304,7 +321,6 @@ export async function getServerSideProps() {
     const dotfiles = await getCommit("dotfiles");
     const isaacbythewood = await getCommit("isaacbythewood.com");
     const status = await getCommit("status");
-    const terminal = await getCommit("terminal");
     const timelite = await getCommit("timelite");
     const timestrap = await getCommit("timestrap");
     const newtab = await getCommit("newtab");
@@ -317,7 +333,6 @@ export async function getServerSideProps() {
       dotfiles: dotfiles,
       isaacbythewood: isaacbythewood,
       status: status,
-      terminal: terminal,
       timelite: timelite,
       timestrap: timestrap,
       newtab: newtab,
