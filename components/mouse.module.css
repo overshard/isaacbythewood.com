@@ -1,0 +1,52 @@
+.pageCursor {
+  position: fixed;
+  z-index: 100000;
+  top: 0;
+  left: 0;
+  width: 16px;
+  height: 16px;
+  margin: -8px 0 0 -8px;
+  pointer-events: none;
+  will-change: transform;
+  backface-visibility: hidden;
+}
+
+@media (max-width: 1023.98px) {
+  .pageCursor {
+    display: none;
+  }
+}
+
+.pageCursorCircle {
+  position: fixed;
+  z-index: 100000;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  margin: -25px 0 0 -26px;
+  width: 50px;
+  height: 50px;
+  border: 1px solid #ff2d2d;
+  opacity: 0.7;
+  border-radius: 50%;
+  transform-origin: center center;
+  transition: width 0.4s ease, height 0.4s ease, transform 0.4s ease, opacity 0.4s ease;
+  will-change: transform, width, height, opacity;
+  backface-visibility: hidden;
+}
+
+.pageCursorCircle.activated,
+:global(.activated).pageCursorCircle,
+.pageCursorCircle:global(.activated) {
+  margin: -35px 0 0 -36px;
+  width: 70px;
+  height: 70px;
+  background-color: #ff2d2d;
+  opacity: 0.3;
+}
+
+@media (max-width: 1023.98px) {
+  .pageCursorCircle {
+    display: none;
+  }
+}

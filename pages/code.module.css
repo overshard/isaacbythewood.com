@@ -1,0 +1,166 @@
+/* Code page styles migrated from styled-components */
+
+@keyframes transformRight {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+@keyframes transformLeft {
+  from {
+    transform: scaleX(1);
+  }
+  to {
+    transform: scaleX(0);
+  }
+}
+
+.background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: white;
+  z-index: -2;
+}
+
+.heading {
+  font-weight: 700;
+  margin-top: 60px;
+  margin-bottom: 20px;
+  font-size: 2.5em;
+  color: black;
+}
+
+.heading::before {
+  content: "";
+  display: block;
+  width: 50px;
+  height: 5px;
+  margin-bottom: 20px;
+  background-color: var(--color-blue);
+}
+
+.paragraph {
+  font-size: 1.5em;
+  margin-top: 0;
+  margin-bottom: 20px;
+  font-weight: 300;
+  color: black;
+}
+
+.paragraph a {
+  color: black;
+  text-decoration: none;
+  position: relative;
+  white-space: nowrap;
+}
+
+.paragraph a::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 2px;
+  background: rgba(0, 0, 0, 1);
+  transform-origin: left;
+  animation: transformLeft 300ms normal forwards;
+}
+
+.paragraph a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 2px;
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.paragraph a:hover::before {
+  animation: transformRight 300ms normal forwards;
+}
+
+.projects {
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.project {
+  width: calc(50% - 20px);
+  display: flex;
+  flex-direction: column;
+}
+
+@media (max-width: 767.98px) {
+  .project {
+    width: 100%;
+  }
+}
+
+.projectHeading {
+  font-weight: 700;
+  margin-top: 60px;
+  margin-bottom: 20px;
+  font-size: 2em;
+  color: black;
+}
+
+.projectParagraph {
+  font-size: 1.5em;
+  margin-top: 0;
+  margin-bottom: 20px;
+  font-weight: 300;
+  color: black;
+  flex-grow: 1;
+}
+
+.projectButton {
+  padding: 10px 15px;
+  font-size: 1.2em;
+  text-decoration: none;
+  background-color: black;
+  margin-bottom: 20px;
+  font-weight: 700;
+  text-transform: uppercase;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  letter-spacing: 2px;
+  color: white;
+  background-image: linear-gradient(
+    to right,
+    var(--color-blue) 0,
+    var(--color-purple) 100%
+  );
+  transform: scale(1);
+  transition-duration: 250ms;
+  transition-property: transform;
+  width: 125px;
+  text-align: center;
+}
+
+.projectButton svg {
+  margin-right: 10px;
+}
+
+.projectButton:hover {
+  transform: scale(1.2);
+}
+
+.projectCommit {
+  font-family: monospace;
+  background: black;
+  color: #00ff00;
+  padding: 20px;
+  overflow-x: hidden;
+  max-width: 100%;
+  text-overflow: ellipsis;
+}

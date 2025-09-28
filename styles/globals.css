@@ -1,0 +1,54 @@
+:root {
+  /* Design tokens (used by CSS Modules as var(--token)) */
+  --color-primary: #20232e;
+  --color-blue: #0e3ff4;
+  --color-purple: #842bff;
+  --radius-2: 3px;
+  --transition-250: 250ms;
+  --animation-1500: 1500ms;
+}
+
+/* Base global styles (migrated from styled-components GlobalStyle) */
+body {
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial,
+    sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  color: white;
+  background-color: var(--color-primary);
+  min-height: 100vh;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  overflow-x: hidden;
+  text-shadow: rgba(0, 0, 0, 0.01) 0 0 1px;
+  text-rendering: optimizeLegibility;
+  user-select: none;
+  cursor: none;
+}
+
+a,
+button {
+  cursor: none;
+}
+
+/* React Transition Group classes (global) */
+.transition {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  transition: opacity var(--transition-250);
+}
+
+.transition-enter {
+  opacity: 0;
+}
+.transition-enter-active,
+.transition-enter-done {
+  opacity: 1;
+}
+.transition-exit {
+  opacity: 1;
+}
+.transition-exit-active {
+  opacity: 0;
+}

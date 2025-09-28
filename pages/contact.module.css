@@ -1,0 +1,258 @@
+/* Contact page styles migrated from styled-components */
+
+@keyframes transformRight {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+@keyframes transformLeft {
+  from {
+    transform: scaleX(1);
+  }
+  to {
+    transform: scaleX(0);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateX(-100vw);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: white;
+  z-index: -2;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 50vw 1fr;
+  grid-template-rows: auto;
+  grid-template-areas: "left right";
+  margin-right: 60px;
+  transform: translateX(-100vw);
+  animation: slideUp 750ms 500ms forwards;
+}
+
+@media (max-width: 1023.98px) {
+  .grid {
+    margin-right: 0;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto;
+    margin-top: 60px;
+  }
+}
+
+/* Former GridColumn shared styles applied directly to left/right columns */
+
+.gridLeft {
+  grid-area: left;
+  background-color: rgba(0, 0, 0, 0.9);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding-left: 60px;
+}
+
+.gridRight {
+  grid-area: right;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+}
+
+@media (max-width: 1023.98px) {
+  .gridLeft,
+  .gridRight {
+    min-height: auto;
+  }
+}
+
+.contactWrapper {
+  padding-left: 60px; /* match legacy inner offset so content doesn't hug the sidebar */
+}
+
+@media (max-width: 1023.98px) {
+  .contactWrapper {
+    min-height: auto;
+    padding-top: 30px;
+    padding-bottom: 30px;
+  }
+}
+
+.heading {
+  font-size: 3em;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+.heading::before {
+  content: "";
+  display: block;
+  width: 75px;
+  height: 5px;
+  margin-bottom: 10px;
+  background-color: var(--color-blue);
+}
+
+@media (max-width: 767.98px) {
+  .heading {
+    margin-bottom: 10px;
+  }
+}
+
+.shoutOut {
+  text-transform: uppercase;
+  padding: 5px;
+  margin: 0 0 2px 0;
+  float: left;
+  clear: left;
+  font-size: 1.4em;
+  background-image: linear-gradient(
+    to right,
+    var(--color-blue) 0,
+    var(--color-purple) 100%
+  );
+}
+
+@media (max-width: 767.98px) {
+  .shoutOut {
+    font-size: 1.1em;
+  }
+}
+
+.contactList {
+  padding-top: 30px;
+  clear: both;
+}
+
+.contactKey {
+  text-transform: uppercase;
+  font-size: 0.8em;
+  font-weight: 700;
+  opacity: 0.7;
+}
+
+.contactValue {
+  font-size: 1.5em;
+  margin-left: 0;
+  margin-bottom: 30px;
+}
+
+.contactLink {
+  color: white;
+  text-decoration: none;
+  position: relative;
+}
+
+.contactLink::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 2px;
+  background: rgba(255, 255, 255, 1);
+  transform-origin: left;
+  animation: transformLeft 300ms normal forwards;
+}
+
+.contactLink::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.contactLink:hover::before {
+  animation: transformRight 300ms normal forwards;
+}
+
+.chat {
+  margin: 30px 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.chatLine {
+  display: flex;
+  margin-bottom: 20px;
+  justify-content: center;
+  opacity: 0;
+}
+
+/* Fade-in transitions for chat lines (react-transition-group classNames="fade") */
+.chatLine:global(.fade-appear) {
+  opacity: 0;
+  transform: translateX(-100px);
+}
+.chatLine:global(.fade-appear-active) {
+  opacity: 1;
+  transform: translateX(0);
+  transition-property: opacity, transform;
+  transition-duration: 250ms;
+}
+.chatLine:global(.fade-appear-done) {
+  opacity: 1;
+}
+
+.chatBubble {
+  font-size: 1.2em;
+  padding: 10px 20px;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: white;
+  width: 65%;
+}
+
+@media (max-width: 767.98px) {
+  .chatBubble {
+    font-size: 1em;
+    width: 70%;
+  }
+}
+
+.chatBubble span {
+  display: block;
+  font-size: 0.5em;
+  text-transform: uppercase;
+  margin-top: 5px;
+  color: rgba(255, 255, 255, 0.7);
+  letter-spacing: 1px;
+  font-weight: 800;
+}
+
+/* removed conflicting duplicate chat styles */
+
+/* Restore avatar spacing/sizing per legacy */
+.chatAvatar {
+  margin-right: 20px;
+  width: 50px;
+  height: 50px;
+  display: inline-flex;
+}
+
+@media (max-width: 767.98px) {
+  .chatAvatar {
+    margin-right: 10px;
+    width: 40px;
+    height: 40px;
+  }
+}

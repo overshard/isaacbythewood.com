@@ -1,7 +1,7 @@
 import React from "react";
 import Head from "next/head";
 import PropTypes from "prop-types";
-import styled from "styled-components";
+import styles from "./page.module.css";
 
 import { strings } from "../site.config";
 
@@ -20,9 +20,12 @@ const Page = (props) => {
           content={props.description ? props.description : defaultDescription}
         />
       </Head>
-      <Main gridArea={props.gridArea ? props.gridArea : "main"}>
+      <main
+        style={{ gridArea: props.gridArea ? props.gridArea : "main" }}
+        className={styles.main}
+      >
         {props.children}
-      </Main>
+      </main>
     </>
   );
 };
@@ -39,6 +42,4 @@ Page.propTypes = {
 
 export default Page;
 
-const Main = styled.main`
-  ${(props) => props.gridArea && `grid-area:  ${props.gridArea};`}
-`;
+// migrated to CSS Module

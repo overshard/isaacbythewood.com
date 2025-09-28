@@ -1,0 +1,196 @@
+.hamburger {
+  position: fixed;
+  top: 30px;
+  right: 0;
+  padding: 20px 15px;
+  background: white;
+  z-index: 5001;
+  border: none;
+}
+
+.hamburger:hover * {
+  width: 30px !important;
+}
+
+@media (max-width: 1023.98px) {
+  .hamburger {
+    top: 0;
+    padding-bottom: 21px;
+  }
+}
+
+.patty {
+  background: black;
+  width: 30px;
+  height: 3px;
+  margin-bottom: 5px;
+  margin-left: auto;
+  transition: width 250ms;
+}
+
+.patty:last-child {
+  margin-bottom: 0;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: -5000;
+  background: transparent;
+}
+
+.overlay:global(.menu-enter),
+.overlay:global(.menu-enter-active),
+.overlay:global(.menu-enter-done),
+.overlay:global(.menu-exit),
+.overlay:global(.menu-exit-active) {
+  z-index: 5000;
+}
+
+.overlay:global(.menu-exit-done) {
+  z-index: -5000;
+}
+
+.overlayGrid {
+  display: grid;
+  grid-template-columns: 60% 40%;
+}
+
+@media (max-width: 767.98px) {
+  .overlayGrid {
+    grid-template-columns: 100%;
+  }
+}
+
+.overlayGridLeft {
+  grid-area: 1/1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: white;
+  transition: transform 500ms;
+  transform: translateX(-100%);
+}
+
+.overlayGridLeft:global(.menu-enter),
+.overlayGridLeft:global(.menu-enter-active),
+.overlayGridLeft:global(.menu-enter-done) {
+  transform: translateX(0);
+}
+
+.overlayGridLeft:global(.menu-exit),
+.overlayGridLeft:global(.menu-exit-active),
+.overlayGridLeft:global(.menu-exit-done) {
+  transform: translateX(-100%);
+}
+
+.overlayGridRight {
+  grid-area: 1/2;
+  height: 100vh;
+  overflow: hidden;
+  transition: transform 500ms;
+  transform: translateX(100%);
+}
+
+.overlayGridRight:global(.menu-enter),
+.overlayGridRight:global(.menu-enter-active),
+.overlayGridRight:global(.menu-enter-done) {
+  transform: translateX(0);
+}
+
+.overlayGridRight:global(.menu-exit),
+.overlayGridRight:global(.menu-exit-active),
+.overlayGridRight:global(.menu-exit-done) {
+  transform: translateX(100%);
+}
+
+.overlayGridRight img {
+  object-fit: cover;
+  height: 100vh;
+}
+
+.overlayLink {
+  font-weight: 900;
+  text-decoration: none;
+  margin-bottom: 10px;
+  font-size: 3em;
+  color: black;
+  position: relative;
+}
+
+.overlayLink:last-child {
+  margin-bottom: 0;
+}
+
+.overlayLink::before {
+  content: attr(data-text);
+  color: white;
+  position: absolute;
+  width: 0;
+  left: 0;
+  bottom: 3px;
+  height: 27px;
+  background-color: black;
+  transition: width 200ms;
+  line-height: 0;
+  overflow: hidden;
+}
+
+.overlayLink:hover::before {
+  width: 100%;
+}
+
+.topBar {
+  display: flex;
+  width: 100%;
+  position: absolute;
+  left: 20px;
+  top: 20px;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.topLink {
+  text-decoration: none;
+  color: white;
+  background-color: rgba(0, 0, 0, 1);
+  padding: 0.25rem 0.5rem;
+  margin-left: 1rem;
+  transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+  font-family: ui-monospace, Menlo, Monaco, "Cascadia Mono", "Segoe UI Mono",
+    "Roboto Mono", "Oxygen Mono", "Ubuntu Monospace", "Source Code Pro",
+    "Fira Mono", "Droid Sans Mono", "Courier New", monospace;
+}
+
+.topLink:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+  color: black;
+}
+
+@media (max-width: 767.98px) {
+  .topLink {
+    font-size: 0.8em;
+    margin-left: 0.5rem;
+  }
+}
+
+.bottomBar {
+  display: flex;
+  width: 100%;
+  position: absolute;
+  left: 20px;
+  bottom: 20px;
+  align-items: center;
+}
+
+.bar {
+  width: 100%;
+  height: 1px;
+  background: rgba(0, 0, 0, 0.3);
+  margin-left: 40px;
+  margin-right: 60px;
+}

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
-import styled from "styled-components";
+import styles from "./sidebar.module.css";
 import Link from "next/link";
 import { withRouter } from "next/router";
 
@@ -35,15 +35,15 @@ const Sidebar = ({ router }) => {
   }, []);
 
   return (
-    <Nav>
+    <nav className={styles.nav}>
       <Link href="/" passHref>
-        <NavLogo aria-label="Back to home" />
+        <a className={styles.navLogo} aria-label="Back to home" />
       </Link>
       <Link href="/contact" passHref>
-        <NavContact>Get in touch</NavContact>
+        <a className={styles.navContact}>Get in touch</a>
       </Link>
-      <NavCurrent>{current}</NavCurrent>
-    </Nav>
+      <div className={styles.navCurrent}>{current}</div>
+    </nav>
   );
 };
 
@@ -52,107 +52,3 @@ Sidebar.propTypes = {
 };
 
 export default withRouter(Sidebar);
-
-const Nav = styled.nav`
-  background-color: white;
-  color: black;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  width: 60px;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  position: fixed;
-  z-index: 1;
-  border-right: 1px solid rgba(125, 125, 125, 0.2);
-  z-index: 100;
-
-  @media (${(props) => props.theme.breakpoints.tablet}) {
-    bottom: auto;
-    left: 0;
-    flex-direction: row;
-    width: 100%;
-    height: 60px;
-    border-right: none;
-  }
-`;
-
-const NavLogo = styled.a`
-  content: "";
-  display: block;
-  background-image: linear-gradient(
-    to right,
-    ${(props) => props.theme.colors.blue} 0,
-    ${(props) => props.theme.colors.purple} 100%
-  );
-  width: 40px;
-  height: 40px;
-  z-index: 3;
-  margin-left: 10px;
-  margin-top: 10px;
-  transition: transform 0.2s ease-in-out;
-
-  &:hover {
-    transform: rotate(15deg) scale(1.1);
-  }
-
-  @media (${(props) => props.theme.breakpoints.mobile}) {
-    left: 35px;
-  }
-`;
-
-const NavContact = styled.a`
-  font-weight: 700;
-  writing-mode: vertical-rl;
-  transform: rotate(180deg);
-  text-decoration: none;
-  font-size: 1.2em;
-  line-height: 1.5em;
-  margin: 15px;
-  color: black;
-  position: relative;
-  overflow: hidden;
-
-  &::before {
-    content: "";
-    display: block;
-    position: absolute;
-    z-index: -1;
-    right: 100%;
-    width: 100%;
-    height: 100%;
-    background: rgba(14, 64, 244, 0.3);
-    transition: right 250ms;
-  }
-
-  &:hover {
-    &::before {
-      right: 60%;
-    }
-  }
-
-  @media (${(props) => props.theme.breakpoints.tablet}) {
-    writing-mode: horizontal-tb;
-    transform: none;
-  }
-
-  @media (${(props) => props.theme.breakpoints.mobile}) {
-    writing-mode: horizontal-tb;
-    transform: none;
-    display: none;
-  }
-`;
-
-const NavCurrent = styled.div`
-  font-family: monospace;
-  background-color: black;
-  text-align: center;
-  padding: 5px;
-  color: white;
-
-  @media (${(props) => props.theme.breakpoints.tablet}) {
-    writing-mode: vertical-rl;
-    transform: rotate(180deg);
-  }
-`;

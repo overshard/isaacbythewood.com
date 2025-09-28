@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from "react";
-import styled from "styled-components";
+import styles from "./canvas.module.css";
 
 const Synthwave = () => {
   const canvas = useRef(null);
@@ -146,12 +146,9 @@ const Synthwave = () => {
     };
   }, []);
 
-  return <Canvas ref={canvas} />;
+  return <canvas ref={canvas} className={styles.canvas} />;
 };
 
 export default Synthwave;
 
-const Canvas = styled.canvas`
-  width: 100%;
-  height: 100%;
-`;
+// migrated to CSS Modules

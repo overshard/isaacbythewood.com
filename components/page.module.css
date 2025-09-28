@@ -1,0 +1,10 @@
+.main {
+  /* dynamic grid-area added inline via style prop */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  min-height: 100vh;
+  width: 100%;
+  text-align: left;
+}

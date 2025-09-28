@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from "react";
-import styled from "styled-components";
+import styles from "./canvas.module.css";
 import PropTypes from "prop-types";
 
 const Constellations = ({ options }) => {
@@ -121,7 +121,7 @@ const Constellations = ({ options }) => {
     };
   }, [isActive]);
 
-  return <Canvas ref={canvas} />;
+  return <canvas ref={canvas} className={styles.canvas} />;
 };
 
 Constellations.propTypes = {
@@ -130,7 +130,4 @@ Constellations.propTypes = {
 
 export default Constellations;
 
-const Canvas = styled.canvas`
-  width: 100%;
-  height: 100%;
-`;
+// migrated to CSS Modules

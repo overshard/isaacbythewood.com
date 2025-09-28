@@ -1,66 +1,32 @@
 import React from "react";
-import styled, { keyframes } from "styled-components";
+import styles from "./loader.module.css";
 
 const Loader = () => {
   return (
     <>
-      <Grid>
+      <div className={styles.grid}>
         {Array(6)
           .fill()
           .map((_, i) => {
             const column = i + 1;
-            return <GridColumn key={column} column={column} />;
+            return (
+              <div
+                key={column}
+                className={styles.gridColumn}
+                style={{
+                  gridColumn: column,
+                  // match animation-delay: column * 100ms for both pseudo-elements
+                  // We'll set CSS variable that both ::before and ::after can read
+                  ["--delay"]: `${column * 100}ms`,
+                }}
+              />
+            );
           })}
-      </Grid>
+      </div>
     </>
   );
 };
 
 export default Loader;
 
-const FoldUp = keyframes`
-  0% {
-    height: 100vh;
-  }
-
-  100% {
-    height: 0;
-  }
-`;
-
-const Grid = styled.div`
-  display: grid;
-  grid-template-columns: 60px 15% 1fr 1fr 15% 60px;
-  grid-template-rows: 1fr;
-  min-height: 100vh;
-  width: 100%;
-  position: fixed;
-  z-index: 9999;
-  pointer-events: none;
-`;
-
-const GridColumn = styled.div`
-  grid-column: ${(props) => props.column};
-
-  &::before {
-    content: "";
-    display: block;
-    width: 100%;
-    height: 100vh;
-    background-color: ${(props) => props.theme.colors.primary};
-    border-right: 1px solid ${(props) => props.theme.colors.primary};
-    animation: ${FoldUp} 1000ms normal forwards;
-    animation-delay: ${(props) => props.column * 100}ms;
-  }
-
-  &::after {
-    content: "";
-    display: block;
-    width: 100%;
-    height: 100vh;
-    background-color: white;
-    border-right: 1px solid white;
-    animation: ${FoldUp} 1000ms normal forwards;
-    animation-delay: ${(props) => props.column * 100}ms;
-  }
-`;
+// migrated to CSS Modules

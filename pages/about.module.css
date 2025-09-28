@@ -1,0 +1,206 @@
+/* About page styles migrated from styled-components */
+
+@keyframes slideLeft {
+  0% {
+    left: -100%;
+  }
+  40% {
+    left: 0;
+  }
+  60% {
+    left: 0;
+  }
+  100% {
+    left: 100%;
+  }
+}
+
+@keyframes quickFadeIn {
+  0% {
+    color: rgba(0, 0, 0, 0);
+  }
+  49% {
+    color: rgba(0, 0, 0, 0);
+  }
+  50% {
+    color: rgba(0, 0, 0, 1);
+  }
+  100% {
+    color: rgba(0, 0, 0, 1);
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    color: rgba(0, 0, 0, 0);
+  }
+  100% {
+    color: rgba(0, 0, 0, 1);
+  }
+}
+
+.background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: white;
+  z-index: -2;
+}
+
+.words {
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  bottom: 0;
+  left: 60px;
+  opacity: 0.05;
+  font-size: 5vh;
+  line-height: 11vh;
+  color: black;
+  text-transform: uppercase;
+  height: 100vh;
+  overflow: hidden;
+}
+
+@media (max-width: 767.98px) {
+  .words {
+    top: 50px;
+    font-size: 4vh;
+    line-height: 10vh;
+    left: calc(10px + 5%);
+  }
+}
+
+.word {
+  margin: 0;
+}
+
+.wordText {
+  position: relative;
+  white-space: nowrap;
+  overflow: hidden;
+  color: rgba(0, 0, 0, 0);
+  display: inline-block;
+  vertical-align: top;
+}
+
+.wordText::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  left: -100%;
+  z-index: 1;
+}
+
+/* Transition mappings for word animations */
+.wordAppearActive > .wordText,
+.wordEnterActive > .wordText {
+  animation-name: quickFadeIn;
+  animation-duration: 1000ms;
+}
+
+.wordAppearActive > .wordText::before,
+.wordEnterActive > .wordText::before {
+  animation-name: slideLeft;
+  animation-duration: 1000ms;
+}
+
+.wordExitActive > .wordText {
+  animation-name: quickFadeIn;
+  animation-duration: 1000ms;
+  animation-direction: reverse;
+}
+
+.wordExitActive > .wordText::before {
+  animation-name: slideLeft;
+  animation-duration: 1000ms;
+  animation-direction: reverse;
+}
+
+.wordAppearDone > .wordText,
+.wordEnterDone > .wordText {
+  color: rgba(0, 0, 0, 1);
+}
+
+.paragraph {
+  font-size: 1.8em;
+  font-weight: 300;
+  color: black;
+  position: relative;
+  color: rgba(0, 0, 0, 0);
+  animation-name: fadeIn;
+  animation-delay: 1500ms;
+  animation-duration: 1000ms;
+  animation-fill-mode: forwards;
+}
+
+.paragraph::before {
+  content: "";
+  display: block;
+  width: 75px;
+  height: 5px;
+  margin-bottom: 20px;
+  background-color: var(--color-blue);
+}
+
+@media (max-width: 767.98px) {
+  .paragraph {
+    font-size: 1.2em;
+  }
+}
+
+.strong {
+  font-weight: 700;
+  position: relative;
+  white-space: nowrap;
+  overflow: hidden;
+  animation: quickFadeIn 1250ms normal forwards;
+  color: rgba(0, 0, 0, 0);
+  display: inline-block;
+  vertical-align: top;
+}
+
+.strong::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  left: -100%;
+  z-index: 1;
+  animation: slideLeft 1250ms normal forwards;
+}
+
+.resume {
+  display: block;
+  text-decoration: none;
+  margin-top: 20px;
+  font-weight: 700;
+  color: black;
+  position: relative;
+  overflow: hidden;
+}
+
+.resume::before {
+  content: "";
+  display: block;
+  position: absolute;
+  z-index: -1;
+  top: 100%;
+  width: 100%;
+  height: 100%;
+  background: rgba(14, 64, 244, 0.3);
+  transition: top 250ms;
+}
+
+.resume:hover::before {
+  top: 60%;
+}
+
+.resume svg {
+  margin-right: 10px;
+}

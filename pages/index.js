@@ -1,9 +1,9 @@
 import React, { useEffect, useState, useRef } from "react";
-import styled, { keyframes } from "styled-components";
 import { TransitionGroup, CSSTransition } from "react-transition-group";
 import Image from "next/image";
 
 import Page from "../components/page";
+import styles from "./index.module.css";
 
 const Index = () => {
   const words = ["Developer", "SysAdmin", "DevOps", "Consultant"];
@@ -26,153 +26,49 @@ const Index = () => {
 
   return (
     <Page title="Senior Solutions Architect located in Elkin, NC">
-      <ImageWrapper>
+      <div className={styles.imageWrapper}>
         <Image
           src="/static/images/art/acrylic-pours/005.webp"
           alt="#005 Nebulas in Triangulum"
           loading="eager"
           layout="fill"
           priority={true}
+          objectFit="cover"
+          objectPosition="center"
         />
-      </ImageWrapper>
-      <TransitionGroup component={Words}>
+      </div>
+      <TransitionGroup component="div" className={styles.words}>
         {currentWords.map((word) => {
           return (
-            <CSSTransition key={word} timeout={1000} classNames="transition">
-              <Word>{word}</Word>
+            <CSSTransition
+              key={word}
+              timeout={1000}
+              classNames={{
+                appear: styles.wordAppear,
+                appearActive: styles.wordAppearActive,
+                appearDone: styles.wordAppearDone,
+                enter: styles.wordEnter,
+                enterActive: styles.wordEnterActive,
+                enterDone: styles.wordEnterDone,
+                exit: styles.wordExit,
+                exitActive: styles.wordExitActive,
+              }}
+              appear
+            >
+              <h3 className={styles.word}>{word}</h3>
             </CSSTransition>
           );
         })}
       </TransitionGroup>
-      <Description>Senior Solutions Architect located in Elkin, NC</Description>
-      <Name>Isaac</Name>
-      <Name style={{ animationDelay: "100ms" }}>Bythewood</Name>
+      <h1 className={styles.description}>
+        Senior Solutions Architect located in Elkin, NC
+      </h1>
+      <h2 className={styles.name}>Isaac</h2>
+      <h2 className={styles.name} style={{ animationDelay: "100ms" }}>
+        Bythewood
+      </h2>
     </Page>
   );
 };
 
 export default Index;
-
-const FadeStart = keyframes`
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-`;
-
-const SlideStart = keyframes`
-  from {
-    transform: translateX(-100vw);
-  }
-  to {
-    transform: translateX(0);
-  }
-`;
-
-const ImageWrapper = styled.div`
-  img {
-    object-fit: cover;
-    object-position: center;
-  }
-`;
-
-const Words = styled.div`
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  width: 100%;
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 10;
-  mix-blend-mode: darken;
-  background: rgba(0, 0, 0, 0.8);
-`;
-
-const Word = styled.h3`
-  opacity: 0.2;
-  font-size: 14vw;
-  text-transform: uppercase;
-  margin: 0;
-  position: absolute;
-
-  &.transition-appear,
-  &.transition-enter {
-    opacity: 0;
-    transform: translateY(-200px);
-  }
-  &.transition-appear-active,
-  &.transition-enter-active {
-    opacity: 0.2;
-    transform: translateY(0);
-    transition-duration: 1000ms;
-    transition-property: opacity, transform;
-  }
-  &.transition-appear-done,
-  &.transition-enter-done {
-    opacity: 0.2;
-  }
-  &.transition-exit {
-    transform: translateY(0);
-    opacity: 0.2;
-  }
-  &.transition-exit-active {
-    opacity: 0;
-    transform: translateY(200px);
-    transition-duration: 1000ms;
-    transition-property: opacity, transform;
-  }
-`;
-
-const Description = styled.h1`
-  font-size: 3.5em;
-  font-weight: bolder;
-  opacity: 0;
-  animation-name: ${FadeStart};
-  animation-duration: 1500ms;
-  animation-fill-mode: forwards;
-  position: relative;
-  z-index: 20;
-
-  &::before {
-    content: "";
-    display: block;
-    width: 75px;
-    height: 5px;
-    margin-bottom: 20px;
-    background-color: ${(props) => props.theme.colors.blue};
-  }
-
-  @media (${(props) => props.theme.breakpoints.mobile}) {
-    font-size: 2em;
-  }
-`;
-
-const Name = styled.h2`
-  font-size: 2.5em;
-  text-transform: uppercase;
-  padding: 5px;
-  margin: 0 0 2px 0;
-  float: left;
-  clear: left;
-  background-image: linear-gradient(
-    to right,
-    ${(props) => props.theme.colors.blue} 0,
-    ${(props) => props.theme.colors.purple} 100%
-  );
-  transform: translateX(-100vw);
-  animation-name: ${SlideStart};
-  animation-duration: 750ms;
-  animation-fill-mode: forwards;
-  position: relative;
-  z-index: 20;
-
-  @media (${(props) => props.theme.breakpoints.mobile}) {
-    font-size: 1.5em;
-  }
-`;

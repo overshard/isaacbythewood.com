@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import styled from "styled-components";
+import styles from "./canvas.module.css";
 import PropTypes from "prop-types";
 
 const RetroStars = ({ options }) => {
@@ -244,7 +244,7 @@ const RetroStars = ({ options }) => {
     };
   }, [isActive]);
 
-  return <Canvas ref={canvas} />;
+  return <canvas ref={canvas} className={styles.canvas} />;
 };
 
 RetroStars.propTypes = {
@@ -253,7 +253,4 @@ RetroStars.propTypes = {
 
 export default RetroStars;
 
-const Canvas = styled.canvas`
-  width: 100%;
-  height: 100%;
-`;
+// migrated to CSS Modules

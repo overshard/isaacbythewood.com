@@ -1,0 +1,42 @@
+.gridArea {
+  display: grid;
+  grid-template-columns: 60px 15% 1fr 1fr 15% 60px;
+  grid-template-rows: 1fr auto 1fr;
+  grid-template-areas:
+    ". . .    .    . ."
+    ". . main main . ."
+    ". . .    .    . .";
+  min-height: 100vh;
+  width: 100%;
+}
+
+@media (max-width: 1023.98px) {
+  .gridArea {
+    grid-template-columns: 10px 5% 1fr 1fr 5% 10px;
+  }
+}
+
+.gridLines {
+  position: fixed;
+  pointer-events: none;
+  display: grid;
+  grid-template-columns: 60px 15% 1fr 1fr 15% 60px;
+  grid-template-rows: 1fr auto 1fr;
+  grid-template-areas:
+    ". . .    .    . ."
+    ". . main main . ."
+    ". . .    .    . .";
+  min-height: 100vh;
+  width: 100%;
+}
+
+@media (max-width: 1023.98px) {
+  .gridLines {
+    display: none;
+  }
+}
+
+.gridLine {
+  border-right: 1px solid rgba(125, 125, 125, 0.2);
+  grid-row: 1 / -1;
+}

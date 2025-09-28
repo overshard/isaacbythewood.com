@@ -1,9 +1,8 @@
 import React from "react";
 import App from "next/app";
-import styled, { ThemeProvider, createGlobalStyle } from "styled-components";
+import "../styles/globals.css";
 import { TransitionGroup, CSSTransition } from "react-transition-group";
 
-import { theme } from "../site.config";
 import Grid from "../components/grid";
 import Sidebar from "../components/sidebar";
 import Menu from "../components/menu";
@@ -15,83 +14,29 @@ class MyApp extends App {
     const { Component, pageProps } = this.props;
 
     return (
-      <ThemeProvider theme={theme}>
-        <>
-          <GlobalStyle />
-          <Mouse />
-          <Loader />
-          <Sidebar />
-          <Menu />
-          <TransitionGroup component={null}>
-            <CSSTransition
-              key={this.props.router.route}
-              appear
-              timeout={250}
-              classNames="transition"
-            >
-              <Transition>
-                <Grid>
-                  <Component {...pageProps} />
-                </Grid>
-              </Transition>
-            </CSSTransition>
-          </TransitionGroup>
-        </>
-      </ThemeProvider>
+      <>
+        <Mouse />
+        <Loader />
+        <Sidebar />
+        <Menu />
+        <TransitionGroup component={null}>
+          <CSSTransition
+            key={this.props.router.route}
+            appear
+            timeout={250}
+            classNames="transition"
+          >
+            <div className="transition">
+              <Grid>
+                <Component {...pageProps} />
+              </Grid>
+            </div>
+          </CSSTransition>
+        </TransitionGroup>
+      </>
     );
   }
 }
 
 export default MyApp;
-
-const GlobalStyle = createGlobalStyle`
-  body {
-    font-family:
-      -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial,
-      sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-    color: white;
-    background-color: ${(props) => props.theme.colors.primary};
-    min-height: 100vh;
-    width: 100%;
-    padding: 0;
-    margin: 0;
-    overflow-x: hidden;
-    text-shadow: rgba(0, 0, 0, .01) 0 0 1px;
-    text-rendering: optimizeLegibility;
-    user-select: none;
-    cursor: none;
-  }
-
-  a {
-    cursor: none;
-  }
-
-  button {
-    cursor: none;
-  }
-`;
-
-const Transition = styled.div`
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  transition-duration: 250ms;
-  transition-property: opacity;
-
-  &.transition-enter {
-    opacity: 0;
-  }
-  &.transition-enter-active {
-    opacity: 1;
-  }
-  &.transition-enter-done {
-    opacity: 1;
-  }
-  &.transition-exit {
-    opacity: 1;
-  }
-  &.transition-exit-active {
-    opacity: 0;
-  }
-`;
+// Transition classes now provided by globals.css
