@@ -18,6 +18,13 @@ const About = () => {
   ]);
   const wordsRef = useRef(words);
   wordsRef.current = words;
+  const wordRefs = useRef(new Map());
+  const getWordRef = (key) => {
+    if (!wordRefs.current.has(key)) {
+      wordRefs.current.set(key, React.createRef());
+    }
+    return wordRefs.current.get(key);
+  };
 
   useEffect(() => {
     const getRandomWordIndex = () => {
@@ -57,6 +64,7 @@ const About = () => {
       <div className={styles.words}>
         <TransitionGroup component={null}>
           {words.map((word) => {
+            const nodeRef = getWordRef(word);
             return (
               <CSSTransition
                 key={word}
@@ -69,8 +77,9 @@ const About = () => {
                   enterDone: styles.wordEnterDone,
                   exitActive: styles.wordExitActive,
                 }}
+                nodeRef={nodeRef}
               >
-                <h2 className={styles.word}>
+                <h2 className={styles.word} ref={nodeRef}>
                   <span className={styles.wordText}>{word}</span>
                 </h2>
               </CSSTransition>

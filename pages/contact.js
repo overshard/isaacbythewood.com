@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import { TransitionGroup, CSSTransition } from "react-transition-group";
 import styles from "@styles/pages/contact.module.css";
 import Image from "next/image";
@@ -6,6 +6,13 @@ import Image from "next/image";
 import Page from "../components/page";
 
 const Contact = () => {
+  const lineRefs = useRef(new Map());
+  const getLineRef = (key) => {
+    if (!lineRefs.current.has(key)) {
+      lineRefs.current.set(key, React.createRef());
+    }
+    return lineRefs.current.get(key);
+  };
   const chatMessages = [
     "Hello!",
     "I prefer people reach out to me via email.",
@@ -79,15 +86,18 @@ const Contact = () => {
               {chatMessages.map((message, index) => {
                 const transitionTimeout = (index + 2) * 2000;
                 const transitionDelay = (index + 1) * 2000;
+                const nodeRef = getLineRef(index);
                 return (
                   <CSSTransition
                     key={index}
                     appear
                     timeout={{ appear: transitionTimeout }}
                     classNames="fade"
+                    nodeRef={nodeRef}
                   >
                     <div
                       className={styles.chatLine}
+                      ref={nodeRef}
                       style={{ transitionDelay: `${transitionDelay}ms` }}
                     >
                       <span className={styles.chatAvatar}>

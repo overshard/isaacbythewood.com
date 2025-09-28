@@ -10,6 +10,13 @@ const Index = () => {
   const [currentWords, setCurrentWord] = useState([words[0]]);
   const currentWordsRef = useRef(currentWords);
   currentWordsRef.current = currentWords;
+  const wordRefs = useRef(new Map());
+  const getWordRef = (key) => {
+    if (!wordRefs.current.has(key)) {
+      wordRefs.current.set(key, React.createRef());
+    }
+    return wordRefs.current.get(key);
+  };
 
   useEffect(() => {
     // Swap words interval
@@ -39,6 +46,7 @@ const Index = () => {
       </div>
       <TransitionGroup component="div" className={styles.words}>
         {currentWords.map((word) => {
+          const nodeRef = getWordRef(word);
           return (
             <CSSTransition
               key={word}
@@ -54,8 +62,11 @@ const Index = () => {
                 exitActive: styles.wordExitActive,
               }}
               appear
+              nodeRef={nodeRef}
             >
-              <h3 className={styles.word}>{word}</h3>
+              <h3 className={styles.word} ref={nodeRef}>
+                {word}
+              </h3>
             </CSSTransition>
           );
         })}

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { createRef } from "react";
 import App from "next/app";
 import "../styles/globals.css";
 import { TransitionGroup, CSSTransition } from "react-transition-group";
@@ -10,6 +10,10 @@ import Loader from "../components/loader";
 import Mouse from "../components/mouse";
 
 class MyApp extends App {
+  constructor(props) {
+    super(props);
+    this.transitionNodeRef = createRef();
+  }
   render() {
     const { Component, pageProps } = this.props;
 
@@ -25,8 +29,9 @@ class MyApp extends App {
             appear
             timeout={250}
             classNames="transition"
+            nodeRef={this.transitionNodeRef}
           >
-            <div className="transition">
+            <div className="transition" ref={this.transitionNodeRef}>
               <Grid>
                 <Component {...pageProps} />
               </Grid>

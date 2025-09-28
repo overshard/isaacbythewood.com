@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 
 import { CSSTransition } from "react-transition-group";
 import Image from "next/image";
@@ -7,6 +7,9 @@ import styles from "@styles/components/menu.module.css";
 
 const Menu = () => {
   const [open, setOpen] = useState(false);
+  const overlayRef = useRef(null);
+  const gridLeftRef = useRef(null);
+  const gridRightRef = useRef(null);
   const pages = [
     { num: "000", href: "/", title: "Home" },
     { num: "001", href: "/about", title: "About" },
@@ -41,6 +44,7 @@ const Menu = () => {
         timeout={500}
         classNames="menu"
         appear
+        nodeRef={overlayRef}
         onEnter={() => {
           if (typeof document !== "undefined") {
             document.body.style.overflowY = "hidden";
@@ -52,10 +56,16 @@ const Menu = () => {
           }
         }}
       >
-        <div className={styles.overlay}>
+        <div className={styles.overlay} ref={overlayRef}>
           <div className={styles.overlayGrid}>
-            <CSSTransition in={open} timeout={500} classNames="menu" appear>
-              <div className={styles.overlayGridLeft}>
+            <CSSTransition
+              in={open}
+              timeout={500}
+              classNames="menu"
+              appear
+              nodeRef={gridLeftRef}
+            >
+              <div className={styles.overlayGridLeft} ref={gridLeftRef}>
                 <div className={styles.topBar}>
                   <Link href="https://blog.bythewood.me/" passHref>
                     <a className={styles.topLink} target="_blank">
@@ -109,13 +119,21 @@ const Menu = () => {
                 </div>
               </div>
             </CSSTransition>
-            <CSSTransition in={open} timeout={500} classNames="menu" appear>
-              <div className={styles.overlayGridRight}>
+            <CSSTransition
+              in={open}
+              timeout={500}
+              classNames="menu"
+              appear
+              nodeRef={gridRightRef}
+            >
+              <div className={styles.overlayGridRight} ref={gridRightRef}>
                 <Image
                   src="/static/images/art/acrylic-pours/006.webp"
                   alt="#006 Molten Copper"
                   loading="lazy"
                   layout="fill"
+                  objectFit="cover"
+                  objectPosition="center"
                 />
               </div>
             </CSSTransition>
