@@ -1,6 +1,6 @@
 import React from "react";
 import { TransitionGroup, CSSTransition } from "react-transition-group";
-import styles from "./contact.module.css";
+import styles from "@styles/pages/contact.module.css";
 import Image from "next/image";
 
 import Page from "../components/page";

@@ -3,7 +3,7 @@ import { TransitionGroup, CSSTransition } from "react-transition-group";
 import Image from "next/image";
 
 import Page from "../components/page";
-import styles from "./index.module.css";
+import styles from "@styles/pages/index.module.css";
 
 const Index = () => {
   const words = ["Developer", "SysAdmin", "DevOps", "Consultant"];

@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import styles from "./code.module.css";
+import styles from "@styles/pages/code.module.css";
 
 import Page from "../components/page";
 

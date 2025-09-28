@@ -1,5 +1,4 @@
 .main {
-  /* dynamic grid-area added inline via style prop */
   display: flex;
   flex-direction: column;
   align-items: flex-start;

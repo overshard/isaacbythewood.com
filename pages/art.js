@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import styles from "./art.module.css";
+import styles from "@styles/pages/art.module.css";
 import Image from "next/image";
 
 import Page from "../components/page";

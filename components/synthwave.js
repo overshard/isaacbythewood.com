@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from "react";
-import styles from "./canvas.module.css";
+import styles from "@styles/components/canvas.module.css";
 
 const Synthwave = () => {
   const canvas = useRef(null);

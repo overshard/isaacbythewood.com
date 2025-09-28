@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { CSSTransition } from "react-transition-group";
 import Image from "next/image";
 import Link from "next/link";
-import styles from "./menu.module.css";
+import styles from "@styles/components/menu.module.css";
 
 const Menu = () => {
   const [open, setOpen] = useState(false);

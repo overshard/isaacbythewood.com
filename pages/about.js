@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import { TransitionGroup, CSSTransition } from "react-transition-group";
 
 import Page from "../components/page";
-import styles from "./about.module.css";
+import styles from "@styles/pages/about.module.css";
 
 const About = () => {
   const [words, setWords] = useState([

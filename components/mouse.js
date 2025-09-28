@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from "react";
-import styles from "./mouse.module.css";
+import styles from "@styles/components/mouse.module.css";
 
 const Mouse = () => {
   const cursorRef = useRef(null);

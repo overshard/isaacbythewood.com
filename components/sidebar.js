@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
-import styles from "./sidebar.module.css";
+import styles from "@styles/components/sidebar.module.css";
 import Link from "next/link";
 import { withRouter } from "next/router";
 

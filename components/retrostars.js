@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import styles from "./canvas.module.css";
+import styles from "@styles/components/canvas.module.css";
 import PropTypes from "prop-types";
 
 const RetroStars = ({ options }) => {

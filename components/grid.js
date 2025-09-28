@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "./grid.module.css";
+import styles from "@styles/components/grid.module.css";
 import PropTypes from "prop-types";
 
 const Grid = (props) => {
