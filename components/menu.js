@@ -67,44 +67,50 @@ const Menu = () => {
             >
               <div className={styles.overlayGridLeft} ref={gridLeftRef}>
                 <div className={styles.topBar}>
-                  <Link href="https://blog.bythewood.me/" passHref>
-                    <a className={styles.topLink} target="_blank">
-                      Blog
-                    </a>
-                  </Link>
-                  <Link
+                  <a
+                    className={styles.topLink}
+                    href="https://blog.bythewood.me/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Blog
+                  </a>
+                  <a
+                    className={styles.topLink}
                     href="https://status.bythewood.me/properties/87097ef2-5643-4999-917e-72b172dd9e19/"
-                    passHref
+                    target="_blank"
+                    rel="noopener noreferrer"
                   >
-                    <a className={styles.topLink} target="_blank">
-                      Status
-                    </a>
-                  </Link>
-                  <Link
+                    Status
+                  </a>
+                  <a
+                    className={styles.topLink}
                     href="https://analytics.bythewood.me/properties/30e69c06-9beb-4283-8919-8c7a686ab013/"
-                    passHref
+                    target="_blank"
+                    rel="noopener noreferrer"
                   >
-                    <a className={styles.topLink} target="_blank">
-                      Analytics
-                    </a>
-                  </Link>
-                  <Link href="https://github.com/overshard" passHref>
-                    <a className={styles.topLink} target="_blank">
-                      GitHub
-                    </a>
-                  </Link>
+                    Analytics
+                  </a>
+                  <a
+                    className={styles.topLink}
+                    href="https://github.com/overshard"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    GitHub
+                  </a>
                   <div className={styles.bar} />
                 </div>
                 {pages.map((page) => {
                   return (
-                    <Link key={page.href} href={page.href} passHref>
-                      <a
-                        className={styles.overlayLink}
-                        data-text={page.title}
-                        onClick={toggleMenu}
-                      >
-                        {page.title}
-                      </a>
+                    <Link
+                      key={page.href}
+                      href={page.href}
+                      className={styles.overlayLink}
+                      data-text={page.title}
+                      onClick={toggleMenu}
+                    >
+                      {page.title}
                     </Link>
                   );
                 })}
@@ -131,9 +137,8 @@ const Menu = () => {
                   src="/static/images/art/acrylic-pours/006.webp"
                   alt="#006 Molten Copper"
                   loading="lazy"
-                  layout="fill"
-                  objectFit="cover"
-                  objectPosition="center"
+                  fill
+                  style={{ objectFit: "cover", objectPosition: "center" }}
                 />
               </div>
             </CSSTransition>

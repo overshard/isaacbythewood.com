@@ -36,11 +36,11 @@ const Sidebar = ({ router }) => {
 
   return (
     <nav className={styles.nav}>
-      <Link href="/" passHref>
-        <a className={styles.navLogo} aria-label="Back to home" />
+      <Link href="/" className={styles.navLogo} aria-label="Back to home">
+        <span aria-hidden="true" />
       </Link>
-      <Link href="/contact" passHref>
-        <a className={styles.navContact}>Get in touch</a>
+      <Link href="/contact" className={styles.navContact}>
+        Get in touch
       </Link>
       <div className={styles.navCurrent}>{current}</div>
     </nav>

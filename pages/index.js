@@ -36,10 +36,9 @@ const Index = () => {
           src="/static/images/art/acrylic-pours/005.webp"
           alt="#005 Nebulas in Triangulum"
           loading="eager"
-          layout="fill"
           priority={true}
-          objectFit="cover"
-          objectPosition="center"
+          fill
+          style={{ objectFit: "cover", objectPosition: "center" }}
         />
       </div>
       <TransitionGroup component="div" className={styles.words}>

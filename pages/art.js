@@ -279,9 +279,9 @@ const Art = () => {
               }
               src={lightboxImage}
               alt="Lightbox"
-              layout="fill"
+              fill
               sizes="90vw"
-              objectFit="contain"
+              style={{ objectFit: "contain" }}
               onLoad={() => setLightboxLoaded(true)}
             />
           </span>
