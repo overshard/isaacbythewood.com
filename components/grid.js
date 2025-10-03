@@ -32,5 +32,3 @@ Grid.propTypes = {
 };
 
 export default Grid;
-
-// migrated to CSS Modules

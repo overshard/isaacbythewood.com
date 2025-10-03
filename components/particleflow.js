@@ -7,42 +7,34 @@ const ParticleFlow = ({ options }) => {
   const canvas = useRef(null);
 
   useEffect(() => {
-    // Get the canvas for resizing
     const cvs = canvas.current;
 
-    // Size canvas to the parent
     cvs.width = cvs.offsetWidth;
     cvs.height = cvs.offsetHeight;
 
-    // Add new event listener for resize the canvas on window resize
     const resizeCanvas = () => {
       cvs.width = cvs.offsetWidth;
       cvs.height = cvs.offsetHeight;
     };
     window.addEventListener("resize", resizeCanvas);
 
-    // Clean up event listener when dismounting the component
     return () => {
       window.removeEventListener("resize", resizeCanvas);
     };
   }, []);
 
   useEffect(() => {
-    // Get our canvas and context
     const cvs = canvas.current;
     const ctx = cvs.getContext("2d");
 
-    // Flow field configuration
     const cols = Math.floor(cvs.width / 20);
     const rows = Math.floor(cvs.height / 20);
     let time = 0;
 
-    // Simple noise function (Perlin-like)
     const noise = (x, y, z) => {
       return Math.sin(x * 0.01 + z) * Math.cos(y * 0.01 + z) * 0.5 + 0.5;
     };
 
-    // Generate flow field
     const generateFlowField = () => {
       const field = [];
       for (let y = 0; y < rows; y++) {
@@ -58,7 +50,6 @@ const ParticleFlow = ({ options }) => {
       return field;
     };
 
-    // Particle class
     class Particle {
       constructor() {
         this.x = Math.random() * cvs.width;
@@ -84,7 +75,6 @@ const ParticleFlow = ({ options }) => {
             y: desired.y * this.maxSpeed - this.vy,
           };
 
-          // Limit force
           const mag = Math.sqrt(force.x * force.x + force.y * force.y);
           if (mag > this.maxForce) {
             force.x = (force.x / mag) * this.maxForce;
@@ -97,29 +87,24 @@ const ParticleFlow = ({ options }) => {
       }
 
       update() {
-        // Add current position to trail
         this.trail.push({ x: this.x, y: this.y });
         if (this.trail.length > this.maxTrailLength) {
           this.trail.shift();
         }
 
-        // Update position
         this.x += this.vx;
         this.y += this.vy;
 
-        // Wrap around edges
         if (this.x > cvs.width) this.x = 0;
         if (this.x < 0) this.x = cvs.width;
         if (this.y > cvs.height) this.y = 0;
         if (this.y < 0) this.y = cvs.height;
 
-        // Slowly shift hue
         this.hue += 0.5;
         if (this.hue > 360) this.hue = 0;
       }
 
       draw(ctx) {
-        // Draw trail
         for (let i = 0; i < this.trail.length; i++) {
           const alpha = (i / this.trail.length) * this.alpha;
           const size = (i / this.trail.length) * 3;
@@ -131,7 +116,6 @@ const ParticleFlow = ({ options }) => {
           ctx.closePath();
         }
 
-        // Draw particle
         ctx.beginPath();
         ctx.arc(this.x, this.y, 3, 0, Math.PI * 2);
         ctx.fillStyle = `hsla(${this.hue}, 80%, 70%, ${this.alpha})`;
@@ -140,24 +124,19 @@ const ParticleFlow = ({ options }) => {
       }
     }
 
-    // Create particles
     const particles = [];
     const numParticles = options.numParticles || 100;
     for (let i = 0; i < numParticles; i++) {
       particles.push(new Particle());
     }
 
-    // Animation loop
     let animationFrame = null;
     const animate = () => {
-      // Semi-transparent black background for trail effect
       ctx.fillStyle = "rgba(0, 0, 0, 0.05)";
       ctx.fillRect(0, 0, cvs.width, cvs.height);
 
-      // Generate flow field
       const flowField = generateFlowField();
 
-      // Update and draw particles
       particles.forEach((particle) => {
         particle.follow(flowField);
         particle.update();
@@ -170,12 +149,10 @@ const ParticleFlow = ({ options }) => {
       }
     };
 
-    // Start animation
     if (isActive) {
       animationFrame = window.requestAnimationFrame(animate);
     }
 
-    // Clean up animation frame when dismounting component
     return () => {
       window.cancelAnimationFrame(animationFrame);
     };
@@ -189,5 +166,3 @@ ParticleFlow.propTypes = {
 };
 
 export default ParticleFlow;
-
-// migrated to CSS Modules

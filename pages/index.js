@@ -19,13 +19,11 @@ const Index = () => {
   };
 
   useEffect(() => {
-    // Swap words interval
     const wordsInterval = setInterval(() => {
       let nextWordIndex = words.indexOf(currentWordsRef.current[0]) + 1;
       if (nextWordIndex < words.length) setCurrentWord([words[nextWordIndex]]);
       else setCurrentWord([words[0]]);
     }, 2000);
-    // Clear words interval and constellation resize on component dismount
     return () => {
       clearInterval(wordsInterval);
     };

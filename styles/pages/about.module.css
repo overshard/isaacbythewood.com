@@ -94,7 +94,6 @@
   z-index: 1;
 }
 
-/* Transition mappings for word animations */
 .wordAppearActive > .wordText,
 .wordEnterActive > .wordText {
   animation-name: quickFadeIn;

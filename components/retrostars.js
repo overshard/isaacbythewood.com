@@ -24,7 +24,6 @@ const RetroStars = ({ options }) => {
   };
 
   useEffect(() => {
-    // Mouse move event function
     const mouseMove = (evt) => {
       setMousePosition({
         x: evt.clientX,
@@ -32,38 +31,31 @@ const RetroStars = ({ options }) => {
       });
     };
 
-    // Create event listener
     window.addEventListener("mousemove", mouseMove);
 
-    // Clean up event listener when dismounting the component
     return () => {
       window.removeEventListener("mousemove", mouseMove);
     };
   }, []);
 
   useEffect(() => {
-    // Get the canvas for resizing
     const cvs = canvas.current;
 
-    // Size canvas to the parent
     cvs.width = cvs.offsetWidth;
     cvs.height = cvs.offsetHeight;
 
-    // Add new event listener for resize the canvas on window resize
     const resizeCanvas = () => {
       cvs.width = cvs.offsetWidth;
       cvs.height = cvs.offsetHeight;
     };
     window.addEventListener("resize", resizeCanvas);
 
-    // Clean up event listener when dismounting the component
     return () => {
       window.removeEventListener("resize", resizeCanvas);
     };
   }, []);
 
   useEffect(() => {
-    // Setup interval to change star sizes
     let starSizeInterval = null;
     if (isActive) {
       starSizeInterval = setInterval(() => {
@@ -76,7 +68,6 @@ const RetroStars = ({ options }) => {
       }, 500);
     }
 
-    // Clean up interval when dismounting the component
     return () => {
       if (starSizeInterval) {
         clearInterval(starSizeInterval);
@@ -85,14 +76,11 @@ const RetroStars = ({ options }) => {
   }, [isActive]);
 
   useEffect(() => {
-    // Get our canvas and draw stars
     const cvs = canvas.current;
     const ctx = cvs.getContext("2d");
 
-    // Fill colors
     const colors = ["white", "yellow", "red", "green", "blue"];
 
-    // Generate all stars
     let smallStars = [];
     let mediumStars = [];
     let largeStars = [];
@@ -118,18 +106,14 @@ const RetroStars = ({ options }) => {
       numStars++;
     }
 
-    // Create draw for use in animation frame rerendering
     let starsAnimationFrame = null;
     const drawStars = () => {
-      // Clear the canvas
       ctx.clearRect(0, 0, cvs.width, cvs.height);
 
-      // Get offsets
       const smallStarOffset = offsetStar(25);
       const mediumStarOffset = offsetStar(75);
       const largeStarOffset = offsetStar(125);
 
-      // Draw the canvas
       smallStars.forEach(({ loc, color }) => {
         ctx.beginPath();
         ctx.fillStyle = color;
@@ -227,18 +211,15 @@ const RetroStars = ({ options }) => {
         }
       });
 
-      // Draw again
       if (isActive) {
         starsAnimationFrame = window.requestAnimationFrame(drawStars);
       }
     };
 
-    // Start the initial drawing and our recursion will take it from there
     if (isActive) {
       starsAnimationFrame = window.requestAnimationFrame(drawStars);
     }
 
-    // Cancel star drawing animation frame rendering when dismounting component
     return () => {
       window.cancelAnimationFrame(starsAnimationFrame);
     };
@@ -252,5 +233,3 @@ RetroStars.propTypes = {
 };
 
 export default RetroStars;
-
-// migrated to CSS Modules

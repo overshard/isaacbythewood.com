@@ -41,5 +41,3 @@ Page.propTypes = {
 };
 
 export default Page;
-
-// migrated to CSS Module

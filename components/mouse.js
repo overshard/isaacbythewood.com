@@ -6,7 +6,6 @@ const Mouse = () => {
   const circleRef = useRef(null);
   const mousePos = useRef({ x: 0, y: 0 });
 
-  // Track interactive hover state
   const isInteractiveRef = useRef(false);
 
   useEffect(() => {
@@ -44,7 +43,7 @@ const Mouse = () => {
       animationFrameId = requestAnimationFrame(animate);
     };
 
-    animate(); // start the loop
+    animate();
 
     return () => {
       document.removeEventListener("mousemove", onMouseMove);
@@ -73,5 +72,3 @@ const Mouse = () => {
 };
 
 export default Mouse;
-
-// migrated to CSS Modules

@@ -52,7 +52,6 @@
   position: absolute;
 }
 
-/* CSSTransition mappings for the word animation */
 .wordAppear,
 .wordEnter {
   opacity: 0;
@@ -115,7 +114,6 @@
   text-transform: uppercase;
   padding: 5px;
   margin: 0 0 2px 0;
-  /* centered via parent flex container */
   align-self: flex-start;
   background-image: linear-gradient(
     to right,

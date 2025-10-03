@@ -205,7 +205,6 @@
   object-fit: cover;
 }
 
-/* Card image wrapper used in JSX as styles.cardImage */
 .cardImage img {
   object-fit: cover;
   object-position: center;
@@ -297,7 +296,6 @@
   visibility: hidden;
 }
 
-/* Lightbox image wrapper ensures centering and sizing for Next/Image with layout=fill */
 .lightboxImageWrapper {
   position: relative;
   width: 90vw;

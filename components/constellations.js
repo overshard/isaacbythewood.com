@@ -7,32 +7,26 @@ const Constellations = ({ options }) => {
   const canvas = useRef(null);
 
   useEffect(() => {
-    // Get the canvas for resizing
     const cvs = canvas.current;
 
-    // Size canvas to the parent
     cvs.width = cvs.offsetWidth;
     cvs.height = cvs.offsetHeight;
 
-    // Add new event listener for resize the canvas on window resize
     const resizeCanvas = () => {
       cvs.width = cvs.offsetWidth;
       cvs.height = cvs.offsetHeight;
     };
     window.addEventListener("resize", resizeCanvas);
 
-    // Clean up event listener when dismounting the component
     return () => {
       window.removeEventListener("resize", resizeCanvas);
     };
   }, []);
 
   useEffect(() => {
-    // Get our canvas and draw stars
     const cvs = canvas.current;
     const ctx = cvs.getContext("2d");
 
-    // Generate all stars
     let stars = [];
     let numStars = 0;
     const maxNumStars = options.numStars;
@@ -48,22 +42,17 @@ const Constellations = ({ options }) => {
       numStars++;
     }
 
-    // Create draw for use in animation frame rerendering
     let starsAnimationFrame = null;
     const starDistance = 150;
     const drawStars = () => {
-      // Clear the canvas
       ctx.clearRect(0, 0, cvs.width, cvs.height);
 
-      // Draw the canvas
       stars.map((star) => {
-        // Generate stars
         ctx.beginPath();
         ctx.arc(...star.loc, 2, 0, 2 * Math.PI);
         ctx.fillStyle = "rgb(255, 255, 255)";
         ctx.fill();
         ctx.closePath();
-        // Generate lines to close stars
         const closeStars = stars.filter((closeStar) => {
           return (
             Math.hypot(
@@ -89,19 +78,15 @@ const Constellations = ({ options }) => {
         });
       });
 
-      // Update star locations
       stars = stars.map((star) => {
-        // Change star direction when hitting the side of the canvas
         if (star.loc[0] < 0) star.dir[0] = "+";
         else if (star.loc[0] > cvs.width) star.dir[0] = "-";
         if (star.loc[1] < 0) star.dir[1] = "+";
         else if (star.loc[1] > cvs.height) star.dir[1] = "-";
 
-        // Set new star location with direction added to it
         star.loc[0] += parseFloat(`${star.dir[0]}0.5`);
         star.loc[1] += parseFloat(`${star.dir[1]}0.5`);
 
-        // Return star to back to array with new dir and loc
         return star;
       });
 
@@ -110,12 +95,10 @@ const Constellations = ({ options }) => {
       }
     };
 
-    // Start the initial drawing and our recursion will take it from there
     if (isActive) {
       starsAnimationFrame = window.requestAnimationFrame(drawStars);
     }
 
-    // Cancel star drawing animation frame rendering when dismounting component
     return () => {
       window.cancelAnimationFrame(starsAnimationFrame);
     };
@@ -129,5 +112,3 @@ Constellations.propTypes = {
 };
 
 export default Constellations;
-
-// migrated to CSS Modules

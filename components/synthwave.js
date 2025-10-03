@@ -5,34 +5,27 @@ const Synthwave = () => {
   const canvas = useRef(null);
 
   useEffect(() => {
-    // Get the canvas for resizing
     const cvs = canvas.current;
 
-    // Size canvas to the parent
     cvs.width = cvs.offsetWidth;
     cvs.height = cvs.offsetHeight;
 
-    // Add new event listener for resize the canvas on window resize
     const resizeCanvas = () => {
       cvs.width = cvs.offsetWidth;
       cvs.height = cvs.offsetHeight;
     };
     window.addEventListener("resize", resizeCanvas);
 
-    // Clean up event listener when dismounting the component
     return () => {
       window.removeEventListener("resize", resizeCanvas);
     };
   }, []);
 
   useEffect(() => {
-    // Get the canvas and context
     const cvs = canvas.current;
     const ctx = cvs.getContext("2d");
 
-    // Create draw for use in animation frame rerendering
     const drawSynth = () => {
-      // Generate all stars
       let stars = [];
       let numStars = 0;
       const maxNumStars = 250;
@@ -46,14 +39,12 @@ const Synthwave = () => {
         numStars++;
       }
 
-      // Background
       let grd = ctx.createLinearGradient(0, 0, 0, cvs.height);
       grd.addColorStop(0, "#110f33");
       grd.addColorStop(1, "#040103");
       ctx.fillStyle = grd;
       ctx.fillRect(0, 0, cvs.width, cvs.height);
 
-      // Draw stars
       stars.forEach((star) => {
         ctx.beginPath();
         ctx.arc(...star, 2 * Math.random(), 0, 2 * Math.PI);
@@ -63,7 +54,6 @@ const Synthwave = () => {
       });
       ctx.filter = "none";
 
-      // Draw horizontal lines
       let currentLine = 0;
       let maxLines = 15;
       let start = cvs.height;
@@ -82,7 +72,6 @@ const Synthwave = () => {
       }
       ctx.globalAlpha = 1;
 
-      // Draw vertical lines
       const end = start;
       quotient = 0.85;
       maxLines = 30;
@@ -120,7 +109,6 @@ const Synthwave = () => {
         currentLine++;
       }
 
-      // Sun
       ctx.beginPath();
       ctx.arc(cvs.width / 2, cvs.height / 2, 100, 0, 2 * Math.PI);
       grd = ctx.createLinearGradient(
@@ -140,7 +128,6 @@ const Synthwave = () => {
 
     window.addEventListener("resize", drawSynth);
 
-    // Clean up event listener when dismounting the component
     return () => {
       window.removeEventListener("resize", drawSynth);
     };
@@ -150,5 +137,3 @@ const Synthwave = () => {
 };
 
 export default Synthwave;
-
-// migrated to CSS Modules

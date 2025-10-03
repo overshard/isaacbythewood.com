@@ -15,8 +15,6 @@ const Loader = () => {
                 className={styles.gridColumn}
                 style={{
                   gridColumn: column,
-                  // match animation-delay: column * 100ms for both pseudo-elements
-                  // We'll set CSS variable that both ::before and ::after can read
                   ["--delay"]: `${column * 100}ms`,
                 }}
               />
@@ -28,5 +26,3 @@ const Loader = () => {
 };
 
 export default Loader;
-
-// migrated to CSS Modules

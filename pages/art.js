@@ -10,7 +10,7 @@ import ParticleFlow from "../components/particleflow";
 const Art = () => {
   const [lightboxImage, setLightboxImage] = useState(null);
   const [lightboxLoaded, setLightboxLoaded] = useState(false);
-  const [activeArt, setActiveArt] = useState("constellations"); // Default to constellations playing
+  const [activeArt, setActiveArt] = useState("constellations");
 
   const openLightbox = (image) => {
     setLightboxImage(image);

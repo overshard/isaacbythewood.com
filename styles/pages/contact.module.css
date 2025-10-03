@@ -59,8 +59,6 @@
   }
 }
 
-/* Former GridColumn shared styles applied directly to left/right columns */
-
 .gridLeft {
   grid-area: left;
   background-color: rgba(0, 0, 0, 0.9);
@@ -98,7 +96,7 @@
 }
 
 .contactWrapper {
-  padding-left: 60px; /* match legacy inner offset so content doesn't hug the sidebar */
+  padding-left: 60px;
 }
 
 @media (max-width: 1023.98px) {
@@ -213,7 +211,6 @@
   opacity: 0;
 }
 
-/* Fade-in transitions for chat lines (react-transition-group classNames="fade") */
 .chatLine:global(.fade-appear) {
   opacity: 0;
   transform: translateX(-100px);
@@ -253,9 +250,6 @@
   font-weight: 800;
 }
 
-/* removed conflicting duplicate chat styles */
-
-/* Restore avatar spacing/sizing per legacy */
 .chatAvatar {
   margin-right: 20px;
   width: 50px;
