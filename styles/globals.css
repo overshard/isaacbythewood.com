@@ -33,19 +33,42 @@ button {
   top: 0;
   left: 0;
   right: 0;
+  min-height: 100vh;
+  width: 100%;
   transition: opacity var(--transition-250);
+  will-change: opacity;
 }
 
-.transition-enter {
+.transition-enter,
+.transition-appear {
   opacity: 0;
 }
+
 .transition-enter-active,
-.transition-enter-done {
+.transition-appear-active,
+.transition-enter-done,
+.transition-appear-done {
   opacity: 1;
 }
+
 .transition-exit {
   opacity: 1;
 }
-.transition-exit-active {
+
+.transition-exit-active,
+.transition-exit-done {
   opacity: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .transition {
+    transition: none;
+  }
+
+  .transition-enter,
+  .transition-appear,
+  .transition-exit-active,
+  .transition-exit-done {
+    opacity: 1;
+  }
 }

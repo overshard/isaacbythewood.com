@@ -42,16 +42,19 @@
   grid-template-columns: 50vw 1fr;
   grid-template-rows: auto;
   grid-template-areas: "left right";
-  margin-right: 60px;
+  margin-left: 60px;
   transform: translateX(-100vw);
   animation: slideUp 750ms 500ms forwards;
 }
 
 @media (max-width: 1023.98px) {
   .grid {
-    margin-right: 0;
+    margin-left: 0;
     grid-template-columns: 1fr;
     grid-template-rows: auto auto;
+    grid-template-areas:
+      "left"
+      "right";
     margin-top: 60px;
   }
 }
@@ -64,7 +67,13 @@
   min-height: 100vh;
   display: flex;
   align-items: center;
-  padding-left: 60px;
+}
+
+@media (max-width: 1023.98px) {
+  .gridLeft {
+    grid-column: 1;
+    grid-row: 1;
+  }
 }
 
 .gridRight {
@@ -72,6 +81,13 @@
   min-height: 100vh;
   display: flex;
   align-items: center;
+}
+
+@media (max-width: 1023.98px) {
+  .gridRight {
+    grid-column: 1;
+    grid-row: 2;
+  }
 }
 
 @media (max-width: 1023.98px) {

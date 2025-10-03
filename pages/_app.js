@@ -12,10 +12,19 @@ import Mouse from "../components/mouse";
 class MyApp extends App {
   constructor(props) {
     super(props);
-    this.transitionNodeRef = createRef();
+    this.transitionNodeRefs = new Map();
   }
+
+  getNodeRef(route) {
+    if (!this.transitionNodeRefs.has(route)) {
+      this.transitionNodeRefs.set(route, createRef());
+    }
+    return this.transitionNodeRefs.get(route);
+  }
+
   render() {
-    const { Component, pageProps } = this.props;
+    const { Component, pageProps, router } = this.props;
+    const nodeRef = this.getNodeRef(router.route);
 
     return (
       <>
@@ -25,13 +34,13 @@ class MyApp extends App {
         <Menu />
         <TransitionGroup component={null}>
           <CSSTransition
-            key={this.props.router.route}
+            key={router.route}
             appear
             timeout={250}
             classNames="transition"
-            nodeRef={this.transitionNodeRef}
+            nodeRef={nodeRef}
           >
-            <div className="transition" ref={this.transitionNodeRef}>
+            <div className="transition" ref={nodeRef}>
               <Grid>
                 <Component {...pageProps} />
               </Grid>
@@ -44,4 +53,3 @@ class MyApp extends App {
 }
 
 export default MyApp;
-// Transition classes now provided by globals.css
