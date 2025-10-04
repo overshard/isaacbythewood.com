@@ -1,4 +1,4 @@
-FROM alpine:3.16
+FROM alpine:3.22
 
 RUN apk add --update --no-cache nodejs yarn
 
@@ -6,7 +6,7 @@ WORKDIR /app
 
 COPY package.json yarn.lock /app/
 
-RUN yarn install
+RUN yarn install --frozen-lockfile
 
 COPY . .
 
